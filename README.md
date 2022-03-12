@@ -63,7 +63,7 @@ ERR: Certificate invalid error or expired.
 https://aws.amazon.com/premiumsupport/knowledge-center/linux-lightsail-ssl-bitnami/
 
 Step 1: Navigate to /opt/bitnami/apache/conf/vhosts/
-Step 2: sudo /opt/bitnami/bncert-tool renew
+Step 2: sudo /opt/bitnami/bncert-tool
 Step 3: Answer necessary questions
 
 # MongoDB compass client connect:
