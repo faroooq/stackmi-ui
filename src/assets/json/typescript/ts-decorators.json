@@ -1,0 +1,60 @@
+{
+    "_id": {
+        "$oid": "61dfe353063dc3d6690082ab"
+    },
+    "article_slug": "ts-decorators",
+    "article_title": "Typescript - Decorators",
+    "article_image": "",
+    "article_seo_desc": "It allows us to decorate classes and functions, similar to annotations in Java and decorators in Python.",
+    "enroll_available": true,
+    "article_content": [
+        {
+            "content_title": "",
+            "content_desc": "In Angular we can decorate a class with extra info using the @ syntax, like:",
+            "content_image": "",
+            "content_code": "@Component({\n\tselector: \"thingy\",\n\ttemplate: `foo`\n})\nclass MyComponent {\n}"
+        },
+        {
+            "content_title": "",
+            "content_desc": "This is a new feature that will probably make it into the ES7 version of JavaScript, it’s not available right now however even in the ES6 version.\n\nHowever the functionality is available in TypeScript, so we can already make use it.\n\nIt allows us to decorate classes and functions, similar to annotations in Java and decorators in Python.\n\nSpecific Angular implementations might be more complex and harder to read and understand but the concept is actually quite simple.",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Simple No-Argument Decorator",
+            "content_desc": "I’m going to explain by creating a decorator called @course for our Person class",
+            "content_image": "",
+            "content_code": "@course\nclass Person {\n    firstName;\n    lastName;\n\n    constructor(firstName, lastName) {\n        this.firstName = firstName;\n        this.lastName = lastName;\n    }\n}"
+        },
+        {
+            "content_title": "",
+            "content_desc": "@course is just a function, like:",
+            "content_image": "",
+            "content_code": "function course(target) {\n    Object.defineProperty(target.prototype, 'course', {value: () => \"Angular 2\"})\n}"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>The&nbsp;first argument to&nbsp;the&nbsp;<code>course</code>&nbsp;function is the&nbsp;<code>target</code>.</p>\n</div>\n<div class=\"paragraph\">\n<p>This is the&nbsp;<em>thing</em>&nbsp;the&nbsp;decorator is attached to, so for&nbsp;a class it&rsquo;s going to&nbsp;be the&nbsp;<em>function constructor</em>&nbsp;for&nbsp;that class, the&nbsp;<em>under-the-hood</em>&nbsp;implementation of&nbsp;a class.</p>\n</div>\n<div class=\"paragraph\">\n<p>Knowing this we can actually dynamically add a&nbsp;function to&nbsp;our Person class by&nbsp;using the&nbsp;<code>Object.defineProperty</code>&nbsp;function,</p>\n</div>\n<div class=\"paragraph\">\n<p>The&nbsp;details of&nbsp;the&nbsp;<code>Object.defineProperty</code>&nbsp;function are beyond the&nbsp;scope of&nbsp;this chapter. We use it to&nbsp;add a&nbsp;function called&nbsp;<code>course</code>&nbsp;onto the&nbsp;class it decorates and&nbsp;for now this function just returns the&nbsp;string &ldquo;Angular 2&rdquo;.</p>\n</div>\n<div class=\"paragraph\">\n<p>We can now call&nbsp;<code>person.course()</code>&nbsp;and&nbsp;this prints out&nbsp;<code>\"Angular 2\"</code>:</p>\n</div>",
+            "content_image": "",
+            "content_code": "let person = new Person(\"farooq\", \"shaik\");\nconsole.log(person.course()); // Angular 2"
+        },
+        {
+            "content_title": "Decorators with Arguments",
+            "content_desc": "But how do we pass arguments to our decorator, like the way the @Component decorator works?\n\nWe create a function that returns a decorator, like:",
+            "content_image": "",
+            "content_code": "function Student(config) { // 1\n  return function (target) {\n    Object.defineProperty(\n        target.prototype,\n        'course',\n        {value: () => config.course} // 2\n    )\n  }\n}"
+        },
+        {
+            "content_title": "",
+            "content_desc": "We pass a config object to the outer Student function.\n\nThen use that config in the returned inner decorator function.\n\nNow we can use this decorator like:",
+            "content_image": "",
+            "content_code": "@Student({\n    course: \"Angular 2\"\n})\nclass Person {\n}"
+        },
+        {
+            "content_title": "",
+            "content_desc": "Decorators are a new feature of TypeScript and used throughout the Angular code, but they are nothing to be scared of.\n\nWith decorators we can configure and customise our classes at design time.\n\nThey are just functions that can be used to add meta-data, properties or functions to the thing they are attached to.",
+            "content_image": "",
+            "content_code": "function Student(config) {\n  return function (target) {\n    Object.defineProperty(target.prototype, 'course', { value: () => config.course })\n  }\n}\n\n\n\n@Student({\n  course: \"angular3\"\n})\nclass Person {\n  constructor(private firstName, private lastName) {\n  }\n\n  public name() {\n    return `${this.firstName} ${this.lastName}`;\n  }\n\n  protected whoAreYou() {\n    return `Hi i'm ${this.name()}`;\n  }\n}\n\nlet person = new Person(\"farooq\", \"shaik\");\n//noinspection TypeScriptUnresolvedFunction\nconsole.log(person.course());"
+        }
+    ]
+}

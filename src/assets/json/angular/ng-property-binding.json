@@ -1,0 +1,114 @@
+{
+    "_id": {
+        "$oid": "61e58e0cbbfe744154a494a7"
+    },
+    "article_slug": "ng-property-event-binding",
+    "article_title": "Angular - Property and Event Binding",
+    "article_image": "",
+    "article_seo_desc": "Property binding in Angular helps you set values for properties of HTML elements or directives. Use property binding to do things such as toggle button functionality, set paths programmatically, and share values between components.",
+    "enroll_available": true,
+    "article_content": [
+        {
+            "content_title": "",
+            "content_desc": "<p><strong>Definition:</strong> Property binding in Angular helps you set values for properties of HTML elements or directives. Use property binding to do things such as toggle button functionality, set paths programmatically, and share values between components.</p>\n<p>Let's use property binding to implement the hide and show feature.</p>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Hiding and Showing Elements",
+            "content_desc": "",
+            "content_image": "",
+            "content_code": "<p class=\"card-text\" hidden>{{item?.price}}</p>"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>This is a&nbsp;core feature of&nbsp;<abbr>HTML</abbr>, not some functionality provided by Angular.</p>\n</div>\n<div class=\"paragraph\">\n<p>We want to&nbsp;add the&nbsp;<code>hidden</code>&nbsp;property to&nbsp;the element by&nbsp;default and&nbsp;then remove it when the&nbsp;user clicks a&nbsp;button.</p>\n</div>\n<div class=\"paragraph\">\n<p>So we add the&nbsp;following markup:</p>\n</div>",
+            "content_image": "",
+            "content_code": "<p class=\"card-text\" [hidden]=\"true\">{{item?.price}}</p>"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>Specifically we added the&nbsp;markup&nbsp;<code>[hidden]=\"true\"</code>&nbsp;and&nbsp;again it works, the&nbsp;element is hidden.</p>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p><strong>A&nbsp;few things:</strong></p>\n</div>\n<div class=\"olist arabic\">\n<ol class=\"arabic\">\n<li>\n<p>We wrapped the&nbsp;attribute with a&nbsp;<code>[]</code>, more on this later.</p>\n</li>\n<li>\n<p>We made the&nbsp;attribute equal to&nbsp;<code>true</code>, if we made it equal to&nbsp;<code>false</code>&nbsp;it shows the&nbsp;element.</p>\n</li>\n</ol>\n</div>\n<div class=\"paragraph\">\n<p>We say we have bound the&nbsp;value&nbsp;<code>true</code>&nbsp;to&nbsp;the property called&nbsp;<code>hidden</code>.</p>\n<p><strong>Note:</strong> This is called&nbsp;<strong>Input Property Binding</strong>&nbsp;and&nbsp;it&rsquo;s a&nbsp;very important concept in&nbsp;Angular.</p>\n</div>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "HTML Attribute vs DOM Property",
+            "content_desc": "<div class=\"paragraph\">\n<p>The&nbsp;distinction between an&nbsp;<abbr>HTML</abbr>&nbsp;attribute and&nbsp;a&nbsp;<abbr>DOM</abbr>&nbsp;property is important in&nbsp;understanding binding in&nbsp;Angular.</p>\n</div>\n<div class=\"paragraph\">\n<p><abbr>HTML</abbr>&nbsp;is a&nbsp;set of&nbsp;written instructions for&nbsp;<em>how</em>&nbsp;to&nbsp;display a&nbsp;web page.</p>\n</div>\n<div class=\"paragraph\">\n<p>The&nbsp;browser reads the&nbsp;<abbr>HTML</abbr>&nbsp;and&nbsp;creates something called a&nbsp;<em><abbr>DOM</abbr></em>, a&nbsp;<em>Document Object Model</em>. This is the manifestation of those <abbr>HTML</abbr>&nbsp;instructions in&nbsp;memory.</p>\n</div>\n<div class=\"paragraph\">\n<p>Changing the&nbsp;<abbr>HTML</abbr>&nbsp;doesn&rsquo;t automatically update the&nbsp;webpage unless the&nbsp;user refreshes the&nbsp;browser, changing the&nbsp;<abbr>DOM</abbr>&nbsp;however instantly updates the&nbsp;webpage.</p>\n</div>\n<div class=\"paragraph\">\n<p>There is mostly a&nbsp;1-to-1 mapping between the&nbsp;names and&nbsp;values of&nbsp;<abbr>HTML</abbr>&nbsp;attributes and&nbsp;their equivalent&nbsp;<abbr>DOM</abbr>&nbsp;properties, but not always.</p>\n</div>\n<div class=\"paragraph\">\n<p>The&nbsp;hidden&nbsp;<abbr>HTML</abbr>&nbsp;attribute is a&nbsp;good example, it only needs to&nbsp;<code>exist</code>&nbsp;on&nbsp;an&nbsp;<abbr>HTML</abbr>&nbsp;element to&nbsp;instruct the&nbsp;browser to&nbsp;hide the&nbsp;element.</p>\n</div>\n<div class=\"paragraph\">\n<p>So&nbsp;<code>hidden=\"true\"</code>&nbsp;hides the&nbsp;element but confusingly so does&nbsp;<code>hidden=\"false\"</code>&nbsp;in&nbsp;<abbr>HTML</abbr>&nbsp;we just need to&nbsp;add&nbsp;<code>hidden</code>&nbsp;to&nbsp;hide the&nbsp;element.</p>\n</div>\n<div class=\"paragraph\">\n<p>The&nbsp;<abbr>DOM</abbr>&nbsp;representation of&nbsp;the&nbsp;<code>hidden</code>&nbsp;attribute is a&nbsp;property also called&nbsp;<code>hidden</code>, which if set to&nbsp;<code>true</code>&nbsp;hides the&nbsp;element and&nbsp;<code>false</code>&nbsp;shows the&nbsp;element.</p>\n</div>\n<div class=\"paragraph\">\n<p><strong>Angular doesn&rsquo;t manipulate&nbsp;<abbr>HTML</abbr> attributes, it manipulates <abbr>DOM</abbr>&nbsp;properties because the&nbsp;<em><abbr>DOM</abbr></em>&nbsp;is what actually gets displayed.</strong></p>\n</div>\n<div class=\"paragraph\">\n<p>So when we write&nbsp;<code>[hidden]</code> we are manipulating the <em><abbr>DOM</abbr>&nbsp;property</em>&nbsp;and&nbsp;not the&nbsp;<em><abbr>HTML</abbr>&nbsp;attribute</em>.</p>\n</div>\n<div class=\"paragraph\">\n<p><strong>Note:</strong> This is why the above is called Input <em>Property</em>&nbsp;Binding and&nbsp;not Input Attribute Binding.</p>\n</div>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Input Property Binding",
+            "content_desc": "Looking back at our use of the hidden property:",
+            "content_image": "",
+            "content_code": "<p class=\"card-text\" [hidden]=\"true\">{{item?.price}}</p>"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>The&nbsp;<em>target</em>&nbsp;inside&nbsp;<code>[]</code>&nbsp;is the&nbsp;name of&nbsp;the property. In&nbsp;the example above the&nbsp;target is the&nbsp;<code>hidden</code>&nbsp;<abbr>DOM</abbr>&nbsp;property.</p>\n</div>\n<div class=\"paragraph\">\n<p>The&nbsp;<em>text</em>&nbsp;to&nbsp;the right of&nbsp;<code>=</code>&nbsp;is JavaScript code that gets executed and&nbsp;the resulting value is assigned to&nbsp;the target.</p>\n<div class=\"paragraph\">\n<p>We are binding to the <abbr>DOM</abbr>&nbsp;property&nbsp;<code>hidden</code>&nbsp;and&nbsp;setting it to&nbsp;<code>true</code>&nbsp;so the&nbsp;element is hidden.</p>\n</div>\n</div>",
+            "content_image": "",
+            "content_code": "[\n      {\n        name: \"IPhone 12\",\n        price: \"INR 56,000/-\",\n        hide: false\n      },\n      {\n        name: \"Samsung Galaxy S21 Ultra\",\n        price: \"INR 88,000/-\",\n        hide: true\n      },\n      {\n        name: \"OnePlus 9 Pro\",\n        price: \"INR 59,000/-\",\n        hide: false\n      }\n    ]"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>Now we can set the&nbsp;hidden input property to&nbsp;<code>item.hide</code> in the template, like:</p>",
+            "content_image": "",
+            "content_code": "<div class=\"card card-block m-2\" *ngFor=\"let item of itemList\">\n    <h4 class=\"card-title\">{{item?.name}}</h4>\n    <p class=\"card-text\" [hidden]=\"item.hide\">{{item?.price}}</p>\n</div>"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p><strong>Note:</strong> We can only use this type of binding to change the value of the target. We can&rsquo;t use it to get <em>notified</em>&nbsp;when the&nbsp;target&rsquo;s value changes, to&nbsp;do that we need to&nbsp;use something called&nbsp;<em>Output Event Binding.</em></p>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Output Event Binding",
+            "content_desc": "<p>We want to show or hide the price when a user clicks a button, so let&rsquo;s add a button with the label <em>Toggle</em>&nbsp;to&nbsp;the bottom of&nbsp;each card, like:</p>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>We want to&nbsp;set&nbsp;<code>item.hide</code>&nbsp;to&nbsp;<code>false</code>&nbsp;when the&nbsp;user clicks the&nbsp;button, and&nbsp;then back to&nbsp;<code>true</code>&nbsp;again when they click the&nbsp;button a&nbsp;second time.</p>\n</div>\n<div class=\"paragraph\">\n<p>To&nbsp;have Angular call some code every time someone clicks on&nbsp;the button we add some special markup to&nbsp;our button:</p>\n</div>",
+            "content_image": "",
+            "content_code": "<div class=\"card card-block m-2\" *ngFor=\"let item of itemList\">\n    <h4 class=\"card-title\">{{item?.name}}</h4>\n    <p class=\"card-text\" [hidden]=\"item.hide\">{{item?.price}}</p>\n    <a class=\"btn btn-primary\" (click)=\"item.hide = !item.hide\">\n        Toggle\n    </a>\n</div>"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>We have some new syntax with&nbsp;<code>()</code>. The&nbsp;<em>target</em>&nbsp;inside the&nbsp;<code>()</code>&nbsp;is an&nbsp;event we want to&nbsp;listen for, we are listening for&nbsp;the click event.</p>\n</div>\n<div class=\"paragraph\">\n<p>The&nbsp;<em>text</em>&nbsp;to&nbsp;the right of&nbsp;<code>=</code>&nbsp;is some JavaScript which will be called every time a&nbsp;click event occurs.</p>\n</div>\n<div class=\"paragraph\">\n<p><code>item.hide = !item.hide</code>&nbsp;toggles the&nbsp;value of&nbsp;<code>item.hide</code>, so if it&rsquo;s false clicking the&nbsp;button will change it to&nbsp;true, if it&rsquo;s true clicking it will change it to&nbsp;false.</p>\n</div>\n<div class=\"paragraph\">\n<p>We can just as&nbsp;easily make the&nbsp;expression to&nbsp;the right of&nbsp;<code>=</code>&nbsp;call a&nbsp;function on&nbsp;our component instead, like:</p>\n</div>",
+            "content_image": "",
+            "content_code": "<div class=\"card card-block m-2\" *ngFor=\"let item of itemList\">\n    <h4 class=\"card-title\">{{item?.name}}</h4>\n    <p class=\"card-text\" [hidden]=\"item.hide\">{{item?.price}}</p>\n    <a class=\"btn btn-primary\" (click)=\"toggle(item)\">Toggle\n    </a>\n</div>"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>Now when the&nbsp;button gets clicked it calls the&nbsp;<code>toggle(&hellip;​)</code>&nbsp;function on&nbsp;the&nbsp;<code>ItemListComponent</code> and passes it the item object the card is bound to, like:</p>",
+            "content_image": "",
+            "content_code": "toggle(item) {\n    item.hide = !item.hide;\n  }"
+        },
+        {
+            "content_title": "Summary",
+            "content_desc": "<div class=\"paragraph\">\n<p>The&nbsp;way to&nbsp;think about these two different ways of&nbsp;binding is in&nbsp;terms of&nbsp;inputs and&nbsp;outputs.</p>\n</div>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>With the&nbsp;<code>[]</code>&nbsp;we are binding to&nbsp;an input of&nbsp;a Component.</p>\n</li>\n<li>\n<p>With the&nbsp;<code>()</code>&nbsp;we are binding to&nbsp;an output of&nbsp;a Component.</p>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p><strong>This is what we call&nbsp;<em>one-way data binding</em>, since data only flows one way, either into or&nbsp;out of&nbsp;a component.</strong></p>\n</div>\n<div class=\"paragraph\">\n<p>It is possible to&nbsp;<em>simulate</em>&nbsp;two-way data binding in&nbsp;Angular and&nbsp;we&rsquo;ll cover that in&nbsp;a later section on&nbsp;Forms.</p>\n</div>",
+            "content_image": "",
+            "content_code": "// item-list.component.html:\n<div class=\"card card-block m-2\" *ngFor=\"let item of itemList\">\n    <h4 class=\"card-title\">{{item?.name}}</h4>\n    <p class=\"card-text\" [hidden]=\"item.hide\">{{item?.price}}</p>\n    <a class=\"btn btn-secondary\" (click)=\"toggle(item)\">Toggle\n    </a>\n</div>"
+        },
+        {
+            "content_title": "",
+            "content_desc": "",
+            "content_image": "",
+            "content_code": "// item-list.component.ts:\n\nimport { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-item-list',\n  templateUrl: './item-list.component.html',\n  styleUrls: ['./item-list.component.css']\n})\nexport class ItemListComponent {\n  itemList: Array<{ name: string, price: string, hide: boolean }>;\n\n  constructor() {\n    this.itemList = [\n      {\n        name: \"IPhone 12\",\n        price: \"INR 56,000/-\",\n        hide: false\n      },\n      {\n        name: \"Samsung Galaxy S21 Ultra\",\n        price: \"INR 88,000/-\",\n        hide: true\n      },\n      {\n        name: \"OnePlus 9 Pro\",\n        price: \"INR 59,000/-\",\n        hide: false\n      }\n    ]\n  }\n  toggle(item: { hide: boolean; }) {\n    item.hide = !item.hide;\n  }\n}\n"
+        },
+        {
+            "content_title": "",
+            "content_desc": "Result:",
+            "content_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Screenshot%202022-01-17%20at%2010.01.34%20PM.png",
+            "content_code": ""
+        }
+    ]
+}

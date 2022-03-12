@@ -1,0 +1,317 @@
+/*
+    DEMO STYLE
+    https://bootstrapious.com/tutorial/sidebar/index5.html
+*/
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #f5f5f5;
+}
+
+p {
+    color: rgba(41, 41, 41, 1);
+    font-family: charter, Georgia, Cambria, "Times New Roman", Times, serif;
+    font-style: normal;
+    word-break: break-word;
+    font-weight: 400;
+    word-wrap: break-word;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: -0.003em;
+    line-height: 32px;
+    font-size: 21px;
+}
+
+code {
+    background: #f5f6fd;
+}
+
+h2 {
+    letter-spacing: -0.011em;
+    line-height: 56px;
+    font-size: 42px;
+    font-style: normal;
+    font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    word-wrap: break-word;
+    word-break: break-word;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+}
+
+@media (max-width: 768px) {
+    h2 {
+        font-size: 30px;
+        line-height: 40px;
+    }
+}
+
+h3 {
+    font-family: charter, Georgia, Cambria, "Times New Roman", Times, serif;
+    font-weight: 700;
+    letter-spacing: -0.003em;
+    line-height: 32px;
+    font-size: 21px;
+    color: rgba(41, 41, 41, 1);
+    word-break: break-word;
+    word-wrap: break-word;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+}
+
+a, a:hover, a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #1b0760;
+  }
+  
+  .navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+    color: #dc3545 !important;
+  }
+  
+  .dropdown-divider {
+    height: 0.5px;
+  }
+  .dropdown-item:hover {
+    color: #dc3545 !important;
+  }
+
+.navbar {
+    margin: -20px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-btn {
+    box-shadow: none;
+    outline: none !important;
+    border: none;
+}
+
+.line {
+    width: 100%;
+    height: 1px;
+    border-bottom: 1px dashed #ddd;
+    margin: 40px 0;
+}
+
+/* ---------------------------------------------------
+    SIDEBAR STYLE
+----------------------------------------------------- */
+
+.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+    perspective: 1500px;
+}
+
+
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    background: #7386D5;
+    color: #fff;
+    transition: all 0.2s;
+}
+
+#sidebar.active {
+    margin-left: -250px;
+    transform: rotateY(100deg);
+}
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    background: #6d7fcc;
+}
+
+#sidebar ul.components {
+    padding: 20px 20px;
+    border-bottom: 1px solid #47748b;
+}
+
+#sidebar ul p {
+    color: #fff;
+    padding: 10px;
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+}
+#sidebar ul li a:hover {
+    color: #7386D5;
+    background: #fff;
+}
+
+#sidebar ul li.active > a, a[aria-expanded="true"] {
+    color: #6d7fcc;
+    background: #fff;
+}
+
+
+a[data-toggle="collapse"] {
+    position: relative;
+}
+
+.dropdown-toggle::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: #6d7fcc;
+}
+
+ul.CTAs {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+}
+
+ul.CTAs a {
+    text-align: center;
+    font-size: 0.9em !important;
+    display: block;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+a.download {
+    background: #fff;
+    color: #7386D5;
+}
+
+a.article, a.article:hover {
+    background: #6d7fcc !important;
+    color: #fff !important;
+}
+
+
+
+/* ---------------------------------------------------
+    CONTENT STYLE
+----------------------------------------------------- */
+#content {
+    width: 100%;
+    padding: 20px;
+    min-height: 100vh;
+    transition: all 0.3s;
+}
+
+#sidebarCollapse {
+    width: 40px;
+    height: 40px;
+    background: #f5f5f5;
+    cursor: pointer;
+}
+
+#sidebarCollapse span {
+    width: 80%;
+    height: 2px;
+    margin: 0 auto;
+    display: block;
+    background: #555;
+    transition: all 0.3s;
+}
+
+#sidebarCollapse span:first-of-type {
+    transform: rotate(45deg) translate(2px, 2px);
+}
+#sidebarCollapse span:nth-of-type(2) {
+    opacity: 0;
+}
+#sidebarCollapse span:last-of-type {
+    transform: rotate(-45deg) translate(1px, -1px);
+}
+
+
+#sidebarCollapse.active span {
+    transform: none;
+    opacity: 1;
+    margin: 5px auto;
+}
+
+
+/* ---------------------------------------------------
+    MEDIAQUERIES
+----------------------------------------------------- */
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: -250px;
+        transform: rotateY(90deg);
+    }
+    #sidebar.active {
+        margin-left: 0;
+        transform: none;
+    }
+    #sidebarCollapse span:first-of-type,
+    #sidebarCollapse span:nth-of-type(2),
+    #sidebarCollapse span:last-of-type {
+        transform: none;
+        opacity: 1;
+        margin: 5px auto;
+    }
+    #sidebarCollapse.active span {
+        margin: 0 auto;
+    }
+    #sidebarCollapse.active span:first-of-type {
+        transform: rotate(45deg) translate(2px, 2px);
+    }
+    #sidebarCollapse.active span:nth-of-type(2) {
+        opacity: 0;
+    }
+    #sidebarCollapse.active span:last-of-type {
+        transform: rotate(-45deg) translate(1px, -1px);
+    }
+}
+
+.scroll-sidebar {
+    height: 100vh;
+    overflow-y: scroll;
+}
+
+button {
+    padding: 0.8rem 1vw;
+    font-size: 1.6rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  @media (min-width: 0px) and (max-width: 768px) {
+    logo-display {
+      display: none;
+    }
+    button {
+      margin: 0.5rem;
+    }
+  }
+
+  .navbar-light .navbar-nav .nav-link {
+    color: #1b0760;
+  }
+  
+  .navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+    color: #dc3545 !important;
+  }
+
+  li {
+    margin: 0.5rem;
+  }
+
+  #navbar-style {
+    font-size: 16px !important; 
+    color: #1b0760; 
+    background: #fff !important; 
+    padding-left: 10px !important; 
+    padding-bottom: 10px;
+  }
+  

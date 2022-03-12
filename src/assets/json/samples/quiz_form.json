@@ -1,0 +1,29 @@
+{
+    "article_slug": "html-interview-faq",
+    "controls": [
+        {
+            "label": "2. What is a correct syntax to output Hello World in Python?",
+            "answer": "male",
+            "id": "male",
+            "name": "gender",
+            "value": "male",
+            "type": "radio",
+            "label_name": "male",
+            "validators": {
+                "required": false
+            }
+        },
+        {
+            "label": "2. What is a correct syntax to output Hello World in java?",
+            "answer": "female",
+            "id": "female",
+            "name": "gender",
+            "value": "female",
+            "type": "radio",
+            "label_name": "female",
+            "validators": {
+                "required": false
+            }
+        }
+    ]
+}

@@ -1,0 +1,228 @@
+<app-navbar></app-navbar>
+<section class="block block--dark hero" style="background: #fff; padding: 0;">
+  <div data-aos="zoom-in" style="text-align: center">
+    <div class="image-color" style="background: #d5d2d2">
+      <img data-src="{{ event?.photo_url }}" style="object-fit: cover;" />
+    </div>
+  </div>
+</section>
+<section *ngIf="is_registered" class="block block--skewed-up hero" style="background: aliceblue; padding: 2rem;">
+  <h3 style="font-size: 1.8rem; font-weight: 500;">
+    <span>🎉Congratulations! You have successfully registered.</span>&nbsp;
+    <span>Like It! Love It! Share It!</span>&nbsp;
+    <span>
+      <a target="_blank" href="https://www.facebook.com/stackmi">
+        <img src="../../assets/images/fb-icon.png" alt="" style="width: 25px;">
+      </a>&nbsp;
+      <a target="_blank" href="https://www.instagram.com/stackmi/">
+        <img src="../../assets/images/is-icon.png" alt="" style="width: 25px;">
+      </a>&nbsp;
+      <a target="_blank" href="https://www.linkedin.com/company/stackmi">
+        <img src="../../assets/images/in-icon.png" alt="" style="width: 25px;">
+      </a>&nbsp;
+      <a target="_blank" href="https://www.youtube.com/c/StackMi-Technologies">
+        <img src="../../assets/images/yt-icon.png" alt="" style="width: 25px;">
+      </a>
+    </span>
+  </h3>
+</section>
+<section data-aos="fade-up">
+  <div class="container grid grid--1x1" style="margin-top: 3rem">
+    <header class="block__header hero__content">
+      <div class="container grid grid--1x2" style="padding-left: 0rem; padding-right: 0rem">
+        <div>
+          <h3 style="text-align: left;" data-aos="zoom-in-up" class="event-space block__heading">
+            <span>{{event?.event_name}}</span>
+          </h3>
+        </div>
+        <div *ngIf="!formSubmitted && !this.user && !onGoingEvent && !eventCompleted" class="container">
+          <div class="row">
+            <form class="row g-3" [formGroup]="eventRegForm"
+              (ngSubmit)="onSubmit(eventRegForm.value, event?.event_name)">
+              <div class="col-md-5">
+                <div class="input-group">
+                  <input id="email" aria-label="Domain" type="email" class="input" placeholder="Enter email-id"
+                    formControlName="email" />
+                </div>
+                <div style="margin-left: 5px; font-size: 1.4rem; text-align: left;">No signup required.</div>
+              </div>
+              <div class="col-md-5">
+                <div class="input-group">
+                  <input id="mobile" aria-label="Domain" type="number" class="input" placeholder="Enter mobile number"
+                    formControlName="mobile" />
+                </div>
+              </div>
+              <div class="col-md-2" style="margin: 0;">
+                <button style="padding: 1.3rem;" [disabled]="!eventRegForm.valid" type="submit" class="btn btn--theme">
+                  Register Now
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div *ngIf="onGoingEvent">
+          <button (click)="navigateToEvent(event?.event_url)" style="padding: 1.3rem; width: 100%; background: #359c20;"
+            type="button" class="btn btn--accent">
+            <span class="spinner-grow" role="status"></span>
+            &nbsp;&nbsp;<span>Event Running. Join Here
+            </span>
+          </button>
+        </div>
+        <div *ngIf="eventCompleted">
+          <button style="padding: 1.3rem; width: 100%; background: #908e8e;" type="button" class="btn btn--accent">
+            &nbsp;&nbsp;<span>Event Completed Successfully</span>
+          </button>
+        </div>
+        <div *ngIf="this.user && !is_registered && !onGoingEvent && !eventCompleted">
+          <a style="font-size: 1.5rem; display: inherit" (click)="registerEvent('', event?.event_name)"
+            class="btn btn--theme btn--stretched">Register with One Click</a>
+        </div>
+        <div style="text-align: center; align-self: center;" *ngIf="!formSubmitted && is_registered">
+          <div class="pyro">
+            <div class="before"></div>
+            <div class="after"></div>
+          </div>
+          <!-- <p style="color: green;">🎉 Awesome! You have successfully registered for the event.</p> -->
+          <div class="container grid grid--1x2">
+            <a style="padding: 1rem; font-size: 1.6rem; margin: 0.8rem 0.5rem;" class="btn btn--outline-whatsapp"
+              target="_blank" href="https://chat.whatsapp.com/JsJFY2O9nhB6ksHST4HV09">Join WhatsApp Group</a>
+
+            <a style="padding: 1rem; font-size: 1.6rem; margin: 0.8rem 0.5rem;" class="btn btn--outline"
+              [routerLink]="['/events']">Register
+              Upcoming Events</a>
+
+          </div>
+        </div>
+        <div style="text-align: center; align-self: center;" *ngIf="formSubmitted">
+          <div class="pyro">
+            <div class="before"></div>
+            <div class="after"></div>
+          </div>
+          <div class="container grid grid--1x2">
+            <!-- <p style="color: green;">🎉 Awesome! You have successfully registered for the event.</p> -->
+
+            <a style="padding: 1rem; font-size: 1.6rem; margin: 0.8rem 0.5rem;" class="btn btn--outline"
+              [routerLink]="['/events']">Register
+              Upcoming Events
+            </a>
+            <a *ngIf="!this.user" style="font-size: 1.5rem; margin: 0.8rem 0.5rem; display: inherit"
+              [routerLink]="['/signup']" class="btn btn--accent">SignUp for more updates
+            </a>
+          </div>
+        </div>
+        <div *ngIf="event && !is_registered && !eventCompleted"
+          style="color: #1b0760; font-size: 1.8rem; margin-top: 0.3rem">
+          <img *ngIf="eventCompleted" style="width: 18px" src="../../assets/images/flame.svg" alt="" />&nbsp;
+          <span *ngIf="!eventCompleted" class="spinner-grow" role="status"></span>&nbsp;
+          <span style="font-weight: 600">Hurry up!</span>&nbsp;&nbsp;
+          <span style="margin-top: 0.5rem">
+            <span style="font-size: 2rem">{{ registeredCount }}</span>&nbsp;
+            <span>people registered.</span>
+          </span>
+        </div>
+      </div>
+      <hr />
+      <div class="container grid grid--1x2">
+        <div style="text-align: left">
+          <p style="font-weight: 500;" *ngIf="event">
+            Start Time:&nbsp; {{ event.start_date }} &comma; {{
+            event.event_start_time }}
+          </p>
+          <p style="font-weight: 500;" *ngIf="event">
+            Duration: &nbsp;&nbsp;&nbsp;&nbsp;{{ event?.duration }}
+          </p>
+          <p style="font-weight: 500;" *ngIf="event">
+            Price: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="badge badge--dull" style="padding: 1rem; border-radius: none">{{ event?.event_price }}</span>
+          </p>
+        </div>
+      </div>
+      <div *ngIf="event" style="margin-top: 2rem; padding: 1rem;">
+        <div style="font-size: 2.3rem; 
+        color: #1b0760;
+        font-family: Roboto,Arial,sans-serif;
+        line-height: 24px;
+        background: #eeecf9; 
+        font-weight: bold;
+        padding: 15px;
+        margin-bottom: 1rem;
+        text-align: left;">
+          About this Topic:
+        </div>
+        <div style="text-align: left;" [innerHtml]="event?.description">
+        </div>
+      </div>
+    </header>
+  </div>
+</section>
+<section class="block block--dark block-showcase" style="margin-top: 3rem">
+  <header class="block__header">
+    <h2>How We Host Our Services?</h2>
+  </header>
+  <div class="container grid grid--1x2">
+    <picture data-aos="fade-right" class="block-showcase__image">
+      <img src="../../assets/images/classroom.png" alt="" />
+    </picture>
+    <ul class="list" data-aos="fade-up">
+      <li>
+        <div class="media">
+          <div class="media__image">
+            <svg class="icon icon--primary">
+              <use href="../../assets/images/sprite.svg#snap"></use>
+            </svg>
+          </div>
+          <div class="media__body">
+            <h3 class="media__title">Live Classes By Experienced IT Professionals</h3>
+            <p>All our trainers are industry experts, working IT professionals who have more than 10 years of
+              experience.</p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="media">
+          <div class="media__image">
+            <svg class="icon icon--primary">
+              <use href="../../assets/images/sprite.svg#growth"></use>
+            </svg>
+          </div>
+          <div class="media__body">
+            <h3 class="media__title">Designed Courses with Love and Passion</h3>
+            <p>
+              Beautiful graphics, slides, and animations help you stay focused,
+              remember, and better understand the materials.
+            </p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="media">
+          <div class="media__image">
+            <svg class="icon icon--primary">
+              <use href="../../assets/images/sprite.svg#computer"></use>
+            </svg>
+          </div>
+          <div class="media__body">
+            <h3 class="media__title">Effective Students Interaction</h3>
+            <p>
+              We interact with students while ongoing sessions asking questions
+              and quiz to make sure stay focussed and well understanding.
+            </p>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+<div class="container">
+  <div class="callout callout--primary callout-signup">
+    <div class="grid grid--1x2">
+      <div class="callout__content">
+        <p class="callout__heading mt-2">
+          Mentor students to help them unlock their true potential.
+        </p>
+      </div>
+      <a [routerLink]="['/mentor']" class="btn btn--theme btn--stretched">I Love to Mentor</a>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

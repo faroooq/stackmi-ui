@@ -1,0 +1,109 @@
+{
+    "_id": {
+        "$oid": "61eedafdadb6fe411a47ef7b"
+    },
+    "article_id": "2.6",
+    "article_slug": "ng-content-child-children",
+    "article_title": "Angular - ContentChild and ContentChildren",
+    "article_image": "",
+    "article_seo_desc": "@ContentChild and @ContentChildren are used to Query and get the reference to the Projected Content in the DOM. Projected content is the content that this component receives from a parent component.",
+    "enroll_available": true,
+    "article_content": [
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>Download the complete project from github: <a href=\"https://github.com/faroooq/shopping-cart\" target=\"_blank\">https://github.com/faroooq/shopping-cart</a></p>\n<hr/>\n</div>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "",
+            "content_desc": "<table style=\"width: 100%; border-collapse: collapse;\" border=\"1\" cellspacing=\"10\" cellpadding=\"10\">\n<tbody>\n<tr>\n<td style=\"width: 100%;\"><strong>Note:</strong> As a sequence of our real-time Shopping Cart app development, we will take this topic ContentChild &amp; ContentChildren after the Routing. We suggest you to complete the Angular Routing section and comeback to this topic for better understanding of the project.</td>\n</tr>\n</tbody>\n</table>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div>We need to understand Content Projection if we want to understand ContentChild &amp; ContentChildren.</div>\n<div><strong>Content Projection: </strong>If we create our components to support content projection then it enables the consumer of our component to configure exactly how they want the component to be rendered.</div>\n<div>Giving the consumer the power to configure the presentation of the component as they want with the help of <strong>Content Projection</strong> <code>&lt;ng-content&gt;</code> tag.</div>\n<div><strong>When we use Content Projection?</strong> If we want to make one of our component (ItemComponent) reusable, then the consumer of the component (OffersComponent) can project the content into the <code>&lt;ng-content&gt;</code> space.</div>\n<div>By this way we can allow the consumer to render their <strong>styles</strong> and <strong>data</strong> however they like.</div>\n<div><strong>Note:&nbsp;</strong>For more info on <a href=\"https://www.stackmi.com/academy/article/ng-content-projection\">Content Projection</a> refer the previous class.</div>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "ContentChild & ContentChildren",
+            "content_desc": "<div>\n<p><code>@ContentChild</code>&nbsp;and&nbsp;<code>@ContentChildren</code>&nbsp;are used to Query and get the reference to the&nbsp;<strong>Projected Content</strong>&nbsp;in the DOM.&nbsp;<em>Projected content is the content that this component receives from a host or parent component (OffersComponent).</em></p>\n<p>The ContentChild &amp; ContentChildren is very similar to the&nbsp;ViewChild &amp; ViewChildren. We use the&nbsp;<code>@ViewChild</code>&nbsp; or&nbsp;&nbsp;<code>@ViewChildren&nbsp;</code>to Query and get the reference of any DOM element in the Component. The DOM element can be an HTML element, Child Component or Directive, etc.</p>\n<p>But, We cannot use the&nbsp;<code>@ViewChild </code>or&nbsp;<code>@ViewChildren</code> to get the reference to the template inserted using the Content projection. To get the content projection reference we use <code>@ContentChild</code>&nbsp;and&nbsp;<code>@ContentChildren</code>.</p>\n<p>Let's refactor our project and understand with an example:</p>\n</div>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p><strong>Scenario: </strong>We want to create OffersComponent to display <strong>Today's Deals and offers</strong> to the end user. Whenever there are offers we will display offers using OffersComponent.</p>\n<p>In the Content Projection class we made our <code>ItemComponent</code> reusable and renderd <strong>name</strong> and <strong>price</strong> into the <code>ng-content</code> space with <code>select</code> attribute.</p>\n<p>Now lets make the whole ItemComponent reusable, so that not only ItemListComponent use our ItemComponent, but also some third-party components like OffersComponent also use our ItemComponent.</p>\n<p>Let's create OffersComponent.</p>",
+            "content_image": "",
+            "content_code": "ng g c Offers"
+        },
+        {
+            "content_title": "",
+            "content_desc": "Copy paste the below CSS in offers.component.css.",
+            "content_image": "",
+            "content_code": "/* offers.component.css */\n\n.grid {\n    display: grid;\n  }\n  @media screen and (min-width: 768px) {\n    .grid--1X2 {\n      grid-template-columns: 1fr 1fr;\n    }\n  }\n  @media screen and (min-width: 1024px) {\n    .grid--1X3 {\n      grid-template-columns: 1fr 1fr 1fr;\n    }\n  }\n  @media screen and (min-width: 2048px) {\n    .grid--1X4 {\n      grid-template-columns: 1fr 1fr 1fr 1fr;\n    }\n  }\n\n  .discount {\n      color: red;\n  }"
+        },
+        {
+            "content_title": "",
+            "content_desc": "In offers.component.ts file add the below code:",
+            "content_image": "",
+            "content_code": "// offers.component.ts\nimport { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-offers',\n  templateUrl: './offers.component.html',\n  styleUrls: ['./offers.component.css']\n})\nexport class OffersComponent implements OnInit {\n\n  offersList: { name: string; discount: string, description: string; image: string; }[] = [];\n\n  constructor() { }\n\n  ngOnInit(): void {\n    this.offersList = [\n      {\n        name: \"All Apple Products\",\n        discount: \"Upto 60% Discount\",\n        description: \"Lorem ipsum dolor sit amet consectetur adipisicing elit...\",\n        image: \"../../assets/images/all_apple_prod.jpg\"\n      },\n      {\n        name: \"All Samsung Products\",\n        discount: \"Upto 30% Discount\",\n        description: \"Lorem ipsum dolor sit amet consectetur adipisicing elit...\",\n        image: \"../../assets/images/all_sumsung_prod.jpg\"\n      },\n      {\n        name: \"All OnePlus Products\",\n        discount: \"Upto 80% Discount\",\n        description: \"Lorem ipsum dolor sit amet consectetur adipisicing elit...\",\n        image: \"../../assets/images/all_oneplus_prod.png\"\n      }\n    ]\n  }\n}\n"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>We are taking <code>offerList</code>[{}] array of objects which contains offer details of multiple products.</p>\n<p>Let's copy the below code to <code>offers.component.html</code> file.</p>",
+            "content_image": "",
+            "content_code": "<!-- offers.component.html  -->\n\n<!-- Adding the content in <app-item-list> child tag. We project this using\n    <ng-content> in ItemListComponent -->\n<app-item-list>\n    <div class=\"container\">\n        <h4>Today's Deals. Upto 80% Discount.</h4>\n        <div class=\"grid grid--1X3 bg-color\" style=\"margin-top: 1rem;\">\n            <!-- Iterating the offerList object and passing to nested child <app-item>  \n                using Content Projection Mechanism.-->\n            <app-item *ngFor=\"let item of offersList\" [itemObj]=\"item\">\n                <h2>{{ item.name }}</h2>\n                <h6 class=\"discount\">{{ item.discount }}</h6>\n                <span class=\"btn btn-danger anchor_cart\">Browse More</span>\n            </app-item>\n        </div>\n    </div>\n</app-item-list>"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>In the above code, we added our content in <code>&lt;app-item-list&gt;</code> child tag, and iterating the offersList in the <code>&lt;app-item&gt;</code> which is one more child or nested child.</p>\n<p>By this way we are projecting the content from <code>OffersComponent</code> to <code>ItemListComponent</code> child and further to <code>ItemComponent</code> one more nested child.</p>\n<p>Let' understand this using the below image:</p>",
+            "content_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/WhatsApp%20Image%202022-02-06%20at%202.51.50%20PM.jpeg",
+            "content_code": ""
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>As explained in the image to render the <strong>HostComponent</strong> in <strong>ItemListComponent</strong> we need to add <code>&lt;ng-content&gt;&lt;/ng-content&gt;</code> in <code>item-list.component.html</code> file.</p>\n<p>&nbsp;</p>",
+            "content_image": "",
+            "content_code": "<!-- item-list.component.html -->\n<div class=\"container\">\n    <div class=\"grid grid--1X3 bg-color\" style=\"margin-top: 2rem;\">\n\n        <!-- <span #header class=\"navbar-brand mb-0 h1\">View Mobile Models</span> -->\n        <!-- <h2>Total CartItems: {{cartItems.length}}</h2> -->\n        <app-item *ngFor=\"let item of itemList\" (emitItem)=\"getCartItem($event)\" [itemObj]=\"item\">\n            <h2>{{ item.name }}</h2>\n            <h5 class=\"price\">{{ item.price }}</h5>\n            <span class=\"btn btn-warning anchor_cart m-2\">Add To Cart</span>\n            <span class=\"btn btn-success anchor_buy\">Buy Now</span>\n        </app-item>\n    </div>\n</div>\n<!-- Projecting from Host Component (OffersComponent) -->\n<ng-content></ng-content>"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>We made <code>ItemComponent</code> as a reusable component, so that we can render the data either from <code>ItemListComponent</code> or from it's parent <code>OffersComponent</code> and soon.</p>",
+            "content_image": "",
+            "content_code": "<!-- item.component.html -->\n<div class=\"card card--secondary m-2\">\n    <div class=\"m-2\">\n        <img width=\"100%\" style=\"object-fit: cover;\" height=\"400px\" src=\"{{itemObj?.image}}\" />\n    </div>\n    <div class=\"p-3\">\n        <h4 class=\"card-title\">\n            <!-- Content Projection using Html element -->\n            <ng-content select=\"h2\"></ng-content>\n        </h4>\n        <p class=\"card-text\">\n            <!-- Content Projection using CSS class -->\n            <ng-content select=\".price\"></ng-content>\n        </p>\n        <p class=\"card-text\">\n            <!-- Content Projection using CSS class -->\n            <ng-content select=\".discount\"></ng-content>\n        </p>\n        <p class=\"card-text\">{{itemObj?.description}}</p>\n        <!-- Content Projection using CSS class -->\n        <a (click)=\"addItem(itemObj)\">\n            <ng-content select=\".anchor_cart\"></ng-content>\n        </a>\n        <a (click)=\"gotoCheckoutPage(itemObj)\">\n            <ng-content select=\".anchor_buy\"></ng-content>\n        </a>\n    </div>\n</div>"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>One last thing. We need to add the <code>&lt;app-offers&gt;</code> tag in <code>model.component.html</code> to identify the <code>OffersComponent</code> by Angular.</p>",
+            "content_image": "",
+            "content_code": "<!-- model.component.html -->\n\n<app-offers></app-offers>\n\n<div class=\"container mt-5\">\n    <ul class=\"nav nav-pills\">\n        <li class=\"nav-item\">\n            <a class=\"nav-link\" [routerLinkActive]=\"['active']\" [routerLink]=\"['mobiles']\">Mobiles</a>\n        </li>\n        <li class=\"nav-item\">\n            <a class=\"nav-link\" [routerLinkActive]=\"['active']\" [routerLink]=\"['tablets']\">Tablets</a>\n        </li>\n        <li class=\"nav-item\">\n            <a [routerLinkActive]=\"['active']\" [routerLink]=\"['laptops']\" class=\"nav-link\">Laptops</a>\n        </li>\n    </ul>\n</div>\n<router-outlet></router-outlet>"
+        },
+        {
+            "content_title": "ContentChild",
+            "content_desc": "<p>Now you can understand the ContentChild and how to get the reference.</p>\n<p>To get a reference to that child we can use either the<code> @ContentChild</code>&nbsp;or&nbsp;the&nbsp;<code>@ContentChildren</code> decorators. They work in similar ways to the view child counterparts,&nbsp;<code>@ContentChild</code> returns one child and <code>@ContentChildren</code>&nbsp;returns a&nbsp;<code>QueryList</code>.</p>",
+            "content_image": "",
+            "content_code": "// item-list.component.ts\n\nexport class ItemListComponent {\n  .\n  .\n  @ContentChild(ItemComponent) itemContentChild!: ItemComponent;\n  .\n  .\n  ngAfterContentInit() {\n    console.log(`ngAfterContentInit - itemContentChild is ${this.itemContentChild}`);\n  }\n}"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>Just like before we need to&nbsp;tap into one of&nbsp;the component lifecycle hooks, this time it&rsquo;s&nbsp;<code>AfterContentInit.</code></p>\n<p>We create a&nbsp;<code>itemContentChild</code>&nbsp;property and&nbsp;bind it to&nbsp;the content child by&nbsp;using the&nbsp;<code>@ContentChild</code>&nbsp;decorator.</p>\n<p>By&nbsp;the time the&nbsp;<code>ngAfterContentInit</code> hook is run the <code>itemContentChild</code>&nbsp;property is set to&nbsp;the content child.</p>\n<p><strong>Note:</strong> Content children are only visible by the time the<code> AfterContentInit</code>&nbsp;lifecycle hook has run.<code></code></p>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "",
+            "content_desc": "",
+            "content_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/WhatsApp%20Image%202022-02-06%20at%206.04.56%20PM.jpeg",
+            "content_code": ""
+        },
+        {
+            "content_title": "Output:",
+            "content_desc": "",
+            "content_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Screenshot%202022-02-06%20at%207.08.12%20PM.png",
+            "content_code": ""
+        }
+    ]
+}

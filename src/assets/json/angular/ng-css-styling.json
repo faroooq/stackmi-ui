@@ -1,0 +1,60 @@
+{
+    "_id": {
+        "$oid": "61e6bb71629474e18058aa37"
+    },
+    "article_slug": "ng-css-styling",
+    "article_title": "Angular - Styling Cards using CSS",
+    "article_image": "",
+    "article_seo_desc": "Apply styles to our cards to display our cards more beautiful.",
+    "enroll_available": true,
+    "article_content": [
+        {
+            "content_title": "Styling Cards using CSS",
+            "content_desc": "<p>Before we move on, let's remove the toggle feature and apply some styling to our <strong>cards</strong> for better user experience.</p>\n<p>In this lesson, we apply some CSS from twitter bootstrap and create our cards look more beautiful.&nbsp;</p>\n<p>Let's add grid CSS in <code>item-list.component.html</code> to disply cards in columns.</p>",
+            "content_image": "",
+            "content_code": "<!-- item-list.component.html -->\n<div class=\"container\">\n    <div class=\"grid grid--1X3\" style=\"margin-top: 2rem;\">\n        <app-item *ngFor=\"let item of itemList\" [item]=\"item\"></app-item>\n    </div>\n</div>"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>Below CSS needs to add in <code>item-list.component.css</code> file. I am not going through CSS, as this tutorial is on Angular course.</p>\n<p><strong>Note:</strong> Just simply copy the code to it's respective files.</p>",
+            "content_image": "",
+            "content_code": "/* item-list.component.css */\n.grid {\n    display: grid;\n  }\n  @media screen and (min-width: 768px) {\n    .grid--1X2 {\n      grid-template-columns: 1fr 1fr;\n    }\n  }\n  @media screen and (min-width: 1024px) {\n    .grid--1X3 {\n      grid-template-columns: 1fr 1fr 1fr;\n    }\n  }\n  @media screen and (min-width: 2048px) {\n    .grid--1X4 {\n      grid-template-columns: 1fr 1fr 1fr 1fr;\n    }\n  }"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>Let's add two more properties <i>image</i> and <i>description</i> to our <strong>itemList</strong> Array.</p>",
+            "content_image": "",
+            "content_code": "// item-list.component.ts\nimport { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-item-list',\n  templateUrl: './item-list.component.html',\n  styleUrls: ['./item-list.component.css']\n})\nexport class ItemListComponent {\n  itemList: Array<{ name: string, price: string, description: string, image: string }>;\n\n  constructor() {\n    this.itemList = [\n      {\n        name: \"IPhone 12\",\n        price: \"INR 56,000/-\",\n        description: \"Lorem ipsum dolor sit amet consectetur adipisicing elit...\",\n        image: \"../../assets/images/iphone.png\"\n      },\n      {\n        name: \"Samsung Galaxy S21 Ultra\",\n        price: \"INR 88,000/-\",\n        description: \"Lorem ipsum dolor sit amet consectetur adipisicing elit...\",\n        image: \"../../assets/images/default.png\"\n      },\n      {\n        name: \"OnePlus 9 Pro\",\n        price: \"INR 59,000/-\",\n        description: \"Lorem ipsum dolor sit amet consectetur adipisicing elit...\",\n        image: \"../../assets/images/oneplus.png\"\n      }\n    ]\n  }\n}\n"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p><strong>Note:</strong> You can add the external image source urls instead of refering from local <code>assets/images</code> folder, in the <em>image</em> property to display the images in your project.</p>\n<p>For now let's create <strong>images</strong> folder under <strong>assets</strong> and add few images inside <code>assests/images</code> folder, to display in the cards.</p>\n<p><strong>Note:&nbsp;</strong>You can add images in your project by downloading from some external websites.</p>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>Now lets modify our <code>item.component.html</code> file by applying some bootstrap styles.</p>\n<p><strong>Changes:</strong></p>\n<ul>\n<li>Added image element.</li>\n<li>Added one more paragraph element to render the <strong>description</strong> property.</li>\n<li>Added two anchor tags, <strong>Add To Cart</strong> and <strong>Buy Now.</strong></li>\n</ul>",
+            "content_image": "",
+            "content_code": "<!-- item.component.html -->\n<div class=\"card card--secondary m-2\">\n    <div>\n        <img height=\"200px\" src=\"{{item?.image}}\" />\n    </div>\n    <div class=\"p-3\">\n        <h4 class=\"card-title\">{{item?.name}}</h4>\n        <p class=\"card-text\">\n            <strong>Price:</strong>\n            {{item?.price}}\n        </p>\n        <p class=\"card-text\">{{item?.description}}</p>\n        <div class=\"row mt-3 p-2\">\n            <div class=\"col-5 p-0\">\n                <a class=\"btn btn-warning\">Add To Cart\n                </a>\n            </div>\n            <div class=\"col-5 p-0\">\n                <a class=\"btn btn-success\">Buy Now\n                </a>\n            </div>\n        </div>\n    </div>\n</div>"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>Now copy the below CSS to <code>item.component.css</code> file.</p>",
+            "content_image": "",
+            "content_code": "/* item.component.css */\nimg {\n    width: 100%;\n  }\n.card {\n  border-radius: 7px;\n  box-shadow: 0 0 20px 10px #f3f3f3;\n  overflow: hidden;\n  margin: 1rem;\n}\n.card:hover {\n  color: var(--color-black);\n  border: 1px solid darkblue;\n}\n.card__header,\n.card__body {\n  padding: 2rem 3rem;\n}\n/* We added .card--primary first and then followed by .card__header */\n.card--primary .card__header {\n  background: var(--color-primary);\n  color: #fff;\n}\n.card--secondary .card__header {\n  background: var(--color-secondary);\n  color: #fff;\n}\n.card--secondary .badge--secondary {\n  background: #02cdf1;\n}\n.card--enabled {\n  background: #fff;\n}\n.card--enabled:hover {\n  color: #918ca4;\n  cursor: default;\n  border: 1px solid lightgrey;\n}\n  \n  "
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p><strong>Note:&nbsp;</strong>We don't have any changes in <strong>item.component.ts</strong> file.</p>\n<p>If you refresh the browser, you will see the styles applied to our cards with some beautiful colors.</p>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "",
+            "content_desc": "",
+            "content_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Screenshot%202022-01-18%20at%208.11.51%20PM.png",
+            "content_code": ""
+        }
+    ]
+}

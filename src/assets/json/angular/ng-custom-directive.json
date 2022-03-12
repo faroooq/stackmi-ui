@@ -1,0 +1,73 @@
+{
+    "_id": {
+        "$oid": "620140cb65787a8c50f4f9ab"
+    },
+    "article_id": "4.3",
+    "article_slug": "ng-custom-directive",
+    "article_title": "Angular - Creating a Custom Directive",
+    "article_image": "",
+    "article_seo_desc": "We create a directive by decorating a class with the @Directive decorator. The convention is to associate a directive to an element via an attribute selector, that is the name of the attribute wrapped in []",
+    "enroll_available": true,
+    "article_content": [
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>Download the complete project from github: <a href=\"https://github.com/faroooq/shopping-cart\" target=\"_blank\">https://github.com/faroooq/shopping-cart</a></p>\n<hr/>\n</div>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Directive Decorator",
+            "content_desc": "<p>Now let's navigate to our ItemComponent and implement the custom directive to our cards.</p>\n<p>We&rsquo;ll call our directive&nbsp;<code>ccCardHover</code> and we&rsquo;ll attach it to the card block like:</p>",
+            "content_image": "",
+            "content_code": "<!-- item.component.html -->\n<div class=\"card card--secondary m-2\" ccCardHover>\n    .\n    .\n</div>"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p><strong>Note:</strong> The Angular team recommends using directives as attributes, prefixed with a namespace. We&rsquo;ve prefixed our directive with the namespace 'cc'.</p>\n<div class=\"paragraph\">\n<p>We create directives by&nbsp;annotating a&nbsp;class with the&nbsp;<code>@Directive</code>&nbsp;decorator.</p>\n</div>\n<div class=\"paragraph\">\n<p>Let&rsquo;s create a&nbsp;class called&nbsp;<code>CardHoverDirective</code> and use the<code>&nbsp;@Directive</code> dectorator to associate this class with our attribute&nbsp;<code>ccCardHover</code>, like:</p>\n</div>",
+            "content_image": "",
+            "content_code": "import { Directive } from '@angular/core';\n.\n.\n.\n@Directive({\n  selector:\"[ccCardHover]\"\n})\nclass CardHoverDirective { }"
+        },
+        {
+            "content_title": "Attribute Selector",
+            "content_desc": "<div class=\"paragraph\">\n<p>The above code is very similar to what we would write if this was a component, the first striking difference is that <em>the selector is wrapped with `[]`</em>.</p>\n</div>\n<div class=\"paragraph\">\n<p>To understand why we do this we first need to understand that the selector attribute uses <em><abbr>CSS</abbr>&nbsp;matching rules</em> to match a component/directive to a <abbr>HTML</abbr>&nbsp;element.</p>\n</div>\n<div class=\"paragraph\">\n<p>In&nbsp;<abbr>CSS</abbr> to match to a specific element we would just type in the name of the element, so&nbsp;<code>input {&hellip;​}` or `p {&hellip;​}</code>.</p>\n</div>\n<div class=\"paragraph\">\n<p>This is why previously when we defined the selector in the<code> @Component</code>&nbsp;directive we just wrote the&nbsp;<em>name</em> of the element, which matches onto an element of the same name.</p>\n</div>\n<div class=\"paragraph\">\n<p>If we wrote the&nbsp;selector as&nbsp;<code>.ccCardHover</code>, like:</p>\n</div>",
+            "content_image": "",
+            "content_code": "import { Directive } from '@angular/core';\n.\n.\n.\n@Directive({\n  selector:\".ccCardHover\"\n})\nclass CardHoverDirective { }"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>Then this would associate the&nbsp;directive with any element that has a&nbsp;<em>class</em> of ccCardHover, like:</p>",
+            "content_image": "",
+            "content_code": "<div class=\"card card--secondary m-2 ccCardHover\">..</div>"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>We want to associate the directive to an element which has a certain attribute.</p>\n</div>\n<div class=\"paragraph\">\n<p>To&nbsp;do that in&nbsp;<abbr>CSS</abbr>&nbsp;we wrap the&nbsp;name of&nbsp;the attribute with&nbsp;<code>[]</code>, and this is why the selector is called <code>[ccCardHover]</code>.</p>\n</div>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Directive Constructor",
+            "content_desc": "<p>The next thing we do is add a constructor to our directive, like:</p>",
+            "content_image": "",
+            "content_code": "import { ElementRef } from '@angular/core';\n.\n.\n.\nclass CardHoverDirective {\n  constructor(private el: ElementRef) {\n  }\n}"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>When the directive gets created Angular can inject an instance of something called <code>ElementRef</code>&nbsp;into its constructor.</p>\n<p><strong>Note:</strong> How this works is called&nbsp;<em>Dependency Injection</em>, it&rsquo;s a really important aspect of Angular and we discuss this in detail in a later section.</p>\n<div class=\"paragraph\">\n<p>The&nbsp;<code>ElementRef</code>&nbsp;gives the&nbsp;directive&nbsp;<em>direct access</em>&nbsp;to&nbsp;the&nbsp;<abbr>DOM</abbr> element upon which it&rsquo;s attached.</p>\n</div>\n<div class=\"paragraph\">\n<p>Let&rsquo;s use it to&nbsp;change the&nbsp;background color of&nbsp;our card to&nbsp;gray.</p>\n</div>\n<div class=\"paragraph\">\n<p><code>ElementRef</code>&nbsp;itself is a&nbsp;wrapper for&nbsp;the actual&nbsp;<abbr>DOM</abbr> element which we can access via the property&nbsp;<code>nativeElement</code>, like:</p>\n</div>",
+            "content_image": "",
+            "content_code": "el.nativeElement.style.backgroundColor = \"#f9dede\";"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>This however assumes that our application will always be running in the environment of a browser.</p>\n</div>\n<div class=\"paragraph\">\n<p><em>Angular has been built from the ground up to work in a number of different environments, including server side via node and on a native mobile device. So the Angular team has provided a platform independent way of setting properties on our elements via something called a&nbsp;<code>Renderer2</code>.</em></p>\n</div>",
+            "content_image": "",
+            "content_code": "import { Directive, ElementRef, Renderer2 } from '@angular/core';\n\n@Directive({\n  selector: '[appCardHover]'\n})\nexport class CardHoverDirective {\n\n  constructor(private el: ElementRef,\n    private renderer: Renderer2) {\n    renderer.setStyle(el.nativeElement, 'backgroundColor', '#f9dede');\n  }\n}\n"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<ul>\n<li>We use&nbsp;<em>Dependency Injection</em>&nbsp;(DI) to&nbsp;inject the&nbsp;<code>renderer</code> into our directives constructor.</li>\n<li>Instead of&nbsp;setting the&nbsp;background color directly via the&nbsp;<abbr>DOM</abbr>&nbsp;element we do it by&nbsp;going through the&nbsp;<code>renderer.</code></li>\n</ul>\n<p><strong>Note: </strong>In&nbsp;the future if we wanted to&nbsp;render our application on&nbsp;a platform other than a&nbsp;web browser then the&nbsp;<code>Renderer</code>&nbsp;calls the&nbsp;appropriate functions to&nbsp;change the&nbsp;background color on&nbsp;that platform. We are not limited to&nbsp;only being run in&nbsp;a web browser with a&nbsp;<abbr>DOM</abbr>.</p>",
+            "content_image": "",
+            "content_code": ""
+        }
+    ]
+}

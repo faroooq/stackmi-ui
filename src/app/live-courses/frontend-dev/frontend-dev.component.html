@@ -1,0 +1,331 @@
+<app-navbar></app-navbar>
+<section class="hero">
+    <img src="../../assets/images/front-end.svg" alt="">
+</section>
+<section data-aos="zoom-in" class="block block--skewed-up hero" style="background: aliceblue; padding-top: 5rem;">
+    <header class="block__header">
+        <h3 style="font-weight: 600">
+            <span><strong class="highlight">What's special</strong> in enrolling LIVE classes?</span>
+        </h3>
+    </header>
+    <div class="grid grid--1x2">
+        <div class="card text-white mb-3" style="background: #b2a2ee;">
+            <div class="card-header" style="text-align: center; font-size: 2.5rem;">Products in Market</div>
+            <div class="card-body">
+                <ul class="ul_list">
+                    <li style="margin-bottom: 1rem;">
+                        Scattered articles, blogs & videos need extra effort to stitch it all
+                        together.
+                    </li>
+                    <li style="margin-bottom: 1rem;">
+                        Limited practical knowledge.
+                    </li>
+                    <li style="margin-bottom: 1rem;">
+                        Recorded videos & articles with no personalisation
+                    </li>
+                    <li style="margin-bottom: 1rem;">
+                        Not industry-relevant. Old, outdated content.
+                    </li>
+                    <li style="margin-bottom: 1rem;">
+                        No clarification, help and support if strucked in the middle.
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="card text-white bg-primary mb-3">
+            <div class="card-header" style="text-align: center; font-size: 2.5rem;">StackMi's Curriculum</div>
+            <div class="card-body">
+                <ul class="ul_list">
+                    <li style="margin-bottom: 1rem;">
+                        Structured and thoughtfully designed curriculum helps you to emerge confident & comfortable.
+                    </li>
+                    <li style="margin-bottom: 1rem;">
+                        Hands-on, Projects and assignments to actually implement concepts.
+                    </li>
+                    <li style="margin-bottom: 1rem;">
+                        Personalised topics, peers & pace of learning are optimized for your needs
+                    </li>
+                    <li style="margin-bottom: 1rem;">
+                        Industry-relevant, industry-tested curriculum to make you job ready
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="block block--skewed-up hero" style="background: #f5e0e6; padding-top: 5rem;">
+    <header class="block__header">
+        <h3 style="font-weight: 600;">
+            <span style="font-size: 2.8rem;">Front-end Developer <span class="highlight"
+                    style="color: #E44343; font-size: 2.9rem;">Angular</span>
+                Program</span>
+        </h3>
+    </header>
+    <h4 style="font-weight: 600; margin-left: 1.8rem;">
+        <div class="grid grid--1x2" style="margin-left: -0.8rem; margin-right: 1rem;">
+            <span style="font-size: 2rem; align-self: center;">Refer your friend and claim your <span class="highlight"
+                    style="color: #E44343; font-size: 2.2rem;">Discount Now</span>
+            </span>
+            <button [routerLink]="['/front-end/ft-ng-cur']" class="btn btn--outline btn--block">Complete
+                Angular
+                Curriculum</button>
+        </div>
+    </h4>
+    <div class="grid grid--1x2">
+        <div class="card  mb-3" style="margin: 1rem; background: #fff; box-shadow: none;">
+            <header class="card__header">
+                <h3 class="plan__name" style="margin-bottom: 0;">FRONT-END DEVELOPER PROGRAM</h3>
+            </header>
+            <div class="card-header"
+                style="text-align: center; font-size: 2.3rem; background: #5c5577; color: #fff; padding: 0.8rem;">
+                Angular Beginners
+            </div>
+            <header class="card__header">
+                <hr>
+                <div style="text-align: center;">
+                    <span class="plan__price" style="font-size: 3.5rem;">₹4,499/-</span>&nbsp;
+                    <span class="plan__price" style="font-size: 2.5rem;"><s>₹6,999/-</s></span>
+                </div>
+                <hr>
+                <div class="grid grid--1x2">
+                    <span class="badge badge--primary badge--small"
+                        style="font-size: 1.6rem; margin-left: 1rem; margin-right: 1rem;">
+                        <i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;&nbsp;4 - 5 Weeks
+                    </span>
+                    <button (click)="selectedCourse('Angular Beginners Program')" style="margin: 0; width: 100%;"
+                        class="btn btn-danger" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasWithBackdrop" aria-controls="offcanvasWithBackdrop">Enroll
+                        Course</button>
+                    <app-course-enroll [notifier]="sendCourse"></app-course-enroll>
+                </div>
+                <hr>
+                <div style="color: #4517f5;">No prior knowledge needed! Everything you will <strong>learn from
+                        basics</strong>.
+                </div>
+                <hr>
+                <h3 style="font-size: 1.6rem;">By the end of this course, you'll be able to…</h3>
+                <hr>
+                <ul class="list list--tick">
+                    <li class="list__item">Structure your web pages using <strong>HTML5 and CSS3</strong>.</li>
+                    <li class="list__item">Hands-on <strong>Typescript</strong> Coding.</li>
+                    <li class="list__item">Learn all the <strong>Angular features</strong>.</li>
+                    <li class="list__item">
+                        <span class="highlight" style="font-size: 1.8rem;">4 Quiz</span>,
+                        <span class="highlight" style="font-size: 1.8rem;">3 Mock Tests</span> and
+                        <span class="highlight" style="font-size: 1.8rem;">1 Final Exam</span>.
+                    </li>
+                    <li class="list__item">Understand <strong>Live Project</strong> and <strong>Delpoy in
+                            Cloud</strong>.</li>
+                    <li class="list__item"><strong>Awards</strong> and <strong>Certification</strong>.</li>
+                </ul>
+            </header>
+        </div>
+        <div class="recommended card  mb-3" style="margin: 1rem; background: #fff; box-shadow: none;">
+            <header class="recommended__header">
+                <h3 class="plan__name" style="margin-bottom: 0;">FRONT-END DEVELOPER PROGRAM</h3>
+            </header>
+            <div class="card-header"
+                style="text-align: center; font-size: 2.3rem; background: #E44343; color: #fff; padding: 0.8rem;">
+                Angular Masters
+            </div>
+            <header class="card__header">
+                <hr>
+                <div style="text-align: center;">
+                    <span class="plan__price" style="font-size: 3.5rem;">₹7,999/-</span>&nbsp;
+                    <span class="plan__price" style="font-size: 2.5rem;"><s>₹9,999/-</s></span>
+                </div>
+                <hr>
+                <div class="grid grid--1x2">
+                    <span class="badge badge--primary badge--small"
+                        style="font-size: 1.6rem; margin-left: 1rem; margin-right: 1rem;">
+                        <i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;&nbsp;4 - 5 Weeks</span>
+                    <button (click)="selectedCourse('Angular Masters Program')" style="margin: 0; width: 100%;"
+                        class="btn btn-danger" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasWithBackdrop" aria-controls="offcanvasWithBackdrop">Enroll
+                        Course</button>
+                    <app-course-enroll [notifier]="sendCourse"></app-course-enroll>
+                </div>
+                <hr>
+                <div style="color: #961be9;">Required basic familiarity in <strong>HTML and CSS</strong> to
+                    enroll.
+                </div>
+                <hr>
+                <h3 style="font-size: 1.6rem;">By the end of this course, you'll be able to…</h3>
+                <hr>
+                <ul class="list list--tick">
+                    <li class="list__item">Design Beautiful webpages using <strong>Html5 and CSS3</strong>.</li>
+                    <li class="list__item">Develop, Test Angular Project from <strong>Scratch</strong>.</li>
+                    <li class="list__item">
+                        <span class="highlight" style="font-size: 1.8rem;">3 Quiz</span>,
+                        <span class="highlight" style="font-size: 1.8rem;">2 Mock Tests</span> and
+                        <span class="highlight" style="font-size: 1.8rem;">1 Final Exam</span>.
+                    </li>
+                    <li class="list__item">Architect
+                        <strong>Angular Project</strong> and
+                        <strong>Delpoy in Cloud</strong>.
+                    </li>
+                    <li class="list__item">
+                        <strong>Awards</strong> and
+                        <strong>Certification</strong>.
+                    </li>
+                </ul>
+            </header>
+        </div>
+    </div>
+</section>
+<section class="block block--skewed-up hero" style="background: #f5efe0; padding-top: 5rem;">
+    <header class="block__header">
+        <h3 style="font-weight: 600;">
+            <span style="font-size: 2.8rem;">Front-end Developer <span class="highlight"
+                    style="color: #E44343; font-size: 2.9rem;">React</span>
+                Program</span>
+        </h3>
+    </header>
+    <h4 style="font-weight: 600; margin-left: 1.8rem;">
+        <div class="grid grid--1x2" style="margin-left: -0.8rem; margin-right: 1rem;">
+            <span style="font-size: 2rem; align-self: center;">Refer your friend and claim your <span class="highlight"
+                    style="color: #E44343; font-size: 2.2rem;">Discount Now</span>
+            </span>
+            <button [routerLink]="['/front-end/ft-rt-cur']" class="btn btn--outline btn--block">Complete
+                React Curriculum</button>
+        </div>
+    </h4>
+    <div class="grid grid--1x2">
+        <div class="card  mb-3" style="margin: 1rem; background: #fff; box-shadow: none;">
+            <header class="card__header">
+                <h3 class="plan__name" style="margin-bottom: 0;">FRONT-END DEVELOPER PROGRAM</h3>
+            </header>
+            <div class="card-header"
+                style="text-align: center; font-size: 2.3rem; background: #39cbe3; color: #fff; padding: 0.8rem;">
+                React Beginners
+            </div>
+            <header class="card__header">
+                <hr>
+                <div style="text-align: center;">
+                    <span class="plan__price" style="font-size: 3.5rem;">₹4,499/-</span>&nbsp;
+                    <span class="plan__price" style="font-size: 2.5rem;"><s>₹6,999/-</s></span>
+                </div>
+                <hr>
+                <div class="grid grid--1x2">
+                    <span class="badge badge--primary badge--small"
+                        style="font-size: 1.6rem; margin-left: 1rem; margin-right: 1rem;">
+                        <i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;&nbsp;4 - 5 Weeks</span>
+                    <button (click)="selectedCourse('React Beginners Program')" style="margin: 0; width: 100%;"
+                        class="btn btn-danger" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasWithBackdrop" aria-controls="offcanvasWithBackdrop">Enroll
+                        Course</button>
+                    <app-course-enroll [notifier]="sendCourse"></app-course-enroll>
+                </div>
+                <hr>
+                <div style="color: #4517f5;">No prior knowledge needed! Everything you will <strong>learn from
+                        basics</strong>.
+                </div>
+                <hr>
+                <h3 style="font-size: 1.6rem;">By the end of this course, you'll be able to…</h3>
+                <hr>
+                <ul class="list list--tick">
+                    <li class="list__item">Structure your web pages using <strong>HTML5 and CSS3</strong>.</li>
+                    <li class="list__item">Hands-on <strong>Typescript</strong> Coding.</li>
+                    <li class="list__item">Learn all the <strong>React features</strong>.</li>
+                    <li class="list__item">
+                        <span class="highlight" style="font-size: 1.8rem;">4 Quiz</span>,
+                        <span class="highlight" style="font-size: 1.8rem;">3 Mock Tests</span> and
+                        <span class="highlight" style="font-size: 1.8rem;">1 Final Exam</span>.
+                    </li>
+                    <li class="list__item">Understand <strong>Live Project</strong> and <strong>Delpoy in
+                            Cloud</strong>.</li>
+                    <li class="list__item"><strong>Awards</strong> and <strong>Certification</strong>.</li>
+                </ul>
+            </header>
+        </div>
+        <div class="recommended card  mb-3" style="margin: 1rem; background: #fff; box-shadow: none;">
+            <header class="recommended__header">
+                <h3 class="plan__name" style="margin-bottom: 0;">FRONT-END DEVELOPER PROGRAM</h3>
+            </header>
+            <div class="card-header"
+                style="text-align: center; font-size: 2.3rem; background: #c51988; color: #fff; padding: 0.8rem;">
+                React Masters
+            </div>
+            <header class="card__header">
+                <hr>
+                <div style="text-align: center;">
+                    <span class="plan__price" style="font-size: 3.5rem;">₹8,999/-</span>&nbsp;
+                    <span class="plan__price" style="font-size: 2.5rem;"><s>₹9,999/-</s></span>
+                </div>
+                <hr>
+                <div class="grid grid--1x2">
+                    <span class="badge badge--primary badge--small"
+                        style="font-size: 1.6rem; margin-left: 1rem; margin-right: 1rem;">
+                        <i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;&nbsp;4 - 5 Weeks</span>
+                    <button (click)="selectedCourse('React Masters Program')" style="margin: 0; width: 100%;"
+                        class="btn btn-danger" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasWithBackdrop" aria-controls="offcanvasWithBackdrop">Enroll
+                        Course</button>
+                    <app-course-enroll [notifier]="sendCourse"></app-course-enroll>
+                </div>
+                <hr>
+                <div style="color: #961be9;">Required basic familiarity in <strong>HTML, CSS and Javascript</strong> to
+                    enroll.
+                </div>
+                <hr>
+                <h3 style="font-size: 1.6rem;">By the end of this course, you'll be able to…</h3>
+                <hr>
+                <ul class="list list--tick">
+                    <li class="list__item">Design Beautiful webpages using <strong>Html5 and CSS3</strong>.</li>
+                    <li class="list__item">Develop <strong>Realtime</strong> Projects in React.</li>
+                    <li class="list__item">
+                        <span class="highlight" style="font-size: 1.8rem;">3 Quiz</span>,
+                        <span class="highlight" style="font-size: 1.8rem;">2 Mock Tests</span> and
+                        <span class="highlight" style="font-size: 1.8rem;">1 Final Exam</span>.
+                    </li>
+                    <li class="list__item">Understand
+                        <strong>Realtime Project</strong> and
+                        <strong>Delpoy in Cloud</strong>.
+                    </li>
+                    <li class="list__item">
+                        <strong>Awards</strong> and
+                        <strong>Certification</strong>.
+                    </li>
+                </ul>
+            </header>
+        </div>
+    </div>
+</section>
+<section class="block block--skewed-up hero" style="background: #fbf2c3; padding-top: 5rem;">
+    <header class="block__header">
+        <h3 style="font-weight: 600">
+            <span>Course completion <strong class="highlight">certificate</strong>.</span>
+        </h3>
+    </header>
+    <div class="mb-3">
+        <div style="margin: 1rem;">
+            <img src="../../assets/images/certificate.png" alt="">
+        </div>
+    </div>
+</section>
+<section class="container">
+    <div class="callout callout--primary callout-signup">
+        <div class="grid grid--1x2">
+            <div class="callout__content">
+                <p class="callout__heading mt-2">
+                    Have doubts? Schedule a demo with our team.
+                </p>
+            </div>
+            <a [routerLink]="['/']" class="btn btn--theme btn--stretched">Schedule a Demo</a>
+        </div>
+    </div>
+</section>
+<!-- <div class="container">
+    <div class="callout callout--primary callout-signup">
+        <div class="grid grid--1x2">
+            <div class="callout__content">
+                <p class="callout__heading mt-2">
+                    Mentor students to help them unlock their true potential.
+                </p>
+            </div>
+            <a [routerLink]="['/mentor']" class="btn btn--theme btn--stretched">I Love to Mentor</a>
+        </div>
+    </div>
+</div> -->
+<app-footer></app-footer>

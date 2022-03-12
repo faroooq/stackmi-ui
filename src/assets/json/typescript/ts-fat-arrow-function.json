@@ -1,0 +1,48 @@
+{
+    "_id": {
+        "$oid": "61d82f025f5cf66516cc9158"
+    },
+    "article_slug": "ts-fat-arrow-function",
+    "article_title": "Typescript - Fat Arrow Functions",
+    "article_image": "",
+    "article_seo_desc": "ES6 has introduced a slightly different syntax to define anonymous functions called the fat arrow syntax.",
+    "enroll_available": true,
+    "article_content": [
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>JavaScript has&nbsp;<em>first class functions</em>.</p>\n</div>\n<div class=\"paragraph\">\n<p>This means that in&nbsp;JavaScript functions can be themselves be passed around like any other value, even as&nbsp;arguments to&nbsp;other functions.</p>\n</div>\n<div class=\"paragraph\">\n<p>E.g. we can pass to&nbsp;the&nbsp;<code>setTimeout</code>&nbsp;function, a&nbsp;function, like:</p>\n</div>",
+            "content_image": "",
+            "content_code": "setTimeout(function() {\n\tconsole.log(\"setTimeout called!\");\n}, 1000);"
+        },
+        {
+            "content_title": "",
+            "content_desc": "The function we pass as an argument to setTimeout is called an anonymous function because it doesn’t have a name.\n\nES6 has introduced a slightly different syntax to define anonymous functions called the fat arrow syntax, with it we can re-write the above:",
+            "content_image": "",
+            "content_code": "setTimeout(() => {\n    console.log(\"setTimeout called!\")\n}, 1000);"
+        },
+        {
+            "content_title": "",
+            "content_desc": "If the function only contains one expression we can drop the braces and shorten even further to:",
+            "content_image": "",
+            "content_code": "setTimeout(() => console.log(\"setTimeout called!\"), 1000);"
+        },
+        {
+            "content_title": "Arguments",
+            "content_desc": "<div class=\"paragraph\">\n<p>What if we wanted to&nbsp;pass an&nbsp;argument to&nbsp;the function?</p>\n</div>\n<div class=\"paragraph\">\n<p>We can&nbsp;re-write&nbsp;the&nbsp;below normal function to&nbsp;one that uses the&nbsp;fat arrow syntax:</p>\n</div>",
+            "content_image": "",
+            "content_code": "let add = function(a,b) {\n\treturn a + b;\n};"
+        },
+        {
+            "content_title": "",
+            "content_desc": "Can now be written as:",
+            "content_image": "",
+            "content_code": "let add = (a,b) => a + b;"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<table style=\"width: 100%; border-collapse: collapse;\" border=\"1\" cellspacing=\"10\" cellpadding=\"10\">\n<tbody>\n<tr>\n<td style=\"width: 100%;\">\n<p><strong>Note:</strong> In the first example we write <code>return a + b</code>&nbsp;but in&nbsp;the&nbsp;<em>fat arrow</em>&nbsp;version we just wrote&nbsp;<code>a + b</code>. That&rsquo;s because in&nbsp;the fat arrow syntax if it is on&nbsp;one line, the&nbsp;statement gets returned automatically without the&nbsp;need to&nbsp;use the&nbsp;<code>return</code>&nbsp;keyword.</p>\n</td>\n</tr>\n</tbody>\n</table>",
+            "content_image": "",
+            "content_code": ""
+        }
+    ]
+}

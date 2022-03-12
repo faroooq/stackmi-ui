@@ -1,0 +1,78 @@
+{
+    "_id": {
+        "$oid": "61e56c9abbfe744154a494a3"
+    },
+    "article_slug": "ng-looping",
+    "article_title": "Angular - Looping",
+    "article_image": "",
+    "article_seo_desc": "Angular comes with buil-in directive ngFor to iterate the array or list items.",
+    "enroll_available": true,
+    "article_content": [
+        {
+            "content_title": "Angular loop - ngFor directive",
+            "content_desc": "In the previous class, we have seen how to render the string (name and price) in the html. Now we will see how to iterate the Array of objects and render in the html.\n\nSuppose we have the array of objects like:",
+            "content_image": "",
+            "content_code": " [\n      {\n        name: \"IPhone 12\",\n        price: \"INR 56,000/-\"\n      },\n      {\n        name: \"Samsung Galaxy S21 Ultra\",\n        price: \"INR 88,000/-\"\n      },\n      {\n        name: \"OnePlus 9 Pro\",\n        price: \"INR 59,000/-\"\n      }\n    ]"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>Let's create one more component called <strong>ItemListComponent</strong>.</p>",
+            "content_image": "",
+            "content_code": "ng g c ItemList"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>We will add the array of objects in the constructor and assign to the reference variable called <code>itemList</code>.</p>",
+            "content_image": "",
+            "content_code": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-item-list',\n  templateUrl: './item-list.component.html',\n  styleUrls: ['./item-list.component.css']\n})\nexport class ItemListComponent {\n  itemList: Array<{ name: string, price: string }>;\n\n  constructor() {\n    this.itemList = [\n      {\n        name: \"IPhone 12\",\n        price: \"INR 56,000/-\"\n      },\n      {\n        name: \"Samsung Galaxy S21 Ultra\",\n        price: \"INR 88,000/-\"\n      },\n      {\n        name: \"OnePlus 9 Pro\",\n        price: \"INR 59,000/-\"\n      }\n    ]\n  }\n}"
+        },
+        {
+            "content_title": "Arrays",
+            "content_desc": "<div class=\"paragraph\">\n<p>The first change you&rsquo;ll notice is that we have a property called <code>itemList</code>&nbsp;and&nbsp;the type is&nbsp;<code>Array<{ name: string, price: string }></code>.</p>\n</div>\n<div class=\"paragraph\">\n<p>The&nbsp;<code>[]</code>&nbsp;syntax in&nbsp;the type means&nbsp;<em>list of</em>&nbsp;or&nbsp;<em>Array</em>, so the <strong>itemList</strong> property holds a list of <code>Objects</code>.</p>\n</div>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>Below is the basic HTML structure for a Boostrap <em>card</em> element. We will add this in the <strong>item-list.component.html</strong> file</p>\n</div>",
+            "content_image": "",
+            "content_code": "<!-- item-list.component.html -->\n<div class=\"card card-block m-2\">\n  <h4 class=\"card-title\"></h4>\n  <p class=\"card-text\"></p>\n </div>"
+        },
+        {
+            "content_title": "NgFor",
+            "content_desc": "<div class=\"paragraph\">\n<div class=\"paragraph\">\n<p>We want to repeat this card element for each <code>item</code> in our array of <code>itemList</code>.</p>\n</div>\n<div class=\"paragraph\">\n<p>So we add a&nbsp;special syntax called an&nbsp;<code>NgFor</code> on the card element, like:</p>\n</div>\n</div>",
+            "content_image": "",
+            "content_code": "<!-- item-list.component.html -->\n<div class=\"card card-block m-2\" *ngFor=\"let item of itemList\">\n    <h4 class=\"card-title\"></h4>\n    <p class=\"card-text\"></p>\n</div>"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p><code>*ngFor=\"let item of itemList\"</code>&nbsp;will create a&nbsp;new&nbsp;<abbr>HTML</abbr> element, using the div element it&rsquo;s attached to as a template, for every item in the itemList array.</p>\n</div>\n<div class=\"paragraph\">\n<p>It will also make available to&nbsp;the element a&nbsp;variable called&nbsp;<code>item</code> which is the item in the item array it&rsquo;s currently looping over.</p>\n</div>\n<div class=\"paragraph\">\n<p>The&nbsp;syntax translates to&nbsp;<code>let &lt;name-i-want-to-call-each-item&gt; of &lt;array-property-on-component&gt;</code></p>\n<p><strong>Note:</strong> This is what we call in&nbsp;Angular a&nbsp;<em>Directive </em>(<strong>ngFor</strong>). Specifically it&rsquo;s a&nbsp;<em>structural directive</em>&nbsp;since it changes the&nbsp;structure of&nbsp;the&nbsp;<abbr>DOM</abbr>. We&rsquo;ll be going through more&nbsp;built-in&nbsp;directives later on&nbsp;and also you&rsquo;ll learn how to&nbsp;create your own.</p>\n<p>So now we can display properties of&nbsp;this&nbsp;<code>item</code> object in the <code>item-list.component.html</code> using&nbsp;<code>{{item.name}}</code>&nbsp;and&nbsp;<code>{{item.price}}</code>, like:</p>\n</div>",
+            "content_image": "",
+            "content_code": "<!-- item-list.component.html -->\n<div class=\"card card-block m-2\"\n     *ngFor=\"let item of itemList\">\n  <h4 class=\"card-title\">{{item.name}}</h4>\n  <p class=\"card-text\">{{item.price}}</p>\n</div>"
+        },
+        {
+            "content_title": "Configuring",
+            "content_desc": "<p>In&nbsp;order to&nbsp;use our&nbsp;<code>ItemListComponent</code>&nbsp;we need to&nbsp;add it to&nbsp;the declarations on&nbsp;our&nbsp;<code>NgModule</code>.</p>\n<p><strong>Note: </strong>When you create a component using Angular CLI, by default it will add the component to the <strong>app.module.ts</strong> file in declarations section.</p>",
+            "content_image": "",
+            "content_code": "@NgModule({\n  declarations: [\n    AppComponent,\n    ItemComponent,\n    ItemListComponent\n  ]})"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>Now we need to add &lt;app-item-list&gt;&lt;/app-item-list&gt; tag in the <strong>app.component.html</strong> file.</p>",
+            "content_image": "",
+            "content_code": "<!-- app.component.html -->\n<app-item-list></app-item-list>"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>The&nbsp;classes&nbsp;<code>container</code>&nbsp;and&nbsp;<code>mt-1</code> are from Twitter Bootstrap and add some nice visual padding to the page. Let's wrap our &lt;app-item-list&gt; tag inside &lt;div&gt; tag with class='container mt-1'</p>",
+            "content_image": "",
+            "content_code": "<!-- app.component.html -->\n<div class=\"container mt-1\">\n  <app-item-list></app-item-list>\n</div>"
+        },
+        {
+            "content_title": "",
+            "content_desc": "Upon the browser refresh, you will see some card style with the content like below.",
+            "content_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Screenshot%202022-01-17%20at%207.57.46%20PM.png",
+            "content_code": ""
+        }
+    ]
+}

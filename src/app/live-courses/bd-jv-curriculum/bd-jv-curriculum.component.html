@@ -1,0 +1,375 @@
+<app-navbar></app-navbar>
+<section class="block block--skewed-up hero" style="background: #723333; padding-top: 5rem;">
+    <header class="block__header" style="margin: 0;">
+        <h2 style="font-weight: 500">
+            <span style=" color: #fff;">Back-end Developer <span style="color: #ff0000;">Java</span>
+                Curriculum</span>
+        </h2>
+    </header>
+</section>
+<section class="block block--skewed-up hero" style="background: aliceblue; padding-top: 5rem;">
+    <div class="row">
+        <div class="col-md-8 mb-3">
+            <h3>Master Java in <span class="highlight">Just 2 Months</span> and Build Real World Projects</h3>
+            <h3 style="font-weight: 300; font-size: 2rem;">Java is the most widely used and in-demand programming
+                language.
+            </h3>
+            <div class="card-body">
+                <p style="font-size: 1.9rem;">It's used in 90% of fortune 500 company websites, most big banks and
+                    financial companies, almost all Android apps, and much, much more...</p>
+                <p style="font-size: 1.9rem;">But despite its popularity, there’s lots of bad info out there about Java.
+                    Dozens of myths, misconceptions, bad advice and downright poor tutorials.</p>
+                <p style="font-size: 1.9rem;">The first part of this series is your first step towards a career in web
+                    or mobile development. Forget trying to piece together different YouTube tutorials or reading
+                    outdated blog posts or books.</p>
+            </div>
+        </div>
+        <div class="col-md-4 card text-white mb-3">
+            <div class="card-header bg-primary"
+                style="text-align: center; font-size: 2.5rem;border-bottom-left-radius: 5rem;border-bottom-right-radius: 0.5rem;">
+                Course Highlights
+            </div>
+            <div class="card-body">
+                <ul class="ul_list" style="list-style: none; color: #232323;">
+                    <li style="margin-bottom: 2rem;">
+                        <i class="fas fa-user-tie"></i>
+                        <span style="font-style: normal; padding-left: 2rem;">Beginner To Expert</span>
+                    </li>
+                    <li style="margin-bottom: 2rem;">
+                        <i class="fas fa-users"></i>
+                        <span style="font-style: normal; padding-left: 2rem;">Interactive Learning</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-gifts"></i>
+                        <span style="font-style: normal; padding-left: 2rem;">Gifts And Awards</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-certificate"></i>
+                        <span style="font-style: normal; padding-left: 2rem;">Certificate</span>
+                    </li>
+                </ul>
+                <button (click)="selectedCourse('Java Masters Program')" style="margin: 0; width: 100%;"
+                    class="btn btn-danger" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasWithBackdrop" aria-controls="offcanvasWithBackdrop">Enroll
+                    Course</button>
+                <app-course-enroll [notifier]="sendCourse"></app-course-enroll>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="block--skewed-up hero" style="padding-top: 3rem; background: #f7f4f5;">
+    <div style="margin: 1rem; padding-bottom: 1rem;">
+        <header class="block__header">
+            <h3 style="font-weight: 600;">
+                <span style="font-size: 2.8rem;">Beginners Course Curriculum</span>
+            </h3>
+            <div style="margin-left: -0.8rem; margin-right: 1rem; text-align: center;">
+                <span style="font-size: 2rem;">Enroll this course with <span class="highlight">ZERO
+                        knowledge</span></span>
+            </div>
+        </header>
+        <div class="grid grid--1x2">
+            <div class="recommended card  mb-3" style="background: #fff; box-shadow: none;">
+                <div class="card-header" style="font-size: 2.3rem; background: #5c5577; color: #fff; padding: 0.8rem;">
+                    <span style="font-size: 1.6rem; margin-left: 1rem; margin-right: 1rem;">
+                        <i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;&nbsp;Beginner - 1st Week</span>
+                </div>
+                <header class="card__header">
+                    <hr>
+                    <h3 style="font-size: 1.6rem;">Introduction Week - By the end of this course, you'll learn…</h3>
+                    <hr>
+                    <ul class="list list--tick">
+                        <li class="list__item" style="background-color: #f7f7f7;">Welcome Greetings! Meet and Greet,
+                            What's demand for Back-end developers? Your salary after this course..</li>
+                        <li class="list__item">Introduction to <strong>Java</strong>, Installing Java, Types,
+                            Operators.</li>
+                        <li class="list__item" style="background-color: #f7f7f7;">Strings, Arrays, Constants, Casting.
+                        </li>
+                        <li class="list__item">Control Flow, Statements, Loops,<span class="highlight"
+                                style="font-size: 1.9rem;">&nbsp;Quiz</span>.</li>
+                        <li class="list__item" style="background-color: #f7f7f7;">Introduction to
+                            <strong>MVC Framework (Spring).</strong>
+                        </li>
+                    </ul>
+                </header>
+            </div>
+            <div class="recommended card  mb-3" style="background: #fff; box-shadow: none;">
+                <div class="card-header" style="font-size: 2.3rem; background: #5c5577; color: #fff; padding: 0.8rem;">
+                    <span style="font-size: 1.6rem; margin-left: 1rem; margin-right: 1rem;">
+                        <i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;&nbsp;Beginner - 2nd Week</span>
+                </div>
+                <header class="card__header">
+                    <hr>
+                    <h3 style="font-size: 1.6rem;">Core Java Week - By the end of this course, you'll learn…</h3>
+                    <hr>
+                    <ul class="list list--tick">
+                        <li class="list__item">Programming Paradigms, Classes, Objects.</li>
+                        <li class="list__item" style="background-color: #f7f7f7;">Encapsulation, Abstraction,
+                            Constructors.
+                        </li>
+                        <li class="list__item">
+                            Overloading, Overriding, Inheritance, Polymorphism.
+                        </li>
+                        <li class="list__item" style="background-color: #f7f7f7;">Interfaces, Exception Handling,
+                            <span class="highlight" style="font-size: 1.9rem;">&nbsp;Mock Test.
+                            </span>
+                        </li>
+                        <li class="list__item">Collections Package and Important Concepts,<span class="highlight"
+                                style="font-size: 1.9rem;">&nbsp;Quiz.</span>
+                        </li>
+                    </ul>
+                </header>
+            </div>
+            <div class="recommended card  mb-3" style="background: #fff; box-shadow: none;">
+                <div class="card-header" style="font-size: 2.3rem; background: #5c5577; color: #fff; padding: 0.8rem;">
+                    <span style="font-size: 1.6rem; margin-left: 1rem; margin-right: 1rem;">
+                        <i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;&nbsp;Beginner - 3rd Week</span>
+                </div>
+                <header class="card__header">
+                    <hr>
+                    <h3 style="font-size: 1.6rem;">MVC Framework Week - By the end of this course, you'll learn…</h3>
+                    <hr>
+                    <ul class="list list--tick">
+                        <li class="list__item" style="background-color: #f7f7f7;">Generics and Important Concepts.
+                        </li>
+                        <li class="list__item">Introduction to Functional
+                            Programming.
+                        </li>
+                        <li class="list__item" style="background-color: #f7f7f7;">Web Application with Spring Boot.
+                        </li>
+                        <li class="list__item">Application Configuration and Build Tools.
+                        </li>
+                        <li class="list__item" style="background-color: #f7f7f7;">
+                            <span class="highlight" style="font-size: 1.9rem;">Complete Java Mock
+                                Test.</span>
+                        </li>
+                    </ul>
+                </header>
+            </div>
+            <div class="recommended card  mb-3" style="background: #fff; box-shadow: none;">
+                <div class="card-header" style="font-size: 2.3rem; background: #5c5577; color: #fff; padding: 0.8rem;">
+                    <span style="font-size: 1.6rem; margin-left: 1rem; margin-right: 1rem;">
+                        <i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;&nbsp;Beginner - 4th Week</span>
+                </div>
+                <header class="card__header">
+                    <hr>
+                    <h3 style="font-size: 1.6rem;">MVC Framework Week - By the end of this course, you'll learn…</h3>
+                    <hr>
+                    <ul class="list list--tick">
+                        <li class="list__item" style="background-color: #f7f7f7;">
+                            <span class="highlight" style="font-size: 1.9rem;">&nbsp;Quiz,</span>
+                            Spring MVC Controller, @ResponseBody, @Controller.
+                        </li>
+                        <li class="list__item">JSON and Rendering API response.
+                        </li>
+                        <li class="list__item" style="background-color: #f7f7f7;">
+                            Routing, Route Parameters, Nested Routing.
+                        </li>
+                        <li class="list__item">
+                            End to End Understanding <strong>Realtime Project</strong>.
+                        </li>
+                        <li class="list__item" style="background-color: #f2f6fb;"><strong>Interview Questions and Fun
+                                Mock
+                                Interview</strong>.
+                        </li>
+                    </ul>
+                </header>
+            </div>
+        </div>
+        <div class="card col-lg-9 mx-auto"
+            style="margin-bottom: 3rem; background: #e7e5ef;padding: 2rem; box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;">
+            <h3 style="font-weight: 500; text-align: left;">
+                <span style="color: #1b0760;">By the end of this course, you'll be able to..</span>
+            </h3>
+            <ul class="list list--tick">
+                <li class="list__item">Develop and write Java code with confidence</li>
+                <li class="list__item">Code and understand MVC realtime projects</li>
+                <li class="list__item">Troubleshoot common errors</li>
+                <li class="list__item">Deploy Project in Cloud</li>
+            </ul>
+        </div>
+    </div>
+</section>
+<section class="block--skewed-up hero" style="padding-top: 3rem; margin: 1rem;">
+    <header class="block__header">
+        <h3 style="font-weight: 600;">
+            <span style="font-size: 2.8rem;">Masters Course Curriculum</span>
+        </h3>
+        <div style="margin-left: -0.8rem; margin-right: 1rem; text-align: center;">
+            <span style="font-size: 2rem;"> Enroll this course with&nbsp;<span class="highlight">
+                    Beginners Curriculum</span> or Required basic familiarity in Java, MVC framework.
+            </span>
+        </div>
+    </header>
+    <div class="grid grid--1x2">
+        <div class="recommended card  mb-3" style="background: #fff; box-shadow: none;">
+            <div class="card-header" style="font-size: 2.3rem; background: #2584ff; color: #fff; padding: 0.8rem;">
+                <span style="font-size: 1.6rem; margin-left: 1rem; margin-right: 1rem;">
+                    <i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;&nbsp;Master - 5th Week</span>
+            </div>
+            <header class="card__header">
+                <hr>
+                <h3 style="font-size: 1.6rem;">Deep Dive Core Java Week - By the end of this course, you'll learn…</h3>
+                <hr>
+                <ul class="list list--tick">
+                    <li class="list__item" style="background-color: #f2f6fb;">Strings, Objects and Memory Management.
+                    </li>
+                    <li class="list__item">Encapsulation, Abstraction, Coupling, Constructors.</li>
+                    <li class="list__item" style="background-color: #f2f6fb;">Overloading, Overriding, Static Members.
+                    </li>
+                    <li class="list__item">Inheritance, Object Class, Access Modifiers,
+                        <span class="highlight" style="font-size: 1.9rem;">Quiz.</span>
+                    </li>
+                    <li class="list__item" style="background-color: #f2f6fb;">Polymorphism, Abstraction, Interfaces.
+                    </li>
+                    <li class="list__item">Complete Exception Handling,
+                        <span class="highlight" style="font-size: 1.9rem;"> Mock Test.</span>
+                    </li>
+                </ul>
+            </header>
+        </div>
+        <div class="recommended card  mb-3" style="background: #fff; box-shadow: none;">
+            <div class="card-header" style="font-size: 2.3rem; background: #2584ff; color: #fff; padding: 0.8rem;">
+                <span style="font-size: 1.6rem; margin-left: 1rem; margin-right: 1rem;">
+                    <i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;&nbsp;Master - 6th Week</span>
+            </div>
+            <header class="card__header">
+                <hr>
+                <h3 style="font-size: 1.6rem;">Deep Dive Collections and Generics Week - By the end of this course,
+                    you'll learn…</h3>
+                <hr>
+                <ul class="list list--tick">
+                    <li class="list__item" style="background-color: #f7f7f7;">Complete Generics Package.</li>
+                    <li class="list__item">Collections, List Interface, Set Interface.</li>
+                    <li class="list__item" style="background-color: #f2f6fb;">Map Interface,
+                        <span class="highlight" style="font-size: 1.9rem;">Quiz.</span>
+                    </li>
+                    <li class="list__item">Complete Lambda Expressions and Functional Interfaces.
+                    </li>
+                    <li class="list__item" style="background-color: #f2f6fb;">Complete Streams API.
+                    </li>
+                    <li class="list__item">Core Java
+                        <span class="highlight" style="font-size: 1.9rem;">Mock Test.</span>
+                    </li>
+                </ul>
+            </header>
+        </div>
+        <div class="recommended card  mb-3" style="background: #fff; box-shadow: none;">
+            <div class="card-header" style="font-size: 2.3rem; background: #2584ff; color: #fff; padding: 0.8rem;">
+                <span style="font-size: 1.6rem; margin-left: 1rem; margin-right: 1rem;">
+                    <i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;&nbsp;Master - 7th Week</span>
+            </div>
+            <header class="card__header">
+                <hr>
+                <h3 style="font-size: 1.6rem;">Multi-threading, Testing and Debugging Week - By the end of this course,
+                    you'll learn…
+                </h3>
+                <hr>
+                <ul class="list list--tick">
+                    <li class="list__item" style="background-color: #f2f6fb;">Concurrency and Multi-threading.</li>
+                    <li class="list__item">Complete Executive Framework - Part-1.</li>
+                    <li class="list__item" style="background-color: #f2f6fb;">Complete Executive Framework - Part-2.
+                    </li>
+                    <li class="list__item">Debugging, Code Cleanup and Code Refactoring,
+                        <span class="highlight" style="font-size: 1.9rem;">&nbsp;Quiz.</span>
+                    </li>
+                    <li class="list__item" style="background-color: #f2f6fb;">Unit Testing and Code Coverage,
+                        <span class="highlight" style="font-size: 1.9rem;">Mock Test.</span>
+                    </li>
+                    <li class="list__item"><strong>Interview Questions and Fun Mock Interview.</strong></li>
+                </ul>
+            </header>
+        </div>
+        <div class="recommended card  mb-3" style="background: #fff; box-shadow: none;">
+            <div class="card-header" style="font-size: 2.3rem; background: #2584ff; color: #fff; padding: 0.8rem;">
+                <span style="font-size: 1.6rem; margin-left: 1rem; margin-right: 1rem;">
+                    <i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;&nbsp;Master - 8th Week</span>
+            </div>
+            <header class="card__header">
+                <hr>
+                <h3 style="font-size: 1.6rem;">Deployment Week - By the end of this course, you'll learn…</h3>
+                <hr>
+                <ul class="list list--tick">
+                    <li class="list__item">Revisit Spring Boot and Spring MVC - Part-1.</li>
+                    <li class="list__item" style="background-color: #f7f7f7;">Revisit Spring Boot and Spring MVC -
+                        Part-2.</li>
+                    <li class="list__item">Preparing Java App for Production
+                        Deployment.</li>
+                    <li class="list__item" style="background-color: #f2f6fb;">Deploy Project to Cloud
+                        environments.</li>
+                    <li class="list__item"><strong>Interview Questions and Fun Mock Interview.</strong></li>
+                    <li class="list__item" style="background-color: #f2f6fb;"><strong>Interview Questions and Fun Mock
+                            Interview.</strong></li>
+                </ul>
+            </header>
+        </div>
+    </div>
+    <div class="card col-lg-9 mx-auto"
+        style="margin-bottom: 3rem; background: #f2f6fb;padding: 2rem; box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;">
+        <h3 style="font-weight: 500; text-align: left;">
+            <span style="color: #1b0760;">By the end of this course, you'll be able to..</span>
+        </h3>
+        <ul class="list list--tick">
+            <li class="list__item">Start Preparation for <strong>Oracle Certified </strong>Professional.</li>
+            <li class="list__item">Hands-on Realtime Project.</li>
+            <li class="list__item">Troubleshoot errors, Write spec files, Clean coding, App performance
+                improvement</li>
+            <li class="list__item">Deploy Project to cloud environments.</li>
+        </ul>
+    </div>
+</section>
+<section class="block block--skewed-up hero" style="padding-top: 5rem; background: aliceblue;">
+    <div class=" col-lg-8 mx-auto">
+        <h2 style="font-weight: 500; text-align: left;">
+            <span>Frequently Asked Questions</span>
+        </h2>
+        <h3 style="font-weight: 400;">When does the course start and finish?</h3>
+        <p>Every month of 1st and 3rd week we start new batches. You can visit our <a
+                href="https://www.stackmi.com/events">Events</a> page for latest updates.</p>
+        <h3 style="font-weight: 400;">How long do I have access to the course once enrolled?</h3>
+        <p>The average duration for all our courses are 1 to 2 months. After completing the course, you can access all
+            our documents, materials, videos FOREVER.</p>
+        <h3 style="font-weight: 400;">What if I missed the session?</h3>
+        <p>As this is a well planned and well structured curriculum, You should not miss a single class throughout the
+            course, as long as there is a strong reason. If there a strong reason, you can attend the missed topic in
+            upcoming batches. If you want special class for the missed topic, you will be charged with small FEES.
+        </p>
+        <h3 style="font-weight: 400;">What if I want to attend specific topic again from enrolled program?</h3>
+        <p>Yes, we will allow you to attend the missed topic in the upcoming batches and help you understand the concept
+            well. You need
+            to <a href="https://www.stackmi.com/contact">Contact us</a>.</p>
+        <h3 style="font-weight: 400;">What if I am unhappy with the course?</h3>
+        <p>We would never want you to be unhappy! If you are still unsatisfied with our programs, <a
+                href="https://www.stackmi.com/contact">Contact us</a> within 7 days, and
+            we will give you a full refund.</p>
+        <h3 style="font-weight: 400;">Can I get my refund, before the course starts?</h3>
+        <p>Yes, we will completely refund your amount, if you haven't take the course.</p>
+        <h3 style="font-weight: 400;">Can I share documents, materials and videos?</h3>
+        <p>Yes, you can share all the documents, materials, videos.</p>
+    </div>
+</section>
+<section class="container">
+    <div class="callout callout--primary callout-signup">
+        <div class="grid grid--1x2">
+            <div class="callout__content">
+                <p class="callout__heading mt-2">
+                    Have doubts? Schedule a demo with our team.
+                </p>
+            </div>
+            <a [routerLink]="['/']" class="btn btn--theme btn--stretched">Schedule a Demo</a>
+        </div>
+    </div>
+</section>
+<!-- <div class="container">
+    <div class="callout callout--primary callout-signup">
+        <div class="grid grid--1x2">
+            <div class="callout__content">
+                <p class="callout__heading mt-2">
+                    Mentor students to help them unlock their true potential.
+                </p>
+            </div>
+            <a [routerLink]="['/mentor']" class="btn btn--theme btn--stretched">I Love to Mentor</a>
+        </div>
+    </div>
+</div> -->
+<app-footer></app-footer>

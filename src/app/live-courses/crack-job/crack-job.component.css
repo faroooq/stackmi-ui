@@ -1,0 +1,77 @@
+@media screen and (min-width: 0px) and (max-width: 767px) {
+    .card-margin {
+      margin-top: 105rem;
+    }
+   }
+
+   @media screen and (min-width: 768px) and (max-width: 1023px) {
+    .card-margin {
+      margin-top: 60rem;
+    }
+   }
+  
+   @media screen and (min-width: 1024px) {
+    .card-margin {
+      margin-top: 65rem;
+    }
+   }
+
+   .ul_list {
+    margin: 1.2rem; 
+    font-family: Verdana, Geneva, Tahoma, sans-serif; 
+    line-height: 3rem; 
+    font-size: 2rem; 
+    font-style: italic;
+   }
+
+   s, strike{text-decoration:none;position:relative;}
+s::before, strike::before {
+    top: 50%; /*tweak this to adjust the vertical position if it's off a bit due to your font family */
+    background:red; /*this is the color of the line*/
+    opacity:.7;
+    content: '';
+    width: 110%;
+    position: absolute;
+    height:.1em;
+    border-radius:.1em;
+    left: -5%;
+    white-space:nowrap;
+    display: block;
+    transform: rotate(-15deg);  
+}
+s.straight::before, strike.straight::before{transform: rotate(0deg);left:-1%;width:102%;}
+
+
+.recommended .recommended__header {
+  position: relative;
+  padding: 1rem 7%;
+}
+
+.recommended .recommended__header::before {
+  content: url(../../../assets/images/popular.svg);
+  width: 40px;
+  display: inline-block;
+  position: absolute;
+  top: -6px;
+  right: 5%;
+}
+
+.professionals .professionals__header {
+  position: relative;
+  padding: 1rem 7%;
+}
+
+.professionals .professionals__header::before {
+  content: url(../../../assets/images/professionals.svg);
+  width: 40px;
+  display: inline-block;
+  position: absolute;
+  top: -6px;
+  right: 5%;
+}
+
+li {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+   

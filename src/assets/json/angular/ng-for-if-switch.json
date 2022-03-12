@@ -1,0 +1,97 @@
+{
+    "_id": {
+        "$oid": "620112f565787a8c50f4f9a2"
+    },
+    "article_id": "4.1",
+    "article_slug": "ng-for-if-switch",
+    "article_title": "Angular - NgFor, NgIf & NgSwitch",
+    "article_image": "",
+    "article_seo_desc": "We use the NgFor directive to loop over an array of items and create multiple elements dynamically from a template element. With NgIf we can conditionally add or remove an element from the DOM. If we are faced with multiple conditions a cleaner alternative to multiple nested NgIf statements is the NgSwitch series of directives.",
+    "enroll_available": true,
+    "article_content": [
+        {
+            "content_title": "Directives",
+            "content_desc": "<div class=\"paragraph\">\n<p><strong>Directives are components&nbsp;<em>without</em>&nbsp;a&nbsp;view</strong>. They are components without a&nbsp;template. Or&nbsp;to put it another way, components are directives&nbsp;<em>with</em>&nbsp;a&nbsp;view.</p>\n</div>\n<div class=\"paragraph\">\n<p><em>Everything you can do with a directive you can also do with a component. But not everything you can do with a component you can do with a directive.</em></p>\n</div>\n<div class=\"paragraph\">\n<p>We typically&nbsp;<em>associate</em> directives to existing elements by use <em>attribute</em>&nbsp;selectors, like:</p>\n</div>",
+            "content_image": "",
+            "content_code": "<element aDirective></element>"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>We capitalise the&nbsp;name of&nbsp;directives when we are talking about the&nbsp;directive&nbsp;<em>class</em>. For&nbsp;example when we say&nbsp;<code>NgFor</code>&nbsp;we mean the&nbsp;class which defines the&nbsp;<code>NgFor</code>&nbsp;directive.</p>\n</div>\n<div class=\"paragraph\">\n<p>When we are talking about either an&nbsp;<em>instance</em>&nbsp;of&nbsp;a directive or&nbsp;the&nbsp;<em>attribute</em>&nbsp;we use to&nbsp;associate a&nbsp;directive to&nbsp;an element <em>we lowercase the&nbsp;first letter</em>. So&nbsp;<code>ngFor</code>&nbsp;refers to&nbsp;both the&nbsp;<em>instance</em>&nbsp;of&nbsp;a directive and&nbsp;the&nbsp;<em>attribute</em>&nbsp;name used to&nbsp;associate a&nbsp;directive with an&nbsp;element.</p>\n</div>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "NgFor",
+            "content_desc": "<div class=\"paragraph\">\n<p><code>NgFor</code>&nbsp;is a&nbsp;structural directive, meaning that it changes the&nbsp;structure of&nbsp;the&nbsp;<abbr>DOM</abbr>.</p>\n</div>\n<div class=\"paragraph\">\n<p>It repeat a given <abbr>HTML</abbr> template once for each value in an array, each time passing it the array value as context for string interpolation or binding.</p>\n</div>",
+            "content_image": "",
+            "content_code": "@Component({\n  selector: 'ngfor-example',\n  template: `\n <ul>\n  <li *ngFor=\"let person of people\"> \n    {{ person.name }}\n  </li>\n </ul>\n `\n})\nclass NgForExampleComponent {\n  people: any[] = [\n    {\n      \"name\": \"Douglas  Pace\"\n    },\n    {\n      \"name\": \"Mcleod  Mueller\"\n    },\n    {\n      \"name\": \"Day  Meyers\"\n    },\n    {\n      \"name\": \"Aguirre  Ellis\"\n    },\n    {\n      \"name\": \"Cook  Tyson\"\n    }\n  ];\n}"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>We loop over each <code>person</code> in the <code>people</code> array and print out the persons name.</p>\n<p>The&nbsp;syntax is&nbsp;<code>*ngFor=\"let &lt;value&gt; of &lt;collection&gt;\"</code></p>\n<div class=\"paragraph\">\n<p><em>&lt;value&gt;</em>&nbsp;is a&nbsp;variable name of&nbsp;your choosing,&nbsp;<em>&lt;collection&gt;</em> is a property on your component which holds a collection, usually an array but anything that can be iterated over in a&nbsp;<code>for-of</code> loop.</p>\n</div>\n",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Index",
+            "content_desc": "<div class=\"paragraph\">\n<p>Sometimes we also want to&nbsp;get the&nbsp;<em>index</em> of the item in the array we are iterating over.</p>\n</div>\n<div class=\"paragraph\">\n<p>We can do this by&nbsp;adding another variable to&nbsp;our&nbsp;<code>ngFor</code>&nbsp;expression and&nbsp;making it equal to&nbsp;<code>index</code>, like:</p>\n</div>",
+            "content_image": "",
+            "content_code": "<ul> (1)\n  <li *ngFor=\"let person of people; let i = index\"> (1)\n    {{ i + 1 }} - {{ person.name }} (2)\n  </li>\n</ul>"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<ul>\n<li>We create another variable called&nbsp;<code>i</code> and make it equal to the special keyword&nbsp;<code>index</code>.</li>\n<li>We can use the&nbsp;variable&nbsp;<code>i</code>&nbsp;just like we can use the&nbsp;variable&nbsp;<code>person</code> in our template.</li>\n</ul>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "NgIf",
+            "content_desc": "<div class=\"paragraph\">\n<p>The&nbsp;<code>NgIf</code>&nbsp;directive is used when you want to&nbsp;display or&nbsp;remove an&nbsp;element based on&nbsp;a condition.</p>\n</div>\n<div class=\"paragraph\">\n<p>If the&nbsp;condition is&nbsp;<code>false</code>&nbsp;the&nbsp;element the&nbsp;directive is&nbsp;<em>attached to</em>&nbsp;will be&nbsp;<em>removed</em>&nbsp;from the&nbsp;<abbr>DOM</abbr>.</p>\n<p><strong>Note:</strong> The difference between <code>[hidden]='false'</code>&nbsp;and&nbsp;<code>*ngIf='false'</code>&nbsp;is that the&nbsp;first method simply&nbsp;<em>hides</em>&nbsp;the&nbsp;element. The&nbsp;second method with&nbsp;<code>ngIf</code>&nbsp;<em>removes</em>&nbsp;the&nbsp;element completely from the&nbsp;<abbr>DOM</abbr>.</p>\n<div class=\"paragraph\">\n<p>We define the&nbsp;condition by&nbsp;passing an&nbsp;expression to&nbsp;the directive which is evaluated in&nbsp;the context of&nbsp;its host component.</p>\n</div>\n<div class=\"paragraph\">\n<p>The&nbsp;syntax is:&nbsp;<code>*ngIf=\"&lt;condition&gt;\"</code></p>\n</div>\n<div class=\"paragraph\">\n<p>Let&rsquo;s use this in&nbsp;an example, we&rsquo;ve taken the&nbsp;same code sample as&nbsp;we used for&nbsp;the&nbsp;<code>NgFor</code>&nbsp;lecture but changed it slightly. Each person now has an&nbsp;age as&nbsp;well as&nbsp;a name.</p>\n</div>\n<div class=\"paragraph\">\n<p>Let&rsquo;s add an&nbsp;<code>NgIf</code> directive to the template so we only show the element if the age is less than 30, like:</p>\n</div>\n</div>",
+            "content_image": "",
+            "content_code": "@Component({\n  selector: 'ngif-example',\n  template: `\n<h4>NgIf</h4>\n<ul *ngFor=\"let person of people\">\n  <li *ngIf=\"person.age < 30\"> (1)\n  {{ person.name }} ({{ person.age }})\n  </li>\n</ul>\n`\n})\nclass NgIfExampleComponent {\n\n  people: any[] = [\n    {\n      \"name\": \"Douglas  Pace\",\n      \"age\": 35\n    },\n    {\n      \"name\": \"Mcleod  Mueller\",\n      \"age\": 32\n    },\n    {\n      \"name\": \"Day  Meyers\",\n      \"age\": 21\n    },\n    {\n      \"name\": \"Aguirre  Ellis\",\n      \"age\": 34\n    },\n    {\n      \"name\": \"Cook  Tyson\",\n      \"age\": 32\n    }\n  ];\n}"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>We&nbsp;<em>can&rsquo;t</em>&nbsp;have two structural directives, directives starting with a&nbsp;*, attached to&nbsp;the&nbsp;<em>same</em>&nbsp;element.</p>\n</div>\n<div class=\"paragraph\">\n<p>The&nbsp;below code would&nbsp;<strong>not</strong>&nbsp;work:</p>\n</div>",
+            "content_image": "",
+            "content_code": "<ul *ngFor=\"let person of people\" *ngIf=\"person.age < 30\">\n  <li>{{ person.name }}</li>\n</ul>"
+        },
+        {
+            "content_title": "NgSwitch",
+            "content_desc": "<div class=\"paragraph\">\n<p>Let&rsquo;s imagine we wanted to print peoples names in different colours depending on <em>where</em>&nbsp;they are from. Green for&nbsp;UK, Blue for&nbsp;<abbr>USA</abbr>, Red for&nbsp;HK.</p>\n</div>\n<div class=\"paragraph\">\n<p>With Bootstrap we can change the&nbsp;text color by&nbsp;using the&nbsp;<code>text-danger</code>,&nbsp;<code>text-success</code>,&nbsp;<code>text-warning</code>&nbsp;and&nbsp;<code>text-primary</code>&nbsp;classes.</p>\n</div>\n<div class=\"paragraph\">\n<p>We&nbsp;<em>could</em> solve this by having a series of *ngIf statements, like:</p>\n</div>",
+            "content_image": "",
+            "content_code": "<ul *ngFor=\"let person of people\">\n  <li *ngIf=\"person.country ==='UK'\"\n      class=\"text-success\">{{ person.name }} ({{ person.country }})\n  </li>\n  <li *ngIf=\"person.country === 'USA'\"\n      class=\"text-primary\">{{ person.name }} ({{ person.country }})\n  </li>\n  <li *ngIf=\"person.country === 'HK'\"\n      class=\"text-danger\">{{ person.name }} ({{ person.country }})\n  </li>\n  <li *ngIf=\"person.country !== 'HK' && person.country !== 'UK' && person.country !== 'USA'\"\n      class=\"text-warning\">{{ person.name }} ({{ person.country }})\n  </li>\n</ul>"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>This initially seems to&nbsp;make sense until we try to&nbsp;create our&nbsp;<em>else</em> style element. We have to check to see if the person is not from any of the countries we have specified before. Resulting in a pretty long<code> ngIf</code>&nbsp;expression and&nbsp;it will only get worse the&nbsp;more countries we add.</p>\n</div>\n<div class=\"paragraph\">\n<p>Most languages, including JavaScript, have a language construct called a <code>switch</code> statement to solve this kind of problem. Angular also provides us with similar functionality via something called the&nbsp;<code>NgSwitch</code>&nbsp;directive.</p>\n</div>\n<div class=\"paragraph\">\n<p>This directive allows us to render different elements depending on a given condition, in fact the <code>NgSwitch</code> directive is actually a number of directives working in conjunction, like so:</p>\n</div>",
+            "content_image": "",
+            "content_code": "@Component({\n  selector: 'ngswitch-example',\n  template: `<h4>NgSwitch</h4>\n<ul *ngFor=\"let person of people\"\n    [ngSwitch]=\"person.country\"> (1)\n\n  <li *ngSwitchCase=\"'UK'\" (2)\n      class=\"text-success\">{{ person.name }} ({{ person.country }})\n  </li>\n  <li *ngSwitchCase=\"'USA'\"\n      class=\"text-primary\">{{ person.name }} ({{ person.country }})\n  </li>\n  <li *ngSwitchCase=\"'HK'\"\n      class=\"text-danger\">{{ person.name }} ({{ person.country }})\n  </li>\n  <li *ngSwitchDefault (3)\n      class=\"text-warning\">{{ person.name }} ({{ person.country }})\n  </li>\n</ul>`\n})\nclass NgSwitchExampleComponent {\n\n  people: any[] = [\n    {\n      \"name\": \"Douglas  Pace\",\n      \"age\": 35,\n      \"country\": 'MARS'\n    },\n    {\n      \"name\": \"Mcleod  Mueller\",\n      \"age\": 32,\n      \"country\": 'USA'\n    },\n    {\n      \"name\": \"Day  Meyers\",\n      \"age\": 21,\n      \"country\": 'HK'\n    },\n    {\n      \"name\": \"Aguirre  Ellis\",\n      \"age\": 34,\n      \"country\": 'UK'\n    },\n    {\n      \"name\": \"Cook  Tyson\",\n      \"age\": 32,\n      \"country\": 'USA'\n    }\n  ];\n}"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<ol class=\"arabic\">\n<li>\n<p>We bind an&nbsp;expression to&nbsp;the&nbsp;<code>ngSwitch</code>&nbsp;directive.</p>\n</li>\n<li>\n<p>The&nbsp;<code>ngSwitchCase</code> directive lets us define a condition which if it matches the expression in (1) will render the element it&rsquo;s attached to.</p>\n</li>\n<li>\n<p>If no conditions are met in the switch statement it will check to see if there is an ngSwitchDefault directive, if there is it will render the element that&rsquo;s attached to, however it is optional &mdash; if it&rsquo;s not present it simply won&rsquo;t display anything if no matching ngSwitchCase directive is found.</p>\n</li>\n</ol>\n<div class=\"paragraph\">\n<p>The&nbsp;key difference between the&nbsp;<code>ngIf</code>&nbsp;solution is that by&nbsp;using&nbsp;<code>NgSwitch</code> we evaluate the expression only once and then choose the element to display based on the result.</p>\n</div>\n<div class=\"paragraph\"><strong>Note:&nbsp;</strong>The&nbsp;use of&nbsp;<code>NgSwitch</code> here is just for example and isn&rsquo;t an efficient way of solving this problem. We would use either the<code> NgStyle</code>&nbsp;or&nbsp;<code>NgClass</code>&nbsp;directives which we&rsquo;ll cover in&nbsp;the next lecture.</div>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "",
+            "content_desc": "",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "",
+            "content_desc": "",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "",
+            "content_desc": "",
+            "content_image": "",
+            "content_code": ""
+        }
+    ]
+}

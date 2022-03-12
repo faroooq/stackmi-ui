@@ -1,0 +1,129 @@
+<app-navbar></app-navbar>
+<section data-aos="zoom-in-up">
+  <div class="text-secondary px-5 py-5">
+    <div class="py-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="col-lg-4 mx-auto">
+              <!-- <div class="col-12 mb-2">
+                <button
+                  class="btn col-12 google-btn mb-3"
+                  (click)="authService.GoogleAuth()"
+                  type="submit"
+                >
+                  <img
+                    src="../../assets/images/googleSignUp.png"
+                    alt="Login with Google"
+                    style="object-fit: cover; width: 55%"
+                  />
+                </button>
+                <label class="form-check-label label" for="policy">
+                  By Signing Up, you are agreeing to StackMi's
+                  <a [routerLink]="['/terms']">Terms of Use</a>
+                  <span>&nbsp;&&nbsp;</span>
+                  <a [routerLink]="['/policy']">Privacy Policy</a>
+                </label>
+              </div>
+              <div>
+                <p style="text-align: center">or</p>
+              </div> -->
+              <h3 class="text-grey mb-3" style="text-align: center">
+                Sign Up to StackMi
+              </h3>
+              <form class="row g-3" [formGroup]="signupForm" (ngSubmit)="onSubmit(signupForm.value)">
+                <div class="col-12">
+                  <label>Name
+                    <sup><span style="color: #dc3545; font-size: 1rem" class="fa fa-star checked"></span></sup>
+                  </label>
+                  <div class="input-group">
+                    <input type="text" class="input" id="user_name" placeholder="Enter your name"
+                      formControlName="user_name" />
+                  </div>
+                </div>
+                <div class="col-12">
+                  <label>Mobile Number
+                    <sup><span style="color: #dc3545; font-size: 1rem" class="fa fa-star checked"></span></sup>
+                  </label>
+                  <div class="input-group">
+                    <input type="number" class="input" id="mobile" placeholder="91 9000000000"
+                      formControlName="mobile" />
+                  </div>
+                </div>
+                <div class="col-12" style="margin-top: 0;">
+                  <p style="font-size: 1.4rem; padding-left: 0.4rem; margin-bottom: 0;">
+                    <span>Mobile with country code.
+                    </span>
+                  </p>
+                </div>
+                <div class="col-12">
+                  <label>Email ID
+                    <sup><span style="color: #dc3545; font-size: 1rem" class="fa fa-star checked"></span></sup>
+                  </label>
+                  <div class="input-group">
+                    <input type="email" class="input" id="inputEmail" placeholder="Enter your email"
+                      formControlName="email" />
+                  </div>
+                </div>
+                <div class="col-12" style="margin-top: 0;">
+                  <p style="font-size: 1.4rem; padding-left: 0.4rem">
+                    <span><strong>Note:</strong> You will receive an email for confirmation.
+                    </span>
+                  </p>
+                </div>
+                <div class="col-12">
+                  <label>Password
+                    <sup><span style="color: #dc3545; font-size: 1rem" class="fa fa-star checked"></span></sup>
+                  </label>
+                  <div class="input-group">
+                    <input type="password" class="input" id="password" placeholder="Password"
+                      formControlName="password" />
+                  </div>
+                </div>
+                <!-- <div class="col-12">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" [value]="student" id="student" checked
+                      formControlName="student">
+                    <label class="form-check-label" for="student">
+                      I am a student.
+                    </label>
+                  </div>
+                </div> -->
+                <div class="col-12" *ngIf="formSubmitted">
+                  <div *ngIf="errorMsg" class="alert alert-danger d-flex align-items-center" role="alert">
+                    <div>{{ errorMsg }}</div>
+                  </div>
+                  <div *ngIf="successMsg" class="alert alert-success d-flex align-items-center" role="alert">
+                    <div>{{ successMsg }}</div>
+                  </div>
+                  <div *ngIf="loading" class="text-center">
+                    <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
+                      <span class="visually-hidden">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <button [disabled]="!signupForm.valid" type="submit" class="btn btn--theme btn-lg col-12">
+                    Sign Up
+                  </button>
+                </div>
+              </form>
+              <div class="col-12" style="margin-left: 1rem">
+                <label class="form-check-label label" for="policy">
+                  By creating an account I have read and agree to StackMi's
+                  <a [routerLink]="['/terms']">Terms of Use</a>
+                  <span>&nbsp;&&nbsp;</span>
+                  <a [routerLink]="['/policy']">Privacy Policy</a>
+                </label>
+              </div>
+              <div class="col-12 mt-1" style="text-align: center">
+                <a class="signin" [routerLink]="['/login']">Already have an account? Click here</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- <app-social-buttons></app-social-buttons> -->

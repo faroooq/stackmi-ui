@@ -1,0 +1,114 @@
+<app-navbar></app-navbar>
+<section data-aos="zoom-in-up">
+  <div class="text-secondary px-5 py-5">
+    <div class="py-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="col-lg-4 mx-auto">
+              <h3 class="text-grey mb-3" style="text-align: center">
+                Update Profile
+              </h3>
+              <form class="row g-3" [formGroup]="profileForm" (ngSubmit)="onSubmit(profileForm.value)">
+                <div class="col-12">
+                  <label style="margin-left: 1rem">Name
+                    <sup><span style="color: #dc3545; font-size: 1rem" class="fa fa-star checked"></span></sup>
+                  </label>
+                  <div class="input-group">
+                    <input type="text" class="input" id="user_name" placeholder="Enter your full name"
+                      formControlName="user_name" />
+                  </div>
+                </div>
+                <div class="col-12">
+                  <label style="margin-left: 1rem">Email ID
+                    <sup><span style="color: #dc3545; font-size: 1rem" class="fa fa-star checked"></span></sup>
+                  </label>
+                  <div class="input-group">
+                    <input type="email" class="input" id="email" placeholder="Enter your Email"
+                      formControlName="email" />
+                  </div>
+                </div>
+                <div class="col-12" style="margin-top: 0;">
+                  <p style="font-size: 1.4rem; padding-left: 0.8rem">
+                    <span><strong>Note:</strong> Please <a routerLink="/contact">Contact Us</a> to update your email.
+                    </span>
+                  </p>
+                </div>
+                <div class="col-12">
+                  <label style="margin-left: 1rem">Mobile Number
+                    <sup><span style="color: #dc3545; font-size: 1rem" class="fa fa-star checked"></span></sup>
+                  </label>
+                  <div class="input-group">
+                    <input type="number" class="input" id="mobile" placeholder="91 9000000000"
+                      formControlName="mobile" />
+                  </div>
+                </div>
+                <div class="col-12" style="margin-top: 0;">
+                  <p style="font-size: 1.4rem; padding-left: 0.4rem; margin-bottom: 0;">
+                    <span>Mobile with country code.
+                    </span>
+                  </p>
+                </div>
+                <div class="col-12">
+                  <label style="margin-left: 1rem">Technical Skills
+                    <sup><span style="color: #dc3545; font-size: 1rem" class="fa fa-star checked"></span></sup>
+                  </label>
+                  <div class="input-group">
+                    <input type="text" class="input" id="skills" placeholder="Java, Python..."
+                      formControlName="skills" />
+                  </div>
+                </div>
+                <div class="col-12">
+                  <label style="margin-left: 1rem">Experience
+                    <sup><span style="color: #dc3545; font-size: 1rem" class="fa fa-star checked"></span></sup>
+                  </label>
+                  <div class="input-group">
+                    <input type="text" class="input" id="experience" placeholder="Student / Years of exp"
+                      formControlName="experience" />
+                  </div>
+                </div>
+                <div class="col-12">
+                  <label style="margin-left: 1rem">Profession
+                    <sup><span style="color: #dc3545; font-size: 1rem" class="fa fa-star checked"></span></sup>
+                  </label>
+                  <div class="input-group">
+                    <input type="text" class="input" id="profession" placeholder="Student / Software engineer"
+                      formControlName="profession" />
+                  </div>
+                </div>
+                <div class="col-12">
+                  <label style="margin-left: 1rem" class="mb-2">Add more skills to your Profile
+                    <sup><span style="color: #dc3545; font-size: 1rem" class="fa fa-star checked"></span></sup>
+                  </label>
+                  <div class="input-group">
+                    <textarea style="height: 8rem;" class="input" placeholder="We want to listen your accomplishments"
+                      id="profile_desc" rows="3" formControlName="profile_desc"></textarea>
+                  </div>
+                </div>
+                <div class="col-12" *ngIf="formSubmitted">
+                  <div *ngIf="errorMsg" class="alert alert-danger d-flex align-items-center" role="alert">
+                    <div>{{ errorMsg }}</div>
+                  </div>
+                  <div *ngIf="successMsg" class="alert alert-success d-flex align-items-center" role="alert">
+                    <div>{{ successMsg }}</div>
+                  </div>
+                  <div *ngIf="loading" class="text-center">
+                    <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
+                      <span class="visually-hidden">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12" style="margin-top: 0;">
+                  <button [disabled]="!profileForm.valid" type="submit" class="btn btn--theme btn-lg col-12">
+                    Update Profile
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- <app-social-buttons></app-social-buttons> -->

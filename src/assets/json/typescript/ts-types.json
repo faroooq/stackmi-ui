@@ -1,0 +1,180 @@
+{
+    "_id": {
+        "$oid": "61e02008063dc3d6690082bd"
+    },
+    "article_slug": "ts-types",
+    "article_title": "Typescript - Types",
+    "article_image": "",
+    "article_seo_desc": "TypeScripts transpilation mechanism also performs type checking, however it only works when we tell TypeScript the type of things.",
+    "enroll_available": true,
+    "article_content": [
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>Some of&nbsp;the most common mistakes we make while writing JavaScript code is to&nbsp;misspell a&nbsp;property or&nbsp;a method name.</p>\n</div>\n<div class=\"paragraph\">\n<p>We only find out about the&nbsp;mistake when we get a&nbsp;<em>runtime error</em>, that is to&nbsp;say when we are running our application.</p>\n<p><strong>Note:</strong> This is why testing is so important for JavaScript applications, only <em>running</em>&nbsp;them can surface errors.</p>\n<div class=\"paragraph\">\n<p>Other languages like C++ or&nbsp;Java have something called&nbsp;<em>type checking</em>, during a&nbsp;compilation phase it first checks for&nbsp;some simple mistakes in&nbsp;the code and&nbsp;raises an&nbsp;error if it finds any.</p>\n</div>\n<div class=\"paragraph\">\n<p>TypeScripts transpilation mechanism also performs&nbsp;<em>type checking</em>, however it only works when we tell TypeScript the&nbsp;<em>type</em>&nbsp;of&nbsp;things.</p>\n</div>\n<div class=\"paragraph\">\n<p>e.g. in&nbsp;JavaScript we might write:</p>\n</div>\n</div>",
+            "content_image": "",
+            "content_code": "let a;\na = 1;\na = '2';"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>We expected the&nbsp;type of&nbsp;the&nbsp;<code>a</code>&nbsp;variable to&nbsp;remain a&nbsp;number over its life. But by&nbsp;mistake we assigned a&nbsp;string&nbsp;<code>'2'</code>&nbsp;to&nbsp;<code>a</code>, this doesn&rsquo;t cause an&nbsp;error in&nbsp;JavaScript.</p>\n</div>\n<div class=\"paragraph\">\n<p>Only if one of&nbsp;the functions which depends on&nbsp;<code>a</code>&nbsp;starts misbehaving do we even get a&nbsp;clue that something might be wrong.</p>\n</div>\n<div class=\"paragraph\">\n<p>However with TypeScript we can clearly state that we want the&nbsp;<code>a</code>&nbsp;variable to&nbsp;always hold a&nbsp;number, like</p>\n</div>",
+            "content_image": "",
+            "content_code": "let a: number = 1;"
+        },
+        {
+            "content_title": "",
+            "content_desc": "Then if somewhere else in our code we wrote:",
+            "content_image": "",
+            "content_code": "a = \"1\";"
+        },
+        {
+            "content_title": "",
+            "content_desc": "We get this error:",
+            "content_image": "",
+            "content_code": "error TS2322: Type 'string' is not assignable to type 'number'."
+        },
+        {
+            "content_title": "",
+            "content_desc": "If we take advantage of types in TypeScript the transpiler will warn us with a transpile-time errors.",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Supported Types",
+            "content_desc": "",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Basic Types",
+            "content_desc": "We can support boolean, number and string.",
+            "content_image": "",
+            "content_code": "let decimal: number = 6;\nlet done: boolean = false;\nlet color: string = \"blue\";"
+        },
+        {
+            "content_title": "Arrays",
+            "content_desc": "We have two ways of describing the types of arrays.\n\nThe first is to use the brackets notation [], like:",
+            "content_image": "",
+            "content_code": "let list: number[] = [1, 2, 3];"
+        },
+        {
+            "content_title": "",
+            "content_desc": "The above indicates to TypeScript that this array should only hold numbers.\n\nThe second way uses a generic type specifically Array<Type>, like:",
+            "content_image": "",
+            "content_code": "let list: Array<number> = [1, 2, 3];"
+        },
+        {
+            "content_title": "Functions",
+            "content_desc": "We can describe a variable as one that will only point to a function, lik:",
+            "content_image": "",
+            "content_code": "let fun: Function = () => console.log(\"Hello\");"
+        },
+        {
+            "content_title": "",
+            "content_desc": "With TypeScript we can also define the expected return type of a function, like",
+            "content_image": "",
+            "content_code": "function returnNumber(): number {\n  return 1;\n}"
+        },
+        {
+            "content_title": "",
+            "content_desc": "The above lets TypeScript know that the function should only return a number.",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Enum",
+            "content_desc": "An Enum is a datatype consisting of a set of named values. The names are usually identifiers that behave as constants. Enums were introduced in ES6.",
+            "content_image": "",
+            "content_code": "enum Direction {\n    Up,\n    Down,\n    Left,\n    Right\n}\n\nlet go: Direction;\ngo = Direction.Up;"
+        },
+        {
+            "content_title": "Class & Interface",
+            "content_desc": "Classes and Interfaces, whether created by you or others, are also types of things. So we can use them where we would use any of the built-in types:",
+            "content_image": "",
+            "content_code": "class Person {};\nlet person: Person;\nlet people: Person[];"
+        },
+        {
+            "content_title": "Any",
+            "content_desc": "<div class=\"paragraph\">\n<p>If we don&rsquo;t know the&nbsp;type of&nbsp;something we can fall back to&nbsp;using&nbsp;<code>any</code>.</p>\n</div>\n<div class=\"paragraph\">\n<p>If used it doesn&rsquo;t provide any type checking but does make it clear that we intentionally&nbsp;<em>don&rsquo;t know</em>&nbsp;the&nbsp;type, rather than we forgot to&nbsp;add the&nbsp;type.</p>\n</div>\n",
+            "content_image": "",
+            "content_code": "let notsure: any = 1;\nnotsure = \"hello\"; // This is fine since we don't do type checking with any"
+        },
+        {
+            "content_title": "Void",
+            "content_desc": "void means no type, it’s typically used to indicate that a function will not return anything at all, like:",
+            "content_image": "",
+            "content_code": "function returnNothing(): void {\n  console.log(\"Moo\");\n}"
+        },
+        {
+            "content_title": "Type Assertion",
+            "content_desc": "Sometimes we end up in a situation where we know more than TypeScript about the type of something. In those situations we can use type assertions as a hint to the transpiler about the type of something, like:",
+            "content_image": "",
+            "content_code": "let value: any = \"Asim Hussain\";\nlet length: number = (<string>value).length;"
+        },
+        {
+            "content_title": "",
+            "content_desc": "(<string>value) lets TypeScript know that we believe the type of value to be string.",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Generics",
+            "content_desc": "<div class=\"paragraph\">\n<p>How can we create&nbsp;re-usable&nbsp;bits of&nbsp;code which can still take advantage of&nbsp;typescripts transpile-time type checking?</p>\n</div>\n<div class=\"paragraph\">\n<p>Take for&nbsp;instance this example:</p>\n</div>",
+            "content_image": "",
+            "content_code": "class Audio {}\nclass Video {}\nclass Link {}\nclass Text {}\n\nclass Post {\n    content: any;\n}"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>We have a&nbsp;class called Post which has a&nbsp;<code>content</code>&nbsp;property. The&nbsp;content might be an&nbsp;instance of&nbsp;Audio, Video, Link or&nbsp;Text classes.</p>\n</div>\n<div class=\"paragraph\">\n<p>We could ignore the&nbsp;type of&nbsp;content and&nbsp;just use&nbsp;<code>any</code>&nbsp;like the&nbsp;example above but this doesn&rsquo;t give us the&nbsp;benefit of&nbsp;type checking.</p>\n</div>\n<div class=\"paragraph\">\n<p>We can create seperate&nbsp;<code>AudioPost</code>,&nbsp;<code>VideoPost</code>,&nbsp;<code>LinkPost</code>&nbsp;and&nbsp;<code>TextPost</code> types, like:</p>\n</div>",
+            "content_image": "",
+            "content_code": "class AudioPost {\n    content: Audio;\n}\n\nclass VideoPost {\n    content: Video;\n}\n\nclass LinkPost {\n    content: Link;\n}\n\nclass TextPost {\n    content: Text;\n}"
+        },
+        {
+            "content_title": "",
+            "content_desc": "But apart from being verbose and time-consuming it assumes we know all the content types upfront. Maybe a consumer later on would like to create a VRPost type.\n\nWith generics we can dynamically generate a new type by passing into the Post type a type variable, like:",
+            "content_image": "",
+            "content_code": "class Audio {}\nclass Video {}\nclass Link {}\nclass Text {}\n\nclass Post<T> {\n    content: any;\n}"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p><code>&lt;T&gt;</code>&nbsp;above is the&nbsp;<em>generic</em>&nbsp;syntax and&nbsp;<code>T</code>&nbsp;is the&nbsp;<em>type variable</em>. We could name it anything but the&nbsp;convention if there is only one is to&nbsp;call it just&nbsp;<code>T</code>.</p>\n</div>\n<div class=\"paragraph\">\n<p>Then we can use&nbsp;<code>T</code> wherever we would use a&nbsp;type, like:</p>\n</div>\n",
+            "content_image": "",
+            "content_code": "class Post<T> {\n    content: T;\n}"
+        },
+        {
+            "content_title": "",
+            "content_desc": "Finally, when we want to create a specific type of Post we can declare it like:",
+            "content_image": "",
+            "content_code": "let videoPost: Post<Video>;"
+        },
+        {
+            "content_title": "Optional Types",
+            "content_desc": "By default we don’t have to add types when using TypeScript, we could just leave them out.",
+            "content_image": "",
+            "content_code": "let answer;\nanswer = 42;"
+        },
+        {
+            "content_title": "",
+            "content_desc": "TypeScript won’t perform any type checking for the above and assumes a type of any.",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p><strong>Note:</strong> This behaviour is controlled by the <code>noImplicitAny</code>&nbsp;flag in&nbsp;<code>tsconfig.json</code>. If set to&nbsp;<code>false</code>&nbsp;then TypeScript assumes&nbsp;<code>any</code>&nbsp;for&nbsp;missing types, of&nbsp;set to&nbsp;<code>true</code>&nbsp;then TypeScript throws an&nbsp;error if no type is present.<br /><br />Opinion is split as&nbsp;to whether to&nbsp;keep this to&nbsp;<code>true</code>&nbsp;or&nbsp;<code>false</code>, by&nbsp;default it&rsquo;s set to&nbsp;<code>false</code>&nbsp;which is more forgiving but then doesn&rsquo;t force developers to&nbsp;use types which is the&nbsp;point of&nbsp;TypeScript.</p>\n</div>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Type Inference",
+            "content_desc": "If a variable is declared and initialised on one line TypeScript will try to infer, guess, the type of a variable by how it’s declared, for example:",
+            "content_image": "",
+            "content_code": "let answer = 42;\nanswer = \"42\";"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>TypeScript inferred that the&nbsp;type of&nbsp;answer was number by&nbsp;the fact we initialised it with a&nbsp;number. When we later on&nbsp;try to&nbsp;assign a&nbsp;string to&nbsp;<code>answer</code>&nbsp;it throws an&nbsp;error.</p>",
+            "content_image": "",
+            "content_code": "error TS2322: Type 'string' is not assignable to type 'number'."
+        }
+    ]
+}

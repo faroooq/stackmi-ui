@@ -1,0 +1,131 @@
+<app-navbar></app-navbar>
+<section class="block block--skewed-up hero" style="background: #002E6B; padding-top: 5rem;">
+    <header class="block__header" style="margin: 0;">
+        <h2 style="font-weight: 300;">
+            <span style="color: #fff;">{{event?.event_name}}</span>
+        </h2>
+    </header>
+</section>
+<section data-aos="fade-up">
+    <div class="container grid grid--1x1" style="margin-top: 3rem">
+        <header class="block__header hero__content">
+            <hr />
+            <h3 style="font-size: 24px; text-align: left; padding-left: 7px; font-weight: 400;">
+                <strong>Trainer:</strong>&nbsp; {{
+                event?.event_host}}
+            </h3>
+            <hr />
+            <div class="row" style="text-align: left; padding: 1rem; font-size: 19px">
+                <div class="col-12 col-md-6">
+                    <div style="font-weight: 500; margin-top: 5px;">Start Date: {{ event?.start_date }}</div>
+                    <div style="font-weight: 500; margin-top: 5px;">End Date: &nbsp;&nbsp;{{ event?.end_date
+                        }}</div>
+                    <div style="font-weight: 500; margin-top: 5px;">Course Fee:
+                        <span class="badge badge--primary" style="padding: 1rem; font-size: 18px;">{{ event?.event_price
+                            }}</span>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div style="font-weight: 500; margin-top: 5px;">Timings: &nbsp;&nbsp;&nbsp; {{
+                        event?.event_start_time }}
+                    </div>
+                    <div style="font-weight: 500; margin-top: 5px;">Duration: &nbsp;&nbsp;&nbsp;{{
+                        event?.duration }}</div>
+                    <button (click)="selectedCourse(event.event_name)" style="width: 100%;" class="btn btn-danger"
+                        type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBackdrop"
+                        aria-controls="offcanvasWithBackdrop">Enroll
+                        Course</button>
+                    <app-course-enroll [notifier]="sendCourse"></app-course-enroll>
+                </div>
+            </div>
+            <hr />
+            <div *ngIf="event" style="margin-top: 2rem; padding: 1rem;">
+                <div style="font-size: 2.3rem; 
+        color: #1b0760;
+        font-family: Roboto,Arial,sans-serif;
+        line-height: 24px;
+        background: #eeecf9; 
+        font-weight: bold;
+        padding: 15px;
+        margin-bottom: 1rem;
+        text-align: left;">
+                    Course Curriculum:
+                </div>
+                <div style="text-align: left; font-size: 20px;" [innerHtml]="event?.description">
+                </div>
+            </div>
+        </header>
+    </div>
+</section>
+<section class="block block--dark block-showcase" style="margin-top: 3rem">
+    <header class="block__header">
+        <h2>How We Host Our Services?</h2>
+    </header>
+    <div class="container grid grid--1x2">
+        <picture data-aos="fade-right" class="block-showcase__image">
+            <img src="../../assets/images/classroom.png" alt="" />
+        </picture>
+        <ul class="list" data-aos="fade-up">
+            <li>
+                <div class="media">
+                    <div class="media__image">
+                        <svg class="icon icon--primary">
+                            <use href="../../assets/images/sprite.svg#snap"></use>
+                        </svg>
+                    </div>
+                    <div class="media__body">
+                        <h3 class="media__title">Live Classes By Experienced IT Professionals</h3>
+                        <p>All our trainers are industry experts, working IT professionals who have more than 10 years
+                            of
+                            experience.</p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="media">
+                    <div class="media__image">
+                        <svg class="icon icon--primary">
+                            <use href="../../assets/images/sprite.svg#growth"></use>
+                        </svg>
+                    </div>
+                    <div class="media__body">
+                        <h3 class="media__title">Designed Courses with Love and Passion</h3>
+                        <p>
+                            Beautiful graphics, slides, and animations help you stay focused,
+                            remember, and better understand the materials.
+                        </p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="media">
+                    <div class="media__image">
+                        <svg class="icon icon--primary">
+                            <use href="../../assets/images/sprite.svg#computer"></use>
+                        </svg>
+                    </div>
+                    <div class="media__body">
+                        <h3 class="media__title">Effective Students Interaction</h3>
+                        <p>
+                            We interact with students while ongoing sessions asking questions
+                            and quiz to make sure stay focussed and well understanding.
+                        </p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</section>
+<div class="container">
+    <div class="callout callout--primary callout-signup">
+        <div class="grid grid--1x2">
+            <div class="callout__content">
+                <p class="callout__heading mt-2">
+                    Mentor students to help them unlock their true potential.
+                </p>
+            </div>
+            <a [routerLink]="['/mentor']" class="btn btn--theme btn--stretched">I Love to Mentor</a>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

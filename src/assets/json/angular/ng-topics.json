@@ -1,0 +1,310 @@
+{
+    "_id": {
+        "$oid": "61e6d2c7629474e18058aa3c"
+    },
+    "course_title": "Angular Tutorial",
+    "course_slug": "ng-intro",
+    "course_list": [
+        {
+            "topic_list_id": "1",
+            "topic_title": "Angular Basics",
+            "topic_list": [
+                {
+                    "topic_id": "1",
+                    "topic_slug": "ng-intro",
+                    "topic_name": "Introduction to Angular"
+                },
+                {
+                    "topic_id": "2",
+                    "topic_slug": "ng-overview",
+                    "topic_name": "Angular Overview"
+                },
+                {
+                    "topic_id": "3",
+                    "topic_slug": "ng-cli-commands",
+                    "topic_name": "Angular CLI Commands"
+                },
+                {
+                    "topic_id": "4",
+                    "topic_slug": "ng-first-app",
+                    "topic_name": "First Angular App"
+                },
+                {
+                    "topic_id": "5",
+                    "topic_slug": "ng-string-interpolation",
+                    "topic_name": "String Interpolation"
+                },
+                {
+                    "topic_id": "6",
+                    "topic_slug": "ng-install-bootstrap",
+                    "topic_name": "Install Bootstrap in project"
+                },
+                {
+                    "topic_id": "7",
+                    "topic_slug": "ng-looping",
+                    "topic_name": "Angular Looping"
+                },
+                {
+                    "topic_id": "8",
+                    "topic_slug": "ng-property-event-binding",
+                    "topic_name": "Property and Event Binding"
+                },
+                {
+                    "topic_id": "9",
+                    "topic_slug": "ng-components-inputs",
+                    "topic_name": "Angular Components and Inputs"
+                },
+                {
+                    "topic_id": "10",
+                    "topic_slug": "ng-css-styling",
+                    "topic_name": "Styling Cards using CSS"
+                },
+                {
+                    "topic_id": "11",
+                    "topic_slug": "ng-outputs",
+                    "topic_name": "User Interaction and Outputs"
+                }
+            ]
+        },
+        {
+            "topic_list_id": "2",
+            "topic_title": "Angular Components",
+            "topic_list": [
+                {
+                    "topic_id": "1",
+                    "topic_slug": "ng-architect-components",
+                    "topic_name": "Architecting with Components"
+                },
+                {
+                    "topic_id": "2",
+                    "topic_slug": "ng-styles-encapsulation",
+                    "topic_name": "View Encapsulation"
+                },
+                {
+                    "topic_id": "3",
+                    "topic_slug": "ng-lifecycle-hooks",
+                    "topic_name": "Lifecycle Hooks"
+                },
+                {
+                    "topic_id": "4",
+                    "topic_slug": "ng-view-child-children",
+                    "topic_name": "ViewChild and ViewChildren"
+                },
+                {
+                    "topic_id": "5",
+                    "topic_slug": "ng-content-projection",
+                    "topic_name": "Content Projection"
+                },
+                {
+                    "topic_id": "6",
+                    "topic_slug": "ng-content-child-children",
+                    "topic_name": "ContentChild and ContentChildren"
+                }
+            ]
+        },
+        {
+            "topic_list_id": "3",
+            "topic_title": "Angular Routing",
+            "topic_list": [
+                {
+                    "topic_id": "1",
+                    "topic_slug": "ng-route-configuration",
+                    "topic_name": "Route Configuration"
+                },
+                {
+                    "topic_id": "2",
+                    "topic_slug": "ng-route-navigation",
+                    "topic_name": "Route Navigation"
+                },
+                {
+                    "topic_id": "3",
+                    "topic_slug": "ng-parameterised-routes",
+                    "topic_name": "Parameterised and Activated Routes"
+                },
+                {
+                    "topic_id": "4",
+                    "topic_slug": "ng-nested-routes",
+                    "topic_name": "Nested Routes"
+                },
+                {
+                    "topic_id": "5",
+                    "topic_slug": "ng-router-guards",
+                    "topic_name": "Router Guards"
+                },
+                {
+                    "topic_id": "6",
+                    "topic_slug": "ng-routing-strategies",
+                    "topic_name": "Routing Strategies"
+                }
+            ]
+        },
+        {
+            "topic_list_id": "4",
+            "topic_title": "Angular Directives",
+            "topic_list": [
+                {
+                    "topic_id": "1",
+                    "topic_slug": "ng-for-if-switch",
+                    "topic_name": "NgFor, NgIf & NgSwitch"
+                },
+                {
+                    "topic_id": "2",
+                    "topic_slug": "ng-ngstyle-ngclass",
+                    "topic_name": "NgStyle & NgClass"
+                },
+                {
+                    "topic_id": "3",
+                    "topic_slug": "ng-custom-directive",
+                    "topic_name": "Creating a Custom Directive"
+                },
+                {
+                    "topic_id": "4",
+                    "topic_slug": "ng-hostlistener-hostbinding",
+                    "topic_name": "HostListener & HostBinding"
+                }
+            ]
+        },
+        {
+            "topic_list_id": "5",
+            "topic_title": "Angular & RxJS",
+            "topic_list": [
+                {
+                    "topic_id": "1",
+                    "topic_slug": "ng-streams-reactive-programming",
+                    "topic_name": "Streams & Reactive Programming"
+                },
+                {
+                    "topic_id": "2",
+                    "topic_slug": "ng-observables-rxjs",
+                    "topic_name": "Observables & RxJS"
+                },
+                {
+                    "topic_id": "3",
+                    "topic_slug": "ng-rxjs-angular",
+                    "topic_name": "RxJS & Angular"
+                }
+            ]
+        },
+        {
+            "topic_list_id": "6",
+            "topic_title": "Angular Pipes",
+            "topic_list": [
+                {
+                    "topic_id": "1",
+                    "topic_slug": "ng-built-in-pipes",
+                    "topic_name": "Built-In Pipes"
+                },
+                {
+                    "topic_id": "2",
+                    "topic_slug": "ng-async-pipes",
+                    "topic_name": "Async Pipe"
+                },
+                {
+                    "topic_id": "3",
+                    "topic_slug": "ng-custom-pipes",
+                    "topic_name": "Custom Pipes"
+                }
+            ]
+        },
+        {
+            "topic_list_id": "7",
+            "topic_title": "Angular Forms",
+            "topic_list": [
+                {
+                    "topic_id": "1",
+                    "topic_slug": "ng-model-driven-forms",
+                    "topic_name": "Model-Driven Forms"
+                },
+                {
+                    "topic_id": "2",
+                    "topic_slug": "ng-model-driven-form-validation",
+                    "topic_name": "Model-Driven Form Validation"
+                },
+                {
+                    "topic_id": "3",
+                    "topic_slug": "ng-reactive-model-form",
+                    "topic_name": "Reactive Model Form"
+                },
+                {
+                    "topic_id": "4",
+                    "topic_slug": "ng-template-driven-form",
+                    "topic_name": "Template-Driven Form"
+                }
+            ]
+        },
+        {
+            "topic_list_id": "8",
+            "topic_title": "Angular HTTP",
+            "topic_list": [
+                {
+                    "topic_id": "1",
+                    "topic_slug": "ng-core-http-api",
+                    "topic_name": "Core HTTP API"
+                },
+                {
+                    "topic_id": "2",
+                    "topic_slug": "ng-http-promises",
+                    "topic_name": "HTTP with Promises"
+                },
+                {
+                    "topic_id": "3",
+                    "topic_slug": "ng-http-observables",
+                    "topic_name": "HTTP Observables"
+                },
+                {
+                    "topic_id": "4",
+                    "topic_slug": "ng-http-rxjs-maps",
+                    "topic_name": "HTTP RxJs Map Operators"
+                }
+            ]
+        },
+        {
+            "topic_list_id": "9",
+            "topic_title": "Angular Providers",
+            "topic_list": [
+                {
+                    "topic_id": "1",
+                    "topic_slug": "ng-di-overview",
+                    "topic_name": "Angular and Dependency Injection"
+                },
+                {
+                    "topic_id": "2",
+                    "topic_slug": "ng-injectors",
+                    "topic_name": "Angular Injectors"
+                },
+                {
+                    "topic_id": "3",
+                    "topic_slug": "ng-providers",
+                    "topic_name": "Angular Providers"
+                },
+                {
+                    "topic_id": "4",
+                    "topic_slug": "ng-tokens",
+                    "topic_name": "Angular Tokens"
+                },
+                {
+                    "topic_id": "5",
+                    "topic_slug": "ng-config-di-in-angular",
+                    "topic_name": "Configuring Dependency Injection in Angular"
+                },
+                {
+                    "topic_id": "6",
+                    "topic_slug": "ng-working-with-providers",
+                    "topic_name": "Working with Providers"
+                }
+            ]
+        },
+        {
+            "topic_title": "Angular Programs",
+            "topic_list": []
+        },
+        {
+            "topic_title": "Interview Questions",
+            "topic_list": []
+        },
+        {
+            "topic_title": "Angular Skill Test",
+            "topic_list": []
+        }
+    ]
+}

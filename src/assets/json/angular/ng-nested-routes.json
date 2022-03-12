@@ -1,0 +1,61 @@
+{
+    "_id": {
+        "$oid": "61fbc32965787a8c50f4f97d"
+    },
+    "article_id": "1.1",
+    "article_slug": "ng-nested-routes",
+    "article_title": "Angular - Nested Routes",
+    "article_image": "",
+    "article_seo_desc": "Nested routes are routes within other routes. In this tutorial, we will show you how to create a child route and display the child components. The Angular allows us to nest child routes under another child routes effectively creating a Tree of routes.",
+    "enroll_available": true,
+    "article_content": [
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>Download the complete project from github: <a href=\"https://github.com/faroooq/shopping-cart\" target=\"_blank\">https://github.com/faroooq/shopping-cart</a></p>\n<hr/>\n</div>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>In the previous lesson we have created <code>ModelComponent</code>. Now we are going to use this ModelComponent to have nested-routes configured for our Gadgets link. Now when user clicks on <code>/gadgets</code> we will navigate to our <code>ModelComponent</code> via child routes configured in our <code>app.routing.module.ts</code>&nbsp;like:</p>\n<p>&nbsp;</p>\n</div>",
+            "content_image": "",
+            "content_code": "// app.routing.module.ts file\nconst routes: Routes = [\n  {\n    path: 'home', component: HomeComponent\n  },\n  {\n    path: 'gadgets', component: ModelComponent,\n    children: [\n      // We have added the below redirect just to have one default tab enabled.\n      {\n        path: \"\", redirectTo: \"mobiles\", pathMatch: \"full\"\n      },\n      {\n        path: 'mobiles', component: ItemListComponent\n      },\n      {\n        path: 'tablets', component: ItemListComponent\n      },\n      {\n        path: 'laptops', component: ItemListComponent\n      }\n    ]\n  },\n  {\n    path: 'check-out', component: CheckOutComponent\n  },\n  {\n    path: '**', component: ErrorComponent\n  }\n];"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>If you observe the above routes, we have added one more property <code>children:[{}]</code> for our gadgets path, where it accepts array of objects. In children property we need to configure path and respective component information again.</p>\n<p>Now gadgets object act as a parent and children array act as child.</p>\n<p>When ever angular finds the <code>children</code>, when user navigates to <code>/mobiles</code> it will append the parent path along with the child path like: <code>/gadgets/mobiles</code> and it will navigate to respective configured component. Here it is <code>ItemListComponent</code></p>\n</div>\n<p>In the ModelComponent we have added the <code>nav-pills</code> class from bootstrap to implement the tabs functionality for our child routes (mobiles, tablets, laptops) like:</p>\n<p>&nbsp;</p>",
+            "content_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Screenshot%202022-02-03%20at%209.54.35%20PM.png",
+            "content_code": "<!-- model.component.html  \n-->\n<div class=\"container mt-5\">\n    <ul class=\"nav nav-pills\">\n        <li class=\"nav-item\">\n            <a class=\"nav-link\" [routerLinkActive]=\"['active']\" [routerLink]=\"['mobiles']\">Mobiles</a>\n        </li>\n        <li class=\"nav-item\">\n            <a class=\"nav-link\" [routerLinkActive]=\"['active']\" [routerLink]=\"['tablets']\">Tablets</a>\n        </li>\n        <li class=\"nav-item\">\n            <a [routerLinkActive]=\"['active']\" [routerLink]=\"['laptops']\" class=\"nav-link\">Laptops</a>\n        </li>\n    </ul>\n</div>\n<router-outlet></router-outlet>"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>If you observe the above code, we have added the <code>&lt;router-outlet&gt;</code> as well. This is <em>important</em> and we need to do this to tell Angular where we want the <code>ItemListComponent</code> component to be injected into the page, we do that by adding another <code>&lt;router-outlet&gt;</code> directive in our <code>ModelComponent</code> template like above.</p>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>Now in ItemListComponent.ts file we need to capture the url when user clicks on any of our child tabs (mobiles, tablets, laptops).&nbsp;</p>\n<p>For this we will add <code>ActivatedRoute</code> to our <code>ItemListComponent</code> as a dependency in our constructor and using this reference we subscribe to the <strong>url</strong> variable to get the current route information.</p>",
+            "content_image": "",
+            "content_code": "// item-list.component.ts\n  \n  constructor(router: Router, public activatedRoute: ActivatedRoute) { }\n\n  ngOnInit() {\n    this.activatedRoute.url.subscribe(url => {\n      // console.log(url[0].path)\n      if (url[0].path === 'mobiles') {\n        this.itemList = [\n          {\n            name: \"IPhone\",\n            price: \"INR 56,000/-\",\n            description: \"Lorem ipsum dolor sit amet consectetur adipisicing elit...\",\n            image: \"../../assets/images/phone.jpeg\"\n          },\n          {\n            name: \"Samsung\",\n            price: \"INR 88,000/-\",\n            description: \"Lorem ipsum dolor sit amet consectetur adipisicing elit...\",\n            image: \"../../assets/images/samsung.jpeg\"\n          },\n          {\n            name: \"OnePlus\",\n            price: \"INR 59,000/-\",\n            description: \"Lorem ipsum dolor sit amet consectetur adipisicing elit...\",\n            image: \"../../assets/images/oneplus.jpeg\"\n          }\n        ]\n      } else if (url[0].path === 'tablets') {\n        this.itemList = [\n          {\n            name: \"Ipad\",\n            price: \"INR 88,000/-\",\n            description: \"Lorem ipsum dolor sit amet consectetur adipisicing elit...\",\n            image: \"../../assets/images/ipad.jpeg\"\n          },\n          {\n            name: \"Samsung Tab\",\n            price: \"INR 68,000/-\",\n            description: \"Lorem ipsum dolor sit amet consectetur adipisicing elit...\",\n            image: \"../../assets/images/samsung-tab.jpeg\"\n          }\n        ]\n      }\n    })\n  }"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p><strong>Note:&nbsp;</strong>You can add the <em>ipad.jpeg</em> and <em>samsung-tab.jpeg</em> images to the <code>assets/images</code> folder after downloading.</p>\n<p>Now when user clicks on <strong>Mobiles</strong> tab we get the url path as <strong>mobiles</strong> and we can add some condition checks and make an api call to get the mobiles information. For now we just hardcoded the object.</p>\n<p><strong>Note:</strong> We implemented <strong>mobiles</strong> as a default route because we need to show something when user navigates to <code>/gadgets</code> parent url. For this we used redirection mechanism <code>redirectTo: \"mobiles\"</code> in our <code>app.routing.module.ts</code> file (refer above)</p>\n<p>When user clicks on <strong>Tablets</strong>&nbsp;tab we get the url path as <strong>tablets</strong> in our <code>ItemListComponent</code> and based on condition check we can make an api call to get the tablets information.</p>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Shopping Cart Architecture",
+            "content_desc": "<div class=\"paragraph\">\n<p>As our project is growing big, So let's understand our project architecture from the below picture.</p>\n</div>",
+            "content_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Screenshot%202022-02-03%20at%207.59.34%20PM.png",
+            "content_code": ""
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>Here is the result what we get after implementation</p>",
+            "content_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Screenshot%202022-02-03%20at%2010.06.25%20PM.png",
+            "content_code": ""
+        }
+    ]
+}

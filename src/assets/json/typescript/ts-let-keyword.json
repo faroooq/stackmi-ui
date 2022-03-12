@@ -1,0 +1,123 @@
+{
+    "article_slug": "ts-let-keyword",
+    "article_title": "Typescript Let Keyword",
+    "article_image": "",
+    "article_seo_desc": "Scope refers to the lifecycle of a variable, i.e. where in the code it’s visible and for how long.",
+    "enroll_available": true,
+    "article_content": [
+        {
+            "content_title": "Variable Scope confusion",
+            "content_desc": "<p>A&nbsp;confusing point for&nbsp;developers coming from different languages is the&nbsp;way variable&nbsp;<a href=\"https://en.wikipedia.org/wiki/Scope_(computer_science)\">scope</a>&nbsp;behaves in&nbsp;JavaScript.</p>\n<table style=\"width: 100%; border-collapse: collapse;\" border=\"1\" cellspacing=\"10\" cellpadding=\"10\">\n<tbody>\n<tr>\n<td style=\"width: 100%;\"><em><strong>Note</strong>: Scope</em>&nbsp;refers to&nbsp;the lifecycle of&nbsp;a variable, i.e. where in&nbsp;the code it&rsquo;s visible and&nbsp;for how long.</td>\n</tr>\n</tbody>\n</table>\n<br/><p>In Java and some other languages there is the concept of block scope, a block is any code that is wrapped in { and }, like:</p>",
+            "content_image": "",
+            "content_code": "{\n    // This is a block\n}\n// This is not part of a block"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>This means that in&nbsp;those languages if you declare a&nbsp;variable inside a&nbsp;block, it&rsquo;s only visible inside that block and&nbsp;any nested blocks inside that block.</p>\n</div>\n<div class=\"paragraph\">\n<p>But in&nbsp;ES5 JavaScript we only have two scopes, the&nbsp;<em>global scope</em>&nbsp;and&nbsp;<em>function scope</em>.</p>\n</div>\n<div class=\"paragraph\">\n<p>So if I&nbsp;wrote:</p>\n</div>",
+            "content_image": "",
+            "content_code": "{\n  var a = \"block\";\n}\nconsole.log(a);"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<div class=\"paragraph\">\n<p>Those coming from Java or&nbsp;C++ backgrounds might think that this would throw an&nbsp;error because we are trying to&nbsp;use the&nbsp;variable&nbsp;<code>a</code>&nbsp;outside of&nbsp;the block it was created in. But in&nbsp;JavaScript it doesn&rsquo;t, this code is perfectly legal.</p>\n</div>\n<div class=\"paragraph\">\n<p>The&nbsp;variable&nbsp;<code>a</code>, as&nbsp;we&rsquo;ve declared it above, exists in&nbsp;<em>global scope</em>&nbsp;so this means it&rsquo;s visible from&nbsp;<em>everywhere</em>&nbsp;in&nbsp;our application.</p>\n</div>\n<div class=\"paragraph\">\n<p>In&nbsp;ES5 apart from global scope, the&nbsp;only other scope is&nbsp;<em>function scope</em>, so if we wrote.</p>\n</div>\n</div>",
+            "content_image": "",
+            "content_code": "function hello() {\n    var a = \"function\";\n}\nhello();\nconsole.log(a);"
+        },
+        {
+            "content_title": "",
+            "content_desc": "If we ran the above we would get an error, like: \n\nUncaught ReferenceError: a is not defined(…)",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>This is because the&nbsp;<code>a</code>&nbsp;variable is declared&nbsp;<em>inside</em>&nbsp;a&nbsp;function and&nbsp;is therefore only visible inside&nbsp;<em>that</em>&nbsp;function, trying to&nbsp;access it outside the&nbsp;function results in&nbsp;an error.</p>\n</div>\n<div class=\"paragraph\">\n<p>But again this isn&rsquo;t&nbsp;<em>block level scope</em>&nbsp;as&nbsp;we can see if we add a&nbsp;<em>for&nbsp;loop</em>&nbsp;inside the&nbsp;function, like:</p>\n</div>",
+            "content_image": "",
+            "content_code": "function hello() {\n    var a = \"function\";\n    for (var i = 0; i < 10; i++) {\n        var a = \"block\";\n    }\n    console.log(a);\n}\nhello();"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<div class=\"paragraph\">\n<p>What gets printed out here is&nbsp;<code>block</code>&nbsp;not&nbsp;<code>function</code>&nbsp;despite the&nbsp;fact we are outside the&nbsp;for loop, that&rsquo;s because the&nbsp;body of&nbsp;the for&nbsp;loop is not its own scope.</p>\n</div>\n<div class=\"sect2\">",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Immediately Invoked Function Expression (IIFE)",
+            "content_desc": "<div class=\"paragraph\">\n<p>This issue of&nbsp;<em>no block level scope</em>&nbsp;has plagued JavaScript developers since its inception.</p>\n</div>\n<div class=\"paragraph\">\n<p>One common workaround in&nbsp;the past has been to&nbsp;use something called an&nbsp;Immediately Invoked Function Expression (<abbr>IIFE</abbr>) like:</p>\n</div>",
+            "content_image": "",
+            "content_code": "function hello() {\n    var a = \"function\";\n\n    for (var i=0; i<5; i++) {\n        (function() {\n            var a = \"block\";\n        })();\n    }\n    console.log(a);\n}\nhello();"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>This now prints out&nbsp;<code>function</code>.</p>\n<p>If this syntax looks a&nbsp;bit strange to&nbsp;you:</p>\n</div>",
+            "content_image": "",
+            "content_code": "(function() {\n    var a = \"block\";\n})();"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>Know it&rsquo;s just a&nbsp;shorter way of&nbsp;writing:</p>\n</div>",
+            "content_image": "",
+            "content_code": "function something() {\n  var a = \"block\";\n}\nsomething();"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>It&rsquo;s a&nbsp;function that we call&nbsp;<em>immediately</em>&nbsp;after defining it.</p>\n</div>\n<div class=\"paragraph\">\n<p>Since functions have their own scope, using an&nbsp;<abbr>IIFE</abbr>&nbsp;has the&nbsp;same effect as&nbsp;if we had block level scope, the&nbsp;variable&nbsp;<code>a</code>&nbsp;inside the&nbsp;<abbr>IIFE</abbr>&nbsp;isn&rsquo;t visible&nbsp;<em>outside</em>&nbsp;the&nbsp;<abbr>IIFE</abbr>.</p>\n</div>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Understand Let Keyword",
+            "content_desc": "<div class=\"paragraph\">\n<p><abbr>IIFE</abbr>s work but it&rsquo;s a&nbsp;pretty long winded way of&nbsp;solving this problem. So with ES6 we now have the&nbsp;new&nbsp;<code>let</code>&nbsp;keyword, we use it in&nbsp;place of&nbsp;the&nbsp;<code>var</code>&nbsp;keyword and&nbsp;it creates a&nbsp;variable&nbsp;<strong>with</strong>&nbsp;block level scope, like:</p>\n</div>",
+            "content_image": "",
+            "content_code": "function hello() {\n    var a = \"function\";\n    for (var i = 0; i < 5; i++) {\n        let a = \"block\";\n    }\n    console.log(a);\n}\nhello();"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>Now the&nbsp;<code>a</code>&nbsp;declared in&nbsp;the for&nbsp;loop body only exists between the&nbsp;<code>{</code>&nbsp;and&nbsp;<code>}</code>, and&nbsp;the code snippet above prints out&nbsp;<code>function</code>&nbsp;as&nbsp;expected.</p>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Using let in for Loops",
+            "content_desc": "<p>So a&nbsp;classic interview question to&nbsp;test JavaScript developers knowledge of&nbsp;the lack of&nbsp;block level scope is this one:</p>",
+            "content_image": "",
+            "content_code": "var funcs = [];\nfor (var i = 0; i < 5; i += 1) {\n    var y = i;\n    funcs.push(function () {\n        console.log(y);\n    })\n}\nfuncs.forEach(function (func) {\n    func()\n});"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>What gets printed out?</p>\n</div>\n<div class=\"paragraph\">\n<p>You might expect</p>\n</div>",
+            "content_image": "",
+            "content_code": "0\n1\n2\n3\n4"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>But in&nbsp;fact it&rsquo;s</p>",
+            "content_image": "",
+            "content_code": "4\n4\n4\n4\n4"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>The&nbsp;reason for&nbsp;this is that the&nbsp;variable&nbsp;<code>y</code>&nbsp;is not&nbsp;<em>block level</em>, it doesn&rsquo;t&nbsp;<em>only</em>&nbsp;exist inside its enclosing&nbsp;<code>{}</code>&nbsp;In&nbsp;fact it&rsquo;s a&nbsp;global variable and&nbsp;by the&nbsp;time any of&nbsp;the functions are called it&rsquo;s already been set to&nbsp;4.</p>\n</div>\n<div class=\"paragraph\">\n<p>In&nbsp;the above example if we replace&nbsp;<code>var y = i</code>&nbsp;with&nbsp;<code>let y = i</code>&nbsp;then the&nbsp;variable&nbsp;<code>y</code>&nbsp;only exists inside it&rsquo;s block, like:</p>\n</div>",
+            "content_image": "",
+            "content_code": "var funcs = [];\nfor (var i = 0; i < 5; i += 1) {\n    let y = i;\n    funcs.push(function () {\n        console.log(y);\n    })\n}\nfuncs.forEach(function (func) {\n    func()\n});"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>And&nbsp;so executing this now results in:</p>",
+            "content_image": "",
+            "content_code": "0\n1\n2\n3\n4"
+        },
+        {
+            "content_title": "The for Loop Shortcut",
+            "content_desc": "The above construct is so common we have a shortcut, we can declare the index variable i with let in the for loop expression, like:",
+            "content_image": "",
+            "content_code": "var funcs = [];\nfor (let i = 0; i < 5; i += 1) {\n    funcs.push(function () {\n        console.log(i);\n    })\n}\nfuncs.forEach(function (func) {\n    func()\n});"
+        },
+        {
+            "content_title": "",
+            "content_desc": "Even though let i = 0 is strictly declared outside of the for block { }, any variables declared in the for loop expression with let has block level scope in the for loop.\n\n\n",
+            "content_image": "",
+            "content_code": ""
+        }
+    ]
+}

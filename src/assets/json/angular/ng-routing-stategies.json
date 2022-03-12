@@ -1,0 +1,61 @@
+{
+    "_id": {
+        "$oid": "6200db5465787a8c50f4f999"
+    },
+    "article_id": "3.6",
+    "article_slug": "ng-routing-strategies",
+    "article_title": "Angular - Routing Strategies",
+    "article_image": "",
+    "article_seo_desc": "With client-side SPAs we have two strategies we can use to implement client-side routing, one is called the HashLocationStrategy and the other is called the PathLocationStrategy.",
+    "enroll_available": true,
+    "article_content": [
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>With client-side&nbsp;<abbr>SPA</abbr>s we have two strategies we can use to&nbsp;implement client-side routing, one is called the&nbsp;<code>HashLocationStrategy</code>&nbsp;and&nbsp;the other is called the&nbsp;<code>PathLocationStrategy</code>.</p>\n</div>\n<div class=\"paragraph\">\n<p>The&nbsp;default in&nbsp;Angular is the&nbsp;<code>PathLocationStrategy</code>, if we do nothing that is the&nbsp;strategy Angular will employ.</p>\n</div>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "HashLocationStrategy",
+            "content_desc": "<p>To&nbsp;enable&nbsp;<code>HashLocationStrategy</code>&nbsp;in&nbsp;an Angular application we pass&nbsp;<code>{useHash: true}</code>&nbsp;when we are providing our routes with&nbsp;<code>RouterModule</code>, like:</p>",
+            "content_image": "",
+            "content_code": "RouterModule.forRoot(routes, {useHash: true})"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p><abbr>URL</abbr>&nbsp;can contain some data prepended with a&nbsp;<code>#</code>&nbsp;character.</p>\n</div>\n<div class=\"paragraph\">\n<p>The&nbsp;<code>#</code>&nbsp;part of&nbsp;the&nbsp;<abbr>URL</abbr>&nbsp;is called the&nbsp;<em>hash fragment</em>.</p>\n</div>\n<div class=\"paragraph\">\n<p>It&rsquo;s normally used so that people can link to a particular section in a&nbsp; H<abbr>TML</abbr>&nbsp;page, specifically anchor tags, for&nbsp;example if there is an&nbsp;anchor tag with an&nbsp;name attribute of&nbsp;<code>routing-strategies</code> like:</p>\n</div>",
+            "content_image": "",
+            "content_code": "<a name=\"routing-strategies\"></a>"
+        },
+        {
+            "content_title": "",
+            "content_desc": "Then if you created a bookmark of",
+            "content_image": "",
+            "content_code": "http://somedomain.com/page#routing-strategies"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>The&nbsp;browser would open&nbsp;<code>somedomain.com/page</code>&nbsp;and&nbsp;then&nbsp;<em>scroll down</em>&nbsp;so that the&nbsp;<code>&lt;a name=\"routing-strategies\"&gt;&lt;/a&gt;</code>&nbsp;tag is at&nbsp;the top of&nbsp;the page.</p>\n</div>\n<div class=\"paragraph\">\n<p>However it has another very important characteristic in&nbsp;that anything past the&nbsp;<code>#</code>&nbsp;in&nbsp;a&nbsp;<abbr>URL</abbr>&nbsp;<em>never gets sent to&nbsp;the server</em>.</p>\n</div>\n<div class=\"paragraph\">\n<p>So if your&nbsp;<abbr>URL</abbr>&nbsp;was&nbsp;<code><a class=\"bare\" href=\"https://codecraft.tv/contact/#/foo/moo/loo\">https://stackmi.com/contact/#/foo/moo/loo</a></code> then the browser makes a&nbsp;<abbr>GET</abbr>&nbsp;request to&nbsp;<code><a class=\"bare\" href=\"https://codecraft.tv/contact/\">https://</a><a class=\"bare\" href=\"https://codecraft.tv/contact/#/foo/moo/loo\">stackmi.com</a><a class=\"bare\" href=\"https://codecraft.tv/contact/\">/contact/</a></code>&nbsp;<strong>only</strong>.</p>\n</div>\n<div class=\"paragraph\">\n<p>The&nbsp;<code>#/foo/moo/loo</code>&nbsp;part of&nbsp;the&nbsp;<abbr>URL</abbr>&nbsp;is&nbsp;<strong>never</strong>&nbsp;sent.</p>\n</div>\n<div class=\"paragraph\">\n<p>If you were to&nbsp;look at&nbsp;your logs on&nbsp;the server you would never see any reference to&nbsp;<code>#/foo/moo/loo</code></p>\n</div>\n<div class=\"paragraph\">\n<p>Another way to&nbsp;think about the&nbsp;<em>hash fragment</em>, since it&rsquo;s never sent to&nbsp;the server, is that it&rsquo;s for&nbsp;storing the&nbsp;state of&nbsp;your&nbsp;<em>client</em>&nbsp;application.</p>\n</div>\n<div class=\"paragraph\">\n<p>It&rsquo;s therefore an&nbsp;ideal solution for&nbsp;implementing&nbsp;<em>client</em>&nbsp;side routing:-</p>\n</div>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>It&rsquo;s part of&nbsp;the&nbsp;<abbr>URL</abbr>&nbsp;so can be bookmarked and&nbsp;sent to&nbsp;other people.</p>\n</li>\n<li>\n<p>It won&rsquo;t confuse the&nbsp;server side since the&nbsp;hash fragment is never sent to&nbsp;the server.</p>\n</li>\n<li>\n<p>It can be programmatically changed via JavaScript.</p>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>And that&rsquo;s exactly why, for a number of years, the primary way of implementing client-side routing was via hash fragments.</p>\n</div>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "PathLocationStrategy",
+            "content_desc": "<div class=\"paragraph\">\n<p>This is the&nbsp;<em>default</em>&nbsp;strategy in&nbsp;Angular so we need to&nbsp;do nothing to&nbsp;enable it.</p>\n</div>\n<div class=\"paragraph\">\n<p>It takes advantage of&nbsp;a relatively new&nbsp;<abbr>HTML</abbr>5&nbsp;<abbr>API</abbr>&nbsp;called&nbsp;<code>pushstate</code>&nbsp;(from the&nbsp;<abbr>HTML</abbr>5 history&nbsp;<abbr>API</abbr>).</p>\n</div>\n<div class=\"paragraph\">\n<p>By&nbsp;using&nbsp;<code>pushstate</code>&nbsp;we can change the&nbsp;<abbr>URL</abbr>&nbsp;and&nbsp;<strong>not</strong>&nbsp;have the&nbsp;browser request the&nbsp;page from the&nbsp;server and&nbsp;<em>without</em>&nbsp;needing to&nbsp;use a&nbsp;hash fragment.</p>\n<p>So if we were at</p>\n</div>",
+            "content_image": "",
+            "content_code": "localhost:4040/search"
+        },
+        {
+            "content_title": "",
+            "content_desc": "By using the pushstate API we can change the URL to",
+            "content_image": "",
+            "content_code": "localhost:4040/artist/1234/tracks"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>And&nbsp;the browser&nbsp;<strong>won&rsquo;t</strong>&nbsp;make a&nbsp;<abbr>GET</abbr>&nbsp;request to&nbsp;the server for&nbsp;<code>/artist/1234/tracks</code>.</p>\n</div>\n<div class=\"paragraph\">\n<p>That sounds perfect for&nbsp;client-side routing right?</p>\n</div>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>We get a&nbsp;<abbr>URL</abbr>&nbsp;that looks just like any other&nbsp;<abbr>URL</abbr>&nbsp;so can be bookmarked, shared and&nbsp;so on.</p>\n</li>\n<li>\n<p>The&nbsp;browser doesn&rsquo;t send the&nbsp;request to&nbsp;the server so the&nbsp;routing is handled on&nbsp;the client side.</p>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>Unfortunately it has one big downside: if we reload the&nbsp;page, or&nbsp;bookmark it and&nbsp;open it later, the&nbsp;browser&nbsp;<strong>would</strong>&nbsp;make a&nbsp;request to&nbsp;the server for&nbsp;e.g.&nbsp;<code>localhost:4040/artist/1234/tracks</code>.</p>\n</div>\n<div class=\"paragraph\">\n<p>By&nbsp;using a&nbsp;hash fragment the&nbsp;server&nbsp;<em>never</em>&nbsp;needs to&nbsp;know about any application&nbsp;<abbr>URL</abbr>, it will only ever get asked for&nbsp;the root page and&nbsp;it will only ever return the&nbsp;root page.</p>\n</div>\n<div class=\"paragraph\">\n<p>But by&nbsp;using a&nbsp;<code>PathLocationStrategy</code>&nbsp;the&nbsp;server needs to&nbsp;be able to&nbsp;return the&nbsp;main application code for&nbsp;every&nbsp;<abbr>URL</abbr>, not just the&nbsp;root&nbsp;<abbr>URL</abbr>.</p>\n</div>\n<div class=\"paragraph\">\n<p>So with&nbsp;<code>PathLocationStrategy</code>&nbsp;we need to&nbsp;co-operate&nbsp;with a&nbsp;server side that supports this functionality, it&rsquo;s possible and&nbsp;quite easy to&nbsp;implement a&nbsp;server side like this but it does require some effort and&nbsp;cooperation.</p>\n</div>\n",
+            "content_image": "",
+            "content_code": ""
+        }
+    ]
+}

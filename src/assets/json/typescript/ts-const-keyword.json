@@ -1,0 +1,63 @@
+{
+    "article_slug": "ts-const-keyword",
+    "article_title": "Typescript Const Keyword",
+    "article_image": "",
+    "article_seo_desc": "We can use const to declare a variable but unlike let and var it must be immediately initialised, with a value that can’t be changed afterwards.",
+    "enroll_available": true,
+    "article_content": [
+        {
+            "content_title": "Declaring a const Variable",
+            "content_desc": "<p>We can use&nbsp;<code>const</code>&nbsp;to&nbsp;declare a&nbsp;variable but unlike&nbsp;<code>let</code>&nbsp;and&nbsp;<code>var</code>&nbsp;it must be&nbsp;<em>immediately</em>&nbsp;initialised, with a&nbsp;value that can&rsquo;t be changed afterwards.</p>\n<p>If we try to&nbsp;declare it without initialising it we get a&nbsp;<code>SyntaxError</code>, like:</p>",
+            "content_image": "",
+            "content_code": "const foo; // SyntaxError: Missing initializer in const declaration"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>If we try to&nbsp;change it after we have declared and&nbsp;initialised it we get a&nbsp;<code>TypeError</code>, like:</p>",
+            "content_image": "",
+            "content_code": "const foo = 1;\nfoo = 2; // TypeError: Assignment to constant variable"
+        },
+        {
+            "content_title": "Block Scoping",
+            "content_desc": "<p>Both&nbsp;<code>let</code>&nbsp;and&nbsp;<code>const</code>&nbsp;create variables that are block-scoped&nbsp;&ndash; they only exist within the&nbsp;innermost block that surrounds them.</p>",
+            "content_image": "",
+            "content_code": "function func() {\n    if (true) {\n        const tmp = 123;\n    }\n    console.log(tmp); // Uncaught ReferenceError: tmp is not defined\n}\nfunc();"
+        },
+        {
+            "content_title": "Immutable Variable",
+            "content_desc": "<p>Variables created by&nbsp;<code>let</code>&nbsp;and&nbsp;<code>var</code>&nbsp;are&nbsp;<em>mutable</em>:</p>",
+            "content_image": "",
+            "content_code": "let foo = \"foo\";\nfoo = \"moo\";\nconsole.log(foo);"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>Variables created by&nbsp;<code>const</code>&nbsp;however are&nbsp;<em>immutable</em>, they don&rsquo;t change over time, specifically the const variable can&rsquo;t <em>point to</em>&nbsp;another thing later on.</p>",
+            "content_image": "",
+            "content_code": "const foo = 'abc';\nfoo = 'def'; // TypeError: Assignment to constant variable"
+        },
+        {
+            "content_title": "Mutable Value",
+            "content_desc": "There is one big pitfall with const however.\n\nWhen we say ”`const` variables are immutable” it only means that the variable always has to point to the same thing. It does not mean that the thing it points to can’t change over time.\n\nFor example, if the variable foo is a const that points to an object — we can’t make foo point to another object later on:",
+            "content_image": "",
+            "content_code": "const foo = {};\nfoo = {}; // TypeError: Assignment to constant variable."
+        },
+        {
+            "content_title": "",
+            "content_desc": "But we can however mutate, make changes to, the object foo points to, like:",
+            "content_image": "",
+            "content_code": "const foo = {};\nfoo['prop'] = \"Moo\"; // This works!\nconsole.log(foo);"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>If we want the&nbsp;<em>value</em>&nbsp;of&nbsp;<code>foo</code>&nbsp;to&nbsp;be immutable we have to&nbsp;freeze it using&nbsp;<code>Object.freeze(&hellip;​)</code>.</p>\n</div>\n<div class=\"paragraph\">\n<p>When we freeze an object we can&rsquo;t change it, we can&rsquo;t add properties or change the values of properties, like:</p>\n</div>",
+            "content_image": "",
+            "content_code": "const foo = Object.freeze({});\nfoo.prop = 123;\nconsole.log(foo.prop) // undefined"
+        },
+        {
+            "content_title": "",
+            "content_desc": "However by default the above doesn’t throw an error, it just silently ignores the issue. So in the example above it didn’t throw an error when we tried to set foo.prop = 123 but when we try to print out the value on the next line we just get undefined.\n\nTo force Object.freeze(…​) to throw an error we must remember to be in \"use strict\" mode, like:",
+            "content_image": "",
+            "content_code": "\"use strict\";\nconst foo = Object.freeze({});\nfoo.prop = 123; // SyntaxError: Identifier 'foo' has already been declared"
+        }
+    ]
+}

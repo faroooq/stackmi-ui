@@ -1,0 +1,106 @@
+<div class="container card text-dark" style="box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="col-lg-11 mx-auto">
+        <div class="card-header"
+          style="background: #fff; padding-top: 2rem; margin-bottom: 1rem; font-size: 2.1rem; text-align: center; color: #1b0760;">
+          Experience Academy for <span class="highlight">FREE</span></div>
+        <div class="card-body">
+          <form class="row g-3" [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm.value)">
+            <div class="row">
+              <div class="col-12 col-md-6 email-margin">
+                <label>Name
+                  <sup><span style="color: #dc3545; font-size: 1rem" class="fa fa-star checked"></span></sup>
+                </label>
+                <div class="input-group email-width">
+                  <input type="text" class="input" id="user_name" placeholder="Enter your name"
+                    formControlName="user_name" />
+                </div>
+              </div>
+              <div class="col-12 col-md-6 mobile-margin">
+                <label>Mobile Number
+                  <sup><span style="color: #dc3545; font-size: 1rem" class="fa fa-star checked"></span></sup>
+                </label>
+                <div class="input-group mobile-width">
+                  <input type="number" class="input" id="mobile" placeholder="Enter mobile number"
+                    formControlName="mobile" />
+                </div>
+                <p style="font-size: 1.2rem; padding-left: 0.6rem; margin-bottom: 0;">
+                  <span>Mobile with country code.
+                  </span>
+                </p>
+              </div>
+            </div>
+            <div class="col-12" style="margin-top: 0;">
+              <label>Email ID
+                <sup><span style="color: #dc3545; font-size: 1rem" class="fa fa-star checked"></span></sup>
+              </label>
+              <div class="input-group">
+                <input type="email" class="input" id="email" placeholder="Enter email" formControlName="email" />
+              </div>
+            </div>
+            <div class="col-12">
+              <label class="mb-2">Technology you want to learn?
+                <sup><span style="color: #dc3545; font-size: 1rem" class="fa fa-star checked"></span></sup>
+              </label>
+              <div class="input-group">
+                <input type="text" class="input" id="course_name" placeholder="Angular, React, Java, Python.."
+                  formControlName="course_name" />
+              </div>
+            </div>
+            <div class="col-12" *ngIf="formSubmitted">
+              <div *ngIf="successMsg" class="alert alert-success d-flex align-items-center" role="alert">
+                <div>{{ successMsg }}</div>
+              </div>
+              <div *ngIf="loading" class="text-center">
+                <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+              </div>
+            </div>
+            <label style="font-size: 1.2rem; padding-left: 0.8rem;" class="form-check-label label" for="policy">
+              Your Success is Just a Step Ahead!&nbsp; Let`s Get Started.&nbsp;
+            </label>
+            <div class="col-12" style="margin-top: 0;">
+              <button [disabled]="!registerForm.valid" type="submit" class="btn btn-danger btn-lg col-12"
+                style="margin: 0;">
+                BOOK YOUR SLOT
+              </button>
+            </div>
+          </form>
+          <!-- <div *ngIf="!authService.isLoggedIn()" class="col-12">
+            <label style="font-size: 1.4rem" class="form-check-label label" for="policy">
+              We won't create account unless you&nbsp;
+              <a style="font-weight: 700" [routerLink]="['/signup']">SignUp</a>
+            </label>
+            <hr>
+          </div> -->
+          <div *ngIf="!authService.isLoggedIn()" class="col-12 mt-1" style="text-align: center; font-size: 1.5rem;">
+            <a class="signin" [routerLink]="['/signup']"><span style="color: brown; font-weight: 500;">SignUp</span> and
+              get FREE materials and documents.</a>
+            <hr>
+          </div>
+          <section *ngIf="authService.isLoggedIn()" style="margin-top: 1rem;">
+            <h3 style="font-size: 1.4rem; font-weight: 500;">
+              <span>Love It! Share It!</span>&nbsp;
+              <span>
+                <a target="_blank" href="https://www.facebook.com/stackmi">
+                  <img src="../../assets/images/fb-icon.png" alt="" style="width: 25px;">
+                </a>&nbsp;
+                <a target="_blank" href="https://www.instagram.com/stackmi/">
+                  <img src="../../assets/images/is-icon.png" alt="" style="width: 25px;">
+                </a>&nbsp;
+                <a target="_blank" href="https://www.linkedin.com/company/stackmi">
+                  <img src="../../assets/images/in-icon.png" alt="" style="width: 25px;">
+                </a>&nbsp;
+                <a target="_blank" href="https://www.youtube.com/c/StackMi-Technologies">
+                  <img src="../../assets/images/yt-icon.png" alt="" style="width: 25px;">
+                </a>
+              </span>
+            </h3>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

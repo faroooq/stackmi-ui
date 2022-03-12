@@ -1,0 +1,87 @@
+<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <section style="padding-left: 1rem; padding-right: 1rem; margin-top: -5px; margin-bottom: -5px;">
+            <a [routerLink]="['/']">
+                <h2 style="margin-bottom: 0rem">
+                    <!-- <img style="width: 20%" src="../../assets/images/stackmi.png" alt="" /> -->
+                    <sub style="bottom: -0.7rem;font-size: 4rem; font-family: 'Times New Roman', Times, serif;">N</sub>
+                    <sub
+                        style="bottom: -0.7rem;font-size: 3.2rem; font-family: 'Times New Roman', Times, serif;">exTicks</sub>
+                </h2>
+                <p
+                    style="color: #1b0760; padding-left: 0.2rem;font-size: 1.55rem; font-family: 'Times New Roman', Times, serif;">
+                    Scale up your career
+                </p>
+            </a>
+        </section>
+        <button style="border: 2px solid #1b0760;" class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasWithBackdrop" aria-controls="offcanvasWithBackdrop" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span style="font-size: 2rem; border: 1px solid #fff; border-radius: 0.5rem"
+                class="navbar-toggler-icon"></span>
+        </button>
+        <div class="offcanvas offcanvas-end offcanvas-direction" tabindex="-1" id="offcanvasWithBackdrop"
+            aria-labelledby="offcanvasWithBackdropLabel">
+            <div class="offcanvas-header">
+                <h4 class="offcanvas-title" id="offcanvasWithBackdropLabel">StackMi - Scale up your career</h4>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                    aria-label="Close"></button>
+            </div>
+            <!-- <div class="collapse navbar-collapse" id="navbarTogglerDemo01"> -->
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="margin-left: 1rem; padding-top: 1rem;">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" [routerLink]="['/contact']">
+                        <i class="fas fa-laptop-code"></i>
+                        Mock Interview
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/contact']">
+                        <i class="fas fa-phone-volume"></i>
+                        Request Callback
+                    </a>
+                </li>
+            </ul>
+            <div class="d-flex">
+                <div class="d-grid gap-1 d-md-flex justify-content-md-end" style="margin-left: 1rem;">
+                    <div *ngIf="!authService.isLoggedIn()">
+                        <button [routerLink]="['/login']" type="button" class="btn me-md-3 btn--outline">
+                            Login
+                        </button>
+                        <button [routerLink]="['/signup']" type="button" class="btn me-md-1 btn--outline">
+                            SignUp
+                        </button>
+                    </div>
+                </div>
+                <div class="d-grid gap-1 d-md-flex justify-content-md-end">
+                    <div *ngIf="authService.isLoggedIn()">
+                        <ul class="navbar-nav mr-auto mb-2 mb-lg-0" style="margin-left: 0.6rem;">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    <span style="color: #1b0760; font-size: 1.6rem;">Hi,&nbsp;</span>
+                                    <span style="color: #1b0760;">{{ userDetails.user_name }}&nbsp;</span>
+                                    <i style="font-size: 1.4rem;" class="fa fa-chevron-down"></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <li>
+                                        <a class="dropdown-item" [routerLink]="['/profile']">
+                                            <i class="fas fa-user"></i>&nbsp;Profile</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" [routerLink]="['/updatepwd']">
+                                            <i class="fas fa-unlock-alt"></i>&nbsp;Password</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" (click)="signOut()">
+                                            <i class="fas fa-sign-out-alt"></i>&nbsp;Log Out</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>

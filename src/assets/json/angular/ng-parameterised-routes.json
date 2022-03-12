@@ -1,0 +1,109 @@
+{
+    "_id": {
+        "$oid": "61f95c0465787a8c50f4f970"
+    },
+    "article_id": "9.2",
+    "article_slug": "ng-parameterised-routes",
+    "article_title": "Angular - Parameterised Routes",
+    "article_image": "",
+    "article_seo_desc": "We often need to pass a parameter like an ID to a route and then access that ID in order to call an API to get some data. In Angular we achieve this via parameterised routes.",
+    "enroll_available": true,
+    "article_content": [
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>Download the complete project from github: <a href=\"https://github.com/faroooq/shopping-cart\" target=\"_blank\">https://github.com/faroooq/shopping-cart</a></p>\n<hr/>\n</div>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Configuration",
+            "content_desc": "<div class=\"paragraph\">\n<p>Sometimes we need part of&nbsp;the path in&nbsp;one or&nbsp;more of&nbsp;our routes (the&nbsp;<abbr>URL</abbr>s) to&nbsp;be a&nbsp;<em>variable</em>, a common example of this is mobile model<em>ID</em> and version<em>ID</em>.</p>\n</div>\n<div class=\"paragraph\">\n<p>Let&rsquo;s say we have a different versions of mobiles and each mobile has modelID an versionID, the <abbr>URL</abbr>s might look like:</p>\n</div>",
+            "content_image": "",
+            "content_code": "/check-out/samsung-galaxy/1.5\n/check-out/samsung-galaxy/2.5\n/check-out/iphone/10\n/check-out/iphone/12\nand so on..."
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>Now we could write a route for each mobile version like:</p>",
+            "content_image": "",
+            "content_code": "const routes: Routes = [\n { path: '/check-out/samsung-galaxy/1.5', component: CheckOut1Component },\n { path: '/check-out/samsung-galaxy/2.5', component: CheckOut2Component },\n { path: '/check-out/iphone/10', component: CheckOut3Component },\n { path: '/check-out/iphone/12', component: CheckOut4Component },\n];"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>But a&nbsp;better solution is to&nbsp;have&nbsp;<em>one</em>&nbsp;route with&nbsp;<em>one</em>&nbsp;component called&nbsp;<code>CheckOutComponent</code> and pass to the <code>CheckOutComponent</code>&nbsp;the&nbsp;<em>modelID and versionID</em>&nbsp;part of&nbsp;the&nbsp;<abbr>URL</abbr>.</p>\n</div>\n<div class=\"paragraph\">\n<p>That&rsquo;s called a&nbsp;<em>parameterised route</em> and&nbsp;we would implement it like:</p>\n</div>",
+            "content_image": "",
+            "content_code": "const routes: Routes = [\n { path: 'check-out/:modelID/:versionID', component: CheckOutComponent }\n];"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<ul>\n<li>The path has a variable called <code>modelID and versionID</code>, we know it&rsquo;s a&nbsp;variable since it begins with a&nbsp;colon&nbsp;<strong><code>:</code></strong></li>\n</ul>\n<p>A&nbsp;path can have any number of&nbsp;variables as&nbsp;long as&nbsp;they all start with&nbsp;<code><strong>:</strong></code>&nbsp;and&nbsp;have different names.</p>\n</div>\n<div class=\"paragraph\">\n<p><strong>Note:</strong> Non-parameterised routes <em>always</em> take priority over parameterised routes.</p>\n<p>So in the below config:</p>\n</div>",
+            "content_image": "",
+            "content_code": "const routes: Routes = [\n { path: 'check-out/:modelID/:versionID', component: CheckOutComponent },\n // I have created the ModelComponent in our code.\n { path: 'check-out/iphone/10', component: ModelComponent },\n];"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>From the above routes,&nbsp;If user visits <code>/check-out/iphone/10</code> we would show <code>ModelComponent</code>&nbsp;even though it matches the&nbsp;path for&nbsp;the first&nbsp;<code>check-out/:modelID/:versionID</code>&nbsp;route as&nbsp;well.</p>\n<p><strong>Important:</strong> This is because non-parameterised routes take precedence over parameterised routes.</p>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Optional Parameters",
+            "content_desc": "<p>Let's go back, what if we navigate to our earlier /check-out url? We won't navigate to check out page.</p>\n<p>This is because in our <code>app.routing.module.ts</code> file we don't have the base check-out url. If we add the base url, then it will take us to the check out page.</p>",
+            "content_image": "",
+            "content_code": "{\n  path:'check-out', component:CheckOutComponent\n},\n{\n  path:'check-out/:modelID/:versionID', component:CheckOutComponent\n}"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div>\n<div>but having 2 same urls navigating to the same CheckOutComponent is a kind of code duplication. Angular provides a feature to overcome this part. We will pass the parameters as an object like:</div>\n</div>",
+            "content_image": "",
+            "content_code": "  // item.component.ts\n  .\n  .\n  gotoCheckoutPage(obj: any) {\n    // For now I am hard coding version.\n    this.router.navigate(['check-out', {modelID: obj.name, versionID: '10'}]);\n  }"
+        },
+        {
+            "content_title": "",
+            "content_desc": "Let's modify our app.routing.module.ts file and have our CheckOutComponent with only one route configured like:",
+            "content_image": "",
+            "content_code": "// app-routing.module.ts\n\n{\n  path: 'check-out', component: CheckOutComponent\n},\n// Commented this as we are passing the parameters as an object, which we call optional parameters.\n// {\n//   path: 'check-out/:modelID/:versionID', component: CheckOutComponent\n// },"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>Now when we navigate to <code>/check-out/iPhone/10</code> the <abbr>URL</abbr>&nbsp;changes,&nbsp;<em>but</em> it doesn&rsquo;t quite looks like something we are used to, instead of <code>/check-out/iPhone/10</code> we see&nbsp;<code>/check-out;model=iphone;version=10</code></p>\n<p><strong>Note: </strong>This is called Matrix&nbsp;<abbr>URL</abbr>&nbsp;notation, a&nbsp;series of&nbsp;<em>optional</em>&nbsp;key&ndash;value pairs separated with the&nbsp;semicolon ; character.</p>\n<p>And also if we pass nothing to our <code>/check-out</code> URL still we navigate to the cart page. So, these <code>;model=iphone;version=10</code> are optional to the <code>/check-out</code> URL.</p>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "ActivatedRoute",
+            "content_desc": "<p>Now let's understand what is <code>ActivatedRoute.</code> <code>ActivatedRoute</code> is a&nbsp;service that is provided to each route component that contains route specific information such as route parameters, static data, resolve data, global query params and the global fragment.</p>\n<p>We often need to capture these route parameters so that we can make a component dynamic based on that parameter. We can achieve this with the help of <code>ActivatedRoute.</code></p>\n<p>To implement this we need to inject <code>ActivatedRoute</code> in constructor as a dependency to our CheckOutComponent and with the reference we need to subscribe to the params observable. For now we log the output to the console.</p>",
+            "content_image": "",
+            "content_code": "export class CheckOutComponent implements OnInit {\n\n  constructor(private activatedRoute: ActivatedRoute) { }\n\n  ngOnInit(): void {\n    this.activatedRoute.params.subscribe(params => console.log(params));\n  }\n}"
+        },
+        {
+            "content_title": "",
+            "content_desc": "In the console log we will see the below object like:",
+            "content_image": "",
+            "content_code": "{modelID: 'IPhone', versionID: '10'}"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>By this way we can capture the parameters and do some condition checks, and display the appropriate information in the web page or make an api call based on the condition or do what so ever.</p>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Diff bet ActivatedRoute vs ActivatedRouteSnapshot",
+            "content_desc": "<p><em>Static routes :</em> Just go for ActivatedRouteSnapshot.</p>\n<p><em>Dynamic routes:</em> Use ActivatedRoute.</p>\n<p>Let's discuss this in more detail.</p>\n<p><strong>Static routes: </strong>&nbsp;When you are using a static url like below, then you should implement <code>ActivatedRouteSnapshot</code>.&nbsp;</p>\n<div>",
+            "content_image": "",
+            "content_code": "{\n path:'/check-out/iphone/10', component:CheckOutComponent\n}"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div>If you use <code>ActivatedRouteSnapshot</code> and have a parameter in your route definition like <code>check-out/:modelID/:versionID</code>, then you will not get updated route params, if the user changes them or your page does. <strong>Snapshot means that it was when&nbsp;<code>OnInit</code>&nbsp;ran</strong>, this was the state it was in at that point in time. So, any changes after that will be ignored.</div>\n<div>&nbsp;</div>\n<div><strong>Dynamic routes: </strong>&nbsp;When we are using a dynamic url like below, then we should implement <code>ActivatedRoute</code>.&nbsp;</div>",
+            "content_image": "",
+            "content_code": "{\n path: 'check-out/:modelID/:versionID', component: CheckOutComponent\n}"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div>In case of <code>ActivatedRoute</code> we can capture the updated route params when user navigates in between the pages.</div>\n<div><code>ActivatedRoute</code>&nbsp;requires that you subscribe. Which requires that you&nbsp;<code>unsubscribe</code>. Which requires that you implement&nbsp;<code>OnDestroy</code>. This is overhead for a static route.</div>",
+            "content_image": "",
+            "content_code": ""
+        }
+    ]
+}

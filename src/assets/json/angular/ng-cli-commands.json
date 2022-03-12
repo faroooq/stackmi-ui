@@ -1,0 +1,174 @@
+{
+    "_id": {
+        "$oid": "61e44544bbfe744154a4947d"
+    },
+    "article_slug": "ng-cli-commands",
+    "article_title": "Angular - Angular CLI Commands",
+    "article_image": "",
+    "article_seo_desc": "Angular now comes with a command-line interface (CLI) to make it easier and faster to build Angular applications.",
+    "enroll_available": true,
+    "article_content": [
+        {
+            "content_title": "Angular CLI Commands",
+            "content_desc": "",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Component",
+            "content_desc": "Note: \n\nMake sure to replace My with your component name that you want to create.  \nAngular will append the text Component while creating the component. You no need to give the suffix as Component.\n\nCommand to create Angular Component.",
+            "content_image": "",
+            "content_code": "ng g component My"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>By default all generated files go in into <code>src/app/my-component</code>, a folder called <code>my-component</code> and is created for us.</p>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Directive",
+            "content_desc": "",
+            "content_image": "",
+            "content_code": "ng g directive My"
+        },
+        {
+            "content_title": "Pipe",
+            "content_desc": "",
+            "content_image": "",
+            "content_code": "ng g pipe My"
+        },
+        {
+            "content_title": "Service",
+            "content_desc": "",
+            "content_image": "",
+            "content_code": "ng g service My"
+        },
+        {
+            "content_title": "Class",
+            "content_desc": "",
+            "content_image": "",
+            "content_code": "ng g class MyClass"
+        },
+        {
+            "content_title": "Interface",
+            "content_desc": "",
+            "content_image": "",
+            "content_code": "ng g interface MyInterface"
+        },
+        {
+            "content_title": "Enum",
+            "content_desc": "",
+            "content_image": "",
+            "content_code": "ng g enum MyEnum"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p><strong>Note:</strong> By default all the above generated files go in into <code>src/app</code>, <em>no folder is created</em>.</p>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Create a Build",
+            "content_desc": "<div class=\"paragraph\">\n<p>The <code>ng serve</code> command does a great job of enabling development locally.</p>\n</div>\n<div class=\"paragraph\">\n<p>However <em>eventually</em> we will want some code which we can host on another server somewhere.</p>\n</div>\n<div class=\"paragraph\">\n<p>The Angular <abbr>CLI</abbr> again has us covered in this regard, if we want to create a development build we simply type</p>\n</div>",
+            "content_image": "",
+            "content_code": "ng build"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>This bundles all our JavaScript, <abbr>CSS</abbr>, <abbr>HTML</abbr> into a smaller set of files which we can host on another site simply.</p>\n</div>\n<div class=\"paragraph\">\n<p>It outputs these files into the <code>dist</code> folder:</p>\n</div>",
+            "content_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Screenshot%202022-01-16%20at%2010.13.53%20PM.png",
+            "content_code": ""
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>To serve our built application site we just need to serve this folder. For example, if using Python we could simply run <code>python -m SimpleHTTPServer</code> from the <code>dist</code> folder and view the application from <code>0.0.0.0:8000</code>.</p>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Production Builds",
+            "content_desc": "<div class=\"paragraph\">\n<p>By default the <code>ng build</code> command creates a development build, no effort is made to optimise the code.</p>\n</div>\n<div class=\"paragraph\">\n<p>To create a production build we just run</p>\n</div>",
+            "content_image": "",
+            "content_code": "ng build --prod"
+        },
+        {
+            "content_title": "",
+            "content_desc": "This might generate an output like the below:",
+            "content_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Screenshot%202022-01-16%20at%2010.16.36%20PM.png",
+            "content_code": ""
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>Running with <code>--prod</code> changes a few things:</p>\n</div>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>The bundles now have random strings appended to them to enable <strong>cache busting</strong>.<br />This ensures that a browser doesn&rsquo;t try to load up previously cached versions of the files and instead load the new ones from the server.</p>\n</li>\n<li>\n<p>The file sizes are much smaller. The files have been processed through a minifier and uglifier.</p>\n</li>\n<li>\n<p>There is a much small <code>.gz</code> file, this is a compressed version of the equivalent JavaScript file.<br />Browsers will automatically try to download the <code>.gz</code> version of files if they are present.</p>\n</li>\n</ul>\n</div>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Adding a Third-Party Module",
+            "content_desc": "<div class=\"paragraph\">\n<p>The build system simplifies the process of serving and releasing your application considerably. It works only because Angular knows about all the files used by your application.</p>\n</div>\n<div class=\"paragraph\">\n<p>So when we include third-party libraries into our application we need to do so in such a way that Angular knows about the libraries and includes them in the build process.</p>\n</div>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Bundled with the Main Application JavaScript Files",
+            "content_desc": "<p>If we want to include a module to use JavaScript code in our Angular, perhaps we want to use the moment.js library, we just need to install it via npm like:</p>",
+            "content_image": "",
+            "content_code": "npm install moment --save"
+        },
+        {
+            "content_title": "",
+            "content_desc": "If we also want to include the TypeScript type definition file for our module we can install it via:",
+            "content_image": "",
+            "content_code": "npm install @types/moment --save"
+        },
+        {
+            "content_title": "",
+            "content_desc": "Now when Angular create a build either when releasing or serving locally, the moment library is automatically added to the bundle.",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Global Library Installation",
+            "content_desc": "<div class=\"paragraph\">\n<p>Some JavaScript libraries need to be added to the global scope, and loaded as if they were in a script tag.</p>\n</div>\n<div class=\"paragraph\">\n<p>We can do this by editing the <code>angular.json</code> file in our project root.</p>\n</div>\n<div class=\"paragraph\">\n<p>The Twitter Bootstrap library is a great example of this, we need to include <abbr>CSS</abbr> and script files in the global scope.</p>\n</div>\n<div class=\"paragraph\">\n<p>First we install the Bootstrap library via npm like:</p>\n</div>",
+            "content_image": "",
+            "content_code": "npm install bootstrap@next"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>Then we add the required JavaScript files to the <code>apps.scripts</code> section and the <code>apps.styles</code> in <code>angular.json</code> like:</p>",
+            "content_image": "",
+            "content_code": "{\n  .\n  .\n  .\n  \"apps\": [\n    {\n      .\n      .\n      .\n      \"styles\": [\n        \"styles.css\",\n        \"../node_modules/bootstrap/dist/css/bootstrap.css\"\n      ],\n      \"scripts\": [\n        \"../node_modules/jquery/dist/jquery.js\",\n        \"../node_modules/tether/dist/js/tether.js\",\n        \"../node_modules/bootstrap/dist/js/bootstrap.js\"\n      ],\n      .\n      .\n      .\n    }\n  ],\n  .\n  .\n  .\n}"
+        },
+        {
+            "content_title": "",
+            "content_desc": "Now when the build runs the CLI includes those files in the bundle and injects then in the global scope.",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Testing Angular",
+            "content_desc": "<div class=\"paragraph\">\n<p>Angular has always been synonymous with testing and so there should be no surprise that the command-line tool comes with features to make Angular testing easier.</p>\n</div>\n<div class=\"paragraph\">\n<p>The default mechanism for unit testing in Angular is via Jasmine and Karma.</p>\n</div>\n<div class=\"paragraph\">\n<p>Whenever we generate code via scaffolds it also generates a <code>.spec.ts</code>. The code the <abbr>CLI</abbr> bootstraps inside this file depends on the scaffold type but essentially is a Jasmine test spec which you can flesh out with more test cases.</p>\n</div>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "",
+            "content_desc": "We can run all our unit tests with one command:",
+            "content_image": "",
+            "content_code": "ng test"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>This builds our project and then runs all the tests, any errors are output to the terminal.</p>\n</div>\n<div class=\"paragraph\">\n<p>This command also watches for any changes in our files and, if it detects any, re-runs the tests automatically.</p>\n</div>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p><strong>Note:</strong> To find out more details about each command and how we can customise the behaviour via flags we can run <code>ng help</code> in the terminal.</p>",
+            "content_image": "",
+            "content_code": ""
+        }
+    ]
+}

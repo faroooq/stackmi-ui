@@ -1,0 +1,22 @@
+{
+    "course_title": "Java Interview Questions",
+    "course_slug": "java-interview-faq",
+    "course_list": [
+        {
+            "topic_list_id": "1",
+            "topic_title": "Collections",
+            "topic_list": [
+                {
+                    "topic_id": "1",
+                    "topic_slug": "what-is-collection-in-java",
+                    "topic_name": "What is Collection in Java?"
+                },
+                {
+                    "topic_id": "2",
+                    "topic_slug": "diff-bet-collection-collections",
+                    "topic_name": "Differentiate between Collection and Collections"
+                }
+            ]
+        }
+    ]
+}

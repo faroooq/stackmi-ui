@@ -1,0 +1,307 @@
+<app-navbar></app-navbar>
+<section class="block block--skewed-up hero"
+    style="background: aliceblue; padding-top: 5rem; background-image: url('../../assets/images/academy_banner.png'); height: 500px;">
+    <div class="container grid grid--1x2">
+        <div class="col-lg-12">
+            <!-- <img src="../../assets/images/academy_banner.png" alt=""> -->
+        </div>
+        <header style="text-align: center;" class="block__header hero__content">
+            <h1 style="color: #fff; text-align: left; font-size: 4rem; line-height: 5rem;">
+                Become a Full-stack Web Developer
+                <span class="highlight" style="font-size: 4rem; color: #fff; font-style: italic;">@StackMi</span>
+            </h1>
+            <p style="color: #BAC6DB; text-align: left; font-size: 2rem;">Well structured, convenient & guided
+                learning platform.
+                <!--  -->
+            </p>
+            <div class="container grid grid--1x2" style="padding-left: 0;">
+                <a style="padding: 1rem; font-size: 1.6rem; margin: 0.8rem 0.5rem;" class="btn btn--red"
+                    (click)="scroll(demoForm)">Book a FREE Class</a>
+
+                <a style="padding: 1rem; font-size: 1.6rem; margin: 0.8rem 0.5rem;" class="btn btn--white"
+                    (click)="scroll(explore)">Explore More</a>
+
+            </div>
+        </header>
+    </div>
+    <div data-aos="fade-up" class="container card text-dark mb-3"
+        style="border-radius: 5rem;box-shadow: rgba(8, 8, 224, 0.2) 0px 7px 29px 0px;">
+        <div class="row">
+            <div class="col-lg-12" style="margin-bottom: 3rem;">
+                <div style="padding: 3rem; text-align: center; margin-top: 1rem; margin-bottom: -2rem;">
+                    <h3>A program for engineers and students to <strong class="highlight"
+                            style="background-position: 1rem 2rem;">master in</strong> Technologies
+                    </h3>
+                    <hr>
+                    <h3 style="font-size: 2rem;"><span style="color: #0455BB;">Java&nbsp;&nbsp;</span>
+                        <span style="color: #c59304;">Python&nbsp;&nbsp;</span>
+                        <span style="color: #499609;">Spring Boot&nbsp;&nbsp;</span>
+                        <span style="color: #f13453;">Angular&nbsp;&nbsp;</span>
+                        <span style="color: #0C4B33;">React&nbsp;&nbsp;</span>
+                        <span style="color: #43a3e8;">HTML&nbsp;&nbsp;</span>
+                        <span style="color: #7c5df7;">CSS&nbsp;&nbsp;</span>
+                        <span style="color: #03CCD3;">Javascript&nbsp;&nbsp;</span>
+                        <span style="color: #bb3a88;">Typescript</span>..
+                    </h3>
+                    <hr>
+                </div>
+                <div class="card-body">
+                    <div class="col-lg-11 mx-auto">
+                        <div class="grid grid--1x2">
+                            <div class="card text-white mb-3" style="margin: 1rem;">
+                                <img src="../../assets/images/structure.svg" alt="">
+                            </div>
+                            <div class="card text-white mb-3" style="margin: 1rem;">
+                                <img src="../../assets/images/live_classes.svg" alt="">
+                            </div>
+                        </div>
+                        <div class="grid grid--1x2">
+                            <div class="card text-white mb-3" style="margin: 1rem;">
+                                <img src="../../assets/images/mentor.svg" alt="">
+                            </div>
+                            <div class="card text-white mb-3" style="margin: 1rem;">
+                                <img src="../../assets/images/realtime.svg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="block block--skewed-up hero card-margin" style="background: aliceblue; padding-top: 12rem;">
+    <header class="block__header">
+        <h3 style="font-weight: 600">
+            <span><strong class="highlight">What's special</strong> in enrolling LIVE classes?</span>
+        </h3>
+    </header>
+    <div class="grid grid--1x2">
+        <div class="card text-white mb-3" style="background: #b2a2ee;">
+            <div class="card-header" style="text-align: center; font-size: 2.5rem;">Products in Market</div>
+            <div class="card-body">
+                <ul class="ul_list">
+                    <li style="margin-bottom: 1rem;">
+                        Scattered articles, blogs & videos need extra effort to stitch it all
+                        together.
+                    </li>
+                    <li style="margin-bottom: 1rem;">
+                        Limited practical knowledge.
+                    </li>
+                    <li style="margin-bottom: 1rem;">
+                        Recorded videos & articles with no personalisation
+                    </li>
+                    <li style="margin-bottom: 1rem;">
+                        Not industry-relevant. Old, outdated content.
+                    </li>
+                    <li style="margin-bottom: 1rem;">
+                        No clarification, help and support if strucked in the middle.
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="card text-white bg-primary mb-3">
+            <div class="card-header" style="text-align: center; font-size: 2.5rem;">StackMi's Curriculum</div>
+            <div class="card-body">
+                <ul class="ul_list">
+                    <li style="margin-bottom: 1rem;">
+                        Structured and thoughtfully designed curriculum helps you to emerge confident & comfortable.
+                    </li>
+                    <li style="margin-bottom: 1rem;">
+                        Hands-on, Projects and assignments to actually implement concepts.
+                    </li>
+                    <li style="margin-bottom: 1rem;">
+                        Personalised topics, peers & pace of learning are optimized for your needs
+                    </li>
+                    <li style="margin-bottom: 1rem;">
+                        Industry-relevant, industry-tested curriculum to make you job ready
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<section #explore data-aos="fade-up" class="block block-plans" style="background: aliceblue;">
+    <header class="block__header">
+        <h3><strong class="highlight">Curriculum</strong> is designed to make you a SOLID
+            ENGINEER
+        </h3>
+        <div class="row">
+            <div class="col-6 mx-auto">
+                <a style="font-size: 21px;" [routerLink]="['/all-courses']" class="btn btn--outline btn--block">All
+                    Courses</a>
+            </div>
+        </div>
+    </header>
+    <div class="grid grid--1x4 grid--1x2">
+        <div class="plan">
+            <div class="card card--ui">
+                <header class="card__header">
+                    <h3 class="plan__name">BECOME UI EXPERT BUNDLE</h3>
+                    <hr>
+                    <span class="plan__desc"><strong>Front-end</strong> Developer
+                        Program</span>&nbsp;&nbsp;
+                    <span class="badge badge--primary badge--small" style="font-size: 1.4rem;">
+                        <i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;8 Weeks</span>
+                    <span class="plan__description">Partial Interview Coverage Pack</span>
+                    <hr>
+                </header>
+                <div class="card__body">
+                    <ul class="list list--tick">
+                        <li class="list__item">Html, CSS, Javascript/Typescript</li>
+                        <li class="list__item">Angular and React</li>
+                        <li class="list__item">Realtime UI Project</li>
+                        <li class="list__item">Industry Experience Sharing</li>
+                        <li class="list__item">Deploy Project in Cloud</li>
+                        <li class="list__item">Quiz, Mock Tests and Follow-ups</li>
+                        <li class="list__item">Awards and Certification</li>
+                    </ul>
+                    <a [routerLink]="['/front-end']" class="btn btn--outline btn--block">Explore
+                        More</a>
+                </div>
+            </div>
+        </div>
+        <div class="plan plan--popular">
+            <div class="card card--fullstack">
+                <header class="card__header">
+                    <h3 class="plan__name">FULLSTACK EXPERT + CRACK JOB</h3>
+                    <hr>
+                    <span class="plan__desc"><strong class="highlight">Full-stack</strong> Developer
+                        Program</span>&nbsp;&nbsp;
+                    <span class="badge badge--primary badge--small" style="font-size: 1.4rem;">
+                        <i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;18 Weeks</span>
+                    <span class="plan__description">Full Interview Coverage Pack</span>
+                    <hr>
+                </header>
+                <div class="card__body">
+                    <ul class="list list--tick">
+                        <li class="list__item">Complete
+                            <strong>
+                                <a style="color: #1b0760;" [routerLink]="['/front-end']">Front-end</a>
+                            </strong>
+                            Developer Program
+                        </li>
+                        <li class="list__item">Complete
+                            <strong>
+                                <a style="color: #5e40d8;" [routerLink]="['/back-end']">Back-end</a>
+                            </strong>
+                            Developer Program
+                        </li>
+                        <li class="list__item">Complete Interview Coverage Pack</li>
+                        <li class="list__item">1:1 Mentorship From Industry Experts</li>
+                        <li class="list__item">Counselling and Skill Development</li>
+                        <li class="list__item">Complete
+                            <strong>
+                                <a style="color: #f13453;" [routerLink]="['/job-cracker']">Job Cracker</a>
+                            </strong>
+                            Developer Program
+                        </li>
+                        <li class="list__item">Jobs and Placements</li>
+                    </ul>
+                    <button (click)="selectedCourse('Full-stack Developer Program')" style="margin: 0; width: 100%;"
+                        class="btn btn-danger" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasWithBackdrop" aria-controls="offcanvasWithBackdrop">Enroll
+                        Course</button>
+                </div>
+            </div>
+        </div>
+        <div class="plan plan--popular">
+            <div class="card card--job">
+                <header class="card__header">
+                    <h3 class="plan__name">JOB CRACKER BUNDLE</h3>
+                    <hr>
+                    <span class="plan__desc"><strong>Job Cracker</strong> Developer
+                        Program</span>&nbsp;&nbsp;
+                    <span class="badge badge--primary badge--small" style="font-size: 1.4rem;">
+                        <i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;1 Week</span>
+                    <span class="plan__description">Job Guaranteed Curriculum</span>
+                    <hr>
+                </header>
+                <div class="card__body">
+                    <ul class="list list--tick">
+                        <li class="list__item">Top<strong> 50+ Questions</strong> for Front-end Interviews
+                        </li>
+                        <li class="list__item">Top<strong> 50+ Questions</strong> for Back-end Interviews
+                        </li>
+                        <li class="list__item">Resume Building, Job Search, Salary Negotiation Tips & Tricks.</li>
+                        <li class="list__item">Presentation and Communication Skills</li>
+                        <li class="list__item">Mentorship From Industry Experts</li>
+                    </ul>
+                    <a [routerLink]="['/crack-job']" class="btn btn--outline-jc btn--block">Crack Your Job
+                        in 1 Week</a>
+                </div>
+            </div>
+        </div>
+        <div class="plan">
+            <div class="card card--backend">
+                <header class="card__header">
+                    <h3 class="plan__name">BECOME BACKEND EXPERT BUNDLE</h3>
+                    <hr>
+                    <span class="plan__desc"><strong>Back-end</strong> Developer
+                        Program</span>&nbsp;&nbsp;
+                    <span class="badge badge--primary badge--small" style="font-size: 1.4rem;">
+                        <i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;8 Weeks</span>
+                    <span class="plan__description">Partial Interview Coverage Pack</span>
+                    <hr>
+                </header>
+                <div class="card__body">
+                    <ul class="list list--tick">
+                        <li class="list__item">Java/Python and MVC Framework</li>
+                        <li class="list__item">Realtime Backend Project</li>
+                        <li class="list__item">Industry Experience Sharing</li>
+                        <li class="list__item">Deploy Project in Cloud</li>
+                        <li class="list__item">Quiz, Mock Tests and Follow-ups</li>
+                        <li class="list__item">Awards and Certification</li>
+                    </ul>
+                    <button [routerLink]="['/back-end']" class="btn btn--outline btn--block">Explore
+                        More</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <app-course-enroll [notifier]="sendCourse"></app-course-enroll>
+</section>
+<section class="block block--skewed-up hero" style="background: #fbf2c3; padding-top: 5rem;">
+    <header class="block__header">
+        <h3 style="font-weight: 600">
+            <span>Course completion <strong class="highlight">certificate</strong>.</span>
+        </h3>
+    </header>
+    <div class="mb-3">
+        <div style="margin: 1rem;">
+            <img src="../../assets/images/certificate.png" alt="">
+        </div>
+    </div>
+</section>
+<section #demoForm class="container">
+    <div class="callout callout--primary callout-signup">
+        <!-- <p class="callout__heading mt-2">
+                    Have doubts? Schedule a demo with our team.
+                </p> -->
+        <header style="text-align: center;" class="hero__content text-margin">
+            <h2 style="color: #fff; text-align: center; font-size: 3.5rem; line-height: 4rem; margin-bottom: 3rem;">
+                Have doubts? Schedule a demo with our team.
+            </h2>
+        </header>
+        <div class="col-lg-7 mx-auto">
+            <div data-aos="zoom-in">
+                <app-home-form></app-home-form>
+            </div>
+        </div>
+        <!-- <app-home-form></app-home-form> -->
+    </div>
+</section>
+<!-- <div class="container">
+    <div class="callout callout--primary callout-signup">
+        <div class="grid grid--1x2">
+            <div class="callout__content">
+                <p class="callout__heading mt-2">
+                    Mentor students to help them unlock their true potential.
+                </p>
+            </div>
+            <a [routerLink]="['/mentor']" class="btn btn--theme btn--stretched">I Love to Mentor</a>
+        </div>
+    </div>
+</div> -->
+<app-footer></app-footer>

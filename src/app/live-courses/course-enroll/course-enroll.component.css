@@ -1,0 +1,101 @@
+::ng-deep .ng-dropdown-panel {
+    opacity: 1;
+    background: #f6faff;
+    width: 51%;
+    padding-left: 1rem;
+    left: 0;
+  }
+  
+  :ng-deep .ng-select .ng-select-container {
+    font-size: 2rem;
+  }
+  
+  ::ng-deep .ng-dropdown-panel .ng-dropdown-panel-items .ng-option {
+    font-size: 2rem;
+  }
+  
+  .input-group .input {
+    background: #f6faff;
+  }
+  
+  .ng-select .ng-select-container .ng-value-container .ng-input>input {
+    background: #fff;
+  }
+  /* @import "~@ng-select/ng-select/themes/default.theme.css"; */
+  .google-btn {
+    padding: 0px;
+    background: #4686e6;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    border-radius: 2px;
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.25);
+  }
+  
+  .google-icon-wrapper {
+    position: absolute;
+    margin-top: 1px;
+    margin-left: 1px;
+    width: 40px;
+    height: 40px;
+    border-radius: 2px;
+    background-color: #fff;
+  }
+  .google-icon {
+    position: absolute;
+    margin-top: 11px;
+    margin-left: 11px;
+    width: 18px;
+    height: 18px;
+  }
+  .btn-text {
+    float: left;
+    margin: 10px 0px 10px 50px;
+    color: #fff;
+    font-size: 14px;
+    letter-spacing: 0.2px;
+    font-family: "Roboto";
+  }
+  
+  .btn-text:hover {
+    box-shadow: 0 0 6px #4285f4;
+  }
+  .btn-text:active {
+    background: #1669f2;
+  }
+  
+  a.signin {
+    color: #1B0760;
+  }
+  
+  .email-width {
+    width: 106%;
+    margin-left: -0.5rem;
+  }
+  
+  .mobile-width {
+  width: 105%;
+  }
+  @media screen and (min-width: 1024px) {
+  .mobile-width {
+    width: 105%;
+    margin-left: 0.5rem;
+  }
+  }
+  
+  @media screen and (min-width: 0px) and (max-width: 768px) {
+  .mobile-margin {
+    margin-top: 0.8rem;
+    margin-left: -0.2rem;
+  }
+  .email-margin {
+    margin-left: 0.3rem;
+  }
+  .email-width {
+    width: 108%;
+  }
+  .mobile-width {
+    width: 108%;
+  }
+  }
+  

@@ -1,0 +1,126 @@
+{
+    "_id": {
+        "$oid": "61dfcbf8063dc3d6690082a6"
+    },
+    "article_slug": "ts-class-interface",
+    "article_title": "Typescript - Class and Interfaces",
+    "article_image": "",
+    "article_seo_desc": "JavaScript has a prototype-based, object-oriented programming model. It creates objects using other objects as blueprints and to implement inheritance it manipulates what’s called a prototype chain.",
+    "enroll_available": true,
+    "article_content": [
+        {
+            "content_title": "Object Orientation in JavaScript",
+            "content_desc": "<div class=\"paragraph\">\n<p>JavaScript has a&nbsp;prototype-based, object-oriented programming model. It creates objects using other objects as&nbsp;blueprints and&nbsp;to implement inheritance it manipulates what&rsquo;s called a&nbsp;<em>prototype chain</em>.</p>\n</div>\n<div class=\"paragraph\">\n<p>We normally call the&nbsp;way object orientation is implemented in&nbsp;C++ or&nbsp;Java as&nbsp;the&nbsp;<em>Classical OO Pattern</em>&nbsp;and&nbsp;the way it&rsquo;s implemented in&nbsp;JavaScript as&nbsp;the&nbsp;<em>Prototype Pattern</em>.</p>\n</div>\n<div class=\"paragraph\">\n<p>Although the&nbsp;prototype pattern is a&nbsp;valid way to&nbsp;implement object orientation it can be confusing for&nbsp;newer JavaScript developers or&nbsp;developers used to&nbsp;the classical pattern.</p>\n</div>\n<div class=\"paragraph\">\n<p>So in&nbsp;ES6 we have an&nbsp;alternative syntax, one that closer matches the&nbsp;classical object orientated pattern as&nbsp;is seen in&nbsp;other languages.</p>\n<p><strong>Note:</strong> TypeScript supports the ES6 <code>class</code>&nbsp;syntax but also adds some other feature like access modifiers and&nbsp;interfaces, so in&nbsp;this lecture we&rsquo;ll be writing TypeScript rather than pure ES6.</p>\n</div>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Class",
+            "content_desc": "<div class=\"paragraph\">\n<p>A&nbsp;<code>class</code>&nbsp;is a&nbsp;blueprint for&nbsp;creating objects with specific functions and&nbsp;properties already attached to&nbsp;it, let&rsquo;s go through a&nbsp;simple example line by&nbsp;line:</p>\n</div>",
+            "content_image": "",
+            "content_code": "class Person { (1)\n    firstName = \"\"; (2)\n    lastName = \"\";\n    constructor(firstName, lastName) {  (3)\n        this.firstName = firstName;\n        this.lastName = lastName;\n    }\n\n    name() { (4)\n        return `${this.firstName} ${this.lastName}`;\n    }\n\n    whoAreYou() {\n        return `Hi i'm ${this.name()}`; (5)\n    }\n}"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<ol>\n<li>We define a&nbsp;class using then&nbsp;<code>class</code>&nbsp;keyword.</li>\n<li>We describe the properties we want on our class instance.</li>\n<li>Each class has a special constructor function, this is called when we create an instance of a class with new.</li>\n<li>We describe the functions, also known as methods, that we want on our class instance.</li>\n<li><strong>this</strong> in a method points to the class instance, the object that is created using this class.</li>\n</ol>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Class Instance",
+            "content_desc": "A class is a blueprint for creating an object, we call that created object an instance of a class, or a class instance or just instance for short.\n\nWe instantiate a class by using the new keyword and when that happens JavaScript calls the constructor function. We can pass to the constructer arguments which it uses to initialise properties or call other function, like:",
+            "content_image": "",
+            "content_code": "let person = new Person(\"farooq\",\"shaik\");"
+        },
+        {
+            "content_title": "",
+            "content_desc": "The above creates an instance of the Person class called person.\n\nThe person instance has the same properties and functions that are described on the Person class:",
+            "content_image": "",
+            "content_code": "let person = new Person(\"farooq\",\"shaik\");\nperson.whoAreYou()\n// \"Hi i'm farooq shaik\""
+        },
+        {
+            "content_title": "Inheritance",
+            "content_desc": "A class can inherit from another class. We can create a class blue-print that extends an existing class blue-print by adding other methods or properties.\n\nWe do this by using the extends keyword, like:",
+            "content_image": "",
+            "content_code": "class Student extends Person { (1)\n    course; (2)\n\n    constructor(firstName, lastName, course) {\n        super(firstName, lastName); (3)\n        this.course = course;\n    }\n\n    whoAreYou() { \t(4)\n        return `${super.whoAreYou()} and i'm studying ${this.course}`; (5)\n    }\n}"
+        },
+        {
+            "content_title": "",
+            "content_desc": "We use the extends keyword to signal that this class inherits all the properties and methods from the parent Person class.\nWe can describe additional properties.\nWe use the super function to call the constructor of the parent class.\nWe can override member functions of the parent class with our own versions.\nIn member functions super refers to the parent instance.\n\nWe can then instantiate this derived class like:",
+            "content_image": "",
+            "content_code": "let student = new Student(\"farooq\", \"shaik\", \"Angular 12\");\nconsole.log(student.whoAreYou());\n// Hi i'm farooq shaik and i'm studying Angular 12"
+        },
+        {
+            "content_title": "Access Modifiers",
+            "content_desc": "Everything we have learned so far about classes is pure ES6 JavaScript.\n\nHowever TypeScript adds some nice functionality on top of ES6 classes, namely function and property visibility via access modifiers.\n\nFor example we can define the properties of our Person class as private, like:",
+            "content_image": "",
+            "content_code": "class Person {\n    private firstName = \"\";\n    private lastName = \"\";\n\n    constructor(firstName, lastName) {\n        this.firstName = firstName;\n        this.lastName = lastName;\n    }\n}"
+        },
+        {
+            "content_title": "",
+            "content_desc": "And we create a function on our Student class called test() which tries to access one of these properties, like:",
+            "content_image": "",
+            "content_code": "class Student extends Person {\n  .\n  .\n  .\n  test() {\n    console.log(this.firstName);\n  }\n}"
+        },
+        {
+            "content_title": "",
+            "content_desc": "And we tried to call this function from our Student instance, like:",
+            "content_image": "",
+            "content_code": "let student = new Student(\"farooq\", \"shaik\", \"Angular 12\");\nconsole.log(student.test());"
+        },
+        {
+            "content_title": "",
+            "content_desc": "Compiling the above with TypeScript prints out this error:",
+            "content_image": "",
+            "content_code": "error TS2341: Property 'firstName' is private and only accessible within class 'Person'."
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>By&nbsp;marking the&nbsp;<code>firstName</code>&nbsp;property as&nbsp;<code>private</code>&nbsp;it is now only visible from one of&nbsp;the methods on&nbsp;<code>Person</code>&nbsp;class.</p>\n</div>\n<div class=\"paragraph\">\n<p>We can also define&nbsp;<em>class methods</em>&nbsp;as&nbsp;<code>private</code>&nbsp;with the&nbsp;same effect. If we tried to&nbsp;call a&nbsp;<code>private</code>&nbsp;method from&nbsp;<em>outside</em>&nbsp;of&nbsp;a Person class, the&nbsp;TypeScript transpiler throws an&nbsp;error.</p>\n</div>\n<div class=\"paragraph\">\n<p>There are 3 access modifiers:</p>\n</div>\n<div class=\"dlist\">\n<dl>\n<dt class=\"hdlist1\"><strong>public</strong></dt>\n<dd>\n<p>This is the&nbsp;default and&nbsp;means it&rsquo;s visible everywhere.</p>\n</dd>\n<dt class=\"hdlist1\"><strong>private</strong></dt>\n<dd>\n<p>Only member functions of&nbsp;the class it&rsquo;s declared in&nbsp;can see this.</p>\n</dd>\n<dt class=\"hdlist1\"><strong>protected</strong></dt>\n<dd>\n<p>Only the&nbsp;class it&rsquo;s declared in&nbsp;and any class that&nbsp;<em>inherits</em>&nbsp;from that class can see this.</p>\n</dd>\n</dl>\n</div>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Constructor Shortcut",
+            "content_desc": "A really common pattern in constructors is to use them to initialise properties via arguments you pass into the constructor, like in our example:",
+            "content_image": "",
+            "content_code": "class Person {\n    private firstName = \"\";\n    private lastName = \"\";\n\n    constructor(firstName, lastName) {\n        this.firstName = firstName;\n        this.lastName = lastName;\n    }\n}"
+        },
+        {
+            "content_title": "",
+            "content_desc": "As long as you are using an access modifier TypeScript lets us shorten this to:",
+            "content_image": "",
+            "content_code": "class Person {\n    constructor(private firstName, private lastName) {\n    }\n}"
+        },
+        {
+            "content_title": "Interfaces",
+            "content_desc": "<div class=\"paragraph\">\n<p>TypeScript has another feature called an&nbsp;<code>interface</code>. An&nbsp;interface can be used in&nbsp;a number of&nbsp;scenarios but by&nbsp;far the&nbsp;most common is when used with classes.</p>\n</div>\n<div class=\"paragraph\">\n<p>When used with classes the&nbsp;syntax looks like this:</p>\n</div>",
+            "content_image": "",
+            "content_code": "class Person implements Human {\n}"
+        },
+        {
+            "content_title": "",
+            "content_desc": "Human in the example above is an interface. An interface lets you describe the minimum set of public facing properties or methods that a class has.\n\nAnother way interfaces are explained is that they describe a set of rules the class has to follow, a contract it has to adhere to.\n\nSo for us a Human interface might look like:",
+            "content_image": "",
+            "content_code": "interface Human {\n    firstName: string;\n    lastName: string;\n}"
+        },
+        {
+            "content_title": "",
+            "content_desc": "Note: Since interfaces are all about the public interface of a class they can’t have access modifiers, the properties above have to be public.",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "",
+            "content_desc": "If the Person class then doesn’t implement at least a firstName and a lastName then TypeScript throws an error like:",
+            "content_image": "",
+            "content_code": "error TS2420: Class 'Person' incorrectly implements interface 'Human'. Property 'firstName' is missing in type 'Person'."
+        },
+        {
+            "content_title": "",
+            "content_desc": "Sometimes however we might want an interface to describe an optional contract. We can append ? to the name of the property or function to mark it as optional, like:",
+            "content_image": "",
+            "content_code": "interface Human {\n    firstName: string;\n    lastName: string;\n\t\tname?: Function;\n\t\tisLate?(time: Date): Function;\n}"
+        }
+    ]
+}

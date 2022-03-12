@@ -1,0 +1,192 @@
+{
+    "_id": {
+        "$oid": "61d066f505ed5a80a81a248b"
+    },
+    "article_slug": "ts-map-set",
+    "article_title": "Typescript - Map & Set",
+    "article_image": "",
+    "article_seo_desc": "Map is a new data structure introduced in ES6 which lets you map keys to values without the drawbacks of using Objects. Sets are a bit like maps but they only store keys not key–value pairs.",
+    "enroll_available": true,
+    "article_content": [
+        {
+            "content_title": "Map",
+            "content_desc": "Map is a new data structure introduced in ES6 which lets you map keys to values without the drawbacks of using Objects.",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Creating, Getting and Setting.",
+            "content_desc": "We create a map using the new keyword, like:",
+            "content_image": "",
+            "content_code": "let map = new Map();"
+        },
+        {
+            "content_title": "We can then add entries by using the set method, like:",
+            "content_desc": "",
+            "content_image": "",
+            "content_code": "let map = new Map();\nmap.set(\"A\",1);\nmap.set(\"B\",2);\nmap.set(\"C\",3);"
+        },
+        {
+            "content_title": "",
+            "content_desc": "The set method is also chainable, like:",
+            "content_image": "",
+            "content_code": "let map = new Map()\n    .set(\"A\",1)\n    .set(\"B\",2)\n    .set(\"C\",3);"
+        },
+        {
+            "content_title": "",
+            "content_desc": "Or we could initialise the Map with a an array of key–value pairs, like:",
+            "content_image": "",
+            "content_code": "let map = new Map([\n    [ \"A\", 1 ],\n    [ \"B\", 2 ],\n    [ \"C\", 3 ]\n]);"
+        },
+        {
+            "content_title": "",
+            "content_desc": "We can extract a value by using the get method:",
+            "content_image": "",
+            "content_code": "map.get(\"A\");\n// 1"
+        },
+        {
+            "content_title": "",
+            "content_desc": "We can check to see if a key is present using the has method:",
+            "content_image": "",
+            "content_code": "map.has(\"A\");\n// true"
+        },
+        {
+            "content_title": "",
+            "content_desc": "We can delete entries using the delete method:",
+            "content_image": "",
+            "content_code": "map.delete(\"A\");\n// true"
+        },
+        {
+            "content_title": "",
+            "content_desc": "We can check for the size (number of entries) using the size property:",
+            "content_image": "",
+            "content_code": "map.size\n// 2"
+        },
+        {
+            "content_title": "",
+            "content_desc": "We can empty an entire Map by using the clear method:",
+            "content_image": "",
+            "content_code": "map.clear()\nmap.size\n// 0"
+        },
+        {
+            "content_title": "Looping over a Map",
+            "content_desc": "We use the for-of looping operator to loop over entries in a Map.\n\nThere are a couple of different method we can employ, we’ll go over each one using the below map as the example:",
+            "content_image": "",
+            "content_code": "let map = new Map([\n    [ \"APPLE\", 1 ],\n    [ \"ORANGE\", 2 ],\n    [ \"MANGO\", 3 ]\n]);"
+        },
+        {
+            "content_title": "Using keys()",
+            "content_desc": "The keys method returns the keys in the map as an array which we can loop over using for-of like:",
+            "content_image": "",
+            "content_code": "for (let key of map.keys()) {\n    console.log(key);\n}\n// APPLE\n// ORANGE\n// MANGO"
+        },
+        {
+            "content_title": "Using values()",
+            "content_desc": "The values method returns the values in the map as an array which we can loop over using for-of like:",
+            "content_image": "",
+            "content_code": "for (let value of map.values()) {\n    console.log(value);\n}\n// 1:\n// 2\n// 3"
+        },
+        {
+            "content_title": "Using entries()",
+            "content_desc": "The entries method returns the [key,value] pairs in the map as an array which we can loop over using for-of like:",
+            "content_image": "",
+            "content_code": "for (let entry of map.entries()) {\n    console.log(entry[0], entry[1]);\n}\n// \"APPLE\" 1\n// \"ORANGE\" 2\n// \"MANGO\" 3"
+        },
+        {
+            "content_title": "",
+            "content_desc": "Using destructuring we can access the keys and values directly, like:",
+            "content_image": "",
+            "content_code": "for (let [key, value] of map.entries()) {\n    console.log(key, value);\n}\n// \"APPLE\" 1\n// \"ORANGE\" 2\n// \"MANGO\" 3"
+        },
+        {
+            "content_title": "",
+            "content_desc": "Looping over key-value pairs via entries is so common that this is the default for a Map.\n\nTherefore we don’t even need to call entries() on a map instance, like so:",
+            "content_image": "",
+            "content_code": "for (let [key, value] of map) {\n    console.log(key, value);\n}\n// \"APPLE\" 1\n// \"ORANGE\" 2\n// \"MANGO\" 3"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<table style=\"width: 100%; border-collapse: collapse;\" border=\"1\" cellspacing=\"10\" cellpadding=\"10\">\n<tbody>\n<tr>\n<td style=\"width: 100%;\"><strong>Note:</strong> A distinction between Object and Map is that Maps record the <em>order in&nbsp;which elements are inserted</em>. It then replays that order when looping over keys, values or&nbsp;entries.</td>\n</tr>\n</tbody>\n</table>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Set",
+            "content_desc": "Sets are a bit like maps but they only store keys not key–value pairs.\n\nThey are common in other programming languages but are a new addition to JavaScript in ES6.",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Creating, Getting and Setting",
+            "content_desc": "We create a Set using the new keyword, like:",
+            "content_image": "",
+            "content_code": "let set = new Set();"
+        },
+        {
+            "content_title": "",
+            "content_desc": "We can then add entries by using the add method, like:",
+            "content_image": "",
+            "content_code": "let set = new Set();\nset.add('APPLE');\nset.add('ORANGE');\nset.add('MANGO');"
+        },
+        {
+            "content_title": "",
+            "content_desc": "The add method is chainable, like:",
+            "content_image": "",
+            "content_code": "let set = new Set()\n    .add('APPLE')\n    .add('ORANGE')\n    .add('MANGO');"
+        },
+        {
+            "content_title": "",
+            "content_desc": "Or we can initialise the Set with an array, like:",
+            "content_image": "",
+            "content_code": "let set = new Set(['APPLE', 'ORANGE', 'MANGO']);"
+        },
+        {
+            "content_title": "",
+            "content_desc": "We can check to see if a value is in a set like:",
+            "content_image": "",
+            "content_code": "set.has('APPLE')\n// true"
+        },
+        {
+            "content_title": "",
+            "content_desc": "We can delete a value from the set:",
+            "content_image": "",
+            "content_code": "set.delete('APPLE')"
+        },
+        {
+            "content_title": "",
+            "content_desc": "We can count the number of entries in the set like:",
+            "content_image": "",
+            "content_code": "set.size\n// 2"
+        },
+        {
+            "content_title": "",
+            "content_desc": "We can empty the entire set with the clear method:",
+            "content_image": "",
+            "content_code": "set.clear();\nset.size\n// 0"
+        },
+        {
+            "content_title": "",
+            "content_desc": "Sets can only store unique values, so adding a value a second time has no effect:",
+            "content_image": "",
+            "content_code": "let set = new Set();\nset.add('Moo');\nset.size\n// 1\nset.add('Moo');\nset.size\n// 1"
+        },
+        {
+            "content_title": "Looping over a Set",
+            "content_desc": "We can use the for-of loop to loop over items in our set, like:",
+            "content_image": "",
+            "content_code": "let set = new Set(['APPLE', 'ORANGE', 'MANGO']);\nfor (let entry of set) {\n    console.log(entry);\n}\n// APPLE\n// ORANGE\n// MANGO"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<table style=\"width: 100%; border-collapse: collapse;\" border=\"1\" cellspacing=\"10\" cellpadding=\"10\">\n<tbody>\n<tr>\n<td style=\"width: 100%;\"><strong>Note:</strong> Similar to Maps, Sets also record the <em>order in&nbsp;which elements are inserted</em>, it then replays that order when looping.</td>\n</tr>\n</tbody>\n</table>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "",
+            "content_desc": "Map and Set are great additions to JavaScript in ES6.\n\nWe no longer have to deal with Map and Sets poor cousin the Object and it’s many drawbacks.",
+            "content_image": "",
+            "content_code": ""
+        }
+    ]
+}

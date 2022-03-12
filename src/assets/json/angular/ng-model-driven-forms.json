@@ -1,0 +1,151 @@
+{
+    "_id": {
+        "$oid": "620dcccc8711a7eb8443473c"
+    },
+    "article_id": "7.1",
+    "article_slug": "ng-model-driven-forms",
+    "article_title": "Angular - Model-Driven Forms",
+    "article_image": "",
+    "article_seo_desc": "Forms come handy when handling user-input and enabling user to log in, update information, and other data-entry tasks. In Angular we have Template Driven Forms and Reactive Forms",
+    "enroll_available": true,
+    "article_content": [
+        {
+            "content_title": "",
+            "content_desc": "<p>Forms come handy when handling user-input and enabling user to log in, update information, and other data-entry tasks. These are basically used to capture user input events. In Angular, there are two approaches to handling user inputs.</p>\n<ul class=\"unorderlist\">\n<li>\n<p>Template-Driven Forms</p>\n</li>\n<li>\n<p>Reactive or Model-Driven Forms</p>\n</li>\n</ul>\n<p><strong>Template-Driven Forms: </strong></p>\n<p>Template Driven Forms are used to bind the data to the component class using <code>ngModel</code>. We do not need to take the pain of writing code and most of the task is done by Angular itself. There is very less of effort required from the developer to pass information from the component class to the template.</p>\n<p><strong>Reactive or Model-Driven Forms: </strong></p>\n<p>However, Reactive forms are synchronous and are usually considered when working with database. We write the code for validation inside the component class and also map the objects to the form controls on the view.</p>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Form Setup",
+            "content_desc": "Whether we are template-driven or model-driven we need some basic form HTML to begin with.",
+            "content_image": "",
+            "content_code": "<!-- check-out.component.html -->\n<form class=\"needs-validation\" novalidate>\n    <div class=\"row g-3\">\n        <div class=\"col-sm-6\">\n            <label for=\"firstName\" class=\"form-label\">First name</label>\n            <input type=\"text\" class=\"form-control\">\n        </div>\n        <div class=\"col-sm-6\">\n            <label for=\"lastName\" class=\"form-label\">Last name</label>\n            <input type=\"text\" class=\"form-control\">\n        </div>\n        <div class=\"col-12\">\n            <label for=\"email\" class=\"form-label\">Email <span\n                    class=\"text-muted\">(Optional)</span></label>\n            <input type=\"email\" class=\"form-control\">\n        </div>\n        <div class=\"col-sm-6\">\n            <label for=\"address\" class=\"form-label\">Address</label>\n            <input type=\"text\" class=\"form-control\">\n        </div>\n        <div class=\"col-sm-6\">\n            <label for=\"country\" class=\"form-label\">Country</label>\n            <select class=\"form-select\" id=\"country\">\n                <option>Choose...</option>\n                <option>United States</option>\n            </select>\n        </div>\n    </div>\n</form>"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>We&rsquo;ve added the&nbsp;<code>novalidate</code>&nbsp;attribute to&nbsp;the&nbsp;<code>form</code> element, by default browsers perform their own validation and show their own error popups. Since we want to handle the form validation ourselves we can switch off this behaviour by adding novalidate to the form element.</p>\n<p><strong>Note:&nbsp;</strong>We are using the markup and styles from the Twitter Bootstrap UI framework to structure our form.</p>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>We want the select box to have a list of countries for the user to select.</p>\n<p>We could hard code the countries in the <abbr>HTML</abbr>&nbsp;with&nbsp;<code>&lt;option&gt;</code> tags but we want to make the list&nbsp;<em>dynamic</em> so we can easily add more countries later on. so we:</p>\n<ol>\n<li>Add an&nbsp;array of&nbsp;countries to&nbsp;our component.</li>\n</ol>",
+            "content_image": "",
+            "content_code": "countries: string[] = [\n  'India',\n  'USA',\n  'Germany',\n  'Britan'\n]"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>2. Use an <code>NgFor</code>&nbsp;loop to&nbsp;render these as&nbsp;options in&nbsp;the template.</p>",
+            "content_image": "",
+            "content_code": "<select class=\"form-select\">\n    <option value=\"\">Please select a country</option>\n    <option *ngFor=\"let country of countries\" [value]=\"country\">\n        {{country}}\n    </option>\n</select>"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"olist arabic\">\n<ol class=\"arabic\" start=\"1\">\n<li>\n<p>The&nbsp;options&nbsp;<em>value</em></p>\n</li>\n<li>\n<p>The&nbsp;options&nbsp;<em>label</em></p>\n</li>\n</ol>\n</div>\n<div class=\"paragraph\">\n<p>An&nbsp;option has a&nbsp;<em>label</em>&nbsp;and&nbsp;a&nbsp;<em>value</em>. The&nbsp;label is the&nbsp;text the&nbsp;user sees in&nbsp;the select box and&nbsp;the&nbsp;<em>value</em>&nbsp;is the&nbsp;data that&rsquo;s stored for&nbsp;that label.</p>\n</div>\n<div class=\"paragraph\">\n<p>If we ask a&nbsp;select box what option has been selected it returns us the&nbsp;<em>value</em>, not the&nbsp;<em>label</em>.</p>\n</div>\n<div class=\"paragraph\">\n<p>To&nbsp;set the&nbsp;value of&nbsp;our select box we just bind to&nbsp;the input property of&nbsp;our option using the&nbsp;<code>[value]</code>&nbsp;syntax.</p>\n</div>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Form Model",
+            "content_desc": "<p>We represent the&nbsp;form as&nbsp;a&nbsp;<em>model</em> composed of instances of&nbsp;<code>FormGroups</code>&nbsp;and&nbsp;<code>FormControls</code>.</p>\n<p>Let&rsquo;s create the model for our form on our component, like:</p>",
+            "content_image": "",
+            "content_code": "import { Component, OnInit } from '@angular/core';\nimport { FormControl, FormGroup } from '@angular/forms';\n@Component({\n  selector: 'app-check-out',\n  templateUrl: './check-out.component.html',\n  styleUrls: ['./check-out.component.css']\n})\nexport class CheckOutComponent implements OnInit {\n\n  myform!: FormGroup; (1)\n\n  countries: string[] = [\n    'India',\n    'USA',\n    'Germany',\n    'Britan'\n  ]\n\n  ngOnInit(): void {\n\n    this.myform = new FormGroup({\n      name: new FormGroup({ (2)\n        firstName: new FormControl(),(3)\n        lastName: new FormControl(),\n      }),\n      email: new FormControl(),\n      address: new FormControl(),\n      country: new FormControl()\n    });\n  }\n}"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<ol>\n<li class=\"colist arabic\"><code>myform</code>&nbsp;is an&nbsp;instance of&nbsp;<code>FormGroup</code>&nbsp;and&nbsp;represents the&nbsp;form itself.</li>\n<li class=\"colist arabic\"><code>FormGroups</code>&nbsp;can nest inside other&nbsp;<code>FormGroups</code>.</li>\n<li class=\"colist arabic\">We create a&nbsp;<code>FormControl</code>&nbsp;for&nbsp;each template form control.</li>\n</ol>\n<div class=\"paragraph\">\n<p>The&nbsp;<code>myform</code>&nbsp;property is an&nbsp;instance of&nbsp;a&nbsp;<code>FormGroup</code> class and this represents our form itself.</p>\n</div>\n<div class=\"paragraph\">\n<p>Each&nbsp;<em>form control</em> in the template is represented by an instance of&nbsp;<code>FormControl</code>. This encapsulates the state of the control, such as if it&rsquo;s valid or invalid and even its current value.</p>\n</div>\n<div class=\"paragraph\">\n<p>These instances of&nbsp;<code>FormControls</code>&nbsp;nest inside our top-level&nbsp;<code>myform: FormGroup</code>, but what&rsquo;s interesting is that we can&nbsp;<em>nest</em>&nbsp;<code>FormGroups</code> inside other <code>FormGroups</code>.</p>\n</div>\n<div class=\"paragraph\">\n<p>In&nbsp;our model we&rsquo;ve grouped the&nbsp;<code>firstName</code>&nbsp;and&nbsp;<code>lastName</code> controls under a <code>FormGroup</code>&nbsp;called&nbsp;<code>name</code>&nbsp;which itself is nested under our top-level&nbsp;<code>myform: FormGroup</code>.</p>\n</div>\n<div class=\"paragraph\">\n<p>Like the&nbsp;<code>FormControl</code>&nbsp;instance,&nbsp;<code>FormGroup</code> instances encapsulates the state of all of its inner controls, for example an instance of a&nbsp;<code>FormGroup</code> is valid only if <em>all</em>&nbsp;of&nbsp;its inner controls are also valid.</p>\n</div>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Linking the Form Model to the Form Template",
+            "content_desc": "<div class=\"paragraph\">\n<p>We have the&nbsp;<abbr>HTML</abbr> template for our form and the form model on our <code>CheckOutComponent</code>, now we need to <strong>link</strong> the two together.</p>\n</div>\n<div class=\"paragraph\">\n<p>We do this using the number of directives which are found in the <code>ReactiveFormsModule</code>, so let&rsquo;s import that and add it to the imports on our <code>NgModule</code>.</p>\n</div>",
+            "content_image": "",
+            "content_code": "import { ReactiveFormsModule } from '@angular/forms';\n  .\n  .\nimports: [\n  BrowserModule,\n  AppRoutingModule,\n  ReactiveFormsModule\n],"
+        },
+        {
+            "content_title": "formGroup",
+            "content_desc": "<p>Firstly we bind the&nbsp;<code>&lt;form&gt;</code>&nbsp;element to&nbsp;our top-level&nbsp;<code>myform</code> property using the <code>formGroup</code> directive, like:</p>",
+            "content_image": "",
+            "content_code": "<form [formGroup]=\"myform\"> ... </form>"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>Now we&rsquo;ve linked the&nbsp;<code>myform</code> model to the form template we have access to our&nbsp;<code>myform</code>&nbsp;model&nbsp;<em>in</em>&nbsp;our template.</p>\n</div>\n<div class=\"paragraph\">\n<p>The&nbsp;value property of&nbsp;the&nbsp;<code>myform</code>&nbsp;model returns the&nbsp;values of&nbsp;<em>all</em> of the controls as an object. We can use that with the&nbsp;<code>json</code> pipe to output some useful debug information about our form, like:</p>\n</div>",
+            "content_image": "",
+            "content_code": "<pre>{{myform.value | json}}</pre>"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>Running our application now prints out the&nbsp;below in&nbsp;the debug&nbsp;<code>pre</code>&nbsp;tag:</p>",
+            "content_image": "",
+            "content_code": "{\n    \"name\": {\n      \"firstName\": null,\n      \"lastName\": null\n    },\n    \"email\": null,\n    \"address\": null,\n    \"country\": null\n  }"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>Initially this seems quite exciting but as we enter values into each of the input fields in our form we would see that the model <em>isn&rsquo;t</em> getting updated, the values remain null.</p>\n</div>\n<div class=\"paragraph\">\n<p>That&rsquo;s because although we&rsquo;ve linked the&nbsp;<code>form</code>&nbsp;element to&nbsp;the&nbsp;<code>myform</code> model this doesn&rsquo;t automatically link each form control in the model with each form control in the template, we need to do this explicitly with the<code> formControlName</code>&nbsp;and&nbsp;<code>formGroupName</code>&nbsp;directives.</p>\n</div>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "formGroupName & formControlName",
+            "content_desc": "<div class=\"paragraph\">\n<p>We use the&nbsp;<code>formControlName</code> directive to map each form control in the template with a named form control in the model, like:</p>\n</div>",
+            "content_image": "",
+            "content_code": "<div class=\"form-group\">\n  <label>Email</label>\n  <input type=\"email\"\n         class=\"form-control\"\n         formControlName=\"email\" (1)\n         required>\n</div>"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<ol>\n<li>This looks for a model form control called email in the top level of our <code>myform</code>&nbsp;model and&nbsp;links the&nbsp;element to&nbsp;that.</li>\n</ol>\n<div class=\"paragraph\">\n<p>We can also associate a group of template form controls to an instance of a form group on our model using <code>formGroupName</code>&nbsp;directive.</p>\n</div>\n<div class=\"paragraph\">\n<p>Since our&nbsp;<code>firstName</code>&nbsp;and&nbsp;<code>lastName</code> controls are grouped under a form group called&nbsp;<code>name</code>&nbsp;we&rsquo;ll do just that.</p>\n<p><strong>Note:&nbsp;</strong>The only caveat is that in our template the controls we want to group must be surrounded by another element, we&rsquo;ve surrounded our controls with a fieldset element but it doesn&rsquo;t need to be called fieldset, could for example be a div.</p>\n<p>We then associate the&nbsp;<code>fieldset</code> element with the form group called&nbsp;<code>name</code> in our model like:</p>\n</div>",
+            "content_image": "",
+            "content_code": "<fieldset formGroupName=\"name\"> ... </fieldset>"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>Then inside our fieldset element we again use the <code>formControlName</code>&nbsp; directive to map individual form controls in the template to form controls under the form group <code>name</code>&nbsp;in&nbsp;our model.</p>\n</div>\n<div class=\"paragraph\">\n<p>In&nbsp;the end the&nbsp;template should look like this:</p>\n</div>",
+            "content_image": "",
+            "content_code": "<!-- check-out.component.html -->\n.\n.\n<div class=\"col-md-7 col-lg-8\">\n    <h4 class=\"mb-3\">Billing address</h4>\n    <form [formGroup]=\"myform\" class=\"needs-validation\" novalidate>\n        <div class=\"row g-3\">\n            <fieldset formGroupName=\"name\">\n                <div class=\"form-group\">\n                    <div class=\"col-sm-6\">\n                        <label for=\"firstName\" class=\"form-label\">First name</label>\n                        <input type=\"text\" class=\"form-control\" formControlName=\"firstName\" required>\n                    </div>\n                    <div class=\"col-sm-6\">\n                        <label for=\"lastName\" class=\"form-label\">Last name</label>\n                        <input type=\"text\" class=\"form-control\" formControlName=\"lastName\" required>\n                    </div>\n                </div>\n            </fieldset>\n            <div class=\"col-12\">\n                <label for=\"email\" class=\"form-label\">Email <span\n                        class=\"text-muted\">(Optional)</span></label>\n                <input type=\"email\" class=\"form-control\" formControlName=\"email\" required>\n            </div>\n            <div class=\"col-sm-6\">\n                <label for=\"address\" class=\"form-label\">Address</label>\n                <input type=\"text\" class=\"form-control\" formControlName=\"address\" required>\n            </div>\n            <div class=\"col-sm-6\">\n                <label for=\"country\" class=\"form-label\">Country</label>\n                <select class=\"form-select\" formControlName=\"country\">\n                    <option value=\"\">Please select a language</option>\n                    <option *ngFor=\"let country of countries\" [value]=\"country\">\n                        {{country}}\n                    </option>\n                </select>\n            </div>\n        </div>\n        <hr class=\"my-4\">\n    </form>\n    <pre>{{myform.value | json}}</pre>\n</div>"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<ol>\n<li>Use&nbsp;<code>formGroup</code>&nbsp;to&nbsp;bind the&nbsp;form to&nbsp;an instance of&nbsp;<code>FormGroup</code> on our component.</li>\n<li>Use&nbsp;<code>formGroupName</code>&nbsp;to&nbsp;map to&nbsp;a&nbsp;<em>child</em>&nbsp;<code>FormGroup</code>&nbsp;of&nbsp;<code>myform</code>.</li>\n<li>Use&nbsp;<code>formControlName</code>&nbsp;to&nbsp;bind to&nbsp;an instance of&nbsp;a&nbsp;<code>FormControl</code>, since these form controls are under a <code>formGroupName</code>&nbsp;of&nbsp;<code>name</code>, Angular will try and find the control in under <code>myform['name']</code>.</li>\n<li>Use&nbsp;<code>formControlName</code>&nbsp;to&nbsp;bind to&nbsp;an instance of&nbsp;a&nbsp;<code>FormControl</code> directly under <code>myform</code>.</li>\n</ol>\n<p>Now each form control in the template is mapped to form controls in our model and so as we type into the input elements <code>myform.value</code> updates and our debug section at the bottom prints out the current value of the form.</p>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Submitting",
+            "content_desc": "<p>To&nbsp;submit a&nbsp;form in&nbsp;Angular we need a&nbsp;button with a&nbsp;<code>type</code>&nbsp;of&nbsp;<code>submit</code> in our form markup in between the&nbsp;<code>&lt;form&gt; &hellip;​ &lt;/form&gt;</code> tags, like:</p> ",
+            "content_image": "",
+            "content_code": "<form>\n  .\n  .\n  .\n  <button type=\"submit\" class=\"btn btn-primary\" >Submit</button>\n</form>"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>When we press this submit button this triggers the&nbsp;normal&nbsp;<abbr>HTML</abbr>5 form submission mechanism, so it tries to <em><abbr>POST</abbr></em>&nbsp;the&nbsp;form to&nbsp;the current&nbsp;<abbr>URL</abbr>.</p>\n</div>\n<div class=\"paragraph\">\n<p>However instead of&nbsp;issuing a&nbsp;standard&nbsp;<abbr>POST</abbr> we want to call a function on our component instead, to do that we use the&nbsp;<code>ngSubmit</code> directive and add it to the form element, like:</p>\n</div>",
+            "content_image": "",
+            "content_code": "<form (ngSubmit)=\"onSubmit()\">\n  .\n  .\n  .\n  <button type=\"submit\" class=\"btn btn-primary\" >Submit</button>\n</form>"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>This&nbsp;<em>hijacks</em> the normal form submission mechanism and instead calls the function&nbsp;<code>onSubmit()</code>&nbsp;on&nbsp;our component. Let&rsquo;s implement&nbsp;<code>onSubmit()</code> with a simple console.log line like:</p>",
+            "content_image": "",
+            "content_code": "onSubmit() {\n  if (this.myform.valid) {\n    console.log(\"Form Submitted!\");\n  }\n}"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>Now when we press the&nbsp;<em>Submit</em>&nbsp;button&nbsp;<code>Form Submitted!</code> gets printed to the console.</p>\n<div class=\"paragraph\">\n<ol>\n<li>We can do anything we want in this function.</li>\n<li>To get the current value of the form model we can call&nbsp;<code>myform.value</code>.</li>\n</ol>\n</div>\n<div class=\"paragraph\">\n<p>In&nbsp;a later section we cover how to&nbsp;make&nbsp;<abbr>HTTP</abbr> requests, after learning that we will be able to make an&nbsp;<abbr>API</abbr> request passing in values from our form model.</p>\n</div>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Resetting",
+            "content_desc": "<div class=\"paragraph\">\n<p>In&nbsp;a model-driven form to&nbsp;<em>reset</em> the form we just need to call the function&nbsp;<code>reset()</code>&nbsp;on&nbsp;our&nbsp;<code>myform</code>&nbsp;model.</p>\n</div>\n<div class=\"paragraph\">\n<p>For&nbsp;our sample form let&rsquo;s reset the&nbsp;form in&nbsp;the&nbsp;<code>onSubmit()</code> function, like:</p>\n</div>",
+            "content_image": "",
+            "content_code": "onSubmit() {\n  if (this.myform.valid) {\n    console.log(\"Form Submitted!\");\n    this.myform.reset();\n  }\n}"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>The form now resets, all the input fields go back to their initial state.</p>",
+            "content_image": "",
+            "content_code": ""
+        }
+    ]
+}

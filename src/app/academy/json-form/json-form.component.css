@@ -1,0 +1,22 @@
+label {
+    color: rgba(41, 41, 41, 1);
+    font-family: charter, Georgia, Cambria, "Times New Roman", Times, serif;
+    font-style: normal;
+    word-break: break-word;
+    font-weight: 400;
+    word-wrap: break-word;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: -0.003em;
+    line-height: 32px;
+    font-size: 21px;
+}
+
+.quiz-answer {
+    margin-left: 27px; 
+    margin-right: 30px;
+    background: #d4edda;
+    padding: 10px;
+    border-radius: 3px;
+    font-weight: 500;
+    font-size: 18px;
+}

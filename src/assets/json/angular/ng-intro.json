@@ -1,0 +1,79 @@
+{
+    "_id": {
+        "$oid": "61e426d2bbfe744154a49476"
+    },
+    "article_slug": "ng-intro",
+    "article_title": "Introduction to Angular",
+    "article_image": "",
+    "article_seo_image": "",
+    "article_seo_desc": "Angular is one of the most popular Javascript frameworks in the world for building modern web applications. Angular is created & developed by Google and has a huge community support behind it.",
+    "enroll_available": true,
+    "article_content": [
+        {
+            "content_title": "",
+            "content_desc": "<p><strong>Angular</strong>&nbsp;is one of the most popular Javascript frameworks in the world for building modern web applications. Angular is created &amp; developed by&nbsp;<strong>Google&nbsp;</strong>and has a huge community support behind it. You can visit Angular official website from&nbsp;<a href=\"https://angular.io/\" target=\"_blank\" rel=\"noopener ugc nofollow\">here</a>.</p>\n<p><strong >Starting with Angular 2+</strong>, various configuration files are needed in an Angular project. Installing them manually one by one is a waste of time and also difficult.</p>\n<p id=\"3efa\" >Therefore, Angular brings a solution to deal with all of the configurations:&nbsp;<strong >Angular CLI</strong>. We can start developing an Angular project within a couple of minutes by using Angular CLI.</p>\n<p>Here, I will be explaining how to install Angular in your computer by using Angular CLI.</p>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "What is Angular CLI?",
+            "content_desc": "<p>CLI stands for&nbsp;<strong>Command Line Interface.&nbsp;</strong>Angular CLI is being used for automating operations in Angular projects rather than doing them manually. CLI supports us developers in an Angular project from beginning to end.</p>\n<p>For example, Angular CLI can be used for:</p>\n<ul>\n<li>Configurations, Environment Setup</li>\n<li id=\"6c4e\">Building components, services, routing system</li>\n<li id=\"a4de\">Starting, testing and deploying the project</li>\n<li>Installing 3rd party libraries like&nbsp;<strong>Bootstrap, Sass</strong>&nbsp;etc. (with&nbsp;<strong>Webpack</strong>)</li>\n</ul>\n<p>and much more.</p>\n<p>Angular CLI saves developers time and effort significantly.",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "1. Install NPM",
+            "content_desc": "<p>Angular requires&nbsp;<strong>Node.js</strong>&nbsp;in your system. If you already have it, you can skip this part.</p>\n<p>Node has the&nbsp;<strong>Node Package Manager (NPM)</strong>, which we need for installing Angular CLI and other programs (packages). You can download NPM from&nbsp;<a href=\"https://nodejs.org/en/\" target=\"_blank\" rel=\"noopener ugc nofollow\">here</a>.</p>\n<p>After the installation is completed, go to your Terminal or Windows Command Prompt and type&nbsp;<strong>node -v&nbsp;</strong>to check which version is installed:</p>",
+            "content_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Screenshot%202022-01-16%20at%207.45.40%20PM.png",
+            "content_code": ""
+        },
+        {
+            "content_title": "2. Install Angular CLI",
+            "content_desc": "After you’ve installed NPM, you can install Angular CLI as the 2nd step. Open your terminal or command prompt and type the command below:",
+            "content_image": "",
+            "content_code": "npm install -g @angular/cli"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p><strong>NOTE:</strong>&nbsp;If your Mac restricts installation, you can be super user with&nbsp;sudo su&nbsp;command and try again.</p>\n<p><strong>g</strong>&nbsp;stands for&nbsp;<strong>global installation</strong>. We include it so we can use the CLI in any Angular project later. After the installation is completed, type&nbsp;<code>ng --version</code>&nbsp;to verify whether the installation is successful.</p>",
+            "content_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Screenshot%202022-01-16%20at%207.50.27%20PM.png",
+            "content_code": ""
+        },
+        {
+            "content_title": "3. Create Angular Project",
+            "content_desc": "<p>Let's open up the terminal or command prompt and navigate to the some folder / directory where you want to create the angular project. Now type the below command.</p>",
+            "content_image": "",
+            "content_code": "ng new shopping-cart"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>This is an Angular CLI command, to create the Angular project. (We will discuss more on Angular CLI commands). This will create an Angular project like the below folder structure.</p>",
+            "content_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Screenshot%202022-01-16%20at%207.16.46%20PM.png",
+            "content_code": ""
+        },
+        {
+            "content_title": "Run Angular Project",
+            "content_desc": "<p>Now enter the below Angular CLI command to run the Angular project.</p>",
+            "content_image": "",
+            "content_code": "ng serve"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>This will run the Angular project by enabling the port 4200. Open the browser and enter the below url.</p>",
+            "content_image": "",
+            "content_code": "http://localhost:4200/"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>You should be seeing the default Angular UI page.</p>",
+            "content_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Screenshot%202022-01-16%20at%207.23.10%20PM.png",
+            "content_code": ""
+        },
+        {
+            "content_title": "",
+            "content_desc": "Congratulations! Your first Angular app is running on your localhost.",
+            "content_image": "",
+            "content_code": ""
+        }
+    ]
+}

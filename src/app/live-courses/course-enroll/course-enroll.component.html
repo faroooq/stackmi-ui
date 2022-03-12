@@ -1,0 +1,127 @@
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasWithBackdrop"
+    aria-labelledby="offcanvasWithBackdropLabel">
+    <div class="offcanvas-header">
+        <h5 style="color: #fff;" class="offcanvas-title" id="offcanvasWithBackdropLabel">Registration Form</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <div class="col-lg-12">
+            <div class="col-lg-11 mx-auto">
+                <div class="card-header"
+                    style="background: #fff; margin-bottom: 1rem; font-size: 2.1rem; text-align: center; color: #1b0760;">
+                    Course Registration Form</div>
+                <div class="card-body">
+                    <form class="row g-3" [formGroup]="registerCourseForm"
+                        (ngSubmit)="onSubmit(registerCourseForm.value)">
+                        <div class="row" style="margin-top: 1rem;">
+                            <div class="col-12 col-md-6 email-margin">
+                                <label style="margin-left: 1rem">Name
+                                    <sup><span style="color: #dc3545; font-size: 1rem"
+                                            class="fa fa-star checked"></span></sup>
+                                </label>
+                                <div class="input-group email-width">
+                                    <input type="text" class="input" id="user_name" placeholder="Enter your name"
+                                        formControlName="user_name" />
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 mobile-margin">
+                                <label style="margin-left: 1rem">Mobile Number
+                                    <sup><span style="color: #dc3545; font-size: 1rem"
+                                            class="fa fa-star checked"></span></sup>
+                                </label>
+                                <div class="input-group mobile-width">
+                                    <input type="number" class="input" id="mobile" placeholder="Enter mobile number"
+                                        formControlName="mobile" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <label style="margin-left: 1rem">Email ID
+                                <sup><span style="color: #dc3545; font-size: 1rem"
+                                        class="fa fa-star checked"></span></sup>
+                            </label>
+                            <div class="input-group">
+                                <input type="email" class="input" id="email" placeholder="Enter email"
+                                    formControlName="email" />
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <label style="margin-left: 1rem" class="mb-2">Course
+                                <sup><span style="color: #dc3545; font-size: 1rem"
+                                        class="fa fa-star checked"></span></sup>
+                            </label>
+                            <div class="input-group">
+                                <input disabled type="text" class="input" id="course_name"
+                                    placeholder="Angular, React, Java, Python.." formControlName="course_name" />
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top: 1rem;">
+                            <div class="col-12 col-md-6 email-margin">
+                                <label style="margin-left: 1rem">Start Date
+                                    <sup><span style="color: #dc3545; font-size: 1rem"
+                                            class="fa fa-star checked"></span></sup>
+                                </label>
+                                <div class="input-group email-width">
+                                    <input disabled type="text" class="input" id="start_date"
+                                        placeholder="Enter start date" formControlName="start_date" />
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 mobile-margin">
+                                <label style="margin-left: 1rem">End Date
+                                    <sup><span style="color: #dc3545; font-size: 1rem"
+                                            class="fa fa-star checked"></span></sup>
+                                </label>
+                                <div class="input-group mobile-width">
+                                    <input disabled type="text" class="input" id="end_date" placeholder="Enter end date"
+                                        formControlName="end_date" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top: 1rem;">
+                            <div class="col-12 col-md-6 email-margin">
+                                <label style="margin-left: 1rem">Duration
+                                    <sup><span style="color: #dc3545; font-size: 1rem"
+                                            class="fa fa-star checked"></span></sup>
+                                </label>
+                                <div class="input-group email-width">
+                                    <input disabled type="text" class="input" id="duration" placeholder="Enter duration"
+                                        formControlName="duration" />
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 mobile-margin">
+                                <label style="margin-left: 1rem">Price
+                                    <sup><span style="color: #dc3545; font-size: 1rem"
+                                            class="fa fa-star checked"></span></sup>
+                                </label>
+                                <div class="input-group mobile-width">
+                                    <input disabled type="text" class="input" id="event_price" placeholder="Enter price"
+                                        formControlName="event_price" />
+                                </div>
+                            </div>
+                        </div>
+                        <label style="font-size: 1.2rem; padding-left: 0.8rem;" class="form-check-label label"
+                            for="policy">
+                            Your Success is Just a Step Ahead!&nbsp; Let`s Get Started.&nbsp;
+                        </label>
+                        <div class="col-12" *ngIf="formSubmitted">
+                            <div *ngIf="successMsg" class="alert alert-success d-flex align-items-center" role="alert">
+                                <div>{{ successMsg }}</div>
+                            </div>
+                            <div *ngIf="loading" class="text-center">
+                                <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12" style="margin-top: 0;">
+                            <button [disabled]="!registerCourseForm.valid" type="submit"
+                                class="btn btn-danger btn-lg col-12">
+                                ENROLL COURSE
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

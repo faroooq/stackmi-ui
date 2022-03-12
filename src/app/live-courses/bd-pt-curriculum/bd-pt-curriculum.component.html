@@ -1,0 +1,269 @@
+<app-navbar></app-navbar>
+<section class="block block--skewed-up hero" style="background: #135260; padding-top: 5rem;">
+    <header class="block__header" style="margin: 0;">
+        <h2 style="font-weight: 500">
+            <span style=" color: #fff;">Back-end Developer <span style="color: #ff0000;">Python</span>
+                Curriculum</span>
+        </h2>
+    </header>
+</section>
+<section class="block block--skewed-up hero" style="background: aliceblue; padding-top: 5rem;">
+    <div class="row">
+        <div class="col-md-8 mb-3">
+            <h3>Master Python in <span class="highlight">Just 2 Months</span> and Build Real World Projects</h3>
+            <h3 style="font-weight: 300; font-size: 2rem;">Python is the most popular used and in-demand programming
+                language.
+            </h3>
+            <div class="card-body">
+                <p style="font-size: 1.9rem;">Python is used by big companies like Google, Facebook,
+                    Dropbox, Reddit, Spotify, Quora, etc.</p>
+                <p style="font-size: 1.9rem;">Mathematicians, scientists, engineers and developers love it because of
+                    its simple and elegant syntax.</p>
+                <p style="font-size: 1.9rem;">It's the #1 language for AI and machine learning, and the ideal language
+                    to learn for beginners. Much easier than C++ or JavaScript!</p>
+                <p style="font-size: 1.9rem;">This course teaches you everything Python has to offer from the basics to
+                    more advanced topics.</p>
+                <p style="font-size: 1.9rem;">A perfect mix of theory and practice, packed with real-world examples,
+                    exercises and step-by-step solutions - free of "fluff" and lengthy description!</p>
+            </div>
+        </div>
+        <div class="col-md-4 card text-white mb-3">
+            <div class="card-header bg-primary"
+                style="text-align: center; font-size: 2.5rem;border-bottom-left-radius: 5rem;border-bottom-right-radius: 0.5rem;">
+                Course Highlights
+            </div>
+            <div class="card-body">
+                <ul class="ul_list" style="list-style: none; color: #232323;">
+                    <li style="margin-bottom: 2rem;">
+                        <i class="fas fa-user-tie"></i>
+                        <span style="font-style: normal; padding-left: 2rem;">Beginner To Expert</span>
+                    </li>
+                    <li style="margin-bottom: 2rem;">
+                        <i class="fas fa-users"></i>
+                        <span style="font-style: normal; padding-left: 2rem;">Interactive Learning</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-gifts"></i>
+                        <span style="font-style: normal; padding-left: 2rem;">Gifts And Awards</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-certificate"></i>
+                        <span style="font-style: normal; padding-left: 2rem;">Certificate</span>
+                    </li>
+                </ul>
+                <button (click)="selectedCourse('Python Masters Program')" style="margin: 0; width: 100%;"
+                    class="btn btn-danger" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasWithBackdrop" aria-controls="offcanvasWithBackdrop">Enroll
+                    Course</button>
+                <app-course-enroll [notifier]="sendCourse"></app-course-enroll>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="block--skewed-up hero" style="padding-top: 3rem; background: #f7f4f5;">
+    <div style="margin: 1rem; padding-bottom: 1rem;">
+        <header class="block__header">
+            <h3 style="font-weight: 600;">
+                <span style="font-size: 2.8rem;">Beginners Course Curriculum</span>
+            </h3>
+            <div style="margin-left: -0.8rem; margin-right: 1rem; text-align: center;">
+                <span style="font-size: 2rem;">Enroll this course with <span class="highlight">ZERO
+                        knowledge</span></span>
+            </div>
+        </header>
+        <div class="grid grid--1x2">
+            <div class="recommended card  mb-3" style="background: #fff; box-shadow: none;">
+                <div class="card-header" style="font-size: 2.3rem; background: #5c5577; color: #fff; padding: 0.8rem;">
+                    <span style="font-size: 1.6rem; margin-left: 1rem; margin-right: 1rem;">
+                        <i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;&nbsp;Beginner - 1st Week</span>
+                </div>
+                <header class="card__header">
+                    <hr>
+                    <h3 style="font-size: 1.6rem;">Introduction Week - By the end of this course, you'll learn…</h3>
+                    <hr>
+                    <ul class="list list--tick">
+                        <li class="list__item" style="background-color: #f7f7f7;">Welcome Greetings! Meet and Greet,
+                            What's demand for Back-end developers? Your salary after this course..</li>
+                        <li class="list__item">Introduction to <strong>Python</strong>, Installing Python, Primitive
+                            Types.</li>
+                        <li class="list__item" style="background-color: #f7f7f7;">Control Flow, Operators, Loops.
+                        </li>
+                        <li class="list__item">Functions, Scopes, <span class="highlight"
+                                style="font-size: 1.9rem;">&nbsp;Quiz</span>.</li>
+                        <li class="list__item" style="background-color: #f7f7f7;">Introduction to
+                            <strong>MVC Framework (DJango).</strong>
+                        </li>
+                    </ul>
+                </header>
+            </div>
+            <div class="recommended card  mb-3" style="background: #fff; box-shadow: none;">
+                <div class="card-header" style="font-size: 2.3rem; background: #5c5577; color: #fff; padding: 0.8rem;">
+                    <span style="font-size: 1.6rem; margin-left: 1rem; margin-right: 1rem;">
+                        <i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;&nbsp;Beginner - 2nd Week</span>
+                </div>
+                <header class="card__header">
+                    <hr>
+                    <h3 style="font-size: 1.6rem;">Data Structures in Python Week - By the end of this course, you'll
+                        learn…</h3>
+                    <hr>
+                    <ul class="list list--tick">
+                        <li class="list__item">Lists, Loops, Sorting, Map Function, Filter Function.</li>
+                        <li class="list__item" style="background-color: #f7f7f7;">Stacks, Queues, Tuples, Arrays.
+                        </li>
+                        <li class="list__item">
+                            Sets, Dictionaries, Unpacking Operators.
+                        </li>
+                        <li class="list__item" style="background-color: #f7f7f7;">Exception Handling,
+                            <span class="highlight" style="font-size: 1.9rem;">&nbsp;Mock Test.
+                            </span>
+                        </li>
+                        <li class="list__item">Classes, Magic Methods, Properties, Inheritance.<span class="highlight"
+                                style="font-size: 1.9rem;">&nbsp;Quiz.</span>
+                        </li>
+                    </ul>
+                </header>
+            </div>
+            <div class="recommended card  mb-3" style="background: #fff; box-shadow: none;">
+                <div class="card-header" style="font-size: 2.3rem; background: #5c5577; color: #fff; padding: 0.8rem;">
+                    <span style="font-size: 1.6rem; margin-left: 1rem; margin-right: 1rem;">
+                        <i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;&nbsp;Beginner - 3rd Week</span>
+                </div>
+                <header class="card__header">
+                    <hr>
+                    <h3 style="font-size: 1.6rem;">Python Packages, Environments, Libraries Week - By the end of this
+                        course, you'll learn…</h3>
+                    <hr>
+                    <ul class="list list--tick">
+                        <li class="list__item" style="background-color: #f7f7f7;">Polymorphism, Modules, Packages.
+                        </li>
+                        <li class="list__item" style="background-color: #f7f7f7;">Python Standard Library, Working with
+                            Paths, Files, Database, Sending Emails, Templates.
+                        </li>
+                        <li class="list__item" style="background-color: #f7f7f7;">Web Application with Spring Boot.
+                        </li>
+                        <li class="list__item">Python Package, Pip, Virtual Environments, Managing Dependencies,
+                            Publishing Packages.
+                        </li>
+                        <li class="list__item" style="background-color: #f7f7f7;">Docstring, Pydoc.
+                            <span class="highlight" style="font-size: 1.9rem;">&nbsp;Mock Test.
+                            </span>
+                        </li>
+                    </ul>
+                </header>
+            </div>
+            <div class="recommended card  mb-3" style="background: #fff; box-shadow: none;">
+                <div class="card-header" style="font-size: 2.3rem; background: #5c5577; color: #fff; padding: 0.8rem;">
+                    <span style="font-size: 1.6rem; margin-left: 1rem; margin-right: 1rem;">
+                        <i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;&nbsp;Beginner - 4th Week</span>
+                </div>
+                <header class="card__header">
+                    <hr>
+                    <h3 style="font-size: 1.6rem;">MVC Framework(DJango) Week - By the end of this course, you'll learn…
+                    </h3>
+                    <hr>
+                    <ul class="list list--tick">
+                        <li class="list__item" style="background-color: #f7f7f7;">
+                            Popular Python Packages, Yelp Api, Searching for Businesses, Sending Text Messages, Working
+                            with PDFs, Excel, NumPy.
+                        </li>
+                        <li class="list__item">Django Project, Views, Models, Migrations.
+                            <span class="highlight" style="font-size: 1.9rem;">&nbsp;Quiz.</span>
+                        </li>
+                        <li class="list__item">
+                            Admin, Templates, Adding Bootstrap, Url Parameters, Creating APIs, Getting Ready to Deploy.
+                        </li>
+                        <li class="list__item" style="background-color: #f7f7f7;">
+                            End to End Understanding <strong>Realtime Project</strong>.
+                        </li>
+                        <li class="list__item"><strong>Interview Questions and Fun Mock Interview</strong>.
+                        </li>
+                    </ul>
+                </header>
+            </div>
+        </div>
+        <div class="card col-lg-9 mx-auto"
+            style="margin-bottom: 3rem; background: #e7e5ef;padding: 2rem; box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;">
+            <h3 style="font-weight: 500; text-align: left;">
+                <span style="color: #1b0760;">By the end of this course, you'll be able to..</span>
+            </h3>
+            <ul class="list list--tick">
+                <li class="list__item">Develop and write Python code with confidence</li>
+                <li class="list__item">Code and understand MVC realtime projects</li>
+                <li class="list__item">Troubleshoot common errors</li>
+                <li class="list__item">Deploy Project in Cloud</li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!-- <section class="block--skewed-up hero" style="padding-top: 3rem; margin: 1rem;">
+    <header class="block__header">
+        <h3 style="font-weight: 600;">
+            <span style="font-size: 2.8rem;">Masters Course Curriculum</span>
+        </h3>
+        <div style="margin-left: -0.8rem; margin-right: 1rem; text-align: center;">
+            <span style="font-size: 2rem;"> Enroll this course with&nbsp;<span class="highlight">
+                    Beginners Curriculum</span> or Required basic familiarity in Python, MVC framework.
+            </span>
+        </div>
+    </header>
+
+    <div class="card col-lg-9 mx-auto"
+        style="margin-bottom: 3rem; background: #f2f6fb;padding: 2rem; box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;">
+        <h3>Launching Soon..</h3>
+    </div>
+</section> -->
+<section class="block block--skewed-up hero" style="padding-top: 5rem; background: aliceblue;">
+    <div class=" col-lg-8 mx-auto">
+        <h2 style="font-weight: 500; text-align: left;">
+            <span>Frequently Asked Questions</span>
+        </h2>
+        <h3 style="font-weight: 400;">When does the course start and finish?</h3>
+        <p>Every month of 1st and 3rd week we start new batches. You can visit our <a
+                href="https://www.stackmi.com/events">Events</a> page for latest updates.</p>
+        <h3 style="font-weight: 400;">How long do I have access to the course once enrolled?</h3>
+        <p>The average duration for all our courses are 1 to 2 months. After completing the course, you can access all
+            our documents, materials, videos FOREVER.</p>
+        <h3 style="font-weight: 400;">What if I missed the session?</h3>
+        <p>As this is a well planned and well structured curriculum, You should not miss a single class throughout the
+            course, as long as there is a strong reason. If there a strong reason, you can attend the missed topic in
+            upcoming batches. If you want special class for the missed topic, you will be charged with small FEES.
+        </p>
+        <h3 style="font-weight: 400;">What if I want to attend specific topic again from enrolled program?</h3>
+        <p>Yes, we will allow you to attend the missed topic in the upcoming batches and help you understand the concept
+            well. You need
+            to <a href="https://www.stackmi.com/contact">Contact us</a>.</p>
+        <h3 style="font-weight: 400;">What if I am unhappy with the course?</h3>
+        <p>We would never want you to be unhappy! If you are still unsatisfied with our programs, <a
+                href="https://www.stackmi.com/contact">Contact us</a> within 7 days, and
+            we will give you a full refund.</p>
+        <h3 style="font-weight: 400;">Can I get my refund, before the course starts?</h3>
+        <p>Yes, we will completely refund your amount, if you haven't take the course.</p>
+        <h3 style="font-weight: 400;">Can I share documents, materials and videos?</h3>
+        <p>Yes, you can share all the documents, materials, videos.</p>
+    </div>
+</section>
+<section class="container">
+    <div class="callout callout--primary callout-signup">
+        <div class="grid grid--1x2">
+            <div class="callout__content">
+                <p class="callout__heading mt-2">
+                    Have doubts? Schedule a demo with our team.
+                </p>
+            </div>
+            <a [routerLink]="['/']" class="btn btn--theme btn--stretched">Schedule a Demo</a>
+        </div>
+    </div>
+</section>
+<!-- <div class="container">
+    <div class="callout callout--primary callout-signup">
+        <div class="grid grid--1x2">
+            <div class="callout__content">
+                <p class="callout__heading mt-2">
+                    Mentor students to help them unlock their true potential.
+                </p>
+            </div>
+            <a [routerLink]="['/mentor']" class="btn btn--theme btn--stretched">I Love to Mentor</a>
+        </div>
+    </div>
+</div> -->
+<app-footer></app-footer>

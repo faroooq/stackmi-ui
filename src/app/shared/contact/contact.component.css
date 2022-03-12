@@ -1,0 +1,10 @@
+@media screen and (min-width: 992px) and (max-width: 1399px) {
+  .button-group {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+  .button-group .btn {
+    font-size: 0.72rem;
+    padding: 0.7rem;
+  }
+}

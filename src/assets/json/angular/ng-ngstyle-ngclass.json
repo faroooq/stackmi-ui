@@ -1,0 +1,115 @@
+{
+    "_id": {
+        "$oid": "6201287c65787a8c50f4f9a5"
+    },
+    "article_id": "4.2",
+    "article_slug": "ng-ngstyle-ngclass",
+    "article_title": "Angular - NgStyle, NgClass & NgNonBindable",
+    "article_image": "",
+    "article_seo_desc": "Both the NgStyle and NgClass directives can be used to conditionally set the look and feel of your application. NgStyle gives you fine grained control on individual properties. But if you want to make changes to multiple properties at once, creating a class which bundles those properties and adding the class with NgClass makes more sense.",
+    "enroll_available": true,
+    "article_content": [
+        {
+            "content_title": "NgStyle",
+            "content_desc": "<div class=\"paragraph\">\n<p>The&nbsp;<code>NgStyle</code>&nbsp;directive lets you set a&nbsp;given&nbsp;<abbr>DOM</abbr>&nbsp;elements style properties.</p>\n</div>\n<div class=\"paragraph\">\n<p>One way to&nbsp;set styles is by&nbsp;using the&nbsp;<code>NgStyle</code> directive and assigning it an&nbsp;<em>object literal</em>, like:</p>\n</div>",
+            "content_image": "",
+            "content_code": "<div [ngStyle]=\"{'background-color':'green'}\"></<div>"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>This sets the&nbsp;background color of&nbsp;the&nbsp;<code>div</code>&nbsp;to&nbsp;green.</p>\n</div>\n<div class=\"paragraph\">\n<p><code>ngStyle</code>&nbsp;becomes much more useful when the&nbsp;value is&nbsp;<em>dynamic</em>. The&nbsp;<em>values</em>&nbsp;in&nbsp;the object literal that we assign to&nbsp;<code>ngStyle</code> can be JavaScript expressions which are evaluated and the result of that expression is used as the value of the&nbsp;<abbr>CSS</abbr>&nbsp;property, like this:</p>\n</div>",
+            "content_image": "",
+            "content_code": "<div [ngStyle]=\"{'background-color':person.country === 'UK' ? 'green' : 'red' }\"></<div>"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>The above code uses the ternary operator to set the background color to green if the persons country is the UK else red.</p>\n</div>\n<div class=\"paragraph\">\n<p>But the&nbsp;expression doesn&rsquo;t have to&nbsp;be&nbsp;<em>inline</em>, we can call a function on the component instead.</p>\n</div>\n<div class=\"paragraph\">\n<p>To demonstrate this let&rsquo;s flesh out a full example. Similar to the ones we&rsquo;ve created before let&rsquo;s loop through an array of people and print out there names in different colors depending on the country they are from.</p>\n</div>",
+            "content_image": "",
+            "content_code": "@Component({\n  selector: 'ngstyle-example',\n  template: `<h4>NgStyle</h4>\n<ul *ngFor=\"let person of people\">\n  <li [ngStyle]=\"{'color':getColor(person.country)}\"> {{ person.name }} ({{ person.country }}) (1)\n  </li>\n</ul>\n `\n})\nclass NgStyleExampleComponent {\n\n  getColor(country) { (2)\n    switch (country) {\n      case 'UK':\n        return 'green';\n      case 'USA':\n        return 'blue';\n      case 'HK':\n        return 'red';\n    }\n  }\n\n  people: any[] = [\n    {\n      \"name\": \"Douglas  Pace\",\n      \"country\": 'UK'\n    },\n    {\n      \"name\": \"Mcleod  Mueller\",\n      \"country\": 'USA'\n    },\n    {\n      \"name\": \"Day  Meyers\",\n      \"country\": 'HK'\n    },\n    {\n      \"name\": \"Aguirre  Ellis\",\n      \"country\": 'UK'\n    },\n    {\n      \"name\": \"Cook  Tyson\",\n      \"country\": 'USA'\n    }\n  ];\n}"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>We set the color of the text according to the value that&rsquo;s returned from the <code>getColor</code> function. Our&nbsp;<code>getColor</code>&nbsp;function returns different colors depending on&nbsp;the country passed in.</p>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Alternative Syntax",
+            "content_desc": "<p>As&nbsp;well as&nbsp;using the&nbsp;<code>ngStyle</code> directive we can also set individual style properties using the <code>[style.&lt;property&gt;]</code> syntax, for example<code> [style.color]=\"getColor(person.country)\"</code></p>",
+            "content_image": "",
+            "content_code": "<ul *ngFor=\"let person of people\">\n  <li [style.color]=\"getColor(person.country)\">{{ person.name }} ({{ person.country }})\n  </li>\n</ul>"
+        },
+        {
+            "content_title": "Points and Pixels",
+            "content_desc": "Let’s imagine we wanted to set the font size to 24, we could use:",
+            "content_image": "",
+            "content_code": "[ngStyle]=\"{'font-size':24}\""
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>But this wouldn&rsquo;t work, it isn&rsquo;t valid&nbsp;<abbr>CSS</abbr> to just set the font size to 24. We also have to specify a&nbsp;<em>unit</em>&nbsp;such as&nbsp;<em>px</em>&nbsp;or&nbsp;<em>em</em>.</p>\n</div>\n<div class=\"paragraph\">\n<p>Angular comes to&nbsp;the rescue with a&nbsp;special syntax,&nbsp;<code>&lt;property&gt;.&lt;unit&gt;</code>. So for the above if we wanted the size to be 24 pixels we would write <code>[ngStyle]=\"{'font-size.px':24}\"</code></p>\n<p><strong>Note:&nbsp;</strong>The&nbsp;property name is&nbsp;<code>font-size.<strong>px</strong></code>&nbsp;and&nbsp;not just&nbsp;<code>font-size.</code></p>\n<div class=\"paragraph\">\n<p>The&nbsp;<code>.px</code> suffix says that we are setting the font-size in pixels. You could&nbsp;<code>.em</code>&nbsp;to&nbsp;express the&nbsp;font size in&nbsp;ems or&nbsp;even in&nbsp;percentage using&nbsp;<code>.%</code></p>\n</div>\n<div class=\"paragraph\">\n<p>This is also applicable with the alternative syntax, e.g:- <code>[style.font-size.<strong>px</strong>]=\"24\"</code></p>\n</div>\n<div class=\"paragraph\">\n<p>Let&rsquo;s change our demo application to display the names in a font size of 24 pixels, like:</p>\n</div>\n</div>",
+            "content_image": "",
+            "content_code": "<ul *ngFor=\"let person of people\">\n  <li [ngStyle]=\"{'font-size.px':24}\"\n      [style.color]=\"getColor(person.country)\">{{ person.name }} ({{ person.country }})\n  </li>\n</ul>"
+        },
+        {
+            "content_title": "NgClass",
+            "content_desc": "<div class=\"paragraph\">\n<p>The&nbsp;<code>NgClass</code>&nbsp;directive allows you to&nbsp;set the&nbsp;<abbr>CSS</abbr>&nbsp;class dynamically for&nbsp;a&nbsp;<abbr>DOM</abbr> element.</p>\n</div>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "",
+            "content_desc": "There are two ways to use this directive, the first is by passing an object literal to the directive, like:",
+            "content_image": "",
+            "content_code": "[ngClass]=\"{'text-success':true}\""
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>When using an&nbsp;object literal, the&nbsp;keys are the&nbsp;classes which are added to&nbsp;the element if the&nbsp;value of&nbsp;the key evaluates to&nbsp;true.</p>\n</div>\n<div class=\"paragraph\">\n<p>So in&nbsp;the above example, since the&nbsp;value is&nbsp;<code>true</code> this will set the class&nbsp;<code>text-success</code>&nbsp;onto the&nbsp;element the&nbsp;directive is attached to.</p>\n</div>\n<div class=\"paragraph\">\n<p>The&nbsp;value can also be an&nbsp;<em>expression</em>, so we can&nbsp;re-write&nbsp;the&nbsp;above to&nbsp;be.</p>\n</div>",
+            "content_image": "",
+            "content_code": "[ngClass]=\"{'text-success':person.country === 'UK'}\""
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>Let&rsquo;s implement the&nbsp;colored names demo app using&nbsp;<code>ngClass</code> instead of <code>ngStyle</code>.</p>",
+            "content_image": "",
+            "content_code": "<h4>NgClass</h4>\n<ul *ngFor=\"let person of people\">\n  <li [ngClass]=\"{\n    'text-success':person.country === 'UK',\n    'text-primary':person.country === 'USA',\n    'text-danger':person.country === 'HK'\n  }\">{{ person.name }} ({{ person.country }})\n  </li>\n</ul>"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>Since the object literal can contain many keys we can also set many class names.</p>\n</div>\n<div class=\"paragraph\">\n<p>We can now color our text with different colors for each country with one statement.</p>\n</div>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Alternative Syntax",
+            "content_desc": "<div class=\"paragraph\">\n<p>We can also set a&nbsp;class on&nbsp;an element by&nbsp;binding to&nbsp;the input property binding called&nbsp;<code>class</code>, like so&nbsp;<code>[class]=\"'text-success'\"</code></p>\n<p><strong>Note:</strong> The <code>'text-success'</code> is wrapped with single quotes so when it&rsquo;s evaluated as JavaScript it doesn&rsquo;t try to treat&nbsp;<code>text-success</code>&nbsp;as&nbsp;a variable.</p>\n<p>The&nbsp;above syntax removes&nbsp;<strong>all</strong> the existing classes for that element and replaces them with just 'text-success'.</p>\n</div>\n<div class=\"paragraph\">\n<p>If we want to&nbsp;just add&nbsp;<code>text-success</code> to the list of classes already set on the element we can use the extended syntax&nbsp;<code>[class.&lt;class-name&gt;]='truthy expression'</code></p>\n</div>\n<div class=\"paragraph\">\n<p>So for instance to add text-success to the list of classes for an element we can use:</p>\n</div>",
+            "content_image": "",
+            "content_code": "[class.text-success]=\"true\""
+        },
+        {
+            "content_title": "",
+            "content_desc": "Or just like before we can use an expression as the value, like:",
+            "content_image": "",
+            "content_code": "[class.card-success]=\"person.country === 'UK'\""
+        },
+        {
+            "content_title": "",
+            "content_desc": "And we can actually specify multiple values at one time, like",
+            "content_image": "",
+            "content_code": "<ul *ngFor=\"let person of people\">\n  <li [class.text-success]=\"person.country === 'UK'\"\n      [class.text-primary]=\"person.country === 'USA'\"\n      [class.text-danger]=\"person.country === 'HK'\">{{ person.name }} ({{ person.country }})\n  </li>\n</ul>"
+        },
+        {
+            "content_title": "NgNonBindable",
+            "content_desc": "<div class=\"paragraph\">\n<p>We use&nbsp;<code>ngNonBindable</code> when we want tell Angular not to compile, or bind, a particular section of our page.</p>\n</div>\n<div class=\"paragraph\">\n<p>The most common example of this is if we wanted to write out some Angular code on the page, for example if we wanted to render out the text<code> {{ name }}</code> on our page, like:</p>\n</div>",
+            "content_image": "",
+            "content_code": "<div>\n  To render the name variable we use this syntax <pre>{{ name }}</pre>\n</div>"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>Normally Angular will try to&nbsp;find a&nbsp;variable called&nbsp;<code>name</code> on the component and print out the value of the&nbsp;<code>name</code>&nbsp;variable instead of&nbsp;just printing out&nbsp;<code>{{ name }}</code>.</p>\n</div>\n<div class=\"paragraph\">\n<p>To make angular ignore an element we simply add the <code>ngNonBindable</code> directive to the element, like:</p>\n</div>",
+            "content_image": "",
+            "content_code": "<div>\n  To render the name variable we use this syntax <pre ngNonBindable>{{ name }}</pre>\n</div>"
+        }
+    ]
+}

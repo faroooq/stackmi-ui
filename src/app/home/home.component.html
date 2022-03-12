@@ -1,0 +1,207 @@
+<app-navbar></app-navbar>
+
+<section class="block block--skewed-up hero"
+  style="background: aliceblue; padding-top: 5rem; background-image: url('../../assets/images/scale-up.png'); height: 500px;">
+  <div class="container grid grid--1x2">
+    <header style="text-align: center;" class="hero__content text-margin">
+      <h2 style="color: #fff; text-align: left; font-size: 3.5rem; line-height: 4rem; margin-bottom: 1rem;">Scale Up
+        Your
+        Career
+      </h2>
+      <p style="color: #BAC6DB; text-align: left; font-size: 2rem;">Now experience academy for
+        <span class="highlight" style="font-size: 3rem; color: #fff; font-style: italic;">FREE</span>
+      </p>
+    </header>
+    <div data-aos="zoom-in" class="col-lg-9">
+      <!-- <app-home-form></app-home-form> -->
+    </div>
+  </div>
+</section>
+<section class="block container block-plans card-margin">
+  <header class="block__header">
+    <h2>StackMi Programs</h2>
+  </header>
+  <div class="grid grid--1x3">
+    <div class="plan">
+      <div class="card card--secondary">
+        <header>
+          <img width="100%" src="../../assets/images/software-stud.svg">
+        </header>
+        <div class="card__body">
+          <ul class="list list--tick">
+            <li class="list__item">Live Crash Courses</li>
+            <li class="list__item">FREE Recorded Videos</li>
+            <li class="list__item">Realtime Projects</li>
+            <li class="list__item">Interviews and Placements</li>
+          </ul>
+          <a [routerLink]="['/live-courses']" class="btn btn--outline btn--block">Know More</a>
+        </div>
+      </div>
+    </div>
+    <div class="plan">
+      <div class="card card--primary">
+        <header>
+          <img width="100%" src="../../assets/images/software-prof.svg">
+        </header>
+        <div class="card__body">
+          <ul class="list list--tick">
+            <li class="list__item">FREE Webinars</li>
+            <li class="list__item">FREE Live Events</li>
+            <li class="list__item">Bug Fixes & Free Lancing</li>
+            <li class="list__item">Corporate Trainings</li>
+          </ul>
+          <a [routerLink]="['/events']" class="btn btn--outline btn--block">Know More</a>
+        </div>
+      </div>
+    </div>
+    <div class="plan">
+      <div class="card card--secondary">
+        <header>
+          <img width="100%" src="../../assets/images/mentor-program.svg">
+        </header>
+        <div class="card__body">
+          <ul class="list list--tick">
+            <li class="list__item">Open To Everyone</li>
+            <li class="list__item">FREE Live Events</li>
+            <li class="list__item">Career and Skill Development</li>
+            <li class="list__item">Collective Career Growth</li>
+          </ul>
+          <a class="btn btn--outline btn--block">Know More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="block block--skewed-up hero" style="background: aliceblue;">
+  <div class="container">
+    <header class="block__header" style="padding-top: 3rem;">
+      <h2>Why Should You Choose StackMi?</h2>
+    </header>
+    <article class="grid grid--1x2 feature">
+      <div class="feature__content" data-aos="fade-up">
+        <h3 class="feature__heading">Crash Courses for Busy Developers</h3>
+        <p>
+          Our life is busy, and with day to day emerging technologies, upgrading
+          skills is really a Challenge. We take a shortest path to learn
+          technologies, beautifully crafted by our experts.
+        </p>
+        <!-- <a href="#" class="link-arrow">Learn More</a> -->
+      </div>
+      <picture data-aos="zoom-in-up">
+        <img class="feature__image" src="../../assets/images/crash-course.png" alt="" />
+      </picture>
+    </article>
+    <article class="grid grid--1x2 feature">
+      <div class="feature__content" data-aos="fade-up">
+        <h3 class="feature__heading">FREE Live Events and Webinars</h3>
+        <p>
+          1 webinar worth of reading 1 book. We love to educate students through events, webinars,
+          trainings and mentor students to make their career successful.
+        </p>
+        <!-- <a href="#" class="link-arrow">Learn More</a> -->
+      </div>
+      <picture data-aos="zoom-in-up">
+        <img class="feature__image" src="../../assets/images/live-webinars.png" alt="" />
+      </picture>
+    </article>
+    <article class="grid grid--1x2 feature">
+      <div class="feature__content" data-aos="fade-up">
+        <h3 class="feature__heading">Unlock Paid Courses for FREE</h3>
+        <p>
+          All our paid documents, materials and videos are freely accessible to
+          everyone.
+        </p>
+        <!-- <a href="#" class="link-arrow">Learn More</a> -->
+      </div>
+      <picture data-aos="zoom-in-up">
+        <img class="feature__image" src="../../assets/images/unlock-paid.png" alt="" />
+      </picture>
+    </article>
+    <article class="grid grid--1x2 feature">
+      <div class="feature__content" data-aos="fade-up">
+        <h3 class="feature__heading">Career Guidance and Skill Development</h3>
+        <p>
+          We need to train day to day and develop our
+          skills for effective communication and collaboration. Our passionate
+          mentors are at your service.
+        </p>
+        <!-- <a href="#" class="link-arrow">Learn More</a> -->
+      </div>
+      <picture data-aos="fade-up">
+        <img class="feature__image" src="../../assets/images/career-guidance.png" alt="" />
+      </picture>
+    </article>
+  </div>
+</section>
+<section class="block block--dark block--skewed-up block-showcase">
+  <header class="block__header">
+    <h2>How We Host Our Services?</h2>
+  </header>
+  <div class="container grid grid--1x2">
+    <picture data-aos="fade-up" class="block-showcase__image">
+      <img src="../../assets/images/classroom.png" alt="" />
+    </picture>
+    <ul class="list" data-aos="fade-up">
+      <li>
+        <div class="media">
+          <div class="media__image">
+            <svg class="icon icon--primary">
+              <use href="../../assets/images/sprite.svg#snap"></use>
+            </svg>
+          </div>
+          <div class="media__body">
+            <h3 class="media__title">Live Classes By Experienced IT Professionals</h3>
+            <p>All our trainers are industry experts, working IT professionals who have more than 10 years of
+              experience.</p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="media">
+          <div class="media__image">
+            <svg class="icon icon--primary">
+              <use href="../../assets/images/sprite.svg#growth"></use>
+            </svg>
+          </div>
+          <div class="media__body">
+            <h3 class="media__title">Designed Courses with Love and Passion</h3>
+            <p>
+              Beautiful graphics, slides, and animations help you stay focused,
+              remember, and better understand the materials.
+            </p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="media">
+          <div class="media__image">
+            <svg class="icon icon--primary">
+              <use href="../../assets/images/sprite.svg#computer"></use>
+            </svg>
+          </div>
+          <div class="media__body">
+            <h3 class="media__title">Effective Students Interaction</h3>
+            <p>
+              We interact with students while ongoing sessions asking questions
+              and quiz to make sure stay focussed and well understanding.
+            </p>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<div class="container">
+  <div class="callout callout--primary callout-signup">
+    <div class="grid grid--1x2">
+      <div class="callout__content">
+        <p class="callout__heading mt-2">
+          Mentor students to help them unlock their true potential.
+        </p>
+      </div>
+      <a [routerLink]="['/mentor']" class="btn btn--theme btn--stretched">I Love to Mentor</a>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

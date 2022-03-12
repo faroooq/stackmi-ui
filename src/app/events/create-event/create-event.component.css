@@ -1,0 +1,48 @@
+.block--mentor {
+  background: #fff;
+  color: #000;
+}
+
+.block--mentor h1,
+.block--mentor h2,
+.block--mentor h3 {
+  color: #fff;
+}
+
+h3 {
+  padding: 2rem;
+  padding-bottom: 1rem;
+  text-align: center;
+}
+
+/* @media screen and (min-width: 1024px) { */
+  .email-width {
+    width: 106%;
+    margin-left: -0.5rem;
+  }
+
+.mobile-width {
+  width: 105%;
+}
+@media screen and (min-width: 1024px) {
+  .mobile-width {
+    width: 105%;
+    margin-left: 0.5rem;
+  }
+}
+
+@media screen and (min-width: 0px) and (max-width: 768px) {
+  .mobile-margin {
+    margin-top: 0.8rem;
+    margin-left: -0.2rem;
+  }
+  .email-margin {
+    margin-left: 0.3rem;
+  }
+  .email-width {
+    width: 108%;
+  }
+  .mobile-width {
+    width: 108%;
+  }
+}

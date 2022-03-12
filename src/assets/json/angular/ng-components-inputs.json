@@ -1,0 +1,80 @@
+{
+    "_id": {
+        "$oid": "61e65c67629474e18058aa30"
+    },
+    "article_slug": "ng-components-inputs",
+    "article_title": "Angular - Components and Inputs",
+    "article_image": "",
+    "article_seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/IMG_2189.PNG",
+    "article_seo_desc": "One-way data binding will bind the data from the component to the view (DOM) or from view to the component. One-way data binding is unidirectional. You can only bind the data from component to the view or from view to the component.",
+    "enroll_available": true,
+    "article_content": [
+        {
+            "content_title": "",
+            "content_desc": "<div id=\"preamble\">\n<div class=\"sectionbody\">\n<div class=\"paragraph\">\n<p>An&nbsp;application in&nbsp;Angular is a&nbsp;set of&nbsp;custom components glued together in&nbsp;<abbr>HTML</abbr>&nbsp;via inputs and&nbsp;outputs.</p>\n</div>\n<div class=\"paragraph\">\n<p>So far we&rsquo;ve only built applications with a&nbsp;single component, our goal now is to&nbsp;start building applications that are&nbsp;<em>composed</em>&nbsp;of&nbsp;multiple components working together.</p>\n</div>\n<div class=\"paragraph\">\n<p>Breaking up an&nbsp;application into multiple logical components makes it easier to:</p>\n</div>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>Architect an&nbsp;application as&nbsp;it grows in&nbsp;complexity.</p>\n</li>\n<li>\n<p>Re-use common components in&nbsp;multiple places.</p>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>The&nbsp;goal of&nbsp;this lecture is to&nbsp;break up our small application into three components and&nbsp;start&nbsp;<em>gluing</em> them together.</p>\n</div>\n</div>\n</div>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Create & Configure Multiple Components",
+            "content_desc": "<div class=\"paragraph\">\n<p>If you think of&nbsp;a typical webpage we can normally break it down into a&nbsp;set of&nbsp;logical components each with its own view, for&nbsp;example most webpages can be broken up into a&nbsp;header, body, footer and&nbsp;perhaps a&nbsp;sidebar.</p>\n</div>",
+            "content_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/IMG_2175.PNG",
+            "content_code": ""
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>We are going to&nbsp;break up our application into a&nbsp;root&nbsp;<code>AppComponent</code>, this component won&rsquo;t have any functionality and&nbsp;will just contain other components.</p>\n</div>\n<div class=\"paragraph\">\n<p>This component will hold our<code> ItemListComponent</code>&nbsp;and&nbsp;our&nbsp;<code>ItemListComponent</code> will hold a list of&nbsp;<code>ItemComponents</code>.</p>\n</div>",
+            "content_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/IMG_2176.PNG",
+            "content_code": ""
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>Now let's move the earlier written code from <code>item-list.component.html</code> to <code>item.component.html</code>, because this time, we want to render each <strong>item</strong> in it's own component which is <code>item</code> component.</p>\n<p>As like earlier, we will get list of items from item-list.component.ts (parent component) and iterate each item and pass each item to <code>item component</code> (child component) via it's tag <code>&lt;app-item&gt;</code> (This tag we will add in the <code>item-list.component.html</code>)</p>\n<p><strong>Note:&nbsp;</strong><em>This is how we pass the data from one component to another component.</em></p>\n</div>",
+            "content_image": "",
+            "content_code": "<!-- item.component.html -->\n\n<div class=\"card card-block m-2\">\n    <h4 class=\"card-title\">{{item?.name}}</h4>\n    <p class=\"card-text\" [hidden]=\"item.hide\">{{item?.price}}</p>\n    <a class=\"btn btn-secondary\" (click)=\"toggle(item)\">Toggle\n    </a>\n</div>"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>Above code looks similar to&nbsp;our previous&nbsp;<code>ItemListComponent</code>&nbsp;we just removed the&nbsp;<code>ngFor</code> since <strong>this component will now render a single item</strong>.</p>\n<p><strong>Note:&nbsp;</strong>Make sure to move the <code>toggle()</code> method from <code>item-list.component.ts</code> to <code>item.component.ts</code>, otherwise it will throw an error.</p>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>We are done with our code re-factoring part. This is how your code should be now:</p>",
+            "content_image": "",
+            "content_code": "<!-- item.component.html -->\n<div class=\"card card-block m-2\">\n    <h4 class=\"card-title\">{{item?.name}}</h4>\n    <p class=\"card-text\" [hidden]=\"item.hide\">{{item?.price}}</p>\n    <a class=\"btn btn-secondary\" (click)=\"toggle(item)\">Toggle\n    </a>\n</div>\n\n// item.component.ts\nimport { Component, Input } from '@angular/core';\n\n@Component({\n  selector: 'app-item',\n  templateUrl: './item.component.html',\n  styleUrls: ['./item.component.css']\n})\nclass ItemComponent {\n\n  constructor() { }\n\n  toggle(item: { hide: boolean; }) {\n    item.hide = !item.hide;\n  }\n}\n\n<!-- item-list.component.html -->\n<app-item></app-item>\n\n// item-list.component.ts\nimport { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-item-list',\n  templateUrl: './item-list.component.html',\n  styleUrls: ['./item-list.component.css']\n})\nexport class ItemListComponent {\n  itemList: Array<{ name: string, price: string, hide: boolean }>;\n\n  constructor() {\n    this.itemList = [\n      {\n        name: \"IPhone 12\",\n        price: \"INR 56,000/-\",\n        hide: false\n      },\n      {\n        name: \"Samsung Galaxy S21 Ultra\",\n        price: \"INR 88,000/-\",\n        hide: true\n      },\n      {\n        name: \"OnePlus 9 Pro\",\n        price: \"INR 59,000/-\",\n        hide: false\n      }\n    ]\n  }\n}"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>You might see this error after refactoring. But don't worry we will fix this soon.</p>",
+            "content_image": "",
+            "content_code": "TS2339: Property 'item' does not exist on type 'ItemComponent'."
+        },
+        {
+            "content_title": "Input Property Binding on a Custom Component",
+            "content_desc": "<p>Now <code>item-list.component</code> act as a parent component and <code>item.component</code> act as a child component, because&nbsp;we have added <code>&lt;app-item&gt;</code> tag in <code>item-list.component.html</code></p>\n<p>So, how can we pass the data from parent to child?</p>\n<p>We can pass the data from <code>item-list.component </code>to <code>item.component</code> with the help of <strong>property binding</strong>.</p>\n<p>We iterate each item in <code>item-list.component.html</code> using <code>ngFor</code> loop and pass each item to item.component via its tag like below.</p>",
+            "content_image": "",
+            "content_code": "<!-- item-list.component.html -->\n\n<app-item *ngFor=\"let item of itemList\" [item]=\"item\"></app-item>"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>In the above code we just passed the <code>item</code> to <strong>item.component</strong>, but someone should be there to take or receive that data in <code>item.component.ts</code> right?</p>\n<p>That's where we need to add the input decorator <code>@Input() item: any; </code>in<code> item.component.ts </code>file to receive that data.</p>\n<p>This is how your <code>item.component.ts</code> should look like after adding the input decorator.</p>",
+            "content_image": "",
+            "content_code": "// item.component.ts\n\nimport { Component, Input, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-item',\n  templateUrl: './item.component.html',\n  styleUrls: ['./item.component.css']\n})\nexport class ItemComponent implements OnInit {\n\n  @Input() item: any;\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n  toggle(item: { hide: boolean; }) {\n    item.hide = !item.hide;\n  }\n}\n"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>Now this <code>@input() <strong>item</strong>: any</code> property holds each item from the list of objects, and renders in the <code>item.component.html</code> file using <strong><a href=\"https://www.stackmi.com/academy/article/ng-string-interpolation\">String Interpolation</a>.</strong></p>",
+            "content_image": "",
+            "content_code": "<!-- item.component.html -->\n<div class=\"card card-block m-2\">\n    <h4 class=\"card-title\">{{item?.name}}</h4>\n    <p class=\"card-text\" [hidden]=\"item.hide\">{{item?.price}}</p>\n    <a class=\"btn btn-secondary\" (click)=\"toggle(item)\">Toggle\n    </a>\n</div>"
+        },
+        {
+            "content_title": "",
+            "content_desc": "",
+            "content_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/IMG_2189.PNG",
+            "content_code": ""
+        }
+    ],
+    "article_id": "1.9"
+}

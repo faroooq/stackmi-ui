@@ -1,0 +1,109 @@
+{
+    "_id": {
+        "$oid": "61f8dbab65787a8c50f4f96b"
+    },
+    "article_id": "9.1",
+    "article_slug": "ng-route-navigation",
+    "article_title": "Angular - Routing Navigation",
+    "article_image": "",
+    "article_seo_desc": "But there are situations where we need to navigate to different page using dynamic URLs, capture the path params and query params and soon. Angular provides all these features in-built in RouterModule to handle such things.",
+    "enroll_available": true,
+    "article_content": [
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>Download the complete project from github: <a href=\"https://github.com/faroooq/shopping-cart\" target=\"_blank\">https://github.com/faroooq/shopping-cart</a></p>\n<hr/>\n</div>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Navigating by Hardcoded URLs",
+            "content_desc": "<p>We could simply&nbsp;<em>hardcode</em>&nbsp;the&nbsp;<abbr>URL</abbr>s in&nbsp;the&nbsp;<code>href</code> anchor attributes on our navigation header to navigate to a different page, like:</p>",
+            "content_image": "",
+            "content_code": "<a class=\"btn btn-success\" href=\"/check-out\">Buy Now</a>"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>But there are situations where we need to navigate to different page using dynamic URLs, capture the path params and query params and soon.&nbsp;</p>\n<p>Angular provides all these features in-built in <b>RouterModule</b> to handle such things.</p>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Navigating Programmatically via the Router",
+            "content_desc": "In Angular we can also programmatically navigate via a Router service we inject into our component, like:",
+            "content_image": "",
+            "content_code": "<!-- item.component.html -->\n.\n.\n<a class=\"btn btn-success\" (click)=\"gotoCheckoutPage()\">Buy Now</a>"
+        },
+        {
+            "content_title": "",
+            "content_desc": "",
+            "content_image": "",
+            "content_code": "// item.component.ts\n\nimport { Component } from '@angular/core';\nimport { Router } from '@angular/router';\n\n@Component({\n  selector: 'app-item',\n  templateUrl: './item.component.html',\n  styleUrls: ['./item.component.css']\n})\nexport class ItemComponent {\n.\n.\nconstructor(public router: Router) {\n}\ngotoCheckoutPage() {\nthis.router.navigate(['check-out'])\n}"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<ul>\n<li>We added click handlers to anchor tag to call function <code>gotoCheckoutPage()</code> on our <code>ItemComponent</code>.</li>\n<li>We inject and&nbsp;store a&nbsp;reference to&nbsp;the&nbsp;<code>Router</code> into our <code>ItemComponent</code>.</li>\n<li>We then call the&nbsp;<code>navigate</code>&nbsp;function on&nbsp;the&nbsp;<code>router</code>&nbsp;to&nbsp;navigate between the&nbsp;different&nbsp;<abbr>URL</abbr>s.</li>\n</ul>\n<p><strong>Note:</strong> You can try implementing same behaviour for our <code>NavbarComponent</code>.</p>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Link Parameters Array",
+            "content_desc": "<p>The&nbsp;value we pass into the&nbsp;<code>navigate</code>&nbsp;function might look a&nbsp;bit strange, we call it a&nbsp;<em>link params array</em>&nbsp;and&nbsp;it&rsquo;s equivalent to&nbsp;the&nbsp;<abbr>URL</abbr>&nbsp;split by&nbsp;the&nbsp;<code>/</code>&nbsp;character into an&nbsp;array.</p>\n<p>We can demonstrate by changing our item route from</p>",
+            "content_image": "",
+            "content_code": "{\n path: 'check-out', component: CheckOutComponent\n}"
+        },
+        {
+            "content_title": "",
+            "content_desc": "to",
+            "content_image": "",
+            "content_code": "{\n path: 'check-out/modal/version', component: CheckOutComponent\n}"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>Then to navigate to our <code>check out</code> page we pass into the navigate function a link params array like:</p>",
+            "content_image": "",
+            "content_code": "this.router.navigate(['check-out', 'iphone', '10']);"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>Navigating via a&nbsp;link params array has one big advantage in&nbsp;that parts of&nbsp;the&nbsp;<abbr>URL</abbr>&nbsp;can be&nbsp;<em>variables</em>, like:</p>",
+            "content_image": "",
+            "content_code": "gotoCheckoutPage() {\n    let modelPhone = 'iphone';\n    this.router.navigate(['check-out', modelPhone, '10']);\n  }"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p><strong>Note:</strong> This becomes a&nbsp;<em>lot</em>&nbsp;more useful when we start dealing with parametrised routes later on&nbsp;in this section.</p>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Navigating via a routerLink Directive",
+            "content_desc": "<p>We can also control navigation by&nbsp;using the&nbsp;<code>routerLink</code> directive in the template itself, like:</p>",
+            "content_image": "",
+            "content_code": "<a class=\"btn btn-success\" [routerLink]=\"['check-out']\">Buy Now</a>"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>The&nbsp;<code>routerLink</code>&nbsp;directive takes as&nbsp;input the&nbsp;same link params array format that the&nbsp;<code>router.navigate(&hellip;​)</code>&nbsp;function takes.</p>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "routerLinkActive",
+            "content_desc": "<div class=\"paragraph\">\n<p>An&nbsp;important feature of&nbsp;any navigation component is giving the&nbsp;user feedback about&nbsp;<em>which</em>&nbsp;menu item they are currently viewing. Another way to&nbsp;describe this is giving the&nbsp;user feedback about which&nbsp;<em>route</em>&nbsp;is currently&nbsp;<em>active</em>.</p>\n</div>\n<div class=\"paragraph\">\n<p>With the&nbsp;Twitter Bootstrap navigation styles we give this feedback by&nbsp;adding a&nbsp;class of&nbsp;<code>active</code>&nbsp;to&nbsp;the&nbsp;<em>parent</em> element to the anchor tag, like:</p>\n</div>",
+            "content_image": "",
+            "content_code": "<li class=\"nav-item active\">\n  <a class=\"nav-link\" [routerLink]=\"['home']\">Home</a>\n</li>"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<ul>\n<li>Adding&nbsp;<code>active</code>&nbsp;to&nbsp;the parent element highlights the&nbsp;anchor tag.</li>\n</ul>\n<p>To&nbsp;help in&nbsp;adding and&nbsp;removing classes depending on&nbsp;the currently active route Angular provides another directive called&nbsp;<code>routerLinkActive</code>.</p>\n<div class=\"paragraph\">\n<p>A&nbsp;<code>routerLinkActive</code>&nbsp;directive is associated with a&nbsp;<em>route</em>&nbsp;through a&nbsp;<code>routerLink</code>&nbsp;directive.</p>\n</div>\n<div class=\"paragraph\">\n<p>It takes as&nbsp;input an&nbsp;array of&nbsp;classes which it will add to&nbsp;the element it&rsquo;s attached to&nbsp;<em>if it&rsquo;s route is currently active</em>, like:</p>\n</div>",
+            "content_image": "",
+            "content_code": "<a class=\"nav-link\"\n   [routerLink]=\"['home']\"\n   [routerLinkActive]=\"['active']\">\n   Home\n</a>"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>The&nbsp;above will add a&nbsp;class of&nbsp;<code>active</code> to&nbsp;the anchor tag if we are currently viewing the&nbsp;home route.</p>\n</div>",
+            "content_image": "",
+            "content_code": "<!-- navbar.component.html -->\n\n<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\">\n    <div class=\"container-fluid\">\n        <a class=\"navbar-brand\">NexTrends</a>\n        <button class=\"navbar-toggler\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#navbarSupportedContent\"\n            aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n            <span class=\"navbar-toggler-icon\"></span>\n        </button>\n        <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n            <ul class=\"navbar-nav me-auto mb-2 mb-lg-0\">\n                <li class=\"nav-item\">\n                    <a [routerLinkActive]=\"['active']\" class=\"nav-link\" aria-current=\"page\"\n                        [routerLink]=\"['home']\">Home</a>\n                </li>\n                <li class=\"nav-item\">\n                    <a [routerLinkActive]=\"['active']\" class=\"nav-link\" [routerLink]=\"['/gadgets']\">Gadgets</a>\n                </li>\n                <li class=\"nav-item dropdown\">\n                    <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdown\" role=\"button\"\n                        data-bs-toggle=\"dropdown\" aria-expanded=\"false\">\n                        Fashion\n                    </a>\n                    <ul class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">\n                        <li><a class=\"dropdown-item\" [routerLink]=\"['kids']\">Kids</a></li>\n                        <li><a class=\"dropdown-item\" [routerLink]=\"['men']\">Men</a></li>\n                        <li><a class=\"dropdown-item\" [routerLink]=\"['women']\">Women</a></li>\n                        <li>\n                            <hr class=\"dropdown-divider\">\n                        </li>\n                        <li><a class=\"dropdown-item\" [routerLink]=\"['essentials']\">Essentials</a></li>\n                    </ul>\n                </li>\n                <li class=\"nav-item\">\n                    <a class=\"nav-link disabled\">Travel</a>\n                </li>\n            </ul>\n            <form class=\"d-flex\">\n                <input class=\"form-control me-2\" type=\"search\" placeholder=\"Search\" aria-label=\"Search\">\n                <button class=\"btn btn-outline-success\" type=\"submit\">Search</button>\n            </form>\n        </div>\n    </div>\n</nav>"
+        }
+    ]
+}

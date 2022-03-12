@@ -1,0 +1,96 @@
+{
+    "_id": {
+        "$oid": "61dfec1b063dc3d6690082ae"
+    },
+    "article_slug": "ts-modules",
+    "article_title": "Typescript - Modules",
+    "article_image": "",
+    "article_seo_desc": "With ES6 modules we finally have a mechanism for letting the language deal with loading of dependent files for us.",
+    "enroll_available": true,
+    "article_content": [
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>By&nbsp;default JavaScript doesn&rsquo;t have a&nbsp;module system like other languages, e.g. Java or&nbsp;Python.</p>\n</div>\n<div class=\"paragraph\">\n<p>This means that if you wanted to&nbsp;call a&nbsp;function in&nbsp;some other file, you have to&nbsp;remember to&nbsp;<em>explicitly</em>&nbsp;load that file via script tags&nbsp;<em>before</em>&nbsp;you call the&nbsp;function.</p>\n</div>\n<div class=\"paragraph\">\n<p>If you tried to&nbsp;use code that you forgot to&nbsp;add via a&nbsp;script tag, then JavaScript would complain.</p>\n</div>\n<div class=\"paragraph\">\n<p>Other languages have a&nbsp;module loading system e.g. in&nbsp;Python if you wanted to&nbsp;use some code from another file you would type something like</p>\n</div>",
+            "content_image": "",
+            "content_code": "import foo from bar;\nfoo();"
+        },
+        {
+            "content_title": "",
+            "content_desc": "The language itself figured out where bar was, loaded it up from the filesystem, extracted the function foo and made it available to you in your file to use.\n\nThis feature was missing in JavaScript so the community developed their own solutions, such as CommonJS which is used in node.",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "ES6 Modules",
+            "content_desc": "<div class=\"paragraph\">\n<p>ES6 took the&nbsp;best of&nbsp;the existing module systems and&nbsp;introduced this concept on&nbsp;a language level.</p>\n</div>\n<div class=\"paragraph\">\n<p>Although it&rsquo;s made it into the&nbsp;ES6 standard it&rsquo;s up to&nbsp;the JavaScript engine makers to&nbsp;<em>actually</em>&nbsp;implement it natively and&nbsp;they&nbsp;<em>haven&rsquo;t</em>&hellip;&nbsp;<em>yet</em>.</p>\n</div>\n<div class=\"paragraph\">\n<p>So until that happens we code using the&nbsp;ES6 module syntax in&nbsp;TypeScript. When TypeScript transpiles the&nbsp;code to&nbsp;ES5 it uses the&nbsp;CommonJS module loading system which we touched on&nbsp;above.</p>\n</div>\n",
+            "content_image": "",
+            "content_code": "// utils.ts\nfunction square(x) {\n    return Math.pow(x,2)\n}\n\nfunction cow() {\n    console.log(\"Mooooo!!!\")\n}\n\nexport {square, cow};"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>We declare some functions in&nbsp;a file.</p>\n</div>\n<div class=\"paragraph\">\n<p>By&nbsp;using the&nbsp;<code>export</code>&nbsp;keyword we say&nbsp;<em>which</em>&nbsp;of&nbsp;those functions can be exported, and&nbsp;therefore imported and&nbsp;used in&nbsp;other modules.</p>\n</div>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Importing",
+            "content_desc": "",
+            "content_image": "",
+            "content_code": "// script.ts\nimport {square, cow} from './utils';\n\nconsole.log(square(2));\ncow();"
+        },
+        {
+            "content_title": "",
+            "content_desc": "Note: To compile with TypeScript we need to provide both files on the command line: tsc -t ES5 -w utils.ts script.ts\n\nWe again use that destructuring syntax to import the functions we want from the utils module, we provide a path relative to this module.",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Aliases",
+            "content_desc": "We may want to import a function with one name but then use it via another name. Perhaps to avoid name collisions or just to have a more convenient naming, like:",
+            "content_image": "",
+            "content_code": "import {square as sqr} from './utils';\nsqr(2);"
+        },
+        {
+            "content_title": "",
+            "content_desc": "Or we can import everything in a file like:",
+            "content_image": "",
+            "content_code": "import * as utils from './utils';\nconsole.log(utils.square(2));\nutils.cow();"
+        },
+        {
+            "content_title": "Alternative Export Syntax",
+            "content_desc": "As well as describing the exports by using the export keyword, like:",
+            "content_image": "",
+            "content_code": "export {square, cow};"
+        },
+        {
+            "content_title": "",
+            "content_desc": "We can also export functions or variables as they are defined by prepended the word export to the front of their declarations:",
+            "content_image": "",
+            "content_code": "export function square(x) {\n    return Math.pow(x,2)\n}"
+        },
+        {
+            "content_title": "Default exports",
+            "content_desc": "If a module defines one export which is the most common, we can take advantage of the default export syntax, like:",
+            "content_image": "",
+            "content_code": "export default function square(x) {\n    return Math.pow(x,2)\n}"
+        },
+        {
+            "content_title": "",
+            "content_desc": "And then when we import it we don’t need to use { }, like:",
+            "content_image": "",
+            "content_code": "import square from './utils';"
+        },
+        {
+            "content_title": "",
+            "content_desc": "Or, if we want to import the default export as well as some other exports, we can use:",
+            "content_image": "",
+            "content_code": "import square, { cow } from './utils';"
+        },
+        {
+            "content_title": "",
+            "content_desc": "",
+            "content_image": "",
+            "content_code": ""
+        }
+    ]
+}

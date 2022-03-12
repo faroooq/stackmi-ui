@@ -1,0 +1,104 @@
+{
+    "_id": {
+        "$oid": "620f6bac8711a7eb84434747"
+    },
+    "article_id": "7.2",
+    "article_slug": "ng-model-driven-form-validation",
+    "article_title": "Angular - Model-Driven Form Validation",
+    "article_image": "",
+    "article_seo_image": "",
+    "article_seo_desc": "Validators are rules which an input control has to follow. If the input doesn’t match the rule, then the control is said to be invalid. We can apply validators either by adding attributes to the template or by defining them on our FormControls in our model.",
+    "enroll_available": true,
+    "article_content": [
+        {
+            "content_title": "Validators",
+            "content_desc": "<div class=\"paragraph\">\n<p>Carrying on from the model-driven form we have started in the previous class.</p>\n</div>\n<div class=\"paragraph\">\n<p>Our form is valid&nbsp;<em>all</em> the time, regardless of what input the user types into the controls.</p>\n</div>\n<div class=\"paragraph\">\n<p><em>Validators</em> are rules which an input control has to follow. If the input doesn&rsquo;t match the rule, then the control is said to be invalid.</p>\n</div>\n<div class=\"paragraph\">\n<p>We can apply validators either by adding attributes to the template or by defining them on our <code>FormControls</code>&nbsp;in&nbsp;our model.</p>\n</div>\n<div class=\"paragraph\">\n<p>To&nbsp;stick to&nbsp;the theme of&nbsp;being&nbsp;<em>model-driven</em> we are going to add <em>validators</em>&nbsp;to&nbsp;the form model directly.</p>\n</div>\n<div class=\"paragraph\">\n<p>Angular comes with a small set of pre-built validators to match the ones we can define via standard <abbr>HTML</abbr>5 attributes, namely&nbsp;<code>required</code>,&nbsp;<code>minlegth</code>,&nbsp;<code>maxlength</code>&nbsp;and&nbsp;<code>pattern</code> which we can access from the <code>Validators</code>&nbsp;module.</p>\n</div>\n<div class=\"paragraph\">\n<p>The&nbsp;first parameter of&nbsp;a&nbsp;<code>FormControl</code> constructor is the initial value of the control, we&rsquo;ll leave that as empty string. The second parameter contains either a single validator if we only want to apply one, or a list of validators if we want to apply multiple validators to a single control.</p>\n</div>\n<div class=\"paragraph\">\n<p>Our <code>CheckOutComponent</code> then looks something like this:</p>\n</div>",
+            "content_image": "",
+            "content_code": "// check-out-component.ts\nimport { FormGroup, FormControl, Validators } from '@angular/forms';\n.\n.\nclass CheckOutComponent implements OnInit {\n  myform: FormGroup;\n\n  ngOnInit() {\n    myform = new FormGroup({\n        name: new FormGroup({\n            firstName: new FormControl('', Validators.required), (1)\n            lastName: new FormControl('', Validators.required),\n        }),\n        email: new FormControl('', [ (2)\n            Validators.required,\n            Validators.pattern(\"[^ @]*@[^ @]*\") (3)\n        ]),\n        address: new FormControl(), (4)\n        country: new FormControl()\n    });\n  }\n}"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<ol>\n<li>We add a&nbsp;single&nbsp;<code>required</code>&nbsp;validator to&nbsp;mark this control as&nbsp;required.</li>\n<li>We can also provide an&nbsp;array of&nbsp;validators.</li>\n<li>We specify a pattern validator which checks whether the email contains a <code>@</code>&nbsp;character.</li>\n<li>We don&rsquo;t add any validators to the address and country select boxes.</li>\n</ol>\n</div>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Form Control State",
+            "content_desc": "<p>The form control instance on our model encapsulates state about the control itself, such as if it is currently valid or if it&rsquo;s been touched.</p>\n<p><strong>Dirty &amp; Pristine:&nbsp;</strong></p>\n<p>We can get a reference to these form control instances in our template through the <code>controls</code>&nbsp;property of&nbsp;our&nbsp;<code>myform</code> model, for example we can print out the the dirty state of the email field like:</p>",
+            "content_image": "",
+            "content_code": "<pre>Dirty? {{ myform.controls.email.dirty }}</pre>"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p><code>dirty</code>&nbsp;is&nbsp;<code>true</code>&nbsp;if the&nbsp;user has&nbsp;<em>changed</em>&nbsp;the&nbsp;value of&nbsp;the control.</p>\n</div>\n<div class=\"paragraph\">\n<p>The&nbsp;opposite of&nbsp;<code>dirty</code>&nbsp;is&nbsp;<code>pristine</code>&nbsp;so if we wrote:</p>\n</div>",
+            "content_image": "",
+            "content_code": "<pre>Pristine? {{ myform.controls.email.pristine }}</pre>"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>This would be&nbsp;<code>true</code>&nbsp;if the&nbsp;user hasn&rsquo;t changed the&nbsp;value, and&nbsp;<code>false</code> if the user has.</p>\n<p><strong>Touched &amp; Untouched:</strong></p>\n<div class=\"paragraph\">\n<p>A&nbsp;controls is said to&nbsp;be&nbsp;<em>touched</em> if the the user focused on the control and then focused on something else. For example by clicking into the control and then pressing <em>tab</em>&nbsp;or&nbsp;clicking on&nbsp;another control in&nbsp;the form.</p>\n</div>\n<div class=\"paragraph\">\n<p>The&nbsp;difference between&nbsp;<code>touched</code>&nbsp;and&nbsp;<code>dirty</code> is that with touched the user doesn&rsquo;t need to actually change the value of the input control.</p>\n</div>",
+            "content_image": "",
+            "content_code": "<pre>Touched? {{ myform.controls.email.touched }}</pre>"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p><code>touched</code>&nbsp;is&nbsp;<code>true</code> of the field has been touched by the user, otherwise it&rsquo;s false.</p>\n</div>\n<div class=\"paragraph\">\n<p>The&nbsp;opposite of&nbsp;<code>touched</code>&nbsp;is the&nbsp;property&nbsp;<code>untouched</code>.</p>\n<p><strong>Valid &amp; Invalid:</strong></p>\n<p>We can also check the&nbsp;<code>valid</code>&nbsp;state of&nbsp;the control with:</p>\n</div>",
+            "content_image": "",
+            "content_code": "<pre>Valid? {{ myform.controls.email.valid }}</pre>"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<div class=\"paragraph\">\n<p><code>valid</code>&nbsp;is&nbsp;<code>true</code>&nbsp;of&nbsp;the field doesn&rsquo;t have any validators or&nbsp;if&nbsp;<em>all</em> the validators are passing.</p>\n</div>\n<div class=\"paragraph\">\n<p>Again the&nbsp;opposite of&nbsp;<code>valid</code>&nbsp;is&nbsp;<code>invalid</code>, so we could write:</p>\n</div>\n</div>",
+            "content_image": "",
+            "content_code": "<pre>Invalid? {{ myform.controls.email.invalid }}</pre>"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>This would be&nbsp;<code>true</code>&nbsp;if the&nbsp;control was invalid and&nbsp;<code>false</code>&nbsp;if it was valid.</p>\n<p><strong>Validation Styling:</strong></p>\n<div class=\"paragraph\">\n<p>Bootstrap has classes for showing visual feedback for form controls when they are invalid.</p>\n</div>\n<div class=\"paragraph\">\n<p>For&nbsp;instance if we add the&nbsp;<code>has-danger</code>&nbsp;class to&nbsp;the parent&nbsp;<code>div</code> of the input control with the class of&nbsp;<code>form-group</code>&nbsp;it adds a&nbsp;<em>red</em>&nbsp;border.</p>\n</div>\n<div class=\"paragraph\">\n<p>Conversely if we add the&nbsp;<code>has-success</code>&nbsp;class it adds a&nbsp;<em>green</em>&nbsp;border.</p>\n<p>We can combine Bootstrap classes with<code> dirty</code>&nbsp;and&nbsp;<code>invalid</code>&nbsp;<code>FormControl</code>&nbsp;properties and&nbsp;the&nbsp;<code>ngClass</code> directive to give the user some nice visual feedback, like:</p>\n</div>",
+            "content_image": "",
+            "content_code": "<!-- check-out.component.html -->\n<div class=\"col-12\">\n    <label for=\"email\" class=\"form-label\">Email <span\n            class=\"text-muted\">(Optional)</span></label>\n    <div class=\"form-group\" [ngClass]=\"{\n        'has-danger': myform.controls.email.invalid && (myform.controls.email.dirty || myform.controls.email.touched),\n        'has-success': myform.controls.email.valid && (myform.controls.email.dirty || myform.controls.email.touched)\n      }\">\n        <input type=\"email\" class=\"form-control\" formControlName=\"email\">\n        <pre>Dirty? {{ myform.controls.email.dirty }}</pre>\n        <pre>Pristine? {{ myform.controls.email.pristine }}</pre>\n        <pre>Touched? {{ myform.controls.email.touched }}</pre>\n        <pre>Valid? {{ myform.controls.email.valid }}</pre>\n    </div>\n</div>"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<ol>\n<li>If the email is invalid and it&rsquo;s been touched by the user then we add the <code>has-danger</code>&nbsp;class giving the&nbsp;color a&nbsp;red border.</li>\n<li>If the email is valid and it&rsquo;s been touched by the user then we add the <code>has-success</code>&nbsp;class giving the&nbsp;color a&nbsp;green border.</li>\n</ol>\n<p><strong>Note:&nbsp;</strong>The&nbsp;reason we check for&nbsp;the&nbsp;<code>dirty</code> property being true is so we don&rsquo;t show the user visual feedback when the form is first displayed. Instead we only show the user feedback when they have had a chance to edit the field.</p>\n<p>Now the&nbsp;input control shows the&nbsp;<em>green</em> border when it&rsquo;s<code> valid</code>&nbsp;and&nbsp;<code>dirty</code>&nbsp;and&nbsp;<em>red</em>&nbsp;if it&rsquo;s&nbsp;<code>invalid</code>&nbsp;and&nbsp;<code>dirty</code>.</p>\n<p><strong>Writing Shorter Validation Expressions:</strong></p>\n<div class=\"paragraph\">\n<p>The above can quickly become cumbersome to use in our templates, especially for things like the nested <code>firstName</code>&nbsp;and&nbsp;<code>lastName</code>&nbsp;controls.</p>\n</div>\n<div class=\"paragraph\">\n<p>Since the <code>firstName</code>&nbsp;and&nbsp;<code>lastName</code>&nbsp;<code>FormControls</code>&nbsp;exist&nbsp;<em>under</em>&nbsp;the&nbsp;<code>name</code>&nbsp;<code>FormGroup</code>&nbsp;to&nbsp;access those from the&nbsp;template we need to&nbsp;use syntax like this:</p>\n</div>",
+            "content_image": "",
+            "content_code": "<div class=\"form-group\" [ngClass]=\"{\n    'has-danger': myform.controls.name.controls.firstName.invalid \n    && (myform.controls.name.controls.firstName.dirty \n    || myform.controls.name.controls.firstName.touched),\n    'has-success': myform.controls.name.controls.firstName.valid \n    && (myform.controls.name.controls.firstName.dirty \n    || myform.controls.name.controls.firstName.touched)\n }\">\n .\n .\n</div>"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>The&nbsp;length of&nbsp;the expression quickly becomes&nbsp;<em>unwieldy</em>.</p>\n</div>\n<div class=\"paragraph\">\n<p>We can help ourselves here by creating local properties on our component to reflect the individual <code>FormControls</code> and binding directly to them in our template, like:</p>\n</div>",
+            "content_image": "",
+            "content_code": "// check-out-component.ts\nimport { FormGroup, FormControl, Validators } from '@angular/forms';\n\nclass CheckOutComponent implements OnInit {\n    countries: string[] = [\n        'India',\n        'USA',\n        'Germany',\n        'Britan'\n    ];\n    myform: FormGroup;\n    firstName: FormControl; (1)\n    lastName: FormControl;\n    email: FormControl;\n    address: FormControl;\n    country: FormControl;\n  \n    ngOnInit() {\n      this.createFormControls();\n      this.createForm();\n    }\n  \n    createFormControls() { (2)\n      this.firstName = new FormControl('', Validators.required);\n      this.lastName = new FormControl('', Validators.required);\n      this.email = new FormControl('', [\n        Validators.required,\n        Validators.pattern(\"[^ @]*@[^ @]*\")\n      ]);\n      this.address = new FormControl('', Validators.required);\n      this.country = new FormControl('', Validators.required);\n    }\n  \n    createForm() { (3)\n      this.myform = new FormGroup({\n        name: new FormGroup({\n          firstName: this.firstName,\n          lastName: this.lastName,\n        }),\n        email: this.email,\n        address: this.address,\n        country: this.country\n      });\n    }\n  }"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<ol>\n<li>We declare the&nbsp;<code>FormControls</code> as properties of our component. So we can&nbsp;<em>bind</em> to them directly in our tempalte without having to go through the top-level&nbsp;<em>myform</em>&nbsp;model.</li>\n<li>We first create the&nbsp;<code>FormControls</code>.</li>\n<li>We then construct the&nbsp;<em>myform</em> model from the form controls we created previously and stored as properties on our component.</li>\n</ol>\n<div class=\"paragraph\">\n<p>Now we can bind directly to our individual form controls in our template without having to traverse the tree from the <em>myform</em>&nbsp;instance.</p>\n</div>\n<div class=\"paragraph\">\n<p>We can therefore&nbsp;re-write&nbsp;the&nbsp;<em>wordy</em>&nbsp;firstName&nbsp;<code>ngClass</code> expression to something much more succinct, like so:</p>\n</div>",
+            "content_image": "",
+            "content_code": "<div class=\"form-group\" [ngClass]=\"{\n   'has-danger': firstName.invalid  && (firstName.dirty || firstName.touched),\n   'has-success': firstName.valid  && (firstName.dirty || firstName.touched)\n}\">\n  .\n  .\n</div>"
+        },
+        {
+            "content_title": "Validation Messages",
+            "content_desc": "<div class=\"paragraph\">\n<p>As well as styling a form when it&rsquo;s invalid it&rsquo;s also useful to show the user error messages with helpful hints about how they can make the form valid again.</p>\n</div>\n<div class=\"paragraph\">\n<p>Taking what we have learnt about form validation styling we can apply the same method to conditionally show or hide an error message.</p>\n</div>\n<div class=\"paragraph\">\n<p>Bootstrap conveniently has some markup and classes for form controls which we can use to show these error messages, let&rsquo;s add them to our password form control, like:</p>\n</div>",
+            "content_image": "",
+            "content_code": "<!-- check-out.component.html -->\n<div class=\"col-sm-6\">\n    <label for=\"firstName\" class=\"form-label\">First name</label>\n    <div class=\"form-group\" [ngClass]=\"{\n        'has-danger': firstName.invalid  && (firstName.dirty || firstName.touched),\n        'has-success': firstName.valid  && (firstName.dirty || firstName.touched)\n     }\">\n        <input type=\"text\" class=\"form-control\" formControlName=\"firstName\">\n    </div>\n    <div class=\"form-control-feedback\" *ngIf=\"firstName.invalid && firstName.dirty\">\n        FirstName is invalid\n    </div>\n</div>"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<ol class=\"arabic\">\n<li>\n<p>The&nbsp;class&nbsp;<code>form-control-feedback</code> shows a message in red if the parent&nbsp;<code>form-group</code>&nbsp;div also has the&nbsp;<code>has-danger</code> class, i.e. when the field is invalid any text under this div will show as red.</p>\n</li>\n<li>\n<p>We only show the message when the <code>firstName</code> field is both<code> invalid</code>&nbsp;and&nbsp;<code>dirty</code>.</p>\n</li>\n</ol>\n<p>Now when the&nbsp;input control is both&nbsp;<code>dirty</code>&nbsp;and&nbsp;<code>invalid</code> we show the validation error message&nbsp;<code>\"FirstName is invalid\"</code></p>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p><strong>Note:</strong> Somehow bootstrap CSS not working, so adding CSS to our <code>check-out.compoonent.css</code></p>",
+            "content_image": "",
+            "content_code": "/* check-out.component.css */\n.has-danger {\n   border: 1px solid red;\n}\n\n.has-success {\n   border: 1px solid green;\n}\n.form-control-feedback {\n  color: red;\n}"
+        },
+        {
+            "content_title": "",
+            "content_desc": "",
+            "content_image": "",
+            "content_code": ""
+        }
+    ]
+}

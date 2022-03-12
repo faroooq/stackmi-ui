@@ -1,0 +1,218 @@
+{
+    "_id": {
+        "$oid": "62108b5b8711a7eb8443474b"
+    },
+    "article_id": "7.4",
+    "article_slug": "ng-template-driven-forms",
+    "article_title": "Angular - Template-Driven Forms",
+    "article_image": "",
+    "article_seo_image": "",
+    "article_seo_desc": "We learnt that the template-driven form still uses the same classes as the model-driven form but in the template drive approach the models are created by directives in the template instead of explicitly created on the component.",
+    "enroll_available": true,
+    "article_content": [
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>The&nbsp;key in&nbsp;understanding the&nbsp;<em>template-driven</em>&nbsp;approach is that it&nbsp;<em>still</em> uses the same models as the&nbsp;<em>model-driven</em> approach. In the template-driven approach Angular creates the models, the&nbsp;<code>FormGroups</code>&nbsp;and&nbsp;<code>FormControls</code>, for us via directives we add to the template.</p>\n</div>\n<div class=\"paragraph\">\n<p>That&rsquo;s why in this course we teach the <a href=\"https://www.stackmi.com/academy/article/ng-model-driven-forms\">model-driven approach</a> first. So you&rsquo;ll have a good knowledge of the underlying model structure that is still present in template-driven forms.</p>\n<p><strong>Note:</strong> Template-driven forms are just model-driven forms but <em>driven</em> by directives in the template versus code in the component. In template-driven we use directives to create the model. In model-driven we create a model on the component and then use directives to map elements in the template to our form model.</p>\n</div>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Form Setup",
+            "content_desc": "<p>We create a basic form <code>LoginComponent</code>, exactly the same as the model form component we started with in this section, with a basic form template, a dynamic select box and a simple component like:</p>",
+            "content_image": "",
+            "content_code": "<!-- login.component.html -->\n<div class=\"form-signin\">\n    <form novalidate>\n        <h1 class=\"h3 mb-3 fw-normal\">Please sign in</h1>\n\n        <div class=\"form-floating\">\n            <input type=\"email\" class=\"form-control\">\n            <label>Email address</label>\n        </div>\n        <div class=\"form-floating\">\n            <input type=\"password\" class=\"form-control\">\n            <label>Password</label>\n        </div>\n        <div class=\"checkbox mb-3\">\n            <label>\n                <input type=\"checkbox\" value=\"remember-me\"> Remember me\n            </label>\n        </div>\n        <button class=\"w-100 btn btn-lg btn-primary\" type=\"submit\">Sign in</button>\n    </form>\n</div>"
+        },
+        {
+            "content_title": "Directives",
+            "content_desc": "<p>The directives we need to build template-driven forms are in the<code> FormsModule</code>&nbsp;not the&nbsp;<code>ReactiveFormsModule</code>, so let&rsquo;s import that and add it to our <code>NgModule</code> of <code>AppModule</code> as an import.</p>",
+            "content_image": "",
+            "content_code": "// app.module.ts\nimport { FormsModule, ReactiveFormsModule } from '@angular/forms';\n.\n.\nimports: [\n  BrowserModule,\n  AppRoutingModule,\n  FormsModule,\n  ReactiveFormsModule\n],"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>One of&nbsp;the directives pulled in&nbsp;via the&nbsp;<code>FormsModule</code>&nbsp;is called&nbsp;<code>NgForm</code>.</p>\n</div>\n<div class=\"paragraph\">\n<p>This directive has a&nbsp;selector which matches the&nbsp;<code>&lt;form&gt;</code>&nbsp;tag.</p>\n</div>\n<div class=\"paragraph\">\n<p>So just by&nbsp;adding&nbsp;<code>FormsModule</code>&nbsp;to&nbsp;our&nbsp;<code>NgModule</code> imports, our template form is already associated with an instance of the&nbsp;<code>NgForm</code>&nbsp;directive.</p>\n</div>\n<div class=\"paragraph\">\n<p>This instance of&nbsp;<code>ngForm</code>&nbsp;is&nbsp;<em>hidden</em> but we can expose it with a local template reference variable attached to the form element, like:</p>\n</div>",
+            "content_image": "",
+            "content_code": "<form #f=\"ngForm\"> ... </form>"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>Now we can use the&nbsp;variable&nbsp;<code>f</code> in our template and it will point to our instance of the&nbsp;<code>ngForm</code>&nbsp;directive.</p>\n</div>\n<div class=\"paragraph\">\n<p>One of&nbsp;the things the&nbsp;<code>ngForm</code> directive does is create a top-level<code> FormGroup</code>&nbsp;and&nbsp;lets us call functions as&nbsp;if it was an&nbsp;instance of&nbsp;a&nbsp;<code>FormGroup</code>.</p>\n</div>\n<div class=\"paragraph\">\n<p>If you remember one of&nbsp;the properties on&nbsp;a&nbsp;<code>FormGroup</code> was value, this is an object representation of all the forms controls.</p>\n</div>\n<div class=\"paragraph\">\n<p>So just like model-driven forms we can output that to screen simply with a <code>pre</code>&nbsp;tag and&nbsp;the&nbsp;<code>json</code> pipe, like:</p>\n</div>",
+            "content_image": "",
+            "content_code": "<pre>{{f.value | json}}</pre>"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>If you ran this code now all that would get printed out is&nbsp;<code>{}</code>. The forms value is an empty object, even if you started typing into the input fields the value would not update.</p>\n</div>\n<div class=\"paragraph\">\n<p>This is because the&nbsp;<code>ngForm</code>&nbsp;directive doesn&rsquo;t&nbsp;<em>automatically</em> detect all the controls that exist inside the&nbsp;<code>&lt;form&gt;</code> tag it&rsquo;s linked to. So although it&rsquo;s created a top-level&nbsp;<code>FormGroup</code>, it&rsquo;s empty.</p>\n</div>\n<div class=\"paragraph\">\n<p>We need to go through and <em>explicitly</em> register each template control with the <code>ngForm</code>&nbsp;directive.&nbsp;<code>ngForm</code>&nbsp;will then create a&nbsp;<code>FormControl</code> instance and map that to the&nbsp;<code>FormGroup</code>.</p>\n</div>\n<div class=\"paragraph\">\n<p>In&nbsp;model-driven forms we added&nbsp;<code>formControlName</code> directives to map template form controls to existing model form controls on the component.</p>\n</div>\n<div class=\"paragraph\">\n<p>In template-driven forms we need Angular to create the model form controls for us for each template form control. To do that we need to do two things to each template form control:</p>\n</div>\n<div class=\"olist arabic\">\n<ol class=\"arabic\">\n<li>\n<p>Add the&nbsp;<code>NgModel</code>&nbsp;directive</p>\n</li>\n<li>\n<p>Add the&nbsp;<code>name</code>&nbsp;attribute.</p>\n</li>\n</ol>\n</div>\n<div class=\"paragraph\">\n<p>The&nbsp;<code>NgModel</code>&nbsp;directive creates the&nbsp;<code>FormControl</code> instance to manage the template form control and the <code>name</code>&nbsp;attribute tells the&nbsp;<code>NgModel</code> directive what <em>key</em>&nbsp;to&nbsp;store that&nbsp;<code>FormControl</code>&nbsp;under in&nbsp;the parent&nbsp;<code>FormGroup</code>, for example:</p>\n</div>",
+            "content_image": "",
+            "content_code": "<input name=\"foo\" ngModel>"
+        },
+        {
+            "content_title": "",
+            "content_desc": "is equivalent to:",
+            "content_image": "",
+            "content_code": "let model = new FormGroup({\n  \"foo\": new FormControl()\n});"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>After adding&nbsp;<code>ngModel</code> to our template email input control, like:</p>",
+            "content_image": "",
+            "content_code": "<div class=\"form-group\">\n  <label>Email</label>\n  <input type=\"email\" class=\"form-control\" name=\"email\" ngModel>\n</div>"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>We can also see that&nbsp;<code>f.value</code> now shows the value of the email field, like:</p>",
+            "content_image": "",
+            "content_code": "{\n   \"email\": \"faroooq.in@gmail.com\"\n}"
+        },
+        {
+            "content_title": "Two-Way Data Binding",
+            "content_desc": "<div class=\"paragraph\">\n<p>Another feature of&nbsp;the&nbsp;<code>ngModel</code>&nbsp;directive is that it lets us setup&nbsp;<em>two-way</em> data binding between a template form control and a variable on our component.</p>\n</div>\n<div class=\"paragraph\">\n<p>So when the user changes the value in the template form control the value of the variable on the component automatically updates and when we change the variable on the component the template form control automatically updates.</p>\n</div>\n<div class=\"paragraph\">\n<p>The&nbsp;syntax for&nbsp;using the&nbsp;<code>ngModel</code> directive in this way is a little bit different, let&rsquo;s set this up for our email field. First we add a string property called <code>email</code> on our component so we have somewhere to store the email, like:</p>\n</div>",
+            "content_image": "",
+            "content_code": "// login.component.ts\nimport { Component, OnInit } from '@angular/core';\n@Component({\n  selector: 'app-login',\n  templateUrl: './login.component.html',\n  styleUrls: ['./login.component.css']\n})\nexport class LoginComponent implements OnInit {\n  \n  email!: string; (1)\n  \n  constructor() { }\n\n  ngOnInit(): void {\n  }\n}"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<ol>\n<li>We add an&nbsp;<code>email</code> property so we can store the email the user enters on the component.</li>\n</ol>\n<p>Then we setup&nbsp;<em>two-way</em> data binding by changing our email&nbsp;<code>ngModel</code>&nbsp;directive to:</p>",
+            "content_image": "",
+            "content_code": "<input ... [(ngModel)]=\"email\" >"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p><strong>Note:</strong> The <code>[( )]</code> syntax is a combination of the syntax for input property binding&nbsp;<code>[]</code>&nbsp;and&nbsp;output event binding&nbsp;<code>()</code>.</p>\n</div>\n<div class=\"paragraph\">\n<p>The&nbsp;long form of&nbsp;writing the&nbsp;above would be:</p>\n</div>",
+            "content_image": "",
+            "content_code": "<input ... [ngModel]=\"email\" (ngModelChange)=\"email = $event\" >"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>But the&nbsp;<code>[()]</code>&nbsp;syntax is shorter and&nbsp;clearly shows we are implementing&nbsp;<em>two- way</em>&nbsp;data binding on&nbsp;this input control.</p>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Domain Model",
+            "content_desc": "<p>In Angular we typically won&rsquo;t data bind to a simple string or object on our component but a <em>domain model</em> we&rsquo;ve defined via a class, let&rsquo;s create one for our Signup form called Signup.</p>",
+            "content_image": "",
+            "content_code": "// login.component.ts\nimport { Component, OnInit } from '@angular/core';\n@Component({\n  selector: 'app-login',\n  templateUrl: './login.component.html',\n  styleUrls: ['./login.component.css']\n})\nexport class LoginComponent implements OnInit {\n\n  model: LoginModel = new LoginModel();\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n}\nclass LoginModel {\n  constructor(\n    public email: string = '',\n    public password: string = '') {\n  }\n}\n"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>Now let&rsquo;s bind all our input controls to our model directly, like:</p>",
+            "content_image": "",
+            "content_code": "<input ... [(ngModel)]=\"model.email\" >\n<input ... [(ngModel)]=\"model.password\">"
+        },
+        {
+            "content_title": "Validation",
+            "content_desc": "<div class=\"paragraph\">\n<p>In the model-driven approach we defined the validators via code in the component.</p>\n</div>\n<div class=\"paragraph\">\n<p>In the template-driven approach we define the validators via <code>directives</code>&nbsp;and&nbsp;<abbr>HTML</abbr>5 attributes in our template itself, let&rsquo;s add validators to our form template.</p>\n</div>\n<div class=\"paragraph\">\n<p>All the&nbsp;fields apart from the&nbsp;language were&nbsp;<em>required</em>, so we&rsquo;ll just add the <code>required</code> attribute to those input fields, like:</p>\n</div>",
+            "content_image": "",
+            "content_code": "<input type=\"email\"\n    class=\"form-control\"\n    name=\"email\"\n    [(ngModel)]=\"model.email\"\n    required\n    pattern=\"[^ @]*@[^ @]*\">"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>The&nbsp;password field also had a&nbsp;<em>min length</em> validator, we can add that via an attribute also, like:</p>",
+            "content_image": "",
+            "content_code": "<input type=\"password\"\n    class=\"form-control\"\n    name=\"password\"\n    [(ngModel)]=\"model.password\"\n    required\n    minlength=\"8\">"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p><strong>Note:&nbsp;</strong>The&nbsp;<code>attributes</code> we are adding to add validation to our control are parts of the standard&nbsp;<abbr>HTML</abbr>5 specification. They are&nbsp;built-in&nbsp;to&nbsp;<abbr>HTML</abbr>5 and not part of Angular.</p>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Validation Styling",
+            "content_desc": "<div class=\"paragraph\">\n<p>Similar to model-driven forms we can access each model form controls state by going through the top-level form group.</p>\n</div>\n<div class=\"paragraph\">\n<p>The&nbsp;<code>ngForm</code>&nbsp;directive makes the&nbsp;top-level&nbsp;<code>FormGroup</code> available to us via its&nbsp;<code>form</code>&nbsp;property, so we can show the&nbsp;<em>valid</em>,&nbsp;<em>dirty</em>&nbsp;or&nbsp;<em>touched</em> state of our email field like:</p>\n</div>",
+            "content_image": "",
+            "content_code": "<pre>Valid? {{f.form.controls.email?.valid}}</pre>\n<pre>Dirty? {{f.form.controls.email?.dirty}}</pre>\n<pre>Touched? {{f.form.controls.email?.touched}}</pre>"
+        },
+        {
+            "content_title": "Important",
+            "content_desc": "<div>\n<div class=\"paragraph\">\n<p>The&nbsp;<code>?</code>&nbsp;is called the&nbsp;<em>elvis</em>&nbsp;operator, it means:<br /><br /><em>&ldquo;Only try to&nbsp;call the&nbsp;property on&nbsp;the right of&nbsp;<code>?</code> if the property on the left of&nbsp;<code>?</code>&nbsp;is&nbsp;<strong>not</strong>&nbsp;null.&rdquo;</em><br /><br />So if&nbsp;<code>form.controls.email</code>&nbsp;was&nbsp;<code>null</code>&nbsp;or&nbsp;<code>undefined</code> it would not try to call&nbsp;<code>form.controls.email.valid</code>&nbsp;(which would throw an&nbsp;error).<br /><br />In&nbsp;template-driven forms the&nbsp;controls can sometimes be&nbsp;<code>null</code> when Angular is building the page, so to be safe we use the&nbsp;<em>elvis</em> operator. We don&rsquo;t need to use this in model-driven forms since the models are created already in our component by the time the <abbr>HTML</abbr>&nbsp;form is shown on&nbsp;the page.</p>\n<div class=\"paragraph\">\n<p>So again similar to model-driven forms we can use this in conjunction with the <code>ngClass</code> directive and the validation classes from Twitter Bootstrap to style our form to give visual feedback to the user when it&rsquo;s invalid.</p>\n</div>\n<div class=\"paragraph\">\n<p>Let&rsquo;s add validation styling to our email field, like:</p>\n</div>\n</div>\n</div>",
+            "content_image": "",
+            "content_code": "<div class=\"form-group\"\n     [ngClass]=\"{\n      'has-danger': f.form.controls.email?.invalid \n      && (f.form.controls.email?.dirty \n      || f.form.controls.email?.touched),\n      'has-success': f.form.controls.email?.valid \n      && (f.form.controls.email?.dirty \n      || f.form.controls.email?.touched)\n }\">\n  <label>Email</label>\n  <input type=\"email\"\n         class=\"form-control\"\n         name=\"email\"\n         [(ngModel)]=\"email\"\n         required\n         pattern=\"[^ @]*@[^ @]*\">\n</div>"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>The above code displays a red border round the input control when it&rsquo;s invalid and a green border when it&rsquo;s valid.</p>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Writing Shorter Validation Expressions",
+            "content_desc": "<div class=\"paragraph\">\n<p>The&nbsp;<code>NgForm</code> directive does provide us with a shortcut to the<code> controls</code>&nbsp;property so we can write&nbsp;<code>f.controls.email?.valid</code> instead of <code>f.form.controls.email?.valid</code>.</p>\n</div>\n<div class=\"paragraph\">\n<p>Using the&nbsp;<code>ngModel</code>&nbsp;directive however provides us with a&nbsp;<em>much</em> shorter alternative.</p>\n</div>\n<div class=\"paragraph\">\n<p>We can get access to&nbsp;the instance of&nbsp;our&nbsp;<code>ngModel</code>&nbsp;directive by&nbsp;using a&nbsp;<em>local template reference variable</em>, like:</p>\n</div>",
+            "content_image": "",
+            "content_code": "<input ... [(ngModel)]=\"model.email\" #email=\"ngModel\"> </input>"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>Then in&nbsp;our template we can use our local variable&nbsp;<code>email</code>.</p>\n</div>\n<div class=\"paragraph\">\n<p>Since&nbsp;<code>NgModel</code>&nbsp;created the&nbsp;<code>FormControl</code> instance to manage the template form control in the first place, it stored a <em>reference</em>&nbsp;to&nbsp;that&nbsp;<code>FormControl</code>&nbsp;in&nbsp;its&nbsp;<code>control</code> property which we can now access in the template like so&nbsp;<code>email.control.touched</code>. This is such a common use case that the <code>ngModel</code> directive provides us a shortcut to the&nbsp;<code>control</code>&nbsp;property, so we can just type&nbsp;<code>email.touched</code>&nbsp;instead.</p>\n</div>\n<div class=\"paragraph\">\n<p>We can then shorten our validation class expression and re-write the template for our email control like:</p>\n</div>",
+            "content_image": "",
+            "content_code": "<div class=\"form-group\"\n     [ngClass]=\"{\n      'has-danger': email.invalid && (email.dirty || email.touched), (1)\n      'has-success': email.valid && (email.dirty || email.touched)\n }\">\n  <label>Email</label>\n  <input type=\"email\"\n         class=\"form-control\"\n         name=\"email\"\n         [(ngModel)]=\"model.email\"\n         required\n         pattern=\"[^ @]*@[^ @]*\"\n         #email=\"ngModel\"> (2)\n</div>"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<ol>\n<li>We can now access the form control directly through the template local variable called <code>email</code>.</li>\n<li>We create a template local variable pointing to the instance of the ngModel directive on this input control.</li>\n</ol>\n<p>So now our template is a&nbsp;lot less&nbsp;<em>verbose</em>.</p>\n<h3>Important</h3>\n<div>\n<div class=\"paragraph\">\n<p>As long as we named our local reference variables the same name we named our form controls in the <em>model-driven version of&nbsp;this form</em> we can just re-use the same&nbsp;<code>ngClass</code> syntax, like:</p>\n</div>\n</div>",
+            "content_image": "",
+            "content_code": "<div class=\"form-group\"\n       [ngClass]=\"{\n        'has-danger': email.invalid && (email.dirty || email.touched),\n        'has-success': email.valid && (email.dirty || email.touched)\n   }\">"
+        },
+        {
+            "content_title": "Validation Messages",
+            "content_desc": "<p>As&nbsp;for form validation messages, we can use&nbsp;<em>exactly the&nbsp;same method</em> that we used in model-driven forms. As long as we named the local reference variables the same as the form controls in the model-driven approach we can use exactly the same <abbr>HTML</abbr> in our template-driven forms, like:</p>",
+            "content_image": "",
+            "content_code": "<div class=\"form-control-feedback\"\n     *ngIf=\"email.errors && (email.dirty || email.touched)\">\n  <p *ngIf=\"email.errors.required\">Email is required</p>\n  <p *ngIf=\"email.errors.minlength\">Email must contain at least the @ character</p>\n</div>"
+        },
+        {
+            "content_title": "Submitting the Form",
+            "content_desc": "<div class=\"paragraph\">\n<p>Submitting a form is exactly the same in model-driven forms as it is in template-driven forms.</p>\n</div>\n<div class=\"paragraph\">\n<p>We need a submit button, this is just button with a<code> type=\"submit\"</code>&nbsp;somewhere between the&nbsp;opening and&nbsp;closing&nbsp;<code>form</code>&nbsp;tags.</p>\n</div>",
+            "content_image": "",
+            "content_code": "<form>\n  .\n  .\n  .\n  <button type=\"submit\" class=\"btn btn-primary\" >Submit</button>\n</form>"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>By&nbsp;default this would just try to&nbsp;post the&nbsp;form to&nbsp;the current&nbsp;<abbr>URL</abbr> in the address bar, to hijack this process and call a function on our component instead we use the <code>ngSubmit</code> directive (which comes from the <code>FormsModule</code>).</p>",
+            "content_image": "",
+            "content_code": "<form (ngSubmit)=\"onSubmit()\">...</form>"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>This is an output event binding which calls a function on our component called <code>onSubmit</code>&nbsp;when the&nbsp;user clicks the&nbsp;submit button.</p>\n</div>\n<div class=\"paragraph\">\n<p>However, we don&rsquo;t want the form submitted when the form is invalid. We can easily disable the submit button when the form is invalid, like:</p>\n</div>",
+            "content_image": "",
+            "content_code": "<button type=\"submit\" class=\"btn btn-primary\" [disabled]=\"f.invalid\">Submit</button>"
+        },
+        {
+            "content_title": "Resetting the Form",
+            "content_desc": "<div class=\"paragraph\">\n<p>In the model-driven approach we reset the form by calling the function <code>reset()</code>&nbsp;on&nbsp;our&nbsp;<code>myform</code>&nbsp;model.</p>\n</div>\n<div class=\"paragraph\">\n<p>We need to do the same in our template-driven approach but we don&rsquo;t have access to the underlying form model in our component. We only have access to it in our template via our local reference variable <code>f.form</code></p>\n</div>\n<div class=\"paragraph\">\n<p>However, we can get a&nbsp;reference to&nbsp;the&nbsp;<code>ngForm</code> instance in our component code by using a&nbsp;<code>ViewChild</code> decorator which we covered in the section on components earlier on in this course.</p>\n</div>\n<div class=\"paragraph\">\n<p>This decorator gives us a reference in our component to something in our template.</p>\n</div>\n<div class=\"paragraph\">\n<p>First we create a&nbsp;property on&nbsp;our component to&nbsp;hold an&nbsp;instance of&nbsp;<code>NgForm</code>, like:</p>\n</div>",
+            "content_image": "",
+            "content_code": "form: any;"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>Then we import the&nbsp;<code>ViewChild</code>&nbsp;decorator from&nbsp;<code>@angular/core</code>, like:</p>",
+            "content_image": "",
+            "content_code": "import { ViewChild } from '@angular/core';"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>Finally, we decorate our property with the&nbsp;<code>ViewChild</code> decorator. We pass to <code>ViewChild</code>&nbsp;the&nbsp;<em>name</em> of the local reference variable we want to link to, like:</p>",
+            "content_image": "",
+            "content_code": "@ViewChild('f') form: any;"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>And&nbsp;then in&nbsp;our&nbsp;<code>onSubmit()</code>&nbsp;function we can just call&nbsp;<code>form.reset()</code> like we did in the model-driven approach.</p>\n</div>\n<div class=\"paragraph\">\n<p>The&nbsp;full listing for&nbsp;our component is now:</p>\n</div>",
+            "content_image": "",
+            "content_code": "// login.component.ts\nimport { Component, OnInit, ViewChild } from '@angular/core';\n@Component({\n  selector: 'app-login',\n  templateUrl: './login.component.html',\n  styleUrls: ['./login.component.css']\n})\nexport class LoginComponent implements OnInit {\n\n  @ViewChild('f') form: any;\n  model: LoginModel = new LoginModel();\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n  onSubmit() {\n    if (this.form.valid) {\n      console.log(\"Form Submitted!\");\n      this.form.reset();\n    }\n  }\n}\nclass LoginModel {\n  constructor(\n    public email: string = '',\n    public password: string = '') {\n  }\n}"
+        },
+        {
+            "content_title": "",
+            "content_desc": "",
+            "content_image": "",
+            "content_code": "<!-- login.component.html -->\n<div class=\"form-signin\">\n    <form (ngSubmit)=\"onSubmit()\" #f=\"ngForm\" novalidate>\n        <h1 class=\"h3 mb-3 fw-normal\">Please sign in</h1>\n        <div class=\"form-group\">\n            <label>Email</label>\n            <div [ngClass]=\"{\n                    'has-danger': email.invalid && (email.dirty || email.touched),\n                    'has-success': email.valid && (email.dirty || email.touched)\n                }\">\n                <input type=\"email\" class=\"form-control\" name=\"email\" [(ngModel)]=\"model.email\" required\n                    pattern=\"[^ @]*@[^ @]*\" #email=\"ngModel\">\n            </div>\n            <div class=\"form-control-feedback\" *ngIf=\"email.errors && (email.dirty || email.touched)\">\n                <p *ngIf=\"email.errors.required\">Email is required</p>\n                <p *ngIf=\"email.errors.minlength\">Email must contain at least the @ character</p>\n            </div>\n        </div>\n        <!-- Didn't implemented the validations for password. I will leave this for you. -->\n        <div class=\"form-group\">\n            <label>Password</label>\n            <input type=\"password\" class=\"form-control\" name=\"password\" [(ngModel)]=\"model.password\" required\n                minlength=\"8\">\n        </div>\n\n        <div class=\"checkbox mb-3\">\n            <label>\n                <input type=\"checkbox\" value=\"remember-me\"> Remember me\n            </label>\n        </div>\n\n        <button class=\"w-100 btn btn-lg btn-primary\" type=\"submit\" [disabled]=\"f.invalid\">Submit</button>\n        <pre>{{f.value | json}}</pre>\n    </form>\n</div>"
+        },
+        {
+            "content_title": "",
+            "content_desc": "Now when we submit the form it blanks out all the fields and also resets the states of the form controls so any validation styling and errors reset also to the original pristine condition.",
+            "content_image": "",
+            "content_code": ""
+        }
+    ]
+}

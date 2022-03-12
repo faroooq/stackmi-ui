@@ -1,0 +1,36 @@
+<!-- Sidebar Holder -->
+<nav class="sticky-top scroll-sidebar" id="sidebar">
+    <div class="sidebar-header">
+        <h3 style="font-size: 2rem; color: #fff;"><a [routerLink]="['/academy']">StackMi Academy</a></h3>
+    </div>
+    <ul class="list-unstyled CTAs components">
+        <li>
+            <a [routerLink]="['/all-courses']" class="download">Live Courses</a>
+        </li>
+        <li>
+            <a [routerLink]="['/academy']" class="article">Back to Courses</a>
+        </li>
+    </ul>
+    <ul class="list-unstyled">
+        <p style="font-weight: 500; font-size: 2rem;">{{courses?.course_title}}</p>
+        <li *ngFor="let topics of courses?.course_list">
+            <a class="dropdown-toggle" style="cursor: pointer;" data-bs-toggle="collapse"
+                aria-expanded="true">{{topics.topic_title}}</a>
+            <ul *ngFor="let topic of topics.topic_list" class="expand list-unstyled">
+                <li class="active">
+                    <a style="margin-left: -15px;" [routerLink]="['/academy/article', topic.topic_slug]">
+                        <div class="row">
+                            <div class="col-2" style="text-align: center;">
+                                <span>{{topic.topic_id}}&nbsp;</span>
+                            </div>
+                            <div class="col-10" style="padding-left: 0px;">
+                                <span>{{topic.topic_name}}
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</nav>

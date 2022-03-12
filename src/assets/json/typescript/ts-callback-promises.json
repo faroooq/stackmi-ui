@@ -1,0 +1,138 @@
+{
+    "_id": {
+        "$oid": "61d140d205ed5a80a81a248f"
+    },
+    "article_slug": "ts-promises",
+    "article_title": "Typescript - Callbacks & Promises",
+    "article_image": "",
+    "article_seo_desc": "When you execute a task synchronously, you wait for it to finish before moving on to the next line of code. When you execute a task asynchronously, the program moves to the next line of code before the task finishes.",
+    "enroll_available": true,
+    "article_content": [
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>When you execute a&nbsp;task&nbsp;<em>synchronously</em>, you wait for&nbsp;it to&nbsp;finish before moving on&nbsp;to the&nbsp;next line of&nbsp;code.</p>\n</div>\n<div class=\"paragraph\">\n<p>When you execute a&nbsp;task&nbsp;<em>asynchronously</em>, the&nbsp;program moves to&nbsp;the next line of&nbsp;code before the&nbsp;task finishes.</p>\n</div>\n<div class=\"paragraph\">\n<p>Think of&nbsp;synchronous programming like waiting in&nbsp;line and&nbsp;asynchronous programming like taking a&nbsp;ticket. When you take a&nbsp;ticket you can go do other things and&nbsp;then be notified when ready.</p>\n</div>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Callbacks",
+            "content_desc": "One way to program asynchronously is to use callbacks. We pass to an asynchronous function <strong>a function</strong> which it will call when the task is completed.",
+            "content_image": "",
+            "content_code": "function doAsyncTask(cb) {\n  setTimeout(() => {\n    console.log(\"Async Task Calling Callback\");\n    cb();\n  }, 1000);\n}\n\ndoAsyncTask(() => console.log(\"Callback Called\"));"
+        },
+        {
+            "content_title": "",
+            "content_desc": "The doAsyncTask function when called kicks of an asynchronous task and returns immediately.\n\nTo get notified when the async task completes we pass to doAsyncTask a function which it will call when the task completes.\n\nIt’s called a callback function, cb for short, because it calls-you-back.",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Promise API",
+            "content_desc": "<div class=\"paragraph\">\n<p>In&nbsp;ES6 we have an&nbsp;alternative mechanism built into the&nbsp;language called a&nbsp;<em>promise</em>.</p>\n</div>\n<div class=\"paragraph\">\n<p>A&nbsp;<em>promise</em>&nbsp;is a&nbsp;<em>placeholder</em>&nbsp;for&nbsp;a future value.</p>\n</div>\n<div class=\"paragraph\">\n<p>It serves the&nbsp;same function as&nbsp;callbacks but has a&nbsp;nicer syntax and&nbsp;makes it easier to&nbsp;handle errors.</p>\n</div>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Creating a Promise",
+            "content_desc": "We create an instance of a promise by calling new on the Promise class, like:",
+            "content_image": "",
+            "content_code": "var promise = new Promise((resolve, reject) => {\n});"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>We pass to&nbsp;Promise an&nbsp;inner function that takes two arguments&nbsp;<code>(resolve, reject)</code>.</p>\n</div>\n<div class=\"paragraph\">\n<p>Since we are defining the&nbsp;function we can call these arguments whatever we want but the&nbsp;convention is to&nbsp;call them&nbsp;<code>resolve</code>&nbsp;and&nbsp;<code>reject</code>.</p>\n</div>\n<div class=\"paragraph\">\n<p><code>resolve</code>&nbsp;and&nbsp;<code>reject</code>&nbsp;are in&nbsp;fact functions themselves.</p>\n</div>\n<div class=\"paragraph\">\n<p>Inside this inner function we perform our asynchronous processing and&nbsp;then when we are ready we call&nbsp;<code>resolve()</code>, like:</p>\n</div>",
+            "content_image": "",
+            "content_code": "var promise = new Promise((resolve, reject) => {\n  setTimeout(() => {\n    console.log(\"Async Work Complete\");\n    resolve();\n  }, 1000);\n});"
+        },
+        {
+            "content_title": "",
+            "content_desc": "We usually return this promise from a function, like:",
+            "content_image": "",
+            "content_code": "function doAsyncTask() {\n  var promise = new Promise((resolve, reject) => {\n    setTimeout(() => {\n      console.log(\"Async Work Complete\");\n      resolve();\n    }, 1000);\n  });\n  return promise;\n}"
+        },
+        {
+            "content_title": "",
+            "content_desc": "If there was an error in the async task then we call the reject() function like:",
+            "content_image": "",
+            "content_code": "function doAsyncTask() {\n  var promise = new Promise((resolve, reject) => {\n    setTimeout(() => {\n      console.log(\"Async Work Complete\");\n      if (error) {\n        reject();\n      } else {\n        resolve();\n      }\n    }, 1000);\n  });\n  return promise;\n}"
+        },
+        {
+            "content_title": "Promise Notifications",
+            "content_desc": "We can get notified when a promise resolves by attaching a success handler to its then function, like:",
+            "content_image": "",
+            "content_code": "doAsyncTask().then(() => console.log(\"Task Complete!\"));"
+        },
+        {
+            "content_title": "",
+            "content_desc": "then can take two arguments, the second argument is a error handler that gets called if the promise is rejected, like:",
+            "content_image": "",
+            "content_code": "doAsyncTask().then(\n  () => console.log(\"Task Complete!\"),\n  () => console.log(\"Task Errored!\"),\n);"
+        },
+        {
+            "content_title": "",
+            "content_desc": "Any values we pass to the resolve and reject functions are passed along to the error and success handlers, like:",
+            "content_image": "",
+            "content_code": "let error = true;\nfunction doAsyncTask() {\n  return new Promise((resolve, reject) => {\n    setTimeout(() => {\n      if (error) {\n        reject('error'); // pass values\n      } else {\n        resolve('done'); // pass values\n      }\n    }, 1000);\n  });\n}\n\ndoAsyncTask().then(\n  (val) => console.log(val),\n  (err) => console.error(err)\n);"
+        },
+        {
+            "content_title": "Immediate Resolution or Rejection",
+            "content_desc": "We can create an immediately resolved Promise by using the Promise.resolve() method, like:",
+            "content_image": "",
+            "content_code": "let promise = Promise.resolve('done');"
+        },
+        {
+            "content_title": "",
+            "content_desc": "And an immediately rejected Promise by using the Promise.reject() method, like:",
+            "content_image": "",
+            "content_code": "let promise = Promise.reject('fail');"
+        },
+        {
+            "content_title": "",
+            "content_desc": "One of the nice things about Promises is that if we add a then handler after the promise resolves or rejects the handler still gets called.",
+            "content_image": "",
+            "content_code": "let promise = Promise.resolve('done');\npromise.then((val) => console.log(val)); // 'done'"
+        },
+        {
+            "content_title": "",
+            "content_desc": "In the above example, even though the Promise has resolved before we added the success handler, the promise framework still calls the success handler.",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Chaining",
+            "content_desc": "We can also connect a series of then handlers together in a chain, like:",
+            "content_image": "",
+            "content_code": "Promise.resolve(\"done\")\n  .then(\n    (val) => {\n      console.log(val);\n      return 'done2';\n    },\n    (err) => console.error(err)\n  )\n  .then(\n    (val) => console.log(val),\n    (err) => console.error(err)\n  );\n// 'done'\n// 'done2'"
+        },
+        {
+            "content_title": "",
+            "content_desc": "Promises pass an error along the chain till it finds an error handler. So we don’t need to define an error handler for each then function, we can just add one at the end like:",
+            "content_image": "",
+            "content_code": "Promise.reject('fail')\n  .then((val) => console.log(val))\n  .then(\n    (val) => console.log(val),\n    (err) => console.error(err)\n  );"
+        },
+        {
+            "content_title": "",
+            "content_desc": "If we throw an exception from our promise function or one of the success handlers, the promise gets rejected and the error handler is called, like:",
+            "content_image": "",
+            "content_code": "Promise.resolve('done')\n  .then((val) => {\n    throw new Error(\"fail\")\n  })\n  .then(\n    (val) => console.log(val),\n    (err) => console.error(err)\n  );\n// [Error: fail]"
+        },
+        {
+            "content_title": "Catch",
+            "content_desc": "<p>The&nbsp;<code>catch</code>&nbsp;function works exactly the&nbsp;same way as&nbsp;the&nbsp;<code>then</code>&nbsp;error handler, it&rsquo;s just clearer and&nbsp;more explicitly describes our intent to&nbsp;handle errors.</p>",
+            "content_image": "",
+            "content_code": "Promise.resolve('done')\n  .then((val) => {throw new Error(\"fail\")})\n  .then((val) => console.log(val))\n  .catch((err) => console.error(err));"
+        },
+        {
+            "content_title": "Summary",
+            "content_desc": "<div class=\"paragraph\">\n<p>Promises are a&nbsp;far cleaner solution to&nbsp;writing asynchronous code than callbacks.</p>\n</div>\n<div class=\"paragraph\">\n<p>The&nbsp;resulting code that&rsquo;s created is easier to&nbsp;read and&nbsp;is often written the&nbsp;order the&nbsp;application will execute.</p>\n</div>\n<div class=\"paragraph\">\n<p>So it can be easier to&nbsp;trace through code in&nbsp;your head.</p>\n</div>\n<div class=\"paragraph\">\n<p>With the&nbsp;<code>catch</code>&nbsp;handler it also gives us a&nbsp;single place where we can handle errors.</p>\n</div>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "",
+            "content_desc": "",
+            "content_image": "",
+            "content_code": "'use strict';\n\n// Via callbacks\n/*\n function doAsyncTask(cb) {\n setTimeout(() => {\n console.log(\"Async Task Calling Callback\");\n cb();\n }, 1000);\n }\n doAsyncTask(() => console.log(\"Callback Called\"));\n */\n\n\n\n// Via Promise\nlet error = false;\nfunction doAsyncTask() {\n  return new Promise((resolve, reject) => {\n    setTimeout(() => {\n      if (error) {\n        reject('error');\n      } else {\n        resolve('done');\n      }\n    }, 1000);\n  });\n}\n\ndoAsyncTask().then(\n    (val) => console.log(val),\n    (err) => console.error(err)\n);\n\n// Immediately Resolved Promise\nlet promise = Promise.resolve('done');\npromise.then((val) => console.log(val)); // 'done'\n\n// Handling Errors\nPromise.resolve('done')\n    .then((val) => {throw new Error(\"fail\")})\n    .then((val) => console.log(val))\n    .catch((err) => console.error(err));"
+        }
+    ]
+}

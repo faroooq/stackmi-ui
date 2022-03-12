@@ -1,0 +1,119 @@
+<div class="wrapper">
+    <app-article-menu></app-article-menu>
+    <!-- Page Content Holder -->
+    <div id="content">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+            <div class="container-fluid">
+                <button id="sidebarCollapse" style="border: 2px solid #1b0760; margin-left: 10px;" class="navbar-btn"
+                    type="button">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+                    aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                    <span>
+                        <img style="width: 30px;" src="../../../favicon.ico" alt="">
+                    </span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarText" style="margin-left: 1rem;">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="margin-left: 1rem; padding-top: 1rem;">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" [routerLink]="['/contact']">
+                                <i class="fas fa-laptop-code"></i>
+                                Schedule Mock Interview
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" [routerLink]="['/contact']">
+                                <i class="fas fa-phone-volume"></i>
+                                Request Callback
+                            </a>
+                        </li>
+                    </ul>
+                    <span *ngIf="!authService.isLoggedIn()">
+                        <button [routerLink]="['/login']" type="button" class="btn me-md-3 btn--outline">
+                            Login
+                        </button>
+                        <button [routerLink]="['/signup']" type="button" class="btn me-md-1 btn--outline">
+                            SignUp
+                        </button>
+                    </span>
+                    <div *ngIf="authService.isLoggedIn()">
+                        <ul class="navbar-nav mr-auto mb-2 mb-lg-0" style="margin-left: 0.6rem;">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    <span style="color: #1b0760; font-size: 1.6rem;">Hi,&nbsp;</span>
+                                    <span style="color: #1b0760;">{{ userDetails.user_name }}&nbsp;</span>
+                                    <i style="font-size: 1.4rem;" class="fa fa-chevron-down"></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <li>
+                                        <a id="navbar-style" class="dropdown-item" [routerLink]="['/profile']">
+                                            <i class="fas fa-user"></i>&nbsp;Profile</a>
+                                    </li>
+                                    <li>
+                                        <a id="navbar-style" class="dropdown-item" [routerLink]="['/updatepwd']">
+                                            <i class="fas fa-unlock-alt"></i>&nbsp;Password</a>
+                                    </li>
+                                    <li>
+                                        <a id="navbar-style" class="dropdown-item" (click)="signOut()">
+                                            <i class="fas fa-sign-out-alt"></i>&nbsp;Log Out</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="content mt-5">
+            <div *ngIf="loading" class="d-flex justify-content-center" style="margin-bottom: 8rem">
+                <div class="spinner-border" style="width: 6rem; height: 6rem" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+            <div class="row">
+                <div *ngIf="article?.article_title" class="col-lg-9 mx-auto p-3" style="align-self: center;">
+                    <h2 style="font-weight: 400;">{{article?.article_title}}</h2>
+                </div>
+                <div class="col-lg-3 p-3 main">
+                    <h4 style="margin-left: 0.4rem;">Share Article</h4>
+                    <app-share-button type='twitter' [shareUrl]='link'></app-share-button>
+                    <app-share-button type='facebook' [shareUrl]='link'></app-share-button>
+                    <app-share-button type='linkedin' [shareUrl]='link'></app-share-button>
+                    <app-share-button type='whatsapp' [shareUrl]='link'></app-share-button>
+                </div>
+            </div>
+            <div *ngIf="article?.article_image" class="row col-lg-12 image-color mt-5 mb-5">
+                <img height="200px;" data-src="{{ article?.article_image }}" alt="{{article?.article_title}}" />
+            </div>
+            <div *ngFor="let content of article?.article_content">
+                <div class="row mt-3" *ngIf="content.content_title !== 'Skill Test'">
+                    <h3 *ngIf="content?.content_title" style="font-weight: 400;">
+                        <strong>{{content?.content_title}}</strong>
+                    </h3>
+                    <p *ngIf="content?.content_desc" [innerHtml]="content?.content_desc"></p>
+                    <div *ngIf="content?.content_image" class="image-color mt-5 mb-5">
+                        <img data-src="{{ content?.content_image }}" alt="{{content?.content_title}}" />
+                    </div>
+                    <div class="mt-1" *ngIf="content?.content_code">
+                        <pre style="margin-bottom: -3rem; margin-top: -2rem;">
+                            <code [highlight]="content?.content_code" [languages]="['typescript', 'java', 'html', 'css', 'python']" (highlighted)="onHighlight($event)" [lineNumbers]="true"></code>
+                        </pre>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="article?.enroll_available" class="row col-lg-12 mt-3">
+                <h3 class="mt-3">Enroll Live Classes</h3>
+                <app-course-adds [frameAvailable]='true'></app-course-adds>
+            </div>
+            <div class="row mt-3" [ngStyle]="{'display':quiz_available === true ? 'flex' : 'none' }">
+                <h3 class="mt-3">{{quiz_title}}</h3>
+                <app-json-form *ngIf="formData" [jsonFormData]="formData"></app-json-form>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

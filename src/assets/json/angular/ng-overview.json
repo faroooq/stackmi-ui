@@ -1,0 +1,48 @@
+{
+    "_id": {
+        "$oid": "61e43935bbfe744154a49479"
+    },
+    "article_slug": "ng-overview",
+    "article_title": "Angular - Overview of Angular",
+    "article_image": "",
+    "article_seo_desc": "Let's walkthrough the necessary files required to run the Angular application.",
+    "enroll_available": true,
+    "article_content": [
+        {
+            "content_title": "Angular Overview",
+            "content_desc": "<p>Let&rsquo;s see how the Angular <abbr>CLI</abbr> breaks up the code into multiple files and where those files are located.</p>\n<p>After creating the Angular project, you will see lot of files and folders got created by Angular CLI. We will walkthrough the necessary files and understand the code.</p>\n<p>You can see the <code>package.json</code> file in the project root directory, that it has installed the correct versions of all the required npm dependencies for us.</p>",
+            "content_image": "",
+            "content_code": "{\n  \"name\": \"shopping-cart\",\n  \"version\": \"0.0.0\",\n  \"scripts\": {\n    \"ng\": \"ng\",\n    \"start\": \"ng serve\",\n    \"build\": \"ng build\",\n    \"watch\": \"ng build --watch --configuration development\",\n    \"test\": \"ng test\"\n  },\n  \"private\": true,\n  \"dependencies\": {\n    \"@angular/animations\": \"~12.1.2\",\n    \"@angular/common\": \"~12.1.2\",\n    \"@angular/compiler\": \"~12.1.2\",\n    \"@angular/core\": \"~12.1.2\",\n    \"@angular/forms\": \"~12.1.2\",\n    \"@angular/platform-browser\": \"~12.1.2\",\n    \"@angular/platform-browser-dynamic\": \"~12.1.2\",\n    \"@angular/router\": \"~12.1.2\",\n    \"rxjs\": \"~6.6.0\",\n    \"tslib\": \"^2.2.0\",\n    \"zone.js\": \"~0.11.4\"\n  },\n  \"devDependencies\": {\n    \"@angular-devkit/build-angular\": \"~12.1.2\",\n    \"@angular/cli\": \"~12.1.2\",\n    \"@angular/compiler-cli\": \"~12.1.2\",\n    \"@types/jasmine\": \"~3.8.0\",\n    \"@types/node\": \"^12.11.1\",\n    \"jasmine-core\": \"~3.8.0\",\n    \"karma\": \"~6.3.0\",\n    \"karma-chrome-launcher\": \"~3.1.0\",\n    \"karma-coverage\": \"~2.0.3\",\n    \"karma-jasmine\": \"~4.0.0\",\n    \"karma-jasmine-html-reporter\": \"~1.7.0\",\n    \"typescript\": \"~4.3.2\"\n  }\n}\n"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p><strong>src/app/app.component.ts</strong></p>\n<p>The new project is bootstrapped with one component, our root component which is called <code>AppComponent</code> and has a selector of <code>app-root</code>.</p>",
+            "content_image": "",
+            "content_code": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-root',\n  templateUrl: './app.component.html',\n  styleUrls: ['./app.component.css']\n})\nexport class AppComponent {\n}"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p><strong>src/index.html</strong><p><code>app-root</code> component has been added to our <code>index.html</code> file already.</p><div class=\"paragraph\">\n<p>There are no script tags present yet, that&rsquo;s fine. The angular build process adds all the required scripts and link tags for us.</p>\n</div>",
+            "content_image": "",
+            "content_code": "<!doctype html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>ShoppingCart</title>\n  <base href=\"/\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\n</head>\n<body>\n  <app-root></app-root>\n</body>\n</html>\n"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p><strong>src/app/app.module.ts</strong></p>\n<p>Our top-level module configuration is stored in the <code class=\" language-typescript\" data-lang=\"typescript\"><span class=\"token class-name\">AppModule</span></code> file.</p>",
+            "content_image": "",
+            "content_code": "import { NgModule } from '@angular/core';\nimport { BrowserModule } from '@angular/platform-browser';\n\nimport { AppRoutingModule } from './app-routing.module';\nimport { AppComponent } from './app.component';\n\n@NgModule({\n  declarations: [\n    AppComponent\n  ],\n  imports: [\n    BrowserModule,\n    AppRoutingModule\n  ],\n  providers: [],\n  bootstrap: [AppComponent]\n})\nexport class AppModule { }\n"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p><strong>src/main.ts</strong></p>\n<p>The actual act of importing our main module and bootstrapping our Angular web application is left to the <code>main.ts</code> file.</p>",
+            "content_image": "",
+            "content_code": "import { enableProdMode } from '@angular/core';\nimport { platformBrowserDynamic } from '@angular/platform-browser-dynamic';\n\nimport { AppModule } from './app/app.module';\nimport { environment } from './environments/environment';\n\nif (environment.production) {\n  enableProdMode();\n}\n\nplatformBrowserDynamic().bootstrapModule(AppModule)\n  .catch(err => console.log(err));"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>We have one more file named <code>angular.json</code> at the root level of an Angular workspace provides workspace-wide and project-specific configuration defaults for build and development tools provided by the Angular CLI.</p><div><div>These are the basic files required to run the Angular application.</div></div>",
+            "content_image": "",
+            "content_code": ""
+        }
+    ]
+}

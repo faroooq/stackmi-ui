@@ -1,0 +1,79 @@
+{
+    "_id": {
+        "$oid": "62027f8265787a8c50f4f9b6"
+    },
+    "article_id": "1.1",
+    "article_slug": "ng-hostlistener-hostbinding",
+    "article_title": "Angular - HostListener and HostBinding",
+    "article_image": "",
+    "article_seo_desc": "By using the @HostListener and @HostBinding decorators we can both listen to output events from our host element and also bind to input properties on our host element as well.",
+    "enroll_available": true,
+    "article_content": [
+        {
+            "content_title": "HostListener",
+            "content_desc": "<div class=\"paragraph\">\n<p>In&nbsp;the previous lecture we created our first directive,&nbsp;<code>ccCardHover</code>, which simply turned the background color for every element it&rsquo;s attached to.</p>\n</div>\n<div class=\"paragraph\">\n<p>But as&nbsp;the name of&nbsp;the directive implies we need a&nbsp;way of&nbsp;<em>detecting</em> if the user is hovering over the host element.</p>\n</div>\n<div class=\"paragraph\">\n<p>Angular makes this easy with the&nbsp;<code>@HostListener</code>&nbsp;decorator.</p>\n</div>\n<div class=\"paragraph\">\n<p>This is a&nbsp;<em>function</em>&nbsp;decorator that accepts an&nbsp;<em>event name</em>&nbsp;as&nbsp;an argument. When that event gets fired on&nbsp;the&nbsp;<em>host</em> element it calls the associated function.</p>\n</div>\n<div class=\"paragraph\">\n<p>So if we add this function to&nbsp;our directive class:</p>\n</div>",
+            "content_image": "",
+            "content_code": "@HostListener('mouseover') onHover() {\n  window.alert(\"hover\");\n}"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>Hovering over the&nbsp;host element would trigger an&nbsp;alert popup.</p>\n</div>\n<div class=\"paragraph\">\n<p>Let&rsquo;s change our directive to&nbsp;take advantage of&nbsp;the&nbsp;<code>@HostListener.</code></p>\n</div>",
+            "content_image": "",
+            "content_code": "import { Directive, ElementRef, HostListener, Renderer2 } from '@angular/core';\n\n@Directive({\n  selector: '[ccCardHover]'\n})\nexport class CardHoverDirective {\n\n  constructor(public el: ElementRef,\n    public renderer: Renderer2) { }\n\n  ngOnInit() {\n    // this.renderer.setStyle(this.el.nativeElement, 'backgroundColor', '#f9dede');\n  }\n  \n  @HostListener('mouseover')\n  onMouseOver() {\n    let part = this.el.nativeElement.querySelector('.card')\n    this.renderer.setStyle(part, 'backgroundColor', '#f9dede');\n  }\n}\n"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<ul>\n<li>We&rsquo;ve commented the code to render the background color in ngOnInit().</li>\n<li>We decorate a&nbsp;class method with&nbsp;<code>@HostListener</code> configuring it to call the function on every&nbsp;<code>mouseover</code>&nbsp;events.</li>\n<li>We get a&nbsp;reference to&nbsp;the&nbsp;<abbr>DOM</abbr> element that holds the card.</li>\n<li>We set <code>this.renderer.setStyle(part, 'backgroundColor', '#f9dede');</code></li>\n</ul>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>For the above to work we wrapped one more div to the <code>ItemComponent</code> template and added the <code>ccCardHover</code> as an attribute.</p>",
+            "content_image": "",
+            "content_code": "<!-- item.component.html -->\n<div ccCardHover>\n    <div class=\"card card--secondary m-2\">\n        <div class=\"m-2\">\n            <img width=\"100%\" style=\"object-fit: cover;\" height=\"400px\" src=\"{{itemObj?.image}}\" />\n        </div>\n        <div class=\"p-3\">\n            <h4 class=\"card-title\">\n                <ng-content select=\".name\"></ng-content>\n            </h4>\n            <p class=\"card-text\">\n                <ng-content select=\"#price\"></ng-content>\n            </p>\n            <p class=\"card-text\">\n                <!-- Content Projection using CSS class -->\n                <ng-content select=\".discount\"></ng-content>\n            </p>\n            <p class=\"card-text\">{{itemObj?.description}}</p>\n            <!-- Content Projection using CSS class -->\n            <a (click)=\"addItem(itemObj)\">\n                <ng-content select=\".anchor_cart\"></ng-content>\n            </a>\n            <a (click)=\"gotoCheckoutPage(itemObj)\">\n                <ng-content select=\".anchor_buy\"></ng-content>\n            </a>\n        </div>\n    </div>\n</div>"
+        },
+        {
+            "content_title": "",
+            "content_desc": "Similarly let's add for the mouseout event.",
+            "content_image": "",
+            "content_code": "// card-hover.directive.ts\n  @HostListener('mouseout')\n  onMouseOut() {\n    let part = this.el.nativeElement.querySelector('.card')\n    this.renderer.setStyle(part, 'backgroundColor', '#ffffff');\n  }"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>Now, when the user mouseover he will see the background color change to <code>pink (#f9dede)</code> and when he mouseout the background color will change to <code>white (#ffffff)</code>.</p>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "HostBinding",
+            "content_desc": "<p>Let's understand <code>@HostBinding</code> using the <code>&lt;input&gt;</code> element this time.</p>\n<p><strong>Scenario:</strong> Upon key enter the colors should change for the entered input text. Something interesting!</p>\n<p>We will use both <code>@HostBinding</code>&nbsp;and&nbsp;<code>@HostListener</code> that listens for a<code> keydown</code> event on the host. It will set its text and border color to a random color from a set of a few available colors.</p>\n<p>Let's create one more directive <code>RainbowDirective</code> in our <code>app/shared</code> folder.</p>",
+            "content_image": "",
+            "content_code": "ng generate directive rainbow"
+        },
+        {
+            "content_title": "",
+            "content_desc": "",
+            "content_image": "",
+            "content_code": "// rainbow.directive.ts\n\nimport { Directive, HostBinding, HostListener } from '@angular/core';\n\n@Directive({\n  selector: '[appRainbow]'\n})\nexport class RainbowDirective {\n\n  possibleColors = [\n    'darksalmon',\n    'hotpink',\n    'lightskyblue',\n    'goldenrod',\n    'peachpuff',\n    'mediumspringgreen',\n    'cornflowerblue',\n    'blanchedalmond',\n    'lightslategrey'\n  ];\n\n  @HostBinding('style.color') color!: string;\n  @HostBinding('style.border-color') borderColor!: string;\n\n  @HostListener('keydown') newColor() {\n    const colorPick = Math.floor(Math.random() * this.possibleColors.length);\n\n    this.color = this.borderColor = this.possibleColors[colorPick];\n  }\n\n}\n"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>Our&nbsp;<code>Rainbow</code>&nbsp;directive uses two&nbsp;<code>@HostBinding</code>&nbsp;decorators to define two class members, one that&rsquo;s attached to the host&rsquo;s&nbsp;<code>style.color</code>&nbsp;binding and the other to&nbsp;<code>style.border-color</code>.</p>\n<p>You can also bind to any class, property, or attribute of the host.</p>\n<p>Here are a few more examples of possible bindings:</p>\n<ul>\n<li><code>@HostBinding('class.active')</code></li>\n<li><code>@HostBinding('disabled')</code></li>\n<li><code>@HostBinding('attr.role')</code></li>\n</ul>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>Let's create an <code>&lt;input&gt;</code> element in the <code>home.component.html</code> file and add the attribute <code>appRainbow</code> like:</p>",
+            "content_image": "",
+            "content_code": "<!-- home.component.html -->\n<div class=\"container mt-5\">\n    <h1>Welcome to the shopping cart</h1>\n    <h4>\n        <a routerLink=\"/gadgets\">Click here</a> to navigate to the shopping page.\n    </h4>\n    <hr>\n    <div class=\"mb-3\">\n        <h3 class=\"form-label\">Search Products </h3>\n        <input appRainbow type=\"text\" class=\"form-control\">\n    </div>\n</div>"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>The&nbsp;<code>@HostListener</code>&nbsp;with the&nbsp;<code>'keydown'</code>&nbsp;argument listens for the keydown event on the host. We define a function attached to this decorator that changes the value of&nbsp;<code>color</code>&nbsp;and&nbsp;<code>borderColor</code>, and our changes get reflected on the host automatically.</p>",
+            "content_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/hostbinding-example.gif",
+            "content_code": ""
+        }
+    ]
+}

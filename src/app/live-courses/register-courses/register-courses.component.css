@@ -1,0 +1,40 @@
+.block--mentor {
+    background: #1b0760;
+    color: #7b858b;
+  }
+  
+  .block--mentor h1,
+  .block--mentor h2,
+  .block--mentor h3 {
+    color: #fff;
+  }
+  
+  h3 {
+    padding: 2rem;
+    padding-bottom: 1rem;
+    text-align: center;
+  }
+  
+  .ellipse {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .desc-space {
+    padding-left: 1rem;
+  }
+  
+  @media screen and (min-width: 768px) {
+    .input-margin {
+      margin-left: 3rem;
+      margin-right: 3rem;
+    }
+    .event-space {
+      margin-left: 0; padding-left: 0;
+    }
+    .desc-space {
+      margin-left: 0; padding-left: 0;
+    }
+  }
+  

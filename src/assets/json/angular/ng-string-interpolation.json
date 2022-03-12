@@ -1,0 +1,66 @@
+{
+    "_id": {
+        "$oid": "61e52647bbfe744154a4948a"
+    },
+    "article_slug": "ng-string-interpolation",
+    "article_title": "Angular - String Interpolation",
+    "article_image": "",
+    "article_seo_desc": "String interpolation lets you incorporate dynamic string values into your HTML templates. In other words, it is used to display dynamic data on HTML template.",
+    "enroll_available": true,
+    "article_content": [
+        {
+            "content_title": "",
+            "content_desc": "<p><strong>Definition:</strong> <em>String interpolation lets you incorporate dynamic string values into your HTML templates. </em></p>\n<p>In other words, it is used to display dynamic data on HTML template.</p>\n<p>Let&rsquo;s add some properties to our earlier ItemComponent class, like:</p>",
+            "content_image": "",
+            "content_code": "class ItemComponent {\n  name: string;\n  price: string;\n}"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>We are saying that this class has two properties,&nbsp;<code>name</code>&nbsp;and&nbsp;<code>price</code>, both of&nbsp;them can only hold&nbsp;<code>strings</code>.</p>\n<p><strong>Note:&nbsp;</strong>The&nbsp;code&nbsp;<code>:string</code>&nbsp;is something called a&nbsp;type, and&nbsp;it&rsquo;s a&nbsp;core part of&nbsp;TypeScript, something you probably are not used to&nbsp;if you&rsquo;ve never worked with typed languages before.</p>\n<div class=\"paragraph\">\n<p>If we ever try to make these properties hold anything other than a string TypeScript will throw an error.</p>\n</div>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Classes",
+            "content_desc": "<p>Remember, We learnt that classes are blueprints for objects, or in other words <em>instructions</em>&nbsp;for&nbsp;how to&nbsp;create an&nbsp;object. To&nbsp;actually create an&nbsp;object using a&nbsp;<code>class</code>&nbsp;we use the&nbsp;<code>new</code> keyword, like:</p>",
+            "content_image": "",
+            "content_code": "let item = new ItemComponent()"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p><code>item</code>&nbsp;is an&nbsp;object created using the&nbsp;<code>ItemComponent</code>&nbsp;class, another word for&nbsp;an object created using a&nbsp;class is a&nbsp;<em>class instance</em>&nbsp;or&nbsp;just&nbsp;<em>instance</em>.</p>\n</div>\n<div class=\"paragraph\">\n<p>Since we have added some properties to&nbsp;the&nbsp;<code>ItemComponent</code> class, the class instance that is created also has those properties.</p>\n</div>",
+            "content_image": "",
+            "content_code": "console.log(item.name);\nconsole.log(item.price);"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>If we really did try to&nbsp;run the&nbsp;above code we would see that nothing gets printed out to&nbsp;the console, that&rsquo;s because the&nbsp;<code>name</code>&nbsp;and&nbsp;<code>price</code>&nbsp;properties have not been initialised, they are blank.</p>\n</div>\n<div class=\"paragraph\">\n<p>With classes how we initialise properties when we instantiate an&nbsp;object is via a&nbsp;special class function called a&nbsp;<code>constructor</code>.</p>\n</div>",
+            "content_image": "",
+            "content_code": "class ItemComponent {\n  name: string;\n  price: string;\n\n  constructor() {\n    this.name = \"IPhone 12\";\n    this.price = \"INR 56,000/-\";\n  }\n}"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>Now when we instantiate the&nbsp;class the&nbsp;<code>constructor</code>&nbsp;function is called and&nbsp;this initialises the&nbsp;<code>name</code>&nbsp;and&nbsp;<code>price</code>&nbsp;properties.</p>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p><strong>Note:</strong> In the interest of brevity I&rsquo;m initialising our properties in the constructor, the recommended approach with initialising a component is to use <em>Component Lifecycle Hooks</em>, again more on&nbsp;that later.</p>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "String Interpolation",
+            "content_desc": "<div class=\"paragraph\">\n<p>We need to have the template output the contents of our properties.</p>\n</div>\n<div class=\"paragraph\">\n<p>We can do that in&nbsp;the template by&nbsp;using the&nbsp;special&nbsp;<code>{{ }}</code>&nbsp;syntax, also known as&nbsp;<em>moustache syntax</em>.</p>\n</div>\n<div class=\"paragraph\">\n<p>The&nbsp;<code>{{ }}</code>&nbsp;contains JavaScript which is run by&nbsp;Angular and&nbsp;the output inserted in&nbsp;the&nbsp;<abbr>HTML</abbr>.</p>\n</div>\n<div class=\"paragraph\">\n<p>So if we put&nbsp;<code>{{ 1 + 1 }}</code>&nbsp;in&nbsp;the template the&nbsp;number&nbsp;<code>2</code>&nbsp;would be inserted into the&nbsp;<abbr>HTML</abbr>.</p>\n</div>\n<div class=\"paragraph\">\n<p>The&nbsp;template knows about the&nbsp;<code>ItemComponent</code>&nbsp;class it&rsquo;s attached to&nbsp;so&nbsp;in-between&nbsp;the&nbsp;<code>{{ }}</code>&nbsp;we can also read properties or&nbsp;even call functions on&nbsp;our&nbsp;<code>ItemComponent</code>&nbsp;and&nbsp;have the&nbsp;output inserted in&nbsp;the&nbsp;<abbr>HTML</abbr>.</p>\n</div>\n<div class=\"paragraph\">\n<p>We just want to display the values of the <code>name</code>&nbsp;and&nbsp;<code>price</code> properties so we just use those, like:</p>\n</div>",
+            "content_image": "",
+            "content_code": "<h1>{{name}}</h1>\n<p>{{price}}</p>"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>Now, When you run the program, you will see in the browser like:",
+            "content_image": "",
+            "content_code": "IPhone 12\n\nINR 56,000/-"
+        }
+    ]
+}

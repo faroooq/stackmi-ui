@@ -1,0 +1,67 @@
+{
+    "_id": {
+        "$oid": "6203d8d165787a8c50f4f9cb"
+    },
+    "article_id": "6.2",
+    "article_slug": "ng-async-pipes",
+    "article_title": "Angular - Async Pipe",
+    "article_image": "",
+    "article_seo_desc": "AsyncPipe is a convenience function which makes rendering data from observables and promises much easier. For promises it automatically adds a then callback and renders the response. For Observables it automatically subscribes to the observable.",
+    "enroll_available": true,
+    "article_content": [
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>Normally to&nbsp;render the&nbsp;result of&nbsp;a promise or&nbsp;an observable we have to:</p>\n</div>\n<div class=\"olist arabic\">\n<ol class=\"arabic\">\n<li>\n<p>Wait for&nbsp;a&nbsp;<em>callback</em>.</p>\n</li>\n<li>\n<p>Store the&nbsp;result of&nbsp;the callback in&nbsp;a&nbsp;<em>variable</em>.</p>\n</li>\n<li>\n<p><em>Bind</em>&nbsp;to&nbsp;that variable in&nbsp;the template.</p>\n</li>\n</ol>\n</div>\n<div class=\"paragraph\">\n<p>With&nbsp;<code>AsyncPipe</code> we can use promises and observables directly in our template, without having to store the result on an intermediate property or variable.</p>\n</div>\n<div class=\"paragraph\">\n<p><code>AsyncPipe</code> accepts as argument an observable or a promise, calls&nbsp;<code>subcribe</code>&nbsp;or&nbsp;attaches a&nbsp;<code>then</code> handler, then waits for the asynchronous result before passing it through to the caller.</p>\n</div>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "AsyncPipe with Promises",
+            "content_desc": "Let’s first create a component with a promise as a property.",
+            "content_image": "",
+            "content_code": "@Component({\n  selector: 'app-async-pipe',\n  template: `\n   <div class=\"card card-block\">\n      <h4 class=\"card-title\">AsyncPipe</h4>\n      <p class=\"card-text\" ngNonBindable>{{ promiseData }}</p> (1)\n      <p class=\"card-text\">{{ promiseData }}</p> (2)\n   </div>\n  `\n})\nclass AsyncPipeComponent {\n  \n  promiseData!: any;\n\n  constructor() {\n  }\n\n  ngOnInit(): void {\n    this.getPromise().then(v => this.promiseData = v); (3)\n  }\n\n  getPromise() { (4)\n    return new Promise((resolve, reject) => {\n      setTimeout(() => resolve(\"Promise complete!\"), 3000);\n    });\n  }\n}"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<ol>\n<li>We use&nbsp;<code>ngNonBindable</code>&nbsp;so we can render out&nbsp;<code>{{ promiseData }}</code> as is without trying to bind to to the property&nbsp;<code>promiseData.</code></li>\n<li>We bind to&nbsp;the property&nbsp;<code>promiseData.</code></li>\n<li>When the&nbsp;promise resolves we store the&nbsp;data onto the&nbsp;<code>promiseData</code> property.</li>\n<li><code>getPromise</code> returns a promise 3 seconds later resolves with the value <code>\"Promise complete!\"</code></li>\n</ol>\n<div class=\"paragraph\">\n<p>In the <code>ngOnInit()</code> we wait for the promise to resolve and store the result on a property called <code>promiseData</code> on our component and then bind to that property in the template.</p>\n</div>\n<div class=\"paragraph\">\n<p>Visually we see something like this:</p>\n</div>",
+            "content_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/async-promise.webp",
+            "content_code": ""
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>To&nbsp;save time we can use the&nbsp;<code>async</code> pipe in the template and bind to the promise&nbsp;<em>directly</em>, like:</p>",
+            "content_image": "",
+            "content_code": "@Component({\n  selector: 'app-async-pipe',\n  template: `\n  <div class=\"card card-block\">\n    <h4 class=\"card-title\">AsyncPipe</h4>\n    <p class=\"card-text\" ngNonBindable>{{ promise }}</p>\n    <p class=\"card-text\">{{ promise | async }}</p> (1)\n  </div>\n  `\n})\nclass AsyncPipeComponent {\n  \n  promise!: Promise<string>;\n\n  constructor() {\n  }\n\n  ngOnInit() {\n    this.promise = this.getPromise(); (2)\n  }\n\n  getPromise(): Promise<string> {\n     return new Promise((resolve, reject) => {\n       setTimeout(() => resolve(\"Promise complete!\"), 3000);\n     });\n  }\n}"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<ol>\n<li>We pipe the&nbsp;output of&nbsp;our&nbsp;<code>promise</code>&nbsp;to&nbsp;the&nbsp;<code>async</code>&nbsp;pipe.</li>\n<li>The&nbsp;property&nbsp;<code>promise</code>&nbsp;is the&nbsp;actual unresolved&nbsp;<em>promise</em>&nbsp;that gets returned from&nbsp;<code>getPromise</code>&nbsp;without&nbsp;<code>then</code>&nbsp;being called on&nbsp;it.</li>\n</ol>\n<p>The&nbsp;above results in&nbsp;the same behaviour as&nbsp;before, we just saved ourselves from writing a&nbsp;<code>then</code>&nbsp;callback and&nbsp;storing intermediate data on&nbsp;the component.</p>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "AsyncPipe with Observables",
+            "content_desc": "<p>To&nbsp;demonstrate how this works with&nbsp;<em>observables</em> we first need to setup our component with a simple <em>observable</em>, like:</p>",
+            "content_image": "",
+            "content_code": "import { Component, OnInit } from \"@angular/core\";\nimport { Observable, timer } from \"rxjs\";\n\n@Component({\n  selector: 'app-async-pipe',\n  template:\n    `\n  <div class=\"card card-block\">\n    <h4 class=\"card-title\">AsyncPipe</h4>\n    <p class=\"card-text\" ngNonBindable>{{ seconds }}\n    <p class=\"card-text\">{{ seconds }}</p>\n  </div>\n  `,\n})\nexport class AsyncPipeComponent implements OnInit {\n\n  seconds!: number;\n\n  constructor() {\n  }\n\n  ngOnInit() {\n    this.getObservable().subscribe((seconds) => this.seconds = seconds)\n  }\n\n  getObservable(): Observable<number> {\n    return timer(1000, 1000);\n  }\n}"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<ol>\n<li>We render the&nbsp;value of&nbsp;<code>seconds</code>&nbsp;in&nbsp;our template.</li>\n<li>We create an observable which publishes out a number which increments by one every second.</li>\n</ol>\n<p>Visually we see something like this:</p>",
+            "content_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/async-observable.webp",
+            "content_code": ""
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>Again by&nbsp;using&nbsp;<code>AsyncPipe</code> we don&rsquo;t need to perform the&nbsp;<code>subscribe</code> and store any intermediate data on our component, like:</p>",
+            "content_image": "",
+            "content_code": "import { Component, OnInit } from \"@angular/core\";\nimport { Observable, timer } from \"rxjs\";\n\n@Component({\n  selector: 'app-async-pipe',\n  template:\n    `\n  <div class=\"card card-block\">\n    <h4 class=\"card-title\">AsyncPipe</h4>\n    <p class=\"card-text\" ngNonBindable>{{ seconds }}\n    <p class=\"card-text\">{{ seconds | async }}</p> (1)\n  </div>\n  `,\n})\nexport class AsyncPipeComponent implements OnInit {\n\n  seconds!: Observable<number>;\n\n  constructor() {\n  }\n\n  ngOnInit() {\n    this.seconds = this.getObservable();\n  }\n\n  getObservable(): Observable<number> {\n    return timer(1000, 1000);\n  }\n}"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<ol>\n<li>We pipe our&nbsp;<code>observable</code>&nbsp;directly to&nbsp;the&nbsp;<code>async</code> pipe, it performs a subscription for us and then returns whatever gets passed to it.</li>\n</ol>\n<p>By&nbsp;using&nbsp;<code>AsyncPipe</code>&nbsp;we:</p>\n<ol>\n<li>Don&rsquo;t need to call <code>subscribe</code> on our observable and store the intermediate data on our component.</li>\n<li>Don&rsquo;t need to remember to <code>unsubscribe</code> from the observable when the component is destroyed.</li>\n</ol>",
+            "content_image": "",
+            "content_code": ""
+        }
+    ]
+}

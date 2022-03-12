@@ -1,0 +1,66 @@
+{
+    "_id": {
+        "$oid": "61e6de40629474e18058aa40"
+    },
+    "article_slug": "ng-outputs",
+    "article_title": "Angular - Event Emitter and Output",
+    "article_image": "",
+    "article_seo_desc": "Use in components with the @Output directive to emit custom events synchronously or asynchronously, and register handlers for those events by subscribing to an instance.",
+    "enroll_available": true,
+    "article_content": [
+        {
+            "content_title": "Event Emitter and Output",
+            "content_desc": "<p>Now, the requirement is when you click the <code>Add To Cart </code>button, you should add that item to cart. We will see how to add this feature using event emitters and output the event from <strong>child component</strong> to <strong>parent component</strong>.</p>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>When user clicks on <code>Add To Cart</code> we will emit that value/object to the parent component. To do that we need to add the <strong>(click)</strong> event to the anchor tag like:</p>",
+            "content_image": "",
+            "content_code": "<!-- item.component.html -->\n.\n.\n<div class=\"col-5 p-0\">\n    <a class=\"btn btn-warning\" (click)=\"addItem(item)\">Add To Cart\n    </a>\n</div>\n.\n."
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p><strong>Note:&nbsp;</strong>From now onwards we will add only the required code and the file name to make things simple. Dots indicates some functionlity exists before and after.</p>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>When user clicks, we are passing the user selected/clicked object to the <code>item.component.ts</code> file.</p>\n<p>We need to add the function <code>addItem(item:any) {}</code> in the <code>item.component.ts</code> file to emit the selected object to the parent component.</p>",
+            "content_image": "",
+            "content_code": "// item.component.ts\n.\n.\nexport class ItemComponent {\n\n  @Input() item: any;\n\n  @Output() emitItem = new EventEmitter();\n\n  constructor() { }\n\n  addItem(item: any) {\n    this.emitItem.emit(item);\n  }\n}"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>In the above code we have created the <code>EventEmitter()</code> object and annotated with <code>@Output</code> decorator, since we want to output the data.</p>\n<p>Using the <strong>emitItem</strong> reference we are calling <code>emit(item)</code> function, passing <strong>item</strong> as a parameter.&nbsp;</p>\n<p>EventEmitter will emit the event to it's parent component. Now we need to get that event in the <code>item-list.component.html</code> in the child component's tag <code>&lt;app-item&gt;</code> like below:</p>\n<p>&nbsp;</p>",
+            "content_image": "",
+            "content_code": "<!-- item-list.component.html -->\n<div class=\"container\">\n    <div class=\"grid grid--1X3\" style=\"margin-top: 2rem;\">\n        <app-item *ngFor=\"let item of itemList\" \n        [item]=\"item\" \n        (emitItem)=\"addItem($event)\"></app-item>\n    </div>\n</div>"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p><strong>Note: </strong><code>(<strong>emitItem</strong>)=\"addItem($event)\"</code> name from <code>item-list.component.html</code>&nbsp;should be same as <code>@Output() <strong>emitItem</strong> = new EventEmitter();</code> declared in <code>item.component.ts</code> file.</p>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>In the above code we are making one function call <strong>addItem($event)</strong> to <code>item-list.component.ts</code> file. So we need to add function in ts file like below:</p>",
+            "content_image": "",
+            "content_code": "// item-list.component.ts\ncartItems: Array<{ name: string; price: string; description: string; image: string; }> = [];\n.\n.\naddItem(item: any) {\n    this.cartItems.push(item);\n    console.log(JSON.stringify(this.cartItems))\n}"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div>\n<div><strong>$event</strong> - holds the data passed from child component. We are pasing the event to addItem function and adding the data to <strong>cartItems</strong> array.</div>\n</div>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>Now you can print the <strong>cartItems</strong> array to the <code>console</code> as like above or make an api service call to the backend to save the user selected cart items or you can do whatever the requirement is.</p>",
+            "content_image": "",
+            "content_code": ""
+        }
+    ]
+}

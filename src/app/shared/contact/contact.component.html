@@ -1,0 +1,61 @@
+<app-navbar></app-navbar>
+<section data-aos="zoom-in-up">
+  <div class="text-secondary px-5 py-5">
+    <div class="py-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="col-lg-5 mx-auto">
+              <div *ngIf="formSubmitted">
+                <div *ngIf="successMsg" class="alert alert-success d-flex align-items-center" role="alert">
+                  <div>{{ successMsg }}</div>
+                </div>
+              </div>
+              <h3 class="text-grey" style="text-align: center">Contact Us</h3>
+              <form class="row g-3" [formGroup]="inquiryForm" (ngSubmit)="onSubmit(inquiryForm.value)">
+                <div class="input-group">
+                  <input type="text" class="input" id="name" placeholder="Enter your name" formControlName="name" />
+                </div>
+                <div class="input-group">
+                  <input type="email" class="input" id="email" placeholder="Enter email id" formControlName="email" />
+                </div>
+                <div class="input-group">
+                  <input type="number" class="input" id="mobile" placeholder="Enter mobile number"
+                    formControlName="mobile" />
+                </div>
+                <div class="input-group">
+                  <textarea style="height: 8rem;" class="input" placeholder="Enter your message"
+                    id="exampleFormControlTextarea1" rows="3" formControlName="description"></textarea>
+                </div>
+                <div class="col-12">
+                  <button [disabled]="!inquiryForm.valid" type="submit" class="btn btn--theme btn-lg col-12">
+                    SUBMIT
+                  </button>
+                </div>
+              </form>
+              <!-- <div>
+                <p>or</p>
+              </div> -->
+              <div>
+                <p style="margin-top: 1rem;">Quick Connect:</p>
+                <div>
+                  <i style="color: rgb(102, 107, 102); font-weight: bold; font-size: 18px;" class="fas fa-envelope"></i>
+                  &nbsp;<span><a style="font-size: 18px;"
+                      href="mailto:info@stackmi.com">info@stackmi.com</a></span>
+                </div>
+                <div style="margin-top: 0.5rem;">
+                  <i style="color: green; font-weight: bold; font-size: 18px;" class="fab fa-whatsapp"></i>
+                  &nbsp;<span style="color: black;">
+                    <a style="color: black; font-size: 18px;" href="#">+91
+                      9030566011</a>&nbsp;<span style="font-size: 14px;">(Whatsapp Only)</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- <app-social-buttons></app-social-buttons> -->

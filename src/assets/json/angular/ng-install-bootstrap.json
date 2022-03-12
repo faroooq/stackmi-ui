@@ -1,0 +1,48 @@
+{
+    "_id": {
+        "$oid": "61e55d7bbbfe744154a49497"
+    },
+    "article_slug": "ng-install-bootstrap",
+    "article_title": "Angular - Install Bootstrap",
+    "article_image": "",
+    "article_seo_desc": "Let's install and configure the twitter bootstrap. This helps us to build responsive and apply beautiful styles to our web page.",
+    "enroll_available": true,
+    "article_content": [
+        {
+            "content_title": "Installing Bootstrap in your Angular project",
+            "content_desc": "To install the bootstrap, execute the below command in the project's root directory.",
+            "content_image": "",
+            "content_code": "npm install bootstrap --save"
+        },
+        {
+            "content_title": "",
+            "content_desc": "You can configure bootstrap in angular project in multiple ways. You can add bootstrap CSS and Js files it in the angular.json file or add in the index.html using the <link> tag or in the styles.css file.",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "1. Adding bootstrap css and js files in angular.json like below:",
+            "content_desc": "",
+            "content_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Screenshot%202022-01-17%20at%205.49.50%20PM.png",
+            "content_code": ""
+        },
+        {
+            "content_title": "2. Adding bootstrap css and js files in index.html file like below:",
+            "content_desc": "",
+            "content_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Screenshot%202022-01-17%20at%206.01.43%20PM.png",
+            "content_code": ""
+        },
+        {
+            "content_title": "3. Adding bootstrap css file in styles.css file like below:",
+            "content_desc": "",
+            "content_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Screenshot%202022-01-17%20at%206.05.25%20PM.png",
+            "content_code": ""
+        },
+        {
+            "content_title": "",
+            "content_desc": "Once you have configured, navigate to the bootstrap site here and select some bootstrap component and add in the app.component.html file. You should see the styles and colors applied when you refresh the browser. This means you have successfully installed bootstrap in your project.\n\nNote: If you are not seeing the styles, close the server and restart again using ng serve command.",
+            "content_image": "",
+            "content_code": ""
+        }
+    ]
+}

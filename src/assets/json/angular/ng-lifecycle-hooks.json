@@ -1,0 +1,48 @@
+{
+    "_id": {
+        "$oid": "61eac7b9629474e18058aa48"
+    },
+    "article_slug": "ng-lifecycle-hooks",
+    "article_title": "Angular - Lifecycle Hooks",
+    "article_image": "",
+    "article_seo_desc": "A component in Angular has a life-cycle, a number of different phases it goes through from birth to death.",
+    "enroll_available": true,
+    "article_content": [
+        {
+            "content_title": "Lifecycle Hooks",
+            "content_desc": "<div class=\"paragraph\">\n<p>A&nbsp;component in&nbsp;Angular has a&nbsp;life-cycle, a&nbsp;number of&nbsp;different phases it goes through from birth to&nbsp;death.</p>\n</div>\n<div class=\"paragraph\">\n<p>We can hook into those different phases to&nbsp;get some pretty fine grained control of&nbsp;our application.</p>\n</div>\n<div class=\"paragraph\">\n<p>To&nbsp;do this we add some specific methods to&nbsp;our component class which get called during each of&nbsp;these life-cycle phases, we call those methods&nbsp;<em>hooks</em>.</p>\n</div>\n<div class=\"paragraph\">\n<p>The&nbsp;hooks are executed in&nbsp;this order:</p>\n</div>",
+            "content_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Screenshot%202022-01-21%20at%209.27.18%20PM.png",
+            "content_code": ""
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>These phases are broadly split up into phases that are linked to&nbsp;the component itself and&nbsp;phases that are linked to&nbsp;the&nbsp;<em>children</em>&nbsp;of&nbsp;that component.</p>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Hooks for the Component",
+            "content_desc": "<p><strong>constructor: </strong>This is invoked when Angular creates a&nbsp;component or&nbsp;directive by&nbsp;calling&nbsp;<code>new</code>&nbsp;on&nbsp;the class.</p>\n<p><strong>ngOnChanges: </strong>Invoked&nbsp;<strong>every</strong> time there is a&nbsp;change in&nbsp;one of&nbsp;the&nbsp;<em>input</em>&nbsp;properties of&nbsp;the component.</p>\n<p><strong>ngOnInit: </strong>Invoked when given component has been initialized.<br />This hook is only called&nbsp;<strong>once</strong>&nbsp;after the&nbsp;first&nbsp;<code>ngOnChanges</code></p>\n<p><strong>ngDoCheck: </strong>Invoked when the&nbsp;change detector of&nbsp;the given component is invoked. It allows us to&nbsp;implement our own change detection algorithm for&nbsp;the given component.</p>\n<p><strong>Note:&nbsp;</strong><code>ngDoCheck</code>&nbsp;and&nbsp;<code>ngOnChanges</code>&nbsp;should not be implemented together on&nbsp;the same component.</p>\n<p><strong>ngOnDestroy: </strong>This method will be invoked just before Angular destroys the&nbsp;component.<br />Use this hook to&nbsp;unsubscribe observables and&nbsp;detach event handlers to&nbsp;avoid memory leaks.</p>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Hooks for the Component’s Children",
+            "content_desc": "<p><strong>Note:</strong> These hooks are only called for components and not directives.</p>\n<p><strong>ngAfterContentInit: </strong>Invoked&nbsp;<em>after</em>&nbsp;Angular performs any content projection into the&nbsp;component&rsquo;s view</p>\n<p><strong>ngAfterContentChecked: </strong>Invoked each time the&nbsp;content of&nbsp;the given component has been checked by&nbsp;the change detection mechanism of&nbsp;Angular.</p>\n<p><strong>ngAfterViewInit: </strong>Invoked when the&nbsp;component&rsquo;s view has been fully initialized.</p>\n<p><strong>ngAfterViewChecked: </strong>Invoked each time the&nbsp;view of&nbsp;the given component has been checked by&nbsp;the change detection mechanism of&nbsp;Angular.</p>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Adding Hooks",
+            "content_desc": "<div class=\"paragraph\">\n<p>In order to demonstrate how the hooks work we&rsquo;ll adjust the <strong>item</strong> component we&rsquo;ve been working with so far.</p>\n</div>\n<div class=\"paragraph\">\n<p>Firstly let&rsquo;s change the&nbsp;<code>ItemComponent</code>&nbsp;so it hooks into all the&nbsp;phases.</p>\n</div>\n<div class=\"paragraph\">\n<p>All we need to do is to add functions to the component class matching the hook names above, like:</p>\n</div>",
+            "content_image": "",
+            "content_code": "// item.component.ts\n\nimport { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';\n\n@Component({\n  selector: 'app-item',\n  templateUrl: './item.component.html',\n  styleUrls: ['./item.component.css']\n})\nexport class ItemComponent {\n\n  @Input() item: any;\n\n  @Output() emitItem = new EventEmitter();\n\n  addItem(item: any) {\n    this.emitItem.emit(item);\n  }\n\n  constructor() {\n    console.log(`new - item is ${this.item}`);\n  }\n\n  ngOnChanges() {\n    console.log(`ngOnChanges - item is ${this.item}`);\n  }\n\n  ngOnInit() {\n    console.log(`ngOnInit  - item is ${this.item}`);\n  }\n\n  ngDoCheck() {\n    console.log(\"ngDoCheck\")\n  }\n\n  ngAfterContentInit() {\n    console.log(\"ngAfterContentInit\");\n  }\n\n  ngAfterContentChecked() {\n    console.log(\"ngAfterContentChecked\");\n  }\n\n  ngAfterViewInit() {\n    console.log(\"ngAfterViewInit\");\n  }\n\n  ngAfterViewChecked() {\n    console.log(\"ngAfterViewChecked\");\n  }\n\n  ngOnDestroy() {\n    console.log(\"ngOnDestroy\");\n  }\n}\n"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>The&nbsp;best place to&nbsp;initialise your components is in&nbsp;the&nbsp;<code>ngOnInit</code> lifecycle hook and not the constructor because only at this point we have any input property bindings been processed.<br />The&nbsp;reason we use&nbsp;<code>ngOnInit</code>&nbsp;and&nbsp;not&nbsp;<code>ngOnChanges</code> to initialise a component is that, <code>ngOnInit</code>&nbsp;is only called&nbsp;<em>once</em>&nbsp;whereas&nbsp;<code>ngOnChanges</code>&nbsp;is called for&nbsp;every change to&nbsp;the input properties.</p>",
+            "content_image": "",
+            "content_code": ""
+        }
+    ]
+}

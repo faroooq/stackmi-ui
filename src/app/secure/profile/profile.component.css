@@ -1,0 +1,30 @@
+.forgot-link:hover,
+.forgot-link:focus {
+  color: #dc3545;
+  cursor: pointer;
+}
+
+.forgot-link {
+  font-size: 1.5rem;
+  color: rgb(167, 165, 165);
+}
+
+::ng-deep .ng-dropdown-panel {
+  opacity: 1;
+  background: #f8f8f8;
+  width: 51%;
+  padding-left: 1rem;
+  left: 0;
+}
+
+.ng-select .ng-select-container {
+  font-size: 2rem;
+}
+
+::ng-deep .ng-dropdown-panel .ng-dropdown-panel-items .ng-option {
+  font-size: 2rem;
+}
+
+.ng-select .ng-select-container .ng-value-container .ng-input > input {
+  background: #fff;
+}

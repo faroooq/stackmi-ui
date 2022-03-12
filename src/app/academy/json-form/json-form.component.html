@@ -1,0 +1,100 @@
+<section>
+    <div class="row">
+        <div class="col-lg-8 mx-auto p-3 mt-3" style="border: 1px solid #cdcecf; border-radius: 5px;">
+            <form class="row" [formGroup]="quizForm" (ngSubmit)="onSubmit(quizForm.value)">
+                <div *ngFor="let control of jsonFormData?.controls">
+                    <div class="mt-4" *ngIf="control.label" id="label">
+                        <label class="form-label">
+                            {{ control.label }}
+                        </label>
+                        <div class="quiz-answer" *ngIf="formSubmitted && control.answer">
+                            <span style="font-size: 14px;">Answer:</span> {{control.answer}}
+                        </div>
+                    </div>
+                    <!-- <div *ngIf="formSubmitted">
+                        <span  class="form-label">{{ control.answer}} <br>
+                        </span>
+                    </div> -->
+                    <div *ngIf="['text','password','email','number','search','tel','url'].includes(control.type)"
+                        id="input">
+                        <input class="form-control" [type]="control.type" [formControlName]="control.name"
+                            [value]="control.value" />
+                    </div>
+                    <div *ngIf="control.type === 'checkbox'" id="checkbox">
+                        <input style="margin-left: 25px; margin-top: 8px; padding: 9px;" class="form-check-input"
+                            type="checkbox" [formControlName]="control.name" [value]="control.value" />
+                        <label style="margin-left: 10px;" class="form-label" *ngIf="control.name !== ''">{{ control.name
+                            }}</label>&nbsp;
+                    </div>
+                    <div *ngIf="control.type === 'radio'" id="radio">
+                        <input style="margin-left: 25px; margin-top: 8px; padding: 9px;" class="form-check-input"
+                            [id]="control.id" [name]="control.name" [value]="control.value" type="radio"
+                            [formControlName]="control.name" [(ngModel)]="radioSelected" />
+                        <label style="margin-left: 10px;" class="form-label" *ngIf="control.label_name !== ''">{{
+                            control.label_name
+                            }}</label>
+                    </div>
+                    <div *ngIf="control.type === 'textarea'" id="text-area">
+                        <textarea class="form-control" [formControlName]="control.name"
+                            [value]="control.value"></textarea>
+                    </div>
+                    <div *ngIf="control.type === 'toggle'" id="switch" class="form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch"
+                            [formControlName]="control.name" />
+                    </div>
+                    <div *ngIf="control.type === 'range'" id="range">
+                        <input class="form-range" [type]="control.type" [min]="control.options.min"
+                            [max]="control.options.max" [formControlName]="control.name" />
+                    </div>
+                </div>
+                <div *ngIf="jsonFormData" class="col-lg-4 btn-group mt-5" role="group" aria-label="Basic example">
+                    <button (click)="reset()" type="reset" class="btn btn-secondary">Retake Quiz</button>&nbsp;
+                    <button [disabled]="!quizForm.valid" type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+            <!-- <pre>{{quizForm.value | json}}</pre> -->
+        </div>
+        <div class="col-lg-4 mt-3">
+            <div class="card card--fullstack">
+                <header class="card__header">
+                    <h3 class="plan__name">FULLSTACK EXPERT + CRACK JOB</h3>
+                    <hr>
+                    <span class="plan__desc"><strong class="highlight">Full-stack</strong> Developer
+                        Program</span>&nbsp;&nbsp;
+                    <span class="badge badge--primary badge--small" style="font-size: 1.4rem;">
+                        <i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;18 Weeks</span>
+                    <span class="plan__description">Full Interview Coverage Pack</span>
+                    <hr>
+                </header>
+                <div class="card__body">
+                    <ul class="list list--tick">
+                        <li class="list__item">Complete
+                            <strong>
+                                <a style="color: #1b0760;" [routerLink]="['/front-end']">Front-end</a>
+                            </strong>
+                            Developer Program
+                        </li>
+                        <li class="list__item">Complete
+                            <strong>
+                                <a style="color: #5e40d8;" [routerLink]="['/back-end']">Back-end</a>
+                            </strong>
+                            Developer Program
+                        </li>
+                        <li class="list__item">Complete Interview Coverage Pack</li>
+                        <li class="list__item">1:1 Mentorship From Industry Experts</li>
+                        <li class="list__item">Counselling and Skill Development</li>
+                        <li class="list__item">Complete
+                            <strong>
+                                <a style="color: #f13453;" [routerLink]="['/job-cracker']">Job Cracker</a>
+                            </strong>
+                            Developer Program
+                        </li>
+                        <li class="list__item">Jobs and Placements</li>
+                    </ul>
+                    <button [routerLink]="['/live-courses']" style="margin: 0; width: 100%;" class="btn btn-danger"
+                        type="button">Enroll Course</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

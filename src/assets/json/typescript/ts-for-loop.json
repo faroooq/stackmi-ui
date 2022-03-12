@@ -1,0 +1,72 @@
+{
+    "_id": {
+        "$oid": "61d0592105ed5a80a81a2487"
+    },
+    "article_slug": "ts-for-of",
+    "article_title": "Typescript - For, For-of Loop",
+    "article_image": "",
+    "article_seo_desc": "In this lesson we are going to learn how we can loop over arrays, using the methods available to us in the past with ES5 and also the new for-of looping mechanism in ES6.",
+    "enroll_available": true,
+    "article_content": [
+        {
+            "content_title": "",
+            "content_desc": "We have a couple of ways of looping through Arrays in ES5 JavaScript.\nFor one we have the classic for loop, like:",
+            "content_image": "",
+            "content_code": "let array = [1,2,3];\nfor (let i = 0; i < array.length; i++) {\n  console.log(array[i]);\n}"
+        },
+        {
+            "content_title": "",
+            "content_desc": "With ES5 JavaScript we can also use the forEach method on the Array class, like:",
+            "content_image": "",
+            "content_code": "let array = [1,2,3];\narray.forEach(function (value) {\n  console.log(value);\n});\n// 1\n// 2\n// 3"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>It&rsquo;s slightly shorter but has a&nbsp;few downsides:</p>\n</div>\n<div class=\"olist arabic\">\n<ol class=\"arabic\">\n<li>\n<p>You can&rsquo;t break out of&nbsp;this loop using a&nbsp;<code>break</code>&nbsp;statement or&nbsp;move to&nbsp;the next iteration with&nbsp;<code>continue</code>.</p>\n</li>\n<li>\n<p>You can&rsquo;t return from the&nbsp;enclosing function using a&nbsp;<code>return</code>&nbsp;statement.</p>\n</li>\n</ol>\n</div>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "For In",
+            "content_desc": "The for-in loop is designed for iterating over an objects properties, like:",
+            "content_image": "",
+            "content_code": "var obj = {a:1,b:2};\nfor (let prop in obj) {\n    console.log(prop);\n}\n// a\n// b"
+        },
+        {
+            "content_title": "",
+            "content_desc": "If we tried to use it with an array, it might initially look like it’s working:",
+            "content_image": "",
+            "content_code": "let array = [10,20,30];\nfor (let index in array) {\n  console.log(index);\n};\n// 0\n// 1\n// 2"
+        },
+        {
+            "content_title": "",
+            "content_desc": "But if we tried to print out the type of index like:",
+            "content_image": "",
+            "content_code": "let array = [10,20,30];\nfor (let index in array) {\n  console.log(typeof(index));\n};\n// string\n// string\n// string"
+        },
+        {
+            "content_title": "",
+            "content_desc": "The index variable is a string and not a number, using for-in with arrays converts the index to a string.",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "",
+            "content_desc": "<table style=\"width: 100%; border-collapse: collapse;\" border=\"1\" cellspacing=\"10\" cellpadding=\"10\">\n<tbody>\n<tr>\n<td style=\"width: 100%;\"><em><strong>Note:</strong> </em>If you are expecting a number but in fact have a string this can cause problems, for example <code>\"1\" + \"2\"</code>&nbsp;is the&nbsp;string&nbsp;<code>\"12\"</code>&nbsp;and&nbsp;not the&nbsp;number&nbsp;<code>3</code>.</td>\n</tr>\n</tbody>\n</table>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "For-Of loop",
+            "content_desc": "<p>Rather than change the&nbsp;way the&nbsp;<code>for-in</code>&nbsp;loops work in&nbsp;ES6 and&nbsp;in the&nbsp;process create a&nbsp;breaking change, instead in&nbsp;ES6 we have a&nbsp;new syntax called&nbsp;<code>for-of</code>.</p>",
+            "content_image": "",
+            "content_code": "let array = [10,20,30];\nfor (var value of array) {\n  console.log(value);\n}\n// 10\n// 20\n// 30"
+        },
+        {
+            "content_title": "Advantages",
+            "content_desc": "This is the most concise way of looping through array elements.\n\nIt avoids all the pitfalls of for–in.\n\nIt works with break, continue, and return",
+            "content_image": "",
+            "content_code": ""
+        }
+    ]
+}

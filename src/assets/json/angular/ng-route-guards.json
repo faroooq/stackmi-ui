@@ -1,0 +1,103 @@
+{
+    "_id": {
+        "$oid": "61ffed9665787a8c50f4f995"
+    },
+    "article_id": "3.5",
+    "article_slug": "ng-router-guards",
+    "article_title": "Angular - Router Guards",
+    "article_image": "",
+    "article_seo_desc": "With Router Guards we can prevent users from accessing areas that they’re not allowed to access, or, we can ask them for confirmation when leaving a certain area.",
+    "enroll_available": true,
+    "article_content": [
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>Download the complete project from github: <a href=\"https://github.com/faroooq/shopping-cart\" target=\"_blank\">https://github.com/faroooq/shopping-cart</a></p>\n<hr/>\n</div>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>In&nbsp;traditional server-side applications the&nbsp;application would check permissions on&nbsp;the server and&nbsp;return a&nbsp;<code>403</code>&nbsp;error page if the&nbsp;user didn&rsquo;t have permissions, or&nbsp;perhaps redirect them to&nbsp;a login/register page if they were not signed up.</p>\n<p><strong>Note:&nbsp;</strong><code>403</code>&nbsp;is a&nbsp;<abbr>HTTP</abbr>&nbsp;error code. Specifically, this one means&nbsp;<em>Permission Denied</em>.</p>\n<div class=\"paragraph\">\n<p>We want to&nbsp;have the&nbsp;same functionality in&nbsp;our client-side&nbsp;<abbr>SPA</abbr>, and with <em>Router Guards</em>&nbsp;we can.</p>\n</div>\n<div class=\"paragraph\">\n<p>With&nbsp;<em>Router Guards</em>&nbsp;we can prevent users from accessing areas that they&rsquo;re not allowed to&nbsp;access, or, we can ask them for&nbsp;confirmation when leaving a&nbsp;certain area.</p>\n</div>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">There are four different types of Guards:</div>\n<div class=\"dlist\">\n<dl>\n<dt class=\"hdlist1\"><em>CanActivate</em></dt>\n<dd>\n<p>Checks to&nbsp;see if a&nbsp;user can visit a&nbsp;route.</p>\n</dd>\n<dt class=\"hdlist1\"><em>CanActivateChild</em></dt>\n<dd>\n<p>Checks to&nbsp;see if a&nbsp;user can visit a&nbsp;routes children.</p>\n</dd>\n<dt class=\"hdlist1\"><em>CanDeactivate</em></dt>\n<dd>\n<p>Checks to&nbsp;see if a&nbsp;user can exit a&nbsp;route.</p>\n</dd>\n<dt class=\"hdlist1\"><em>Resolve</em></dt>\n<dd>\n<p>Performs route data retrieval before route activation.</p>\n</dd>\n<dt class=\"hdlist1\"><em>CanLoad</em></dt>\n<dd>\n<p>Checks to&nbsp;see if a&nbsp;user can route to&nbsp;a module that lazy loaded.</p>\n</dd>\n</dl>\n</div>\n<div class=\"paragraph\">\n<p>For&nbsp;a given route we can implement zero or&nbsp;any number of&nbsp;<em>Guards</em>.</p>\n</div>\n<div class=\"paragraph\">\n<p>We&rsquo;ll go through the&nbsp;first three as&nbsp;the last two are very advanced use cases and&nbsp;need lazy loading modules which we we haven&rsquo;t covered.</p>\n</div>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "CanActivate",
+            "content_desc": "<div class=\"paragraph\">\n<p>Guards are implemented as services that need to be provided so we typically create them as <code>@Injectable</code>&nbsp;classes.</p>\n</div>\n<div class=\"paragraph\">\n<p>Guards return either&nbsp;<code>true</code>&nbsp;if the&nbsp;user can access a&nbsp;route or&nbsp;<code>false</code>&nbsp;if they can&rsquo;t.</p>\n</div>\n<div class=\"paragraph\">\n<p>They can also return an&nbsp;<code>Observable</code>&nbsp;or&nbsp;<code>Promise</code>&nbsp;that later on&nbsp;resolves to&nbsp;a boolean in&nbsp;case the&nbsp;guard can&rsquo;t answer the&nbsp;question straight away, for&nbsp;example it might need to&nbsp;call an&nbsp;<abbr>API</abbr>. Angular will keep the&nbsp;user waiting until the&nbsp;guard returns&nbsp;<code>true</code>&nbsp;or&nbsp;<code>false</code>.</p>\n</div>\n<div class=\"paragraph\">\n<p>Let&rsquo;s create a simple guard AuthUser which implements <code>CanActivate</code> guard.</p>\n<p><strong>Note:</strong> Let's create this guard in <code>/app/shared</code> folder, because this guard might be used throughout the application as a reusable / shared service.</p>\n<p>Create <code>auth.guard.ts</code> file and copy the below code:</p>\n</div>",
+            "content_image": "",
+            "content_code": "import { Injectable } from \"@angular/core\";\nimport { CanActivate, Router } from \"@angular/router\";\n\n// auth.guard.ts\n@Injectable()\nexport class AuthGuard implements CanActivate {\n\n    // We hard code this flag for now. \n    // We will retrieve this info from some service later on.\n    userLoggedIn: boolean = true;\n\n    constructor(private router: Router) { }\n\n    canActivate() {\n        if (this.userLoggedIn) {\n            console.log(\"AuthGuard\");\n            return true;\n        } else {\n            this.router.navigate(['login']);\n            return false;\n        }\n    }\n}"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<div>We hard code this flag <code>userLoggedIn</code> for now. We will retrieve this info from some service later on. Based on the flag enable and disable we will be navigating either to <code>LoginComponent</code> or <code>CheckOutComponent</code></div>\n<p>We need to add this AuthGuard in <code>app.module.ts</code> file <code>@NgModule providers:[]</code> section.</p>\n</div>",
+            "content_image": "",
+            "content_code": "// app.module.ts\n@NgModule({\n  .\n  .\n  providers: [\n    .\n    .\n    AuthGuard\n  ]\n})"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>Finally, we need to&nbsp;add this guard to&nbsp;one or&nbsp;more of&nbsp;our routes, let&rsquo;s add it to&nbsp;our&nbsp;<code>CheckOutComponent</code> route like:</p>\n</div>",
+            "content_image": "",
+            "content_code": "// app.routing.module.ts\n{\n  path: 'check-out',\n  component: CheckOutComponent,\n  canActivate: [AuthGuard]\n}"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p><strong>Note:&nbsp;</strong>Since it holds an&nbsp;array we could have multiple guards for&nbsp;a single route.</p>\n<p>Now when we change the <code><span class=\"hljs-attr\">userLoggedIn</span>&nbsp;= <span class=\"hljs-literal\">true</span>;</code> we navigate to <code>CheckOutComponent</code> route and we get<code> \"AuthGuard\"</code> printed to the console, and when we change the <code><span class=\"hljs-attr\">userLoggedIn</span>&nbsp;= <span class=\"hljs-literal\">false</span>;</code> we navigate to <code>LoginComponent</code> route there we will see SignIn page.</p>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<div>Let's, create a LoginComponent and add bootstrap login page, just to navigate to LoginComponent if the user is not logged in.</div>\n</div>",
+            "content_image": "",
+            "content_code": "<!-- login.component.html -->\n<div class=\"form-signin\">\n    <form>\n        <h1 class=\"h3 mb-3 fw-normal\">Please sign in</h1>\n\n        <div class=\"form-floating\">\n            <input type=\"email\" class=\"form-control\" id=\"floatingInput\" placeholder=\"name@example.com\">\n            <label for=\"floatingInput\">Email address</label>\n        </div>\n        <div class=\"form-floating\">\n            <input type=\"password\" class=\"form-control\" id=\"floatingPassword\" placeholder=\"Password\">\n            <label for=\"floatingPassword\">Password</label>\n        </div>\n\n        <div class=\"checkbox mb-3\">\n            <label>\n                <input type=\"checkbox\" value=\"remember-me\"> Remember me\n            </label>\n        </div>\n        <button class=\"w-100 btn btn-lg btn-primary\" type=\"submit\">Sign in</button>\n    </form>\n</div>"
+        },
+        {
+            "content_title": "",
+            "content_desc": "",
+            "content_image": "",
+            "content_code": " /* login.component.css */\n .form-signin {\n    width: 100%;\n    max-width: 330px;\n    padding: 15px;\n    margin: auto;\n  }\n  \n  .form-signin .checkbox {\n    font-weight: 400;\n  }\n  \n  .form-signin .form-floating:focus-within {\n    z-index: 2;\n  }\n  \n  .form-signin input[type=\"email\"] {\n    margin-bottom: -1px;\n    border-bottom-right-radius: 0;\n    border-bottom-left-radius: 0;\n  }\n  \n  .form-signin input[type=\"password\"] {\n    margin-bottom: 10px;\n    border-top-left-radius: 0;\n    border-top-right-radius: 0;\n  }\n\n.bd-placeholder-img {\n    font-size: 1.125rem;\n    text-anchor: middle;\n    -webkit-user-select: none;\n    -moz-user-select: none;\n    user-select: none;\n  }\n\n  @media (min-width: 768px) {\n    .bd-placeholder-img-lg {\n      font-size: 3.5rem;\n    }\n  }"
+        },
+        {
+            "content_title": "CanActivateChild",
+            "content_desc": "<div class=\"paragraph\">\n<p>As&nbsp;well as&nbsp;<code>CanActivate</code>&nbsp;we also have&nbsp;<code>CanActivateChild</code> which we implement in similar way.</p>\n</div>\n<div class=\"paragraph\">\n<p>Let&rsquo;s do the same as the <code>AuthGuard</code> example and create a guard called <code>ChildAuthGuard</code></p>\n</div>",
+            "content_image": "",
+            "content_code": "import { Injectable } from \"@angular/core\";\nimport { CanActivateChild, Router } from \"@angular/router\";\n\n// child.auth.guard.ts\n@Injectable()\nexport class ChildAuthGuard implements CanActivateChild {\n\n    // We hard code this flag for now. \n    // We will retrieve this info from some service later on.\n    userLoggedIn: boolean = true;\n\n    constructor(private router: Router) { }\n\n    canActivateChild() {\n        if (this.userLoggedIn) {\n            console.log(\"Child AuthGuard\");\n            return true;\n        } else {\n            this.router.navigate(['login']);\n            return false;\n        }\n    }\n}"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>Remember to&nbsp;provide it on&nbsp;our&nbsp;<code>NgModule</code></p>\n</div>",
+            "content_image": "",
+            "content_code": "// app.routing.module.ts file\nconst routes: Routes = [\n  { path: \"\", redirectTo: \"home\", pathMatch: \"full\" },\n  { path: 'home', component: HomeComponent },\n  { path: 'login', component: LoginComponent },\n  {\n    path: 'gadgets', component: ModelComponent,\n    canActivateChild: [ChildAuthGuard],\n    children: [\n      // We have added the below redirect just to have one default tab enabled.\n      { path: \"\", redirectTo: \"mobiles\", pathMatch: \"full\" },\n      { path: 'mobiles', component: ItemListComponent },\n      { path: 'tablets', component: ItemListComponent },\n      { path: 'laptops', component: ItemListComponent }\n    ]\n  },\n  {\n    path: 'check-out',\n    component: CheckOutComponent,\n    canActivate: [AuthGuard]\n  },\n  { path: '**', component: ErrorComponent }\n];"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>Now every time we try to activate either the ItemListComponent<code></code> child route it checks the <code>ChildAuthGuard</code>&nbsp;to&nbsp;see if the&nbsp;user has permission.</p>\n</div>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Guard Function Parameters",
+            "content_desc": "<div class=\"paragraph\">\n<p>To help in determining whether or not a guard should accept or deny access the guard function can be passed certain arguments in <code>canActivate()</code>:</p>\n</div>\n<div class=\"olist arabic\">\n<ol class=\"arabic\">\n<li>\n<p><code>component: Component</code>&nbsp;is the&nbsp;component itself.</p>\n</li>\n<li>\n<p><code>route: ActivatedRouteSnapshot</code>&nbsp;is the&nbsp;future route that will be activated if the&nbsp;guard passes. We can use its&nbsp;<code>params</code>&nbsp;property to&nbsp;extract the&nbsp;route parameters.</p>\n</li>\n<li>\n<p><code>state: RouterStateSnapshot</code>&nbsp;is the&nbsp;future&nbsp;<code>RouterState</code>&nbsp;if the&nbsp;guard passes. We can find the&nbsp;<abbr>URL</abbr>&nbsp;we are trying to&nbsp;navigate to&nbsp;from the&nbsp;<code>url</code>&nbsp;property.</p>\n</li>\n</ol>\n</div>\n",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "CanDeactivate",
+            "content_desc": "<div class=\"paragraph\">\n<p>A third type of guard we can add to our application is a<code> CanDeactivate</code> guard which is usually used to warn people if they are navigating away from a page where they have some unsaved changes.</p>\n</div>\n<div class=\"paragraph\">\n<p>Let&rsquo;s create a&nbsp;simple&nbsp;<code>AlertGuard</code> guard which checks to see if the user navigates&nbsp;<em>away</em> from the items page to make sure while check out.</p>\n</div>\n<div class=\"paragraph\">\n<p>Firstly let&rsquo;s create a function called<code> canDeactivate</code> on&nbsp;our <code>AlertGuard.</code></p>\n</div>",
+            "content_image": "",
+            "content_code": "import { Injectable } from \"@angular/core\";\nimport { ActivatedRouteSnapshot, CanDeactivate, RouterStateSnapshot } from \"@angular/router\";\nimport { ModelComponent } from \"../model/model.component\";\n\n// alert.guard.ts\n@Injectable()\nexport class AlertGuard implements CanDeactivate<ModelComponent> {\n\n    canDeactivate(\n        component: ModelComponent,\n        route: ActivatedRouteSnapshot,\n        state: RouterStateSnapshot\n    ): boolean {\n        console.log(\"Alert Guard\");\n        console.log(route.params);\n        console.log(component);\n        return window.confirm(\"Are you Sure to Continue to CheckOut?\");\n    }\n}"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>When you navigate to <code>check-out</code> page, it will pop up, for sure confirmation. Once you click ok, then you will navigate to <code>CheckOutComponent</code>.</p>",
+            "content_image": "",
+            "content_code": ""
+        }
+    ]
+}

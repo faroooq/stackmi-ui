@@ -1,0 +1,138 @@
+{
+    "_id": {
+        "$oid": "61e50921bbfe744154a49482"
+    },
+    "article_slug": "ng-first-app",
+    "article_title": "Angular - First Angular App",
+    "article_image": "",
+    "article_seo_desc": "Now, Let's create our first angular component with the name Item. We use the below CLI command to create a component.",
+    "enroll_available": true,
+    "article_content": [
+        {
+            "content_title": "First Angular App",
+            "content_desc": "<p>Now, Let's create our first angular component with the name Item. We use the below CLI command to create a component.</p>",
+            "content_image": "",
+            "content_code": "ng g c Item"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>A new <code>item</code> folder will be created under <code>src/app</code> folder. Let's understand our item-component.ts file step by step.</p>",
+            "content_image": "",
+            "content_code": "class ItemComponent {\n}"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>A&nbsp;<code>class</code> is a new feature of ES6 which we explained in Typescript class. To summarise it&rsquo;s a blueprint for creating objects with specific functions and properties already attached to it.</p>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p><strong>Note:</strong> The word <code>Component</code>&nbsp;isn&rsquo;t random. Components are a&nbsp;feature of&nbsp;Angular that let us create a&nbsp;new&nbsp;<abbr>HTML</abbr>&nbsp;<em>language</em>&nbsp;and&nbsp;they are how we structure Angular applications.</p>\n<p><abbr>HTML</abbr> comes with a bunch of pre-built tags like <code>&lt;input&gt;</code>&nbsp;and&nbsp;<code>&lt;form&gt;</code>&nbsp;which look and&nbsp;behave a&nbsp;certain way. In&nbsp;Angular we create new&nbsp;<em>custom</em>&nbsp;tags with their own look and&nbsp;behaviour.</p>\n<p><strong>An&nbsp;Angular application is therefore just a&nbsp;set of&nbsp;custom tags that interact with each other, we call these tags&nbsp;<em>Components</em>.</strong></p>\n<p>The code that controls a component we put into a class like the&nbsp;<code>ItemComponent</code>&nbsp;above, but how do we&nbsp;<em>link</em>&nbsp;this class with a&nbsp;<abbr>HTML</abbr>&nbsp;tag, say a&nbsp;tag called&nbsp;<code>&lt;app-item&gt;</code>?</p>\n<p>We use a&nbsp;new feature of&nbsp;TypeScript called&nbsp;<em>annotations</em>, and&nbsp;specifically an&nbsp;annotation called&nbsp;<code>@Component</code>, like:</p>",
+            "content_image": "",
+            "content_code": "@Component({\n  selector: 'app-item'\n})\nclass ItemComponent {\n}"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>The&nbsp;<code>@Component</code>&nbsp;is an&nbsp;annotation, an&nbsp;annotation automatically adds some boilerplate code to&nbsp;the class, function or&nbsp;property it&rsquo;s attached to.</p>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>You can configure the&nbsp;@Component annotation by&nbsp;passing it an&nbsp;object with various parameters. In&nbsp;our example above @Component has one parameter called&nbsp;<code>selector</code>, this tells Angular which tag to&nbsp;link this class to.</p>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>By&nbsp;setting the&nbsp;selector to&nbsp;<code>app-item</code>&nbsp;we&rsquo;ve told angular that whenever it finds a&nbsp;tag in&nbsp;the&nbsp;<abbr>HTML</abbr>&nbsp;like&nbsp;<code>&lt;app-item&gt;&lt;/app-item&gt;</code> to use an instance of the ItemComponent class to control it.</p>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Imports",
+            "content_desc": "<p>Before we can use&nbsp;<code>@Component</code> though we need to import it, like:</p>",
+            "content_image": "",
+            "content_code": "import { Component } from '@angular/core';"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>The&nbsp;line above is saying we want to&nbsp;import the&nbsp;<code>Component</code>&nbsp;code from the&nbsp;module&nbsp;<code>@angular/core</code>.</p>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Template",
+            "content_desc": "<p>To&nbsp;use our brand new custom component we add the&nbsp;tag&nbsp;<code>&lt;app-item&gt;&lt;/app-item&gt;</code>&nbsp;to&nbsp;our&nbsp;<abbr>HTML</abbr> file, like:</p>",
+            "content_image": "",
+            "content_code": "<body>\n  <app-item></app-item>\n</body>"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>So far this isn&rsquo;t doing much yet though, we want Angular to replace &lt;app-item&gt;&lt;/app-item&gt; with some template <abbr>HTML</abbr>. To do that we use another attribute of the Component decorator called template, like:</p>",
+            "content_image": "",
+            "content_code": "@Component({\n  selector: 'app-item',\n  template: '<h1>This is your first Angular HTML Template. Here we add our HTML code to the template selctor.</h1>'\n})"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>That&rsquo;s hard to&nbsp;read though, the&nbsp;<abbr>HTML</abbr>&nbsp;is all written on&nbsp;one line but i&rsquo;d like to&nbsp;read it on&nbsp;multiple lines.</p>\n</div>\n<div class=\"paragraph\">\n<p>There is a&nbsp;new feature of&nbsp;ES6 JavaScript called&nbsp;<code>template strings</code>&nbsp;which lets us define multi-line strings, let&rsquo;s use it:</p>\n</div>",
+            "content_image": "",
+            "content_code": "@Component({\n  selector: 'app-item',\n  template: `\n  <h1>This is your first Angular HTML Template.</h1>\n  <p>Here we add our HTML code to the template selctor.</p>\n  `\n})"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>The&nbsp;string uses a&nbsp;special character&nbsp;<strong>`</strong> it&rsquo;s called a back-tick, It lets us define strings on multiple lines like the above.</p>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>We can use <strong>templateUrl</strong> property to refer to some html file, instead of writing the HTML code in the component file. Usually it is located in the same directory where the item.component.ts file is located, with the name <strong>item.component.html</strong></p>",
+            "content_image": "",
+            "content_code": "@Component({\n  selector: 'joke',\n  templateUrl: './item.component.html'\n})"
+        },
+        {
+            "content_title": "Angular Modules",
+            "content_desc": "<div class=\"paragraph\">\n<p>If we ran this code now we would see it&rsquo;s still not working!</p>\n</div>\n<div class=\"paragraph\">\n<p>We&rsquo;ve defined a&nbsp;component with a&nbsp;custom tag, added the&nbsp;tag to&nbsp;our&nbsp;<abbr>HTML</abbr>&nbsp;but we haven&rsquo;t told Angular that we want to&nbsp;use Angular on&nbsp;this page.</p>\n</div>\n<div class=\"paragraph\">\n<p>To&nbsp;do that we need to&nbsp;do something called&nbsp;<em>bootstrapping</em>.</p>\n</div> <p>In&nbsp;Angular your code is structured into&nbsp;<code>packages</code>&nbsp;called Angular Modules, or&nbsp;<code>NgModules</code>&nbsp;for&nbsp;short. Every app requires at&nbsp;least one module, the&nbsp;root module, that we call&nbsp;<code>AppModule</code>&nbsp;by&nbsp;convention.</p>",
+            "content_image": "",
+            "content_code": "@NgModule({\n  imports: [BrowserModule],\n  declarations: [ItemComponent],\n  bootstrap: [ItemComponent]\n})\nexport class AppModule {\n}"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p><strong>Note:&nbsp;</strong>The above code is available in <strong>app.module.ts </strong>file which is located under the project's <strong>app/src</strong> folder.</p> <p>To&nbsp;define an&nbsp;Angular Module we first create a&nbsp;class and&nbsp;then annotate it with a&nbsp;decorator called&nbsp;<code>@NgModule</code>.</p><p>You&rsquo;ll notice this follows a&nbsp;similar pattern to&nbsp;when we created a&nbsp;component. We created a&nbsp;class and&nbsp;then annotated it with a&nbsp;decorator, this pattern is a&nbsp;common one in&nbsp;Angular.</p><p><code>@NgModule</code>&nbsp;has a&nbsp;few params:</p><p><strong>imports</strong></p><p>The&nbsp;other Angular Modules that export material we need in&nbsp;this Angular Module. Almost every application&rsquo;s root module should import the&nbsp;BrowserModule.</p><p><strong>declarations</strong></p><p>The&nbsp;list of&nbsp;components or&nbsp;directives belonging to&nbsp;<em>this</em>&nbsp;module.</p><p><strong>bootstrap</strong></p><p>Identifies the&nbsp;root component that Angular should bootstrap when it starts the&nbsp;application.</p> ",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>We know&nbsp;<code>NgModule</code>&nbsp;but&nbsp;<code>BrowserModule</code>&nbsp;is the&nbsp;Angular Module that contains all the&nbsp;needed Angular bits and&nbsp;pieces to&nbsp;run our application in&nbsp;the browser.</p>\n</div>\n<div class=\"paragraph\">\n<p>Angular itself is split into separate Angular Modules so we only need to&nbsp;import the&nbsp;ones we really use. Some other common modules you&rsquo;ll see in&nbsp;the future are the&nbsp;<code>FormsModule</code>,&nbsp;<code>RouterModule</code>&nbsp;and&nbsp;<code>HttpModule</code>.</p>\n</div>",
+            "content_image": "",
+            "content_code": "import { NgModule }      from '@angular/core';\nimport { BrowserModule } from '@angular/platform-browser';"
+        },
+        {
+            "content_title": "Bootstrapping",
+            "content_desc": "<p>Now we have defined our root Angular Module called AppModule we need to bootstrap the application using it, like:</p>",
+            "content_image": "",
+            "content_code": "import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';\n.\n.\n.\nplatformBrowserDynamic().bootstrapModule(AppModule);"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p><strong>Note:&nbsp;</strong>The above code is available in <strong>main.ts </strong>which is located under the project's root folder / directory.</p><div class=\"paragraph\">\n<p>You might be asking yourself why Angular doesn&rsquo;t do this for&nbsp;us like it did in&nbsp;Angular 1?</p>\n</div>\n<div class=\"paragraph\">\n<p>In&nbsp;Angular bootstrapping is&nbsp;<em>platform specific</em>.</p>\n</div>\n<div class=\"paragraph\">\n<p>Angular 1 assumed that Angular would only ever be run in&nbsp;a browser, Angular makes no such assumption. We could be writing Angular code for&nbsp;a mobile device using a&nbsp;solution like Ionic. We could be loading up Angular on&nbsp;a node server so we can render&nbsp;<abbr>HTML</abbr>&nbsp;for&nbsp;web crawlers that don&rsquo;t run JavaScript.</p>\n</div>\n<div class=\"paragraph\">\n<p>Angular isn&rsquo;t limited to&nbsp;only working in&nbsp;the browser which is why we need to&nbsp;tell Angular exactly&nbsp;<em>how</em>&nbsp;we want it to&nbsp;bootstrap itself, in&nbsp;our case we are running in&nbsp;the browser so we use the&nbsp;platformBrowserDynamic function to&nbsp;bootstrap our application.</p>\n</div>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Component Tree",
+            "content_desc": "<div class=\"paragraph\">\n<p>An&nbsp;Angular application is architected as&nbsp;a tree of&nbsp;Components stemming from one root Component.</p>\n</div>\n<div class=\"paragraph\">\n<p>Your root component is the&nbsp;component you configured on&nbsp;your root&nbsp;<code>NgModule</code>&nbsp;in&nbsp;the bootstrap property, so in&nbsp;our case it&rsquo;s the&nbsp;<code>ItemComponent</code>.</p>\n</div>\n<div class=\"paragraph\">\n<p>By&nbsp;bootstrapping with&nbsp;<code>ItemComponent</code>&nbsp;we are saying that it&rsquo;s the&nbsp;root component for&nbsp;our application.</p>\n</div>\n<div class=\"paragraph\">\n<p>In&nbsp;the template for&nbsp;our&nbsp;<code>ItemComponent</code>&nbsp;we would add tags for&nbsp;other Components, in&nbsp;the template for&nbsp;those Components we would add tags for&nbsp;others&hellip; and&nbsp;so on&nbsp;and so on.</p>\n</div>\n<div class=\"paragraph\">\n<p>However in&nbsp;our&nbsp;<code>index.html</code> file we will never see anything other than the tag for our root component, like:</p>\n</div>",
+            "content_image": "",
+            "content_code": "<body>\n  <app-item></app-item>\n</body>"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<strong>Note:</strong><p>Runninng the application in the browser we will see the output like: This is your first Angular HTML Template...</p>",
+            "content_image": "",
+            "content_code": ""
+        }
+    ]
+}

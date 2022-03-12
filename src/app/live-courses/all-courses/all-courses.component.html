@@ -1,0 +1,77 @@
+<router-outlet></router-outlet>
+<app-navbar></app-navbar>
+<section class="block block--skewed-up hero" style="background: #002E6B; padding-top: 5rem;">
+    <header class="block__header" style="margin: 0;">
+        <h2 style="font-weight: 400">
+            <span style=" color: #fff;">Live Courses On StackMi</span>
+        </h2>
+    </header>
+</section>
+<div>
+    <div *ngIf="loading" class="d-flex justify-content-center" style="margin-bottom: 8rem">
+        <div class="spinner-border" style="width: 6rem; height: 6rem" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+    <div *ngIf="!loading" id="events">
+        <div class="grid grid--1X3" style="margin-bottom: 5rem; margin-top: 2rem;">
+            <div *ngFor="let event of events | sort: 'event_start_date'">
+                <div class="card card--secondary" style=" border: 1px solid #002E6B;">
+                    <!-- <div class="image-color" style="background: #d5d2d2">
+                        <img height="200px" data-src="{{ event?.photo_url }}" />
+                    </div> -->
+                    <div class="card__body" style="font-size: 1.6rem; padding-bottom: 1rem">
+                        <h3>
+                            {{ event.event_name }}
+                        </h3>
+                        <hr />
+                        <p style="font-size: 18px; font-weight: 500;"><strong>Trainer:</strong> {{ event.event_host}}
+                        </p>
+                        <hr />
+                        <div class="row">
+                            <div class="col-12 col-md-6">
+                                <div style="font-weight: 500; margin-top: 5px;">Start Date: &nbsp;&nbsp;{{
+                                    event.start_date }}</div>
+                                <div style="font-weight: 500; margin-top: 5px;">End Date: &nbsp;&nbsp;&nbsp;&nbsp;{{
+                                    event.end_date
+                                    }}</div>
+                                <div style="font-weight: 500; margin-top: 5px;">Course Fee:
+                                    <span class="badge badge--primary" style="padding: 1rem; font-size: 16px;">{{
+                                        event?.event_price
+                                        }}</span>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div style="font-weight: 500; margin-top: 5px;">Timings: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    {{
+                                    event.event_start_time }}
+                                </div>
+                                <div style="font-weight: 500; margin-top: 5px;">Duration:
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{
+                                    event.duration }}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-6 col-md-6">
+                                <a style="padding: 1rem;" [routerLink]="['/register-courses', event.id]"
+                                    class="btn btn--outline btn--block">Course
+                                    Curriculum</a>
+                            </div>
+                            <div class="col-6 col-md-6 mx-auto">
+                                <button (click)="selectedCourse(event.event_name)" style="width: 100%;"
+                                    class="btn btn-danger" type="button" data-bs-toggle="offcanvas"
+                                    data-bs-target="#offcanvasWithBackdrop" aria-controls="offcanvasWithBackdrop">Enroll
+                                    Course</button>
+                                <app-course-enroll [notifier]="sendCourse"></app-course-enroll>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

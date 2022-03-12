@@ -1,0 +1,72 @@
+{
+    "_id": {
+        "$oid": "61e97231629474e18058aa43"
+    },
+    "article_slug": "ng-styles-encapsulation",
+    "article_title": "Angular - View Encapsulation",
+    "article_image": "",
+    "article_seo_desc": "The shadow DOM lets us include styles into Web Components without letting them leak outside the component’s scope. This mechanism is called View Encapsulation.",
+    "enroll_available": true,
+    "article_content": [
+        {
+            "content_title": "",
+            "content_desc": "<p>We can restrict CSS styles specific to the component level. This is one of the beautiful feature of Angular. For any component if you add styles to the component,&nbsp;the styles will be applied only to that component, but it won't leak outside to any other component.&nbsp;</p>\n<p>Let's create one more component <code>navbar</code> in our shoppingcart project.&nbsp;</p>",
+            "content_image": "",
+            "content_code": "ng g c navbar"
+        },
+        {
+            "content_title": "",
+            "content_desc": "",
+            "content_image": "",
+            "content_code": "// navbar.component.ts\nimport { Component, OnInit, ViewEncapsulation } from '@angular/core';\n\n@Component({\n  selector: 'app-navbar',\n  templateUrl: './navbar.component.html',\n  styles: [\n    `\n    .bg-color {\n      background: #dd2525;\n    }\n    .nav-link {\n        color: #fff;\n    }\n    .nav-link:hover {\n        color: gray;\n    }\n    .navbar-brand {\n      color: #fff\n    }\n    `\n  ],\n  encapsulation: ViewEncapsulation.ShadowDom\n})\nexport class NavbarComponent implements OnInit {\n  constructor() { }\n  ngOnInit(): void {\n  }\n}\n"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>Here I am adding CSS styles to the <code>styles property</code> instead of referring to the<code> './navbar.component.css'</code> file</p>\n<p>Let's copy the navbar html code snippet from twitter <a href=\"https://getbootstrap.com/docs/5.1/components/navbar/\" target=\"_blank\">bootstrap</a>. and rename the menu items.</p>",
+            "content_image": "",
+            "content_code": "<!-- navbar.component.html -->\n<nav class=\"navbar navbar-expand-lg bg-color\">\n    <div class=\"container-fluid\">\n        <a class=\"navbar-brand\" href=\"#\">NexTrends</a>\n        <button class=\"navbar-toggler\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#navbarSupportedContent\"\n            aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n            <span class=\"navbar-toggler-icon\"></span>\n        </button>\n        <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n            <ul class=\"navbar-nav me-auto mb-2 mb-lg-0\">\n                <li class=\"nav-item\">\n                    <a class=\"nav-link active\" aria-current=\"page\" href=\"#\">Gadgets</a>\n                </li>\n                <li class=\"nav-item\">\n                    <a class=\"nav-link\" href=\"#\">Automobiles</a>\n                </li>\n                <li class=\"nav-item dropdown\">\n                    <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdown\" role=\"button\"\n                        data-bs-toggle=\"dropdown\" aria-expanded=\"false\">\n                        Home Needs\n                    </a>\n                    <ul class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">\n                        <li><a class=\"dropdown-item\" href=\"#\">Kitchen</a></li>\n                        <li><a class=\"dropdown-item\" href=\"#\">Wood Items</a></li>\n                        <li>\n                            <hr class=\"dropdown-divider\">\n                        </li>\n                        <li><a class=\"dropdown-item\" href=\"#\">Plastic Items</a></li>\n                    </ul>\n                </li>\n                <li class=\"nav-item\">\n                    <a class=\"nav-link\">Textiles</a>\n                </li>\n            </ul>\n        </div>\n    </div>\n</nav>"
+        },
+        {
+            "content_title": "View Encapsulation",
+            "content_desc": "<p>Normally if we change a&nbsp;<abbr>CSS</abbr> class the effect is seen throughout the application, something special is happening here and it&rsquo;s called <em>View Encapsulation</em>.</p>\n<p>Angular is inspired from Web Components, a&nbsp;core feature of&nbsp;which is the&nbsp;shadow&nbsp;<abbr>DOM</abbr>.</p>\n<div class=\"paragraph\">\n<p><strong>The&nbsp;shadow&nbsp;<abbr>DOM</abbr>&nbsp;lets us include styles into Web Components without letting them&nbsp;<em>leak</em>&nbsp;outside the&nbsp;component&rsquo;s scope.</strong></p>\n</div>\n<div class=\"paragraph\">Angular also provides this feature for&nbsp;Components and&nbsp;we can control it with the&nbsp;<code>encapsulation</code>&nbsp;property.</div>\n<div class=\"paragraph\">\n<div class=\"paragraph\">\n<p>The&nbsp;valid values for&nbsp;this config property are:</p>\n</div>\n<div class=\"ulist\">\n<ul>\n<li>\n<p><code>ViewEncapsulation.ShadowDom</code></p>\n</li>\n<li>\n<p><code>ViewEncapsulation.Emulated</code></p>\n</li>\n<li>\n<p><code>ViewEncapsulation.None</code>.</p>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>The&nbsp;default value is&nbsp;<code>ViewEncapsulation.Emulated</code>&nbsp;and&nbsp;that is the&nbsp;behaviour we are currently seeing.</p>\n</div>\n</div>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "ViewEncapsulation.Emulated",
+            "content_desc": "<div class=\"paragraph\">\n<p>Let&rsquo;s inspect the <code>navbar</code> element with our browsers developer tools to investigate what&rsquo;s going on.</p>\n</div>\n<div class=\"paragraph\">\n<p>By&nbsp;looking at&nbsp;the&nbsp;<abbr>DOM</abbr>&nbsp;for&nbsp;our&nbsp;<code>NavbarComponent</code>&nbsp;we can see that Angular added some&nbsp;<em>automatically</em> generated attributes, like:</p>\n<p>&nbsp;</p>\n</div>",
+            "content_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Screenshot%202022-01-21%20at%205.50.30%20PM.png",
+            "content_code": ""
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>Specifically it's added an attribute called <code>_ngcontent-eap-c16</code> and we can see the same attribute in styles tab in developer tools.</p>\n<p>The&nbsp;<abbr>CSS</abbr> selector <code>.bg-color[_ngcontent-eap-c16]</code> targets <em>only</em> the <code>NavbarComponent</code>&nbsp;since that is the&nbsp;only component with a&nbsp;<abbr>HTML</abbr>&nbsp;attribute of&nbsp;<code>_ngcontent-eap-c16.</code> Other components are targetted with different attributes.</p>\n<div class=\"sect2\">\n<div class=\"paragraph\">\n<p>In&nbsp;the&nbsp;<code>ViewEncapsulation.Emulated</code>&nbsp;mode Angular changes our generic&nbsp;<abbr>CSS</abbr>&nbsp;class selector to&nbsp;one that targets just a&nbsp;single component type by&nbsp;using automatically generated attributes.</p>\n</div>\n<div class=\"paragraph\">\n<p>This is the&nbsp;reason that&nbsp;<em>only</em>&nbsp;the&nbsp;<code>NavbarComponent</code> is red. If we use the same <strong>.bg-color</strong> class to some other component, it won't make any effect. You can try it like below..</p>\n</div>",
+            "content_image": "",
+            "content_code": "<!-- item-list.component.html -->\n<div class=\"container bg-color\">\n    <div class=\"grid grid--1X3\" style=\"margin-top: 2rem;\">\n        <app-item *ngFor=\"let item of itemList\" [item]=\"item\" (emitItem)=\"addItem($event)\"></app-item>\n    </div>\n</div>"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>Any styles we define on&nbsp;a component&nbsp;<em>don&rsquo;t leak out</em>&nbsp;to&nbsp;the rest of&nbsp;the application but with&nbsp;<code>ViewEncapsulation.Emulated</code>&nbsp;our component still inherits global styles from Twitter Bootstrap.</p>\n</div>\n<div class=\"paragraph\">\n<p>Our&nbsp;<code>NavbarComponent</code>&nbsp;still gets the&nbsp;global card styles from Twitter Bootstrap and&nbsp;the encapsulated style from the&nbsp;component itself.</p>\n</div>\n</div>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "ViewEncapsulation.Native",
+            "content_desc": "If we want Angular to use the shadow DOM we can set the encapsulation parameter to use ViewEncapsulation.ShadowDom like:",
+            "content_image": "",
+            "content_code": "encapsulation: ViewEncapsulation.ShadowDom"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>However with&nbsp;<code>ViewEncapsulation.ShadomDom</code>&nbsp;our component is also isolated from the&nbsp;global styles we&rsquo;ve defined for&nbsp;our application. So we don&rsquo;t inherit the&nbsp;Twitter Bootstrap styles and&nbsp;have to&nbsp;define all the&nbsp;required styles on&nbsp;our component decorator.</p>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "ViewEncapsulation.None",
+            "content_desc": "<p>And&nbsp;If we don&rsquo;t want to&nbsp;have any encapsulation at&nbsp;all, we can use&nbsp;<code>ViewEncapsulation.None</code>.</p>",
+            "content_image": "",
+            "content_code": ""
+        }
+    ]
+}

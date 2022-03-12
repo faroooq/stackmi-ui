@@ -1,0 +1,104 @@
+{
+    "_id": {
+        "$oid": "621077b18711a7eb84434749"
+    },
+    "article_id": "7.3",
+    "article_slug": "ng-reactive-model-form",
+    "article_title": "Angular - Reactive Model Form",
+    "article_image": "",
+    "article_seo_image": "",
+    "article_seo_desc": "Reactive forms are better when there needs to be some real-time processing of the form as the user types in content. Handling model-driven forms with submit handlers is better when there needs to be a discrete action applied when the user presses a button.",
+    "enroll_available": true,
+    "article_content": [
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>Download the complete project from github: <a href=\"https://github.com/faroooq/shopping-cart\" target=\"_blank\">https://github.com/faroooq/shopping-cart</a></p>\n<hr/>\n</div>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Setting Up a Reactive Form",
+            "content_desc": "<div class=\"paragraph\">\n<p>Both&nbsp;<code>FormControls</code>&nbsp;and&nbsp;<code>FormGroups</code> expose an <em>observable</em>&nbsp;called&nbsp;<code>valuesChanged</code>. By subscribing to this observable we can <em>react</em> in real-time to changing values of an individual form control, or a group of form controls.</p>\n</div>\n<div class=\"paragraph\">\n<p>One use case could be implementing a search field in an application, as the user types into the search field we may want to call an <abbr>API</abbr>.</p>\n</div>\n<div class=\"paragraph\">\n<p>Since calling an&nbsp;<abbr>API</abbr> is relatively expensive we want to limit the number of&nbsp;<abbr>API</abbr>&nbsp;calls to&nbsp;only when absolutely necessary.</p>\n</div>\n<div class=\"paragraph\">\n<p>Our <code>HomeComponent</code> might have a&nbsp;template like so:</p>\n</div>",
+            "content_image": "",
+            "content_code": "<!-- home.component.html -->\n<div class=\"container mt-5\">\n    <h1>Welcome to the shopping cart</h1>\n    <h4>\n        <a routerLink=\"/gadgets\">Click here</a> to navigate to the shopping page.\n    </h4>\n    <hr>\n    <div class=\"mb-3\">\n        <input type=\"search\" class=\"form-control\" placeholder=\"Please enter search term\">\n        <hr />\n        <ul>\n            <li *ngFor=\"let search of searches\">{{ search }}</li>\n        </ul>\n    </div>\n</div>"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>Just a single search input field and then underneath that we render out a list of search terms from an array called <code>searches</code>.</p>\n</div>\n<div class=\"paragraph\">\n<p>The initial component class for the above template looks like:</p>\n</div>",
+            "content_image": "",
+            "content_code": "// home.component.ts\nimport { Component, OnInit } from '@angular/core';\nimport { FormControl } from '@angular/forms';\n\n@Component({\n  selector: 'app-home',\n  templateUrl: './home.component.html',\n  styleUrls: ['./home.component.css']\n})\nexport class HomeComponent implements OnInit {\n\n  searchField!: FormControl;\n  searches: string[] = [];\n\n  ngOnInit() {\n    this.searchField = new FormControl();\n  }\n}"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<ol>\n<li>We declare a&nbsp;<code>searchField</code>&nbsp;property which is a&nbsp;<code>FormControl</code>, we initialise this later in our <code>ngOnInit</code>&nbsp;function.</li>\n<li>We declare an&nbsp;array of&nbsp;<code>searches</code>, as we perform searches we&rsquo;ll push the individual search terms onto this array so we can see them printed out on the page.</li>\n</ol>\n<p>To&nbsp;link our&nbsp;<code>searchField</code>&nbsp;<code>FormControl</code> to our template form control we use another directive called&nbsp;<code>formControl</code>, like:</p>",
+            "content_image": "",
+            "content_code": "<!-- home.component.html -->\n<div class=\"mb-3\">\n    <input type=\"search\" class=\"form-control\" placeholder=\"Please enter search term\" [formControl]=\"searchField\">\n    <hr />\n    <ul>\n        <li *ngFor=\"let search of searches\">{{ search }}</li>\n    </ul>\n</div>"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>We use the&nbsp;<code>formControl</code>&nbsp;directive to&nbsp;link the&nbsp;<code>searchField</code> FormControl to the template form control.</p>\n<p><strong>Note:&nbsp;</strong>Previously we used a&nbsp;top-level&nbsp;<code>FormGroup</code> instance to hold our entire form and then used the&nbsp;<code>formControlName</code> directive in the template to link individual template controls to controls on our&nbsp;<code>FormGroup</code>&nbsp;instance.<br />But in&nbsp;this example we just have a&nbsp;<code>FormControl</code> on its own, this is why we use the&nbsp;<code>formControl</code>&nbsp;directive instead of&nbsp;the&nbsp;<code>formControlName</code>&nbsp;directive.</p>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "React to Changes in Our Form",
+            "content_desc": "<p>To react to changes on this form we need to subscribe to the <code>valueChanges</code>&nbsp;observable on&nbsp;our&nbsp;<code>searchField</code>, like so:</p>",
+            "content_image": "",
+            "content_code": "ngOnInit() {\n    this.searchField = new FormControl();\n    this.searchField.valueChanges\n        .subscribe(term => {\n          this.searches.push(term);\n        });\n  }"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>As we type into the search control, each search term is pushed onto the searches array and through data binding we see the array printed on the screen, like:</p>",
+            "content_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/reactive-v1.webp",
+            "content_code": "F\nFo\nFoo\nFoo2\nFoo\nFoo2"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>We can see a&nbsp;search term printed for&nbsp;<em>every</em> keypress, if we were making <abbr>API</abbr> calls in response to this observable chain we would be making quite a few unnecessary&nbsp;<abbr>API</abbr>&nbsp;calls.</p>\n</div>\n<div class=\"paragraph\">\n<p>Ideally we want to only make a request when the user has stopped typing. This is a common use case with RxJS so there is an operator that implements it called <code>debounceTime</code> and we use it like:</p>\n</div>",
+            "content_image": "",
+            "content_code": "ngOnInit() {\n    this.searchField = new FormControl();\n    this.searchField.valueChanges.pipe(\n      debounceTime(400))\n      .subscribe(term => {\n        this.searches.push(term);\n        console.log(this.searches)\n      });\n  }"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p><code>debounceTime</code> takes as a first parameter a number of milliseconds, it will then only publish to the output stream if there has been no more input for <em>that</em>&nbsp;number of&nbsp;milliseconds.</p>\n<p>Now it will only print to the console if the user has stopped typing for 400ms. If this was connected to an <abbr>API</abbr> then we would only be sending in one <abbr>API</abbr> request instead of one for every character the user typed into the search field.</p>\n<p>Typing in the same characters to the search control we get fewer search terms printed to the screen:</p>",
+            "content_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/reactive-v2.webp",
+            "content_code": "Foo\nFoo2\nFoo2"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>But looking at&nbsp;the above we get&nbsp;<code>Foo2</code> printed twice in a row, this would trigger a second unnecessary&nbsp;<abbr>API</abbr> request. That&rsquo;s because the user typed&nbsp;<code>Foo2</code>, then deleted&nbsp;<code>2</code>&nbsp;and&nbsp;added&nbsp;<code>2</code> again very quickly to get back to&nbsp;<code>Foo2</code>.</p>\n</div>\n<div class=\"paragraph\">\n<p>Ideally we only want to&nbsp;make the&nbsp;<abbr>API</abbr>&nbsp;call if the&nbsp;search term has&nbsp;<em>changed</em>. Like before there is an operator with RxJS we can use called<code> distinctUntilChanged</code> which only publishes to its output stream if the value being published is&nbsp;<em>different</em> from before. We can use it like:</p>\n</div>",
+            "content_image": "",
+            "content_code": "ngOnInit() {\n    this.searchField = new FormControl();\n    this.searchField.valueChanges.pipe(\n      debounceTime(400),\n      distinctUntilChanged())\n      .subscribe(term => {\n        this.searches.push(term);\n        console.log(this.searches)\n      });\n  }"
+        },
+        {
+            "content_title": "",
+            "content_desc": "Typing in the same characters to the search control we get even fewer search terms printed to the screen:",
+            "content_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/reactive-v3.webp",
+            "content_code": "Foo\nFoo2"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>Specifically we only get&nbsp;<code>Foo2</code>&nbsp;printed once saving another&nbsp;<abbr>API</abbr>&nbsp;call.</p>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "",
+            "content_desc": "",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "",
+            "content_desc": "",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "",
+            "content_desc": "",
+            "content_image": "",
+            "content_code": ""
+        }
+    ]
+}

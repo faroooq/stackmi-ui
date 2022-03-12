@@ -1,0 +1,73 @@
+{
+    "_id": {
+        "$oid": "61eb9739629474e18058aa4b"
+    },
+    "article_id": "2.4",
+    "article_slug": "ng-view-child-children",
+    "article_title": "Angular - ViewChild and ViewChildren",
+    "article_image": "",
+    "article_seo_desc": "",
+    "enroll_available": true,
+    "article_content": [
+        {
+            "content_title": "",
+            "content_desc": "<p>If you want to access the child reference of a given component or the elements used <em>within</em> its template (its view) then we use <code>@ViewChild</code> and <code>@ViewChildren</code>.</p>\n<p>To make it simple, <code>@ViewChild</code> is used to get the object / reference of child class into the parent class.</p>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "ViewChild",
+            "content_desc": "<div class=\"paragraph\">\n<p>In&nbsp;our&nbsp;<code>ItemListComponent</code> let&rsquo;s add a reference to the child <code>ItemComponent</code>&nbsp;that exists in&nbsp;its view.</p>\n</div>\n<div class=\"paragraph\">\n<p>We do this by&nbsp;using the&nbsp;<code>@ViewChild</code> decorator like:</p>\n</div>",
+            "content_image": "",
+            "content_code": "// item-list.component.ts\n\nimport { Component, ViewChild } from '@angular/core';\nimport { ItemComponent } from '../item/item.component';\n\n@Component({\n  selector: 'app-item-list',\n  templateUrl: './item-list.component.html',\n  styleUrls: ['./item-list.component.css']\n})\nexport class ItemListComponent {\n\n  @ViewChild(ItemComponent) itemView!: ItemComponent;\n\n  constructor() { }\n\n}"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p><strong>Note:</strong> We are storing a reference to the child <code>ItemComponent</code>&nbsp;in&nbsp;a property called&nbsp;<code>itemView</code>.</p>\n<div class=\"paragraph\">\n<p>We create a new property called <code>itemView</code>&nbsp;and&nbsp;we pre-pend this with a&nbsp;decorator of&nbsp;<code>@ViewChild</code>. This decorator tells Angular&nbsp;<em>how</em> to find the child component (here ItemComponent) that we want to bind to this property.</p>\n</div>\n<div class=\"paragraph\">\n<p>A&nbsp;<code>@ViewChild</code> decorator means, search inside this component&rsquo;s template, its view, for&nbsp;this child component.</p>\n</div>\n<div class=\"paragraph\">\n<p>We can however hook into the&nbsp;lifecycle of&nbsp;the component at&nbsp;the point the&nbsp;view children have been created and&nbsp;that&rsquo;s with the&nbsp;<code>ngAfterViewInit</code> hook.</p>\n</div><p>In&nbsp;the&nbsp;<code>ngAfterViewInit</code> function&nbsp;<code>itemView</code>&nbsp;has been initialised and&nbsp;we can see it logged in&nbsp;the console.</p>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "ViewChildren",
+            "content_desc": "<p>Here we are iterating <strong>itemList</strong> object and passing each item object from the list to the child component which is <code>ItemComponent</code>. So, total 3 ItemComponent objects gets created.</p>",
+            "content_image": "",
+            "content_code": "<!-- item-list.component.html -->\n\n<div class=\"grid grid--1X3 m-3\">\n    <div *ngFor=\"let item of itemList\">\n        <app-item [item]=\"item\" (emitItem)=\"addItem($event)\"></app-item>\n    </div>\n</div>"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>We can get only one object if we try to access using <code>@ViewChild</code>. What if we want to get all objects? We have one more decorator called <code>@ViewChildren.</code></p>\n<p>&nbsp;</p>",
+            "content_image": "",
+            "content_code": "// item-list.component.ts\n\nimport { Component, QueryList, ViewChild, ViewChildren } from '@angular/core';\nimport { ItemComponent } from '../item/item.component';\n\n@Component({\n  selector: 'app-item-list',\n  templateUrl: './item-list.component.html',\n  styleUrls: ['./item-list.component.css']\n})\nexport class ItemListComponent {\n\n  cartItems: Array<Object> = [];\n\n  @ViewChild(ItemComponent) itemView!: ItemComponent;\n\n  @ViewChildren(ItemComponent) itemChildren!: QueryList<ItemComponent>;\n\n  itemList: { name: string; price: string; description: string; image: string; }[] = [];\n\n  constructor() { }\n\n  ngAfterViewInit() {\n\n    // @ViewChild - We get only one item.\n    console.log(this.itemView.printItems())\n\n    // @ViewChildren - We get all items using the class QueryList\n    let item: ItemComponent[] = this.itemChildren.toArray();\n    for (let i = 0; i < item.length; i++) {\n      console.log(item[i].printItems());\n    }\n  }\n\n  ngOnInit() {\n    this.itemList = [\n      {\n        name: \"IPhone 12\",\n        price: \"INR 56,000/-\",\n        description: \"Lorem ipsum dolor sit amet consectetur adipisicing elit...\",\n        image: \"../../assets/images/phone.jpeg\"\n      },\n      {\n        name: \"Samsung Galaxy S21 Ultra\",\n        price: \"INR 88,000/-\",\n        description: \"Lorem ipsum dolor sit amet consectetur adipisicing elit...\",\n        image: \"../../assets/images/samsung.jpeg\"\n      },\n      {\n        name: \"OnePlus 9 Pro\",\n        price: \"INR 59,000/-\",\n        description: \"Lorem ipsum dolor sit amet consectetur adipisicing elit...\",\n        image: \"../../assets/images/oneplus.jpeg\"\n      }\n    ]\n  }\n\n  addItem(item: any) {\n    this.cartItems.push(item);\n    console.log(JSON.stringify(this.cartItems))\n  }\n}\n"
+        },
+        {
+            "content_title": "",
+            "content_desc": "",
+            "content_image": "",
+            "content_code": "<!-- item.component.html -->\n<div class=\"card card--secondary m-2\">\n    <div class=\"m-2\">\n        <img width=\"50%\" height=\"450px\" src=\"{{item?.image}}\" />\n    </div>\n    <div class=\"p-3\">\n        <h4 class=\"card-title\">{{item?.name}}</h4>\n        <p class=\"card-text\">\n            <strong>Price:</strong>\n            {{item?.price}}\n        </p>\n        <p class=\"card-text\">{{item?.description}}</p>\n        <div class=\"row mt-3 p-2\">\n            <div class=\"col-4 p-0\">\n                <a class=\"btn btn-warning\" (click)=\"sendDataToParent(item)\">Add To Cart\n                </a>\n            </div>\n            <div class=\"col-3 p-0\">\n                <a class=\"btn btn-success\">Buy Now\n                </a>\n            </div>\n        </div>\n    </div>\n</div>"
+        },
+        {
+            "content_title": "",
+            "content_desc": "",
+            "content_image": "",
+            "content_code": "// item.component.ts\n\nimport { Component, EventEmitter, Input, Output } from '@angular/core';\n\n@Component({\n  selector: 'app-item',\n  templateUrl: './item.component.html',\n  styleUrls: ['./item.component.css']\n})\nexport class ItemComponent {\n\n  @Input() item: any;\n\n  @Output() emitItem = new EventEmitter();\n\n  constructor() {\n  }\n\n  sendDataToParent(item: any) {\n    this.emitItem.emit(item);\n  }\n\n  printItems() {\n    return this.item;\n  }\n}\n"
+        },
+        {
+            "content_title": "ViewChild Referencing a Template Local Variable",
+            "content_desc": "<p>Sometimes, the <code>ItemListComponent</code>&nbsp;<em>might</em> need references to the multiple elements that it contains inside its template (html file), in order to mediate their interaction.</p>\n<p>If that's the case, then we can obtain references to those template elements and have them injected into the <code>ItemListComponent</code> class by querying the template: that's one more way of using <code>@ViewChild</code> decorator.</p>",
+            "content_image": "",
+            "content_code": "<!-- item-list.component.html -->\n\n<!-- Below #header is a template reference -->\n<nav class=\"navbar navbar-light bg-light p-3\">\n    <div class=\"container-fluid\">\n        <span #header class=\"navbar-brand mb-0 h1\">View Mobile Models</span>\n    </div>\n</nav>\n<div class=\"grid grid--1X3 m-3\">\n    <div *ngFor=\"let item of itemList\">\n        <app-item [item]=\"item\" (emitItem)=\"addItem($event)\"></app-item>\n    </div>\n</div>"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>In ts file we will get that reference using <code>@ViewChild</code> decorator like:</p>",
+            "content_image": "",
+            "content_code": "// item-list.component.ts\n\nimport { Component, ElementRef, ViewChild } from '@angular/core';\nimport { ItemComponent } from '../item/item.component';\n\n@Component({\n  selector: 'app-item-list',\n  templateUrl: './item-list.component.html',\n  styleUrls: ['./item-list.component.css']\n})\nexport class ItemListComponent {\n\n  @ViewChild(\"header\") headerEl!: ElementRef;\n\n  constructor() { }\n\n  ngAfterViewInit() {\n\n    console.log(`ngAfterViewInit - headerEl is ${this.headerEl}`);\n\n    this.headerEl.nativeElement.textContent = \"Best Available Models\";\n\n  }\n}"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>After executing the code, we will see <strong>View Mobile Models</strong> will be replaced with <strong>Best Available Models</strong> in the <strong>&lt;h4&gt;</strong> tag and that's what we see in the browser.</p>\n<p><strong>Note:&nbsp;</strong>It&rsquo;s not recommended to&nbsp;interact with the&nbsp;<abbr>DOM</abbr> directly with an <code>ElementRef</code>&nbsp;since that results in&nbsp;code that&rsquo;s not very portable.</p>",
+            "content_image": "",
+            "content_code": ""
+        }
+    ]
+}

@@ -1,0 +1,148 @@
+<app-navbar></app-navbar>
+<section class="block block--skewed-up hero"
+  style="background: aliceblue; padding-top: 5rem; background-image: url('../../assets/images/mentor image.png'); height: 580px;">
+  <div *ngIf="!authService.isLoggedIn()" class="container grid grid--1x2">
+    <header style="text-align: center;" class="block__header hero__content">
+    </header>
+    <div data-aos="zoom-in" class="col-lg-9">
+      <app-mentor-signup></app-mentor-signup>
+    </div>
+  </div>
+  <div *ngIf="authService.isLoggedIn()">
+    <a [routerLink]="['/events/host-event']" type="button" class="btn  btn-danger btn--host">
+      Host Event
+    </a>
+  </div>
+</section>
+<section data-aos="fade-up" class="block container block-plans">
+  <div *ngIf="!authService.isLoggedIn()" class="form-margin"></div>
+  <header class="block__header">
+    <h2><strong>Can I Become a Mentor?</strong></h2>
+  </header>
+  <div class="grid grid--1x4 grid--1x2">
+    <div class="plan">
+      <div class="card card--secondary">
+        <header>
+          <h3>Essence of Time</h3>
+          <hr />
+        </header>
+        <div class="card__body">
+          <p>
+            Mentees expect a personal touch when they select a mentor. You are
+            required to spend 2 hrs of assistance to each mentee per month.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="plan">
+      <div class="card card--secondary">
+        <header>
+          <h3>Passion to Help</h3>
+          <hr />
+        </header>
+        <div class="card__body">
+          <p>
+            Over and above everything, it is that desire to give back that is
+            necessary to be a mentor. You will be required to conduct 1:1
+            mentorship sessions to inspire and guide them.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="plan">
+      <div class="card card--secondary">
+        <header>
+          <h3>Open and Empathetic</h3>
+          <hr />
+        </header>
+        <div class="card__body">
+          <p>
+            Students come from varying backgrounds and naturally have varying
+            personalities. Empathy goes a long way, and as a mentor, one must
+            have loads of it.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="plan">
+      <div class="card card--secondary">
+        <header>
+          <h3>Experience Matters</h3>
+          <hr />
+        </header>
+        <div class="card__body">
+          <p>
+            Share your experience (both success and failure) with the mentees so
+            they can learn and reach newer heights in their respective careers.
+            Your degree, however, is not a criterion.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section data-aos="fade-up" class="block container block-plans">
+  <header class="block__header">
+    <h2><strong>What’s in it for you?</strong></h2>
+  </header>
+  <div class="grid grid--1x4 grid--1x2">
+    <div class="plan">
+      <div class="card card--secondary">
+        <header>
+          <h3>A Matter of Pride</h3>
+          <hr />
+        </header>
+        <div class="card__body">
+          <p>
+            Opportunity to showcase your ability to help grow someone in their
+            career (Add that your XX mentees got an offer)
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="plan">
+      <div class="card card--secondary">
+        <header>
+          <h3>Compensation</h3>
+          <hr />
+        </header>
+        <div class="card__body">
+          <p>
+            Everything is incentivised. You get paid for all the time you
+            dedicate. You get paid if you refer them and they get placed.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="plan">
+      <div class="card card--secondary">
+        <header>
+          <h3>Endless Learning For You Too</h3>
+          <hr />
+        </header>
+        <div class="card__body">
+          <p>
+            Learning with your mentees will be a two way process. You help them
+            learn and with their feedback, you learn and grow. We provide timely
+            feedback to help you improve as well.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="plan">
+      <div class="card card--secondary">
+        <header>
+          <h3>An Ever Growing Network</h3>
+          <hr />
+        </header>
+        <div class="card__body">
+          <p>
+            Meet professionals from different industries and build a
+            long-lasting network of like-minded, driven individuals.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<app-footer></app-footer>

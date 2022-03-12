@@ -1,0 +1,196 @@
+<app-navbar></app-navbar>
+<section id="mentorform" class="block--mentor hero">
+  <div class="container">
+    <div data-aos="zoom-in">
+      <div class="text-secondary">
+        <div class="py-4">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="col-lg-6 mx-auto">
+                  <h3 class="mb-3" style="text-align: center; color: #1B0760;">
+                    Host Event
+                  </h3>
+                  <form class="row g-3" [formGroup]="eventForm" (ngSubmit)="onSubmit(eventForm.value)">
+                    <div class="col-12">
+                      <label style="margin-left: 1rem">Event Name
+                        <sup><span style="color: #dc3545; font-size: 1rem" class="fa fa-star checked"></span></sup>
+                      </label>
+                      <div class="input-group">
+                        <input type="text" class="input" id="event_name" placeholder="Enter event name"
+                          formControlName="event_name" />
+                      </div>
+                    </div>
+                    <div class="row" style="margin-top: 1rem;">
+                      <div class="col-12 col-md-6 email-margin">
+                        <label style="margin-left: 1rem">Mentor Name
+                          <sup><span style="color: #dc3545; font-size: 1rem" class="fa fa-star checked"></span></sup>
+                        </label>
+                        <div class="input-group email-width">
+                          <input type="text" class="input" id="event_host"
+                            placeholder="Farooq, more than 10 years of exp" formControlName="event_host" />
+                        </div>
+                      </div>
+                      <div class="col-12 col-md-6 mobile-margin">
+                        <label style="margin-left: 1rem">Event Link
+                          <sup><span style="color: #dc3545; font-size: 1rem" class="fa fa-star checked"></span></sup>
+                        </label>
+                        <div class="input-group mobile-width">
+                          <input type="text" class="input" id="event_url" placeholder="Enter link"
+                            formControlName="event_url" />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row" style="margin-top: 1rem;">
+                      <div class="col-12 col-md-6 email-margin">
+                        <label style="margin-left: 1rem">Email ID
+                          <sup><span style="color: #dc3545; font-size: 1rem" class="fa fa-star checked"></span></sup>
+                        </label>
+                        <div class="input-group email-width">
+                          <input type="email" class="input" id="email" placeholder="Enter your Email"
+                            formControlName="email" />
+                        </div>
+                      </div>
+                      <div class="col-12 col-md-6 mobile-margin">
+                        <label style="margin-left: 1rem">Mobile Number
+                          <sup><span style="color: #dc3545; font-size: 1rem" class="fa fa-star checked"></span></sup>
+                        </label>
+                        <div class="input-group mobile-width">
+                          <input type="number" class="input" id="mobile" placeholder="91 9000000000"
+                            formControlName="mobile" />
+                        </div>
+                        <div class="col-12" style="margin-top: 0;">
+                          <p style="font-size: 1.4rem; padding-left: 0.4rem; margin-bottom: 0;">
+                            <span> Mobile with country code.
+                            </span>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <label style="margin-left: 1rem">Start Date
+                        <sup><span style="color: #dc3545; font-size: 1rem" class="fa fa-star checked"></span></sup>
+                      </label>
+                      <div class="input-group">
+                        <input type="date" class="input" id="start_date" placeholder="Enter start date"
+                          formControlName="start_date" />
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <label style="margin-left: 1rem">Start Time
+                        <sup><span style="color: #dc3545; font-size: 1rem" class="fa fa-star checked"></span></sup>
+                      </label>
+                      <div class="input-group">
+                        <input type="time" class="input" id="start_time" placeholder="Enter start time"
+                          formControlName="start_time" />
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <label style="margin-left: 1rem">End Date
+                        <sup><span style="color: #dc3545; font-size: 1rem" class="fa fa-star checked"></span></sup>
+                      </label>
+                      <div class="input-group">
+                        <input type="date" class="input" id="end_date" placeholder="Enter end date"
+                          formControlName="end_date" />
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <label style="margin-left: 1rem">End Time
+                        <sup><span style="color: #dc3545; font-size: 1rem" class="fa fa-star checked"></span></sup>
+                      </label>
+                      <div class="input-group">
+                        <input type="time" class="input" id="end_time" placeholder="Enter end time"
+                          formControlName="end_time" />
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <label style="margin-left: 1rem">Duration
+                        <sup><span style="color: #dc3545; font-size: 1rem" class="fa fa-star checked"></span></sup>
+                      </label>
+                      <div class="input-group">
+                        <input type="text" class="input" id="duration" placeholder="1 hour"
+                          formControlName="duration" />
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <label style="margin-left: 1rem">Price
+                        <sup><span style="color: #dc3545; font-size: 1rem" class="fa fa-star checked"></span></sup>
+                      </label>
+                      <div class="input-group">
+                        <input type="text" class="input" id="event_price" placeholder="INR 200/-"
+                          formControlName="event_price" />
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <label style="margin-left: 1rem" class="mb-2">Event Description (Html)
+                        <sup><span style="color: #dc3545; font-size: 1rem" class="fa fa-star checked"></span></sup>
+                      </label>
+                      <div class="input-group">
+                        <textarea style="height: 8rem;" class="input" placeholder="What is purpose of this event?"
+                          id="description" rows="3" formControlName="description"></textarea>
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <label style="margin-left: 1rem" class="mb-2">Event Description (Text)
+                        <sup><span style="color: #dc3545; font-size: 1rem" class="fa fa-star checked"></span></sup>
+                      </label>
+                      <div class="input-group">
+                        <textarea style="height: 8rem;" class="input" placeholder="What is purpose of this event?"
+                          id="event_seo_desc" rows="3" formControlName="event_seo_desc"></textarea>
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <div class="mb-2">
+                        <label style="
+                            font-size: 1.4rem;
+                            color: #000;
+                          " class="form-check-label label" for="policy"><span style="font-weight: bold">Note: </span>
+                          Upload 1920 X 500 resolution jpeg or png image for best user experience.</label>
+                      </div>
+                      <label>
+                        <input style="width: 80%;" type="file" class="text-nowrap text-truncate"
+                          (change)="selectFile($event)" />
+                      </label>
+                    </div>
+                    <div class="col-12" *ngIf="formSubmitted">
+                      <div *ngIf="errorMsg" class="alert alert-danger d-flex align-items-center" role="alert">
+                        <div>{{ errorMsg }}</div>
+                      </div>
+                      <div *ngIf="successMsg" class="alert alert-success d-flex align-items-center" role="alert">
+                        <div>{{ successMsg }}</div>
+                      </div>
+                      <div *ngIf="loading" class="text-center">
+                        <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
+                          <span class="visually-hidden">Loading...</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12" *ngIf="fileChooseMsg">
+                      <div *ngIf="fileChooseMsg" class="alert alert-danger d-flex align-items-center" role="alert">
+                        <div>{{ fileChooseMsg }}</div>
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <button [disabled]="!eventForm.valid" type="submit" class="btn btn--theme btn-lg col-12">
+                        Create Event
+                      </button>
+                    </div>
+                  </form>
+                  <div class="col-12">
+                    <label style="font-size: 1.4rem; margin-left: 1.5rem" class="form-check-label label" for="policy">
+                      By creating an event I have read and agree to StackMi's
+                      <a [routerLink]="['/terms']">Terms of Use</a>
+                      <span>&nbsp;&&nbsp;</span>
+                      <a [routerLink]="['/policy']">Privacy Policy</a>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<app-footer></app-footer>

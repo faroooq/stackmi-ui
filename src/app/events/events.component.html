@@ -1,0 +1,56 @@
+<router-outlet></router-outlet>
+<app-navbar></app-navbar>
+<section class="block block--skewed-up hero"
+    style="background: linear-gradient(to bottom right, #3333ff 0%, #ff5050 100%); padding-top: 5rem;">
+    <header class="block__header" style="margin: 0;">
+        <h2 style="font-weight: 400">
+            <span style=" color: #fff;">Events On StackMi</span>
+        </h2>
+    </header>
+</section>
+<div class="container">
+    <div *ngIf="loading" class="d-flex justify-content-center" style="margin-bottom: 8rem">
+        <div class="spinner-border" style="width: 6rem; height: 6rem" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+    <div *ngIf="!loading" id="events">
+        <div class="grid grid--1X2" style="margin-bottom: 5rem; margin-top: 2rem;">
+            <div *ngFor="let event of events | sort: 'event_start_date'">
+                <div class="card card--secondary">
+                    <div class="image-color" style="background: #d5d2d2">
+                        <img height="200px" data-src="{{ event?.photo_url }}" />
+                    </div>
+                    <div class="card__body" style="font-size: 1.6rem; padding-bottom: 1rem">
+                        <h3>
+                            {{ event.event_name }}
+                        </h3>
+                        <div style="font-weight: 500;">Start Time: &nbsp;{{ event.start_date }} &comma; {{
+                            event.event_start_time }}
+                        </div>
+                        <div style="font-weight: 500;">Duration: &nbsp;&nbsp;&nbsp;&nbsp; {{ event.duration }}</div>
+                    </div>
+                    <hr />
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12 col-md-6" style="align-self: center; padding-left: 2rem;">
+                                <p style="color: #1b0760; font-weight: 500">
+                                    <img style="width: 18px" src="../../assets/images/flame.svg" alt="" />&nbsp;
+                                    <span style="font-size: 2rem">{{
+                                        event.registered_users_count
+                                        }}</span>&nbsp;
+                                    <span>people registered.</span>
+                                </p>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <a [routerLink]="['/events/event', event.id]"
+                                    class="btn btn--outline btn--block">Register Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

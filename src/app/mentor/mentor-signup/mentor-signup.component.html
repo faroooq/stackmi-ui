@@ -1,0 +1,138 @@
+<div *ngIf="!authService.isLoggedIn()" class="container card text-dark mb-3"
+  style="box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="col-lg-11 mx-auto">
+        <div class="card-header"
+          style="background: #fff; padding-top: 2rem; margin-bottom: 1rem; font-size: 2.1rem; text-align: center; color: #1b0760;">
+          Mentor Signup</div>
+        <div class="card-body">
+          <div class="col-lg-12">
+            <div class="col-lg-12 mx-auto">
+              <form class="row g-3" [formGroup]="mentorForm" (ngSubmit)="onSubmit(mentorForm.value)">
+                <div class="row" style="margin: 0; padding: 0">
+                  <div class="col-12 col-md-6 email-margin">
+                    <label style="margin-left: 1rem">Name
+                      <sup><span style="color: #dc3545; font-size: 1rem" class="fa fa-star checked"></span></sup>
+                    </label>
+                    <div class="input-group email-width">
+                      <input type="text" class="input" id="user_name" placeholder="Enter your name"
+                        formControlName="user_name" />
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6 mobile-margin">
+                    <label style="margin-left: 1rem">Mobile Number
+                      <sup><span style="color: #dc3545; font-size: 1rem" class="fa fa-star checked"></span></sup>
+                    </label>
+                    <div class="input-group mobile-width">
+                      <input type="number" class="input" id="mobile" placeholder="Enter mobile number"
+                        formControlName="mobile" />
+                    </div>
+                  </div>
+                </div>
+                <div class="row" style="margin: 0; padding: 0">
+                  <div class="col-12 col-md-6 email-margin">
+                    <label style="margin-left: 1rem">Email
+                      <sup><span style="color: #dc3545; font-size: 1rem" class="fa fa-star checked"></span></sup>
+                    </label>
+                    <div class="input-group email-width">
+                      <input type="email" class="input" id="email" placeholder="Enter your email"
+                        formControlName="email" />
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-md-6 mobile-margin">
+                    <label style="margin-left: 1rem">Password
+                      <sup><span style="color: #dc3545; font-size: 1rem" class="fa fa-star checked"></span></sup>
+                    </label>
+                    <div class="input-group mobile-width">
+                      <input type="password" class="input" id="password" placeholder="Password"
+                        formControlName="password" />
+                    </div>
+                  </div>
+                  <div class="col-12" style="margin-top: 0">
+                    <p style="
+                      font-size: 1.4rem;
+                      padding-left: 0.4rem;
+                      margin-top: 0rem;
+                      margin-bottom: 0;
+                    ">
+                      <span style="color: rgb(194, 192, 192);"><strong>Note:</strong> You will receive an email for
+                        confirmation.
+                      </span>
+                    </p>
+                  </div>
+                </div>
+                <div class="row" style="margin: 0; padding: 0">
+                  <div class="col-12 col-md-6 email-margin">
+                    <label style="margin-left: 1rem">Technical Skills
+                      <sup><span style="color: #dc3545; font-size: 1rem" class="fa fa-star checked"></span></sup>
+                    </label>
+                    <div class="input-group email-width">
+                      <input type="text" class="input" id="skills" placeholder="Java, Python..."
+                        formControlName="skills" />
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-md-6 mobile-margin">
+                    <label style="margin-left: 1rem">Experience
+                      <sup><span style="color: #dc3545; font-size: 1rem" class="fa fa-star checked"></span></sup>
+                    </label>
+                    <div class="input-group mobile-width">
+                      <input type="text" class="input" id="experience" placeholder="Years of experience"
+                        formControlName="experience" />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <label style="margin-left: 1rem">Profession
+                    <sup><span style="color: #dc3545; font-size: 1rem" class="fa fa-star checked"></span></sup>
+                  </label>
+                  <div class="input-group">
+                    <input type="text" class="input" id="profession" placeholder="Enter your profession."
+                      formControlName="profession" />
+                  </div>
+                </div>
+                <div class="col-12">
+                  <label style="margin-left: 1rem" class="mb-2">Tell Us, 2 Words About Your Expertise
+                    <sup><span style="color: #dc3545; font-size: 1rem" class="fa fa-star checked"></span></sup>
+                  </label>
+                  <div class="input-group">
+                    <textarea style="height: 8rem;" class="input" placeholder="We want to listen your accomplishments"
+                      id="profile_desc" rows="3" formControlName="profile_desc"></textarea>
+                  </div>
+                </div>
+                <div class="col-12" *ngIf="formSubmitted">
+                  <div *ngIf="errorMsg" class="alert alert-danger d-flex align-items-center" role="alert">
+                    <div>{{ errorMsg }}</div>
+                  </div>
+                  <div *ngIf="successMsg" class="alert alert-success d-flex align-items-center" role="alert">
+                    <div>{{ successMsg }}</div>
+                  </div>
+                  <div *ngIf="loading" class="text-center">
+                    <div class="spinner-border" style="width: 3rem; height: 3rem" role="status">
+                      <span class="visually-hidden">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <button [disabled]="!mentorForm.valid" type="submit"
+                    style="padding: 1rem; font-size: 1.6rem; margin: 0.8rem 0.5rem;"
+                    class="btn btn--red btn-lg col-12">I Love to Mentor</button>
+                </div>
+              </form>
+              <div class="col-12">
+                <label style="font-size: 1.4rem; margin-left: 1.5rem" class="form-check-label label" for="policy">
+                  By creating an account I have read and agree to StackMi's
+                  <a [routerLink]="['/terms']">Terms of Use</a>
+                  <span>&nbsp;&&nbsp;</span>
+                  <a [routerLink]="['/policy']">Privacy Policy</a>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
