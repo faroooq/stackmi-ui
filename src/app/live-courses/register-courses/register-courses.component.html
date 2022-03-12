@@ -1,5 +1,5 @@
 <app-navbar></app-navbar>
-<section class="block block--skewed-up hero" style="background: #002E6B; padding-top: 5rem;">
+<section class="block block--skewed-up hero" style="background: #00C4CC; padding-top: 5rem;">
     <header class="block__header" style="margin: 0;">
         <h2 style="font-weight: 300;">
             <span style="color: #fff;">{{event?.event_name}}</span>
@@ -31,7 +31,7 @@
                     </div>
                     <div style="font-weight: 500; margin-top: 5px;">Duration: &nbsp;&nbsp;&nbsp;{{
                         event?.duration }}</div>
-                    <button (click)="selectedCourse(event.event_name)" style="width: 100%;" class="btn btn-danger"
+                    <button (click)="selectedCourse(event.event_name)" style="width: 100%;" class="btn btn--purple"
                         type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBackdrop"
                         aria-controls="offcanvasWithBackdrop">Enroll
                         Course</button>
@@ -41,7 +41,7 @@
             <hr />
             <div *ngIf="event" style="margin-top: 2rem; padding: 1rem;">
                 <div style="font-size: 2.3rem; 
-        color: #1b0760;
+        color: #5E17EB;
         font-family: Roboto,Arial,sans-serif;
         line-height: 24px;
         background: #eeecf9; 

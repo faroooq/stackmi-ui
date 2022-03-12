@@ -1,21 +1,20 @@
 <app-navbar></app-navbar>
 <section class="block block--skewed-up hero"
-    style="background: aliceblue; padding-top: 5rem; background-image: url('../../assets/images/academy_banner.png'); height: 500px;">
+    style="background: aliceblue; padding-top: 3rem; background-image: url('../../assets/images/academy_banner.png'); height: 500px;">
     <div class="container grid grid--1x2">
         <div class="col-lg-12">
             <!-- <img src="../../assets/images/academy_banner.png" alt=""> -->
         </div>
         <header style="text-align: center;" class="block__header hero__content">
             <h1 style="color: #fff; text-align: left; font-size: 4rem; line-height: 5rem;">
-                Become a Full-stack Web Developer
-                <span class="highlight" style="font-size: 4rem; color: #fff; font-style: italic;">@StackMi</span>
+                <i>Become a Full-stack Web Developer @StackMi</i>
             </h1>
-            <p style="color: #BAC6DB; text-align: left; font-size: 2rem;">Well structured, convenient & guided
-                learning platform.
-                <!--  -->
+            <p style="color: #BAC6DB; text-align: left; font-size: 2rem;"><i>
+                    Well structured, convenient & guided learning platform.
+                </i>
             </p>
             <div class="container grid grid--1x2" style="padding-left: 0;">
-                <a style="padding: 1rem; font-size: 1.6rem; margin: 0.8rem 0.5rem;" class="btn btn--red"
+                <a style="padding: 1rem; font-size: 1.6rem; margin: 0.8rem 0.5rem;" class="btn btn--purple"
                     (click)="scroll(demoForm)">Book a FREE Class</a>
 
                 <a style="padding: 1rem; font-size: 1.6rem; margin: 0.8rem 0.5rem;" class="btn btn--white"
@@ -29,10 +28,10 @@
         <div class="row">
             <div class="col-lg-12" style="margin-bottom: 3rem;">
                 <div style="padding: 3rem; text-align: center; margin-top: 1rem; margin-bottom: -2rem;">
-                    <h3>A program for engineers and students to <strong class="highlight"
+                    <h2 style="font-size: 3rem;">A program for engineers and students to <strong class="highlight"
                             style="background-position: 1rem 2rem;">master in</strong> Technologies
-                    </h3>
-                    <hr>
+                    </h2>
+                    <!-- <hr>
                     <h3 style="font-size: 2rem;"><span style="color: #0455BB;">Java&nbsp;&nbsp;</span>
                         <span style="color: #c59304;">Python&nbsp;&nbsp;</span>
                         <span style="color: #499609;">Spring Boot&nbsp;&nbsp;</span>
@@ -42,7 +41,7 @@
                         <span style="color: #7c5df7;">CSS&nbsp;&nbsp;</span>
                         <span style="color: #03CCD3;">Javascript&nbsp;&nbsp;</span>
                         <span style="color: #bb3a88;">Typescript</span>..
-                    </h3>
+                    </h3> -->
                     <hr>
                 </div>
                 <div class="card-body">
@@ -69,7 +68,7 @@
         </div>
     </div>
 </section>
-<section class="block block--skewed-up hero card-margin" style="background: aliceblue; padding-top: 12rem;">
+<section class="block block--skewed-up hero card-margin" style="background: aliceblue; padding-top: 5rem;">
     <header class="block__header">
         <h3 style="font-weight: 600">
             <span><strong class="highlight">What's special</strong> in enrolling LIVE classes?</span>
@@ -123,14 +122,10 @@
 <section #explore data-aos="fade-up" class="block block-plans" style="background: aliceblue;">
     <header class="block__header">
         <h3><strong class="highlight">Curriculum</strong> is designed to make you a SOLID
-            ENGINEER
+            ENGINEER &nbsp;
+            <a style="padding: 1rem; font-size: 1.6rem; margin: 0.8rem 0.5rem; border: 1px solid #5E17EB;"
+                class="btn btn--white" [routerLink]="['/all-courses']">View All Courses</a>
         </h3>
-        <div class="row">
-            <div class="col-6 mx-auto">
-                <a style="font-size: 21px;" [routerLink]="['/all-courses']" class="btn btn--outline btn--block">All
-                    Courses</a>
-            </div>
-        </div>
     </header>
     <div class="grid grid--1x4 grid--1x2">
         <div class="plan">
@@ -161,7 +156,7 @@
             </div>
         </div>
         <div class="plan plan--popular">
-            <div class="card card--fullstack">
+            <div class="card card--job">
                 <header class="card__header">
                     <h3 class="plan__name">FULLSTACK EXPERT + CRACK JOB</h3>
                     <hr>
@@ -176,7 +171,7 @@
                     <ul class="list list--tick">
                         <li class="list__item">Complete
                             <strong>
-                                <a style="color: #1b0760;" [routerLink]="['/front-end']">Front-end</a>
+                                <a style="color: #5E17EB;" [routerLink]="['/front-end']">Front-end</a>
                             </strong>
                             Developer Program
                         </li>
@@ -198,7 +193,7 @@
                         <li class="list__item">Jobs and Placements</li>
                     </ul>
                     <button (click)="selectedCourse('Full-stack Developer Program')" style="margin: 0; width: 100%;"
-                        class="btn btn-danger" type="button" data-bs-toggle="offcanvas"
+                        class="btn btn--purple" type="button" data-bs-toggle="offcanvas"
                         data-bs-target="#offcanvasWithBackdrop" aria-controls="offcanvasWithBackdrop">Enroll
                         Course</button>
                 </div>
@@ -262,7 +257,7 @@
 <section>
     <app-course-enroll [notifier]="sendCourse"></app-course-enroll>
 </section>
-<section class="block block--skewed-up hero" style="background: #fbf2c3; padding-top: 5rem;">
+<section class="block block--skewed-up hero" style="background: #e2f4f5; padding-top: 5rem;">
     <header class="block__header">
         <h3 style="font-weight: 600">
             <span>Course completion <strong class="highlight">certificate</strong>.</span>

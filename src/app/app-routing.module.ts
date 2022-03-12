@@ -22,7 +22,7 @@ const routes: Routes = [
     path: 'home',
     component: HomeComponent,
     data: {
-      title: 'StackMi Technologies - Live Online Courses',
+      title: 'StackMi Solutions - Live Online Courses',
       desc: 'StackMi Academy designed for everyone who wants to revamp their career with Live Sessions, Webinars, Documented Videos..',
       keywords:
         'StackMi, Software, Training, Solutions, Web, Courses, Projects, Coding',
@@ -33,7 +33,7 @@ const routes: Routes = [
     component: MentorComponent,
     canActivate: [SeoGuard],
     data: {
-      title: 'StackMi Technologies - Mentor on board',
+      title: 'StackMi Solutions - Mentor on board',
       desc: 'StackMi Academy brings Mentors on board with Live Events on web technologies. Join with us and mentor students to help them unlock their true potential.',
       keywords:
         'StackMi, Software, Training, Solutions, Web, Courses, Projects, Coding',
@@ -44,7 +44,7 @@ const routes: Routes = [
     component: AboutComponent,
     canActivate: [SeoGuard],
     data: {
-      title: 'StackMi Technologies - Live Online Courses',
+      title: 'StackMi Solutions - Live Online Courses',
       desc: 'Career Counselling, Skill Development, Trainings and Crash Courses, Live Events, Mock Interviews. Jobs and Placements..',
       keywords:
         'StackMi, Software, Training, Solutions, Web, Courses, Projects, Coding',
@@ -55,7 +55,7 @@ const routes: Routes = [
     component: ContactComponent,
     canActivate: [SeoGuard],
     data: {
-      title: 'StackMi Technologies - Live Online Courses',
+      title: 'StackMi Solutions - Live Online Courses',
       desc: 'Engage with StackMi, Contact - info@stackmi.com, Whatsapp - +91 9030566011(Whatsapp Only)',
       keywords:
         'StackMi, Software, Training, Solutions, Web, Courses, Projects, Coding',
@@ -66,7 +66,7 @@ const routes: Routes = [
     component: SignInComponent,
     canActivate: [SeoGuard],
     data: {
-      title: 'StackMi Technologies - Live Online Courses',
+      title: 'StackMi Solutions - Live Online Courses',
       desc: 'StackMi Academy designed for everyone who wants to revamp their career with Live Sessions, Webinars, Documented Videos..',
       keywords:
         'StackMi, Software, Training, Solutions, Web, Courses, Projects, Coding',
@@ -77,7 +77,7 @@ const routes: Routes = [
     component: SignUpComponent,
     canActivate: [SeoGuard],
     data: {
-      title: 'StackMi Technologies - Live Online Courses',
+      title: 'StackMi Solutions - Live Online Courses',
       desc: 'StackMi Academy designed for everyone who wants to revamp their career with Live Sessions, Webinars, Documented Videos..',
       keywords:
         'StackMi, Software, Training, Solutions, Web, Courses, Projects, Coding',
@@ -88,7 +88,7 @@ const routes: Routes = [
     component: HomeFormComponent,
     canActivate: [SeoGuard],
     data: {
-      title: 'StackMi Technologies - Live Online Courses',
+      title: 'StackMi Solutions - Live Online Courses',
       desc: 'StackMi Academy designed for everyone who wants to revamp their career with Live Sessions, Webinars, Documented Videos..',
       keywords:
         'StackMi, Software, Training, Solutions, Web, Courses, Projects, Coding',
@@ -103,7 +103,7 @@ const routes: Routes = [
     component: UpdatePasswordComponent,
     canActivate: [AuthGuard],
     data: {
-      title: 'StackMi Technologies - Live Online Courses',
+      title: 'StackMi Solutions - Live Online Courses',
       desc: 'StackMi Academy designed for everyone who wants to revamp their career with Live Sessions, Webinars, Documented Videos..',
       keywords:
         'StackMi, Software, Training, Solutions, Web, Courses, Projects, Coding',
@@ -113,7 +113,7 @@ const routes: Routes = [
     path: 'forgotpwd',
     component: ForgotPasswordComponent,
     data: {
-      title: 'StackMi Technologies - Live Online Courses',
+      title: 'StackMi Solutions - Live Online Courses',
       desc: 'StackMi Academy designed for everyone who wants to revamp their career with Live Sessions, Webinars, Documented Videos..',
       keywords:
         'StackMi, Software, Training, Solutions, Web, Courses, Projects, Coding',
@@ -124,7 +124,7 @@ const routes: Routes = [
     component: ProfileComponent,
     canActivate: [AuthGuard],
     data: {
-      title: 'StackMi Technologies - Live Online Courses',
+      title: 'StackMi Solutions - Live Online Courses',
       desc: 'StackMi Academy designed for everyone who wants to revamp their career with Live Sessions, Webinars, Documented Videos..',
       keywords:
         'StackMi, Software, Training, Solutions, Web, Courses, Projects, Coding',
