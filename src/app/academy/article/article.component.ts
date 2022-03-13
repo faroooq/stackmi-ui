@@ -22,10 +22,12 @@ export class ArticleComponent implements OnInit {
   quiz_title: any;
   quiz_desc: any;
   quiz_available: boolean;
-  public link: string;
   userDetails: any;
+  // socialShares: ['copy', 'facebook', 'email', 'messenger', 'mix', 'line', 'linkedin', 'pinterest', 'print', 'reddit', 'sms', 'telegram', 'tumblr', 'twitter', 'viber', 'vk', 'xing', 'whatsapp'];
   // https://ngx-highlight.netlify.app/
   response: HighlightResult;
+  articleUrl: string;
+  articleImage: string;
 
   constructor(
     public route: ActivatedRoute,
@@ -36,6 +38,7 @@ export class ArticleComponent implements OnInit {
   ) { }
   // https://www.buzzphp.com/posts/how-to-embed-a-github-gist-in-the-angular-template
   ngOnInit(): void {
+    this.articleImage = environment.default_imageUrl;
     this.article = {};
     this.frame_available = false;
     this.quiz_available = false;
@@ -45,7 +48,7 @@ export class ArticleComponent implements OnInit {
     }
     this.route.params
       .subscribe(params => {
-        this.link = environment.articleurl + params.title;
+        this.articleUrl = environment.articleurl + params.title;
         this.http
           .get('articles', params.title)
           .subscribe((article: any) => {

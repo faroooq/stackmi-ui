@@ -79,15 +79,19 @@
                 </div>
             </div>
             <div class="row">
-                <div *ngIf="article?.article_title" class="col-lg-9 mx-auto p-3" style="align-self: center;">
-                    <h2 style="font-weight: 400;">{{article?.article_title}}</h2>
+                <div *ngIf="article?.article_title" class="col-lg-7 mx-auto p-3" style="align-self: center;">
+                    <h1 style="font-weight: 400; font-size: 3.3rem;">{{article?.article_title}}</h1>
                 </div>
-                <div class="col-lg-3 p-3 main">
+                <div class="col-lg-5 p-3 main">
                     <h4 style="margin-left: 0.4rem;">Share Article</h4>
-                    <app-share-button type='twitter' [shareUrl]='link'></app-share-button>
+                    <!-- <app-share-button type='twitter' [shareUrl]='link'></app-share-button>
                     <app-share-button type='facebook' [shareUrl]='link'></app-share-button>
                     <app-share-button type='linkedin' [shareUrl]='link'></app-share-button>
-                    <app-share-button type='whatsapp' [shareUrl]='link'></app-share-button>
+                    <app-share-button type='whatsapp' [shareUrl]='link'></app-share-button> -->
+                    <share-buttons [theme]="'circles-dark'"
+                        [include]="['facebook','twitter','linkedin','telegram','whatsapp','copy']" [url]="articleUrl"
+                        [image]="article?.article_image? article?.article_image: articleImage" [autoSetMeta]="false">
+                    </share-buttons>
                 </div>
             </div>
             <div *ngIf="article?.article_image" class="row col-lg-12 image-color mt-5 mb-5">
