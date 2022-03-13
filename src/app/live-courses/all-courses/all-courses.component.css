@@ -9,7 +9,7 @@ img {
     margin: 1rem;
   }
   .card:hover {
-    color: var(--color-black);
+    color: var(--color-purple);
     border: 1px solid darkblue;
   }
   .card__header,

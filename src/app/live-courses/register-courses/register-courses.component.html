@@ -1,11 +1,12 @@
 <app-navbar></app-navbar>
-<section class="block block--skewed-up hero" style="background: #00C4CC; padding-top: 5rem;">
+<section class="block block--skewed-up hero" style="background: #5E17EB; padding-top: 5rem;">
     <header class="block__header" style="margin: 0;">
         <h2 style="font-weight: 300;">
             <span style="color: #fff;">{{event?.event_name}}</span>
         </h2>
     </header>
 </section>
+<app-course-enroll [notifier]="sendCourse"></app-course-enroll>
 <section data-aos="fade-up">
     <div class="container grid grid--1x1" style="margin-top: 3rem">
         <header class="block__header hero__content">
@@ -21,7 +22,7 @@
                     <div style="font-weight: 500; margin-top: 5px;">End Date: &nbsp;&nbsp;{{ event?.end_date
                         }}</div>
                     <div style="font-weight: 500; margin-top: 5px;">Course Fee:
-                        <span class="badge badge--primary" style="padding: 1rem; font-size: 18px;">{{ event?.event_price
+                        <span class="badge badge--dull" style="padding: 1rem; font-size: 18px;">{{ event?.event_price
                             }}</span>
                     </div>
                 </div>
@@ -35,7 +36,6 @@
                         type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBackdrop"
                         aria-controls="offcanvasWithBackdrop">Enroll
                         Course</button>
-                    <app-course-enroll [notifier]="sendCourse"></app-course-enroll>
                 </div>
             </div>
             <hr />

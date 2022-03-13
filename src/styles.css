@@ -83,7 +83,7 @@ p {
 }
 
 label {
-  color: #5E17EB;
+  color: #3e07ab;
   font-size: 1.5rem;
   padding-left: 0.5rem;
 }
@@ -153,7 +153,7 @@ a {
 }
 
 .badge--dull {
-  background: var(--color-badge);
+  background: var(--color-body-darker);
   color: #fff;
 }
 
@@ -362,7 +362,7 @@ a {
 .btn--purple {
   background: #5E17EB;
   color: #fff;
-  border: 2px solid var(--color-purple);
+  border: 1px solid var(--color-purple);
 }
 
 .btn--purple:hover {
@@ -462,7 +462,7 @@ a {
 
 .card--fullstack .card__header {
   background: var(--color-white);
-  color: #00C4CC;
+  color: #5E17EB;
 }
 
 .card--ui .card__header {
