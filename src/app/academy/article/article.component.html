@@ -90,7 +90,8 @@
                     <app-share-button type='whatsapp' [shareUrl]='link'></app-share-button> -->
                     <share-buttons [theme]="'circles-dark'"
                         [include]="['facebook','twitter','linkedin','telegram','whatsapp','copy']" [url]="articleUrl"
-                        [image]="article?.article_image? article?.article_image: articleImage" [autoSetMeta]="false">
+                        [image]="article?.article_seo_image? article?.article_seo_image: articleImage"
+                        [autoSetMeta]="false">
                     </share-buttons>
                 </div>
             </div>
