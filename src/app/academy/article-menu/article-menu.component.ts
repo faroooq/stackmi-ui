@@ -27,8 +27,6 @@ export class ArticleMenuComponent implements OnInit {
     public http: HttpService,
     private cdRef: ChangeDetectorRef,
     windowRef: WindowService,
-    @Inject(PLATFORM_ID) private platformId: object,
-    @Inject(DOCUMENT) private document: Document
   ) {
     this.windowRef = windowRef.getWindow();
     // TODO: Work around, bcs of document object not defined issue, in case of npm run serve:ssr
