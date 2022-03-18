@@ -73,11 +73,6 @@
             </div>
         </nav>
         <div class="content mt-5">
-            <div *ngIf="loading" class="d-flex justify-content-center" style="margin-bottom: 8rem">
-                <div class="spinner-border" style="width: 6rem; height: 6rem" role="status">
-                    <span class="visually-hidden">Loading...</span>
-                </div>
-            </div>
             <div class="row">
                 <div *ngIf="article?.article_title" class="col-lg-7 mx-auto p-3" style="align-self: center;">
                     <h1 style="font-weight: 400; font-size: 3.3rem;">{{article?.article_title}}</h1>
@@ -93,6 +88,13 @@
                         [image]="article?.article_seo_image? article?.article_seo_image: articleImage"
                         [autoSetMeta]="false">
                     </share-buttons>
+                </div>
+            </div>
+            <div class="row">
+                <div *ngIf="loading" class="d-flex justify-content-center" style="margin-bottom: 8rem">
+                    <div class="spinner-border" style="width: 6rem; height: 6rem" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
                 </div>
             </div>
             <div *ngIf="article?.article_image" class="row col-lg-12 image-color mt-5 mb-5">
