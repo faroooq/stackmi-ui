@@ -72,31 +72,26 @@
             "topic_list": [
                 {
                     "topic_id": "1",
-                    "topic_slug": "ng-architect-components",
-                    "topic_name": "Architecting with Components"
-                },
-                {
-                    "topic_id": "2",
                     "topic_slug": "ng-styles-encapsulation",
                     "topic_name": "View Encapsulation"
                 },
                 {
-                    "topic_id": "3",
+                    "topic_id": "2",
                     "topic_slug": "ng-lifecycle-hooks",
                     "topic_name": "Lifecycle Hooks"
                 },
                 {
-                    "topic_id": "4",
+                    "topic_id": "3",
                     "topic_slug": "ng-view-child-children",
                     "topic_name": "ViewChild and ViewChildren"
                 },
                 {
-                    "topic_id": "5",
+                    "topic_id": "4",
                     "topic_slug": "ng-content-projection",
                     "topic_name": "Content Projection"
                 },
                 {
-                    "topic_id": "6",
+                    "topic_id": "5",
                     "topic_slug": "ng-content-child-children",
                     "topic_name": "ContentChild and ContentChildren"
                 }

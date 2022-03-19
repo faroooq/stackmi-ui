@@ -136,6 +136,27 @@ export class SeoGuard implements CanActivate {
                     "seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Angular-seo-output.png",
                     "seo_desc": "We use @Output directive to emit custom events synchronously or asynchronously, and register handlers for those events by subscribing to an instance.",
                     "seo_keywords": "Angular Outputs, Angular, Learn Angular, Angular Technology, Web Solutions, Full-stack developer, Learn Angular Online"
+                },
+                {
+                    "seo_slug": "ng-styles-encapsulation",
+                    "seo_title": "Angular - View Encapsulation",
+                    "seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Angular-seo-view-encap.png",
+                    "seo_desc": "We can restrict CSS styles specific to the component level. This is one of the beautiful feature of Angular. For any component if you add styles to the component, the styles will be applied only to that component, but it won't leak outside to any other component.",
+                    "seo_keywords": "Angular View Encapsulation, Angular, Learn Angular, Angular Technology, Web Solutions, Full-stack developer, Learn Angular Online"
+                },
+                {
+                    "seo_slug": "ng-lifecycle-hooks",
+                    "seo_title": "Angular - Lifecycle Hooks",
+                    "seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Angular-seo-life-cycle.png",
+                    "seo_desc": "A component in Angular has a life-cycle, a number of different phases it goes through from birth to death. We can hook into those different phases to get some pretty fine grained control of our application.",
+                    "seo_keywords": "Angular Life cycle hooks, Angular, Learn Angular, Angular Technology, Web Solutions, Full-stack developer, Learn Angular Online"
+                },
+                {
+                    "seo_slug": "ng-view-child-children",
+                    "seo_title": "Angular - ViewChild and ViewChildren",
+                    "seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Angular-seo-view-child.png",
+                    "seo_desc": "If you want to access the child reference of a given component or the elements used within its template (its view) then we use @ViewChild and @ViewChildren.",
+                    "seo_keywords": "Angular View Child and Children, Angular, Learn Angular, Angular Technology, Web Solutions, Full-stack developer, Learn Angular Online"
                 }
             ]
             for (let i = 0; i < articlMetaSEO.length; i++) {

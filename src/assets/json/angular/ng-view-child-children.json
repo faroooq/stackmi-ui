@@ -2,11 +2,11 @@
     "_id": {
         "$oid": "61eb9739629474e18058aa4b"
     },
-    "article_id": "2.4",
+    "article_id": "2.3",
     "article_slug": "ng-view-child-children",
     "article_title": "Angular - ViewChild and ViewChildren",
     "article_image": "",
-    "article_seo_desc": "",
+    "article_seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Angular-seo-view-child.png",
     "enroll_available": true,
     "article_content": [
         {
@@ -23,7 +23,7 @@
         },
         {
             "content_title": "",
-            "content_desc": "<p><strong>Note:</strong> We are storing a reference to the child <code>ItemComponent</code>&nbsp;in&nbsp;a property called&nbsp;<code>itemView</code>.</p>\n<div class=\"paragraph\">\n<p>We create a new property called <code>itemView</code>&nbsp;and&nbsp;we pre-pend this with a&nbsp;decorator of&nbsp;<code>@ViewChild</code>. This decorator tells Angular&nbsp;<em>how</em> to find the child component (here ItemComponent) that we want to bind to this property.</p>\n</div>\n<div class=\"paragraph\">\n<p>A&nbsp;<code>@ViewChild</code> decorator means, search inside this component&rsquo;s template, its view, for&nbsp;this child component.</p>\n</div>\n<div class=\"paragraph\">\n<p>We can however hook into the&nbsp;lifecycle of&nbsp;the component at&nbsp;the point the&nbsp;view children have been created and&nbsp;that&rsquo;s with the&nbsp;<code>ngAfterViewInit</code> hook.</p>\n</div><p>In&nbsp;the&nbsp;<code>ngAfterViewInit</code> function&nbsp;<code>itemView</code>&nbsp;has been initialised and&nbsp;we can see it logged in&nbsp;the console.</p>",
+            "content_desc": "<p><strong>Note:</strong> We are storing a reference to the child <code>ItemComponent</code>&nbsp;in&nbsp;a property called&nbsp;<code>itemView</code>.</p>\n<div class=\"paragraph\">\n<p>We create a new property called <code>itemView</code>&nbsp;and&nbsp;we pre-pend this with a&nbsp;decorator of&nbsp;<code>@ViewChild</code>. This decorator tells Angular&nbsp;<em>how</em> to find the child component (here ItemComponent) that we want to bind to this property.</p>\n</div>\n<div class=\"paragraph\">\n<p>A&nbsp;<code>@ViewChild</code> decorator means, search inside this component&rsquo;s template, its view, for&nbsp;this child component.</p>\n</div>\n<div class=\"paragraph\">&nbsp;</div>\n<p>We get the reference of the <code>ItemComponent</code> in the <code>ngAfterViewInit</code> life cycle hook, i.e after child view has completely initialized.</p>",
             "content_image": "",
             "content_code": ""
         },
