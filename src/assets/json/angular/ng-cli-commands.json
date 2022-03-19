@@ -2,10 +2,11 @@
     "_id": {
         "$oid": "61e44544bbfe744154a4947d"
     },
+    "article_id": "1.3",
     "article_slug": "ng-cli-commands",
     "article_title": "Angular - Angular CLI Commands",
     "article_image": "",
-    "article_seo_desc": "Angular now comes with a command-line interface (CLI) to make it easier and faster to build Angular applications.",
+    "article_seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Angular-cli%20command.png",
     "enroll_available": true,
     "article_content": [
         {

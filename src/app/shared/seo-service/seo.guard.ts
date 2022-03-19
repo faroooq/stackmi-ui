@@ -63,78 +63,78 @@ export class SeoGuard implements CanActivate {
                 {
                     "seo_slug": "ng-intro",
                     "seo_title": "Introduction to Angular",
-                    "seo_image": "",
+                    "seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Angular-seo_intro.png",
                     "seo_desc": "Angular is one of the most popular Javascript frameworks in the world for building modern web applications. Angular is created & developed by Google and has a huge community support behind it.",
                     "seo_keywords": "Introduction, Angular, Learn Angular, Angular Technology, Web Solutions, Full-stack developer, Learn Angular Online"
                 },
                 {
                     "seo_slug": "ng-overview",
                     "seo_title": "Angular Overview",
-                    "seo_image": "",
+                    "seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Angular-seo-overview.png",
                     "seo_desc": "Angular is a platform and framework for building single-page client applications using HTML and TypeScript. Let's walkthrough the necessary files required to run the Angular application.",
                     "seo_keywords": "Angular Overview, Angular, Learn Angular, Angular Technology, Web Solutions, Full-stack developer, Learn Angular Online"
                 },
                 {
                     "seo_slug": "ng-cli-commands",
                     "seo_title": "Angular CLI Commands",
-                    "seo_image": "",
+                    "seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Angular-cli%20command.png",
                     "seo_desc": "Angular now comes with a command-line interface (CLI) to make it easier and faster to build Angular applications.",
                     "seo_keywords": "Angular CLI Commands, Angular, Learn Angular, Angular Technology, Web Solutions, Full-stack developer, Learn Angular Online"
                 },
                 {
                     "seo_slug": "ng-first-app",
                     "seo_title": "First Angular App",
-                    "seo_image": "",
+                    "seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Angular-seo-first-app.png",
                     "seo_desc": "Now, Let's create our first angular component with the name Item. We use the below CLI command to create a component.",
                     "seo_keywords": "Angular First App, Angular, Learn Angular, Angular Technology, Web Solutions, Full-stack developer, Learn Angular Online"
                 },
                 {
                     "seo_slug": "ng-string-interpolation",
                     "seo_title": "String Interpolation",
-                    "seo_image": "",
+                    "seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Angular-seo-string-inter.png",
                     "seo_desc": "String interpolation lets you incorporate dynamic string values into your HTML templates. In other words, it is used to display dynamic data on HTML template.",
                     "seo_keywords": "Angular String Interpolation, Angular, Learn Angular, Angular Technology, Web Solutions, Full-stack developer, Learn Angular Online"
                 },
                 {
                     "seo_slug": "ng-install-bootstrap",
                     "seo_title": "Install Bootstrap in project",
-                    "seo_image": "",
-                    "seo_desc": "Let's install and configure the twitter bootstrap. This helps us to build responsive and apply beautiful styles to our web page.",
+                    "seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Angular-seo-install-bootstrap.png",
+                    "seo_desc": "Let's install and configure the twitter bootstrap. This helps us to build responsive applications and apply beautiful styles to our web page.",
                     "seo_keywords": "Angular Bootstrap, Angular, Learn Angular, Angular Technology, Web Solutions, Full-stack developer, Learn Angular Online"
                 },
                 {
                     "seo_slug": "ng-looping",
                     "seo_title": "Angular Looping",
-                    "seo_image": "",
+                    "seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Angular-seo-ngfor-directive.png",
                     "seo_desc": "Angular comes with buil-in directive ngFor to iterate the array or list items.",
                     "seo_keywords": "Angular Looping, Angular, Learn Angular, Angular Technology, Web Solutions, Full-stack developer, Learn Angular Online"
                 },
                 {
                     "seo_slug": "ng-property-event-binding",
                     "seo_title": "Property and Event Binding",
-                    "seo_image": "",
-                    "seo_desc": "",
+                    "seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Angular-seo-property-binding.png",
+                    "seo_desc": "Property binding in Angular helps us set values for properties of HTML elements or directives. Use property binding to do things such as toggle button functionality, set paths programmatically, and share values between components.",
                     "seo_keywords": "Angular Event Binding, Angular, Learn Angular, Angular Technology, Web Solutions, Full-stack developer, Learn Angular Online"
                 },
                 {
                     "seo_slug": "ng-components-inputs",
                     "seo_title": "Angular Components and Inputs",
-                    "seo_image": "",
-                    "seo_desc": "One-way data binding will bind the data from the component to the view (DOM) or from view to the component. One-way data binding is unidirectional. You can only bind the data from component to the view or from view to the component.",
+                    "seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Angular-seo-inputs.png",
+                    "seo_desc": "Angular is a set of custom components glued together in HTML via inputs and outputs. So far we’ve only built applications with a single component, our goal now is to start building applications that are composed of multiple components working together.",
                     "seo_keywords": "Angular Components and Inputs, Angular, Learn Angular, Angular Technology, Web Solutions, Full-stack developer, Learn Angular Online"
                 },
                 {
                     "seo_slug": "ng-css-styling",
                     "seo_title": "Styling Cards using CSS",
-                    "seo_image": "",
-                    "seo_desc": "Apply styles to our cards to display our cards more beautiful.",
+                    "seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Angular-seo-styling-cards.png",
+                    "seo_desc": "Now let's apply styles to our cards to display our cards more beautiful using twitter bootstrap.",
                     "seo_keywords": "Angular Styling, Angular, Learn Angular, Angular Technology, Web Solutions, Full-stack developer, Learn Angular Online"
                 },
                 {
                     "seo_slug": "ng-outputs",
                     "seo_title": "User Interaction and Outputs",
-                    "seo_image": "",
-                    "seo_desc": "Use in components with the @Output directive to emit custom events synchronously or asynchronously, and register handlers for those events by subscribing to an instance.",
+                    "seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Angular-seo-output.png",
+                    "seo_desc": "We use @Output directive to emit custom events synchronously or asynchronously, and register handlers for those events by subscribing to an instance.",
                     "seo_keywords": "Angular Outputs, Angular, Learn Angular, Angular Technology, Web Solutions, Full-stack developer, Learn Angular Online"
                 }
             ]

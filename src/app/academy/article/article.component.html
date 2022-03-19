@@ -79,10 +79,6 @@
                 </div>
                 <div class="col-lg-5 p-3 main">
                     <h4 style="margin-left: 0.4rem;">Share Article</h4>
-                    <!-- <app-share-button type='twitter' [shareUrl]='link'></app-share-button>
-                    <app-share-button type='facebook' [shareUrl]='link'></app-share-button>
-                    <app-share-button type='linkedin' [shareUrl]='link'></app-share-button>
-                    <app-share-button type='whatsapp' [shareUrl]='link'></app-share-button> -->
                     <share-buttons [theme]="'circles-dark'"
                         [include]="['facebook','twitter','linkedin','telegram','whatsapp','copy']" [url]="articleUrl"
                         [image]="article?.article_seo_image? article?.article_seo_image: articleImage"

@@ -6,7 +6,7 @@
     "article_slug": "ng-intro",
     "article_title": "Introduction to Angular",
     "article_image": "",
-    "article_seo_image": "",
+    "article_seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Angular-seo_intro.png",
     "article_seo_desc": "Angular is one of the most popular Javascript frameworks in the world for building modern web applications. Angular is created & developed by Google and has a huge community support behind it.",
     "enroll_available": true,
     "article_content": [

@@ -2,11 +2,11 @@
     "_id": {
         "$oid": "61e65c67629474e18058aa30"
     },
+    "article_id": "1.9",
     "article_slug": "ng-components-inputs",
     "article_title": "Angular - Components and Inputs",
     "article_image": "",
-    "article_seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/IMG_2189.PNG",
-    "article_seo_desc": "One-way data binding will bind the data from the component to the view (DOM) or from view to the component. One-way data binding is unidirectional. You can only bind the data from component to the view or from view to the component.",
+    "article_seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Angular-seo-inputs.png",
     "enroll_available": true,
     "article_content": [
         {
@@ -18,13 +18,13 @@
         {
             "content_title": "Create & Configure Multiple Components",
             "content_desc": "<div class=\"paragraph\">\n<p>If you think of&nbsp;a typical webpage we can normally break it down into a&nbsp;set of&nbsp;logical components each with its own view, for&nbsp;example most webpages can be broken up into a&nbsp;header, body, footer and&nbsp;perhaps a&nbsp;sidebar.</p>\n</div>",
-            "content_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/IMG_2175.PNG",
+            "content_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/IMG_2175.png",
             "content_code": ""
         },
         {
             "content_title": "",
             "content_desc": "<div class=\"paragraph\">\n<p>We are going to&nbsp;break up our application into a&nbsp;root&nbsp;<code>AppComponent</code>, this component won&rsquo;t have any functionality and&nbsp;will just contain other components.</p>\n</div>\n<div class=\"paragraph\">\n<p>This component will hold our<code> ItemListComponent</code>&nbsp;and&nbsp;our&nbsp;<code>ItemListComponent</code> will hold a list of&nbsp;<code>ItemComponents</code>.</p>\n</div>",
-            "content_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/IMG_2176.PNG",
+            "content_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/IMG_2176.png",
             "content_code": ""
         },
         {
@@ -65,16 +65,15 @@
         },
         {
             "content_title": "",
-            "content_desc": "<p>Now this <code>@input() <strong>item</strong>: any</code> property holds each item from the list of objects, and renders in the <code>item.component.html</code> file using <strong><a href=\"https://www.stackmi.com/academy/article/ng-string-interpolation\">String Interpolation</a>.</strong></p>",
+            "content_desc": "<p>Now this <code>@input() <strong>item</strong>: any</code> property holds each item from the list of objects, and renders in the <code>item.component.html</code> file using <strong><a href=\"https://www.nexticks.org/academy/article/ng-string-interpolation\">String Interpolation</a>.</strong></p>",
             "content_image": "",
             "content_code": "<!-- item.component.html -->\n<div class=\"card card-block m-2\">\n    <h4 class=\"card-title\">{{item?.name}}</h4>\n    <p class=\"card-text\" [hidden]=\"item.hide\">{{item?.price}}</p>\n    <a class=\"btn btn-secondary\" (click)=\"toggle(item)\">Toggle\n    </a>\n</div>"
         },
         {
             "content_title": "",
             "content_desc": "",
-            "content_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/IMG_2189.PNG",
+            "content_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/IMG_2189.png",
             "content_code": ""
         }
-    ],
-    "article_id": "1.9"
+    ]
 }

@@ -2,10 +2,11 @@
     "_id": {
         "$oid": "61e6bb71629474e18058aa37"
     },
+    "article_id": "1.10",
     "article_slug": "ng-css-styling",
     "article_title": "Angular - Styling Cards using CSS",
     "article_image": "",
-    "article_seo_desc": "Apply styles to our cards to display our cards more beautiful.",
+    "article_seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Angular-seo-styling-cards.png",
     "enroll_available": true,
     "article_content": [
         {

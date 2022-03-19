@@ -2,10 +2,11 @@
     "_id": {
         "$oid": "61e52647bbfe744154a4948a"
     },
+    "article_id": "1.5",
     "article_slug": "ng-string-interpolation",
     "article_title": "Angular - String Interpolation",
     "article_image": "",
-    "article_seo_desc": "String interpolation lets you incorporate dynamic string values into your HTML templates. In other words, it is used to display dynamic data on HTML template.",
+    "article_seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Angular-seo-string-inter.png",
     "enroll_available": true,
     "article_content": [
         {
@@ -40,7 +41,7 @@
         },
         {
             "content_title": "",
-            "content_desc": "<p>Now when we instantiate the&nbsp;class the&nbsp;<code>constructor</code>&nbsp;function is called and&nbsp;this initialises the&nbsp;<code>name</code>&nbsp;and&nbsp;<code>price</code>&nbsp;properties.</p>",
+            "content_desc": "<p>Now when we instantiate the class, the&nbsp;<code>constructor</code> function is called and this initialises the&nbsp;<code>name</code>&nbsp;and&nbsp;<code>price</code>&nbsp;properties.</p>",
             "content_image": "",
             "content_code": ""
         },

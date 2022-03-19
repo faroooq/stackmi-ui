@@ -2,10 +2,11 @@
     "_id": {
         "$oid": "61e55d7bbbfe744154a49497"
     },
+    "article_id": "1.6",
     "article_slug": "ng-install-bootstrap",
     "article_title": "Angular - Install Bootstrap",
     "article_image": "",
-    "article_seo_desc": "Let's install and configure the twitter bootstrap. This helps us to build responsive and apply beautiful styles to our web page.",
+    "article_seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Angular-seo-install-bootstrap.png",
     "enroll_available": true,
     "article_content": [
         {
@@ -40,7 +41,7 @@
         },
         {
             "content_title": "",
-            "content_desc": "Once you have configured, navigate to the bootstrap site here and select some bootstrap component and add in the app.component.html file. You should see the styles and colors applied when you refresh the browser. This means you have successfully installed bootstrap in your project.\n\nNote: If you are not seeing the styles, close the server and restart again using ng serve command.",
+            "content_desc": "<p>Once you have configured, navigate to the bootstrap site <a href=\"https://getbootstrap.com/docs/5.1/components/buttons/\" target=\"_blank\">here</a> and select some bootstrap component and add in the <strong>app.component.html</strong> file. You should see the styles and colors applied when you refresh the browser. This means you have successfully installed bootstrap in your project.</p>\n<p><strong>Note</strong>: If you are not seeing the styles, close the server and restart again using <code>ng serve</code> command.</p>",
             "content_image": "",
             "content_code": ""
         }

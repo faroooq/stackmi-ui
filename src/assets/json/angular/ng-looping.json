@@ -2,10 +2,11 @@
     "_id": {
         "$oid": "61e56c9abbfe744154a494a3"
     },
+    "article_id": "1.7",
     "article_slug": "ng-looping",
     "article_title": "Angular - Looping",
     "article_image": "",
-    "article_seo_desc": "Angular comes with buil-in directive ngFor to iterate the array or list items.",
+    "article_seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Angular-seo-ngfor-directive.png",
     "enroll_available": true,
     "article_content": [
         {
@@ -36,11 +37,11 @@
             "content_title": "",
             "content_desc": "<div class=\"paragraph\">\n<p>Below is the basic HTML structure for a Boostrap <em>card</em> element. We will add this in the <strong>item-list.component.html</strong> file</p>\n</div>",
             "content_image": "",
-            "content_code": "<!-- item-list.component.html -->\n<div class=\"card card-block m-2\">\n  <h4 class=\"card-title\"></h4>\n  <p class=\"card-text\"></p>\n </div>"
+            "content_code": "<!-- item-list.component.html -->\n<div class=\"card card-block m-2\">\n  <h4 class=\"card-title\"></h4>\n  <p class=\"card-text\"></p>\n</div>"
         },
         {
             "content_title": "NgFor",
-            "content_desc": "<div class=\"paragraph\">\n<div class=\"paragraph\">\n<p>We want to repeat this card element for each <code>item</code> in our array of <code>itemList</code>.</p>\n</div>\n<div class=\"paragraph\">\n<p>So we add a&nbsp;special syntax called an&nbsp;<code>NgFor</code> on the card element, like:</p>\n</div>\n</div>",
+            "content_desc": "<div class=\"paragraph\">\n<div class=\"paragraph\">\n<p>We want to repeat this card element for each <code>item</code> in our array of <code>itemList</code>.</p>\n</div>\n<div class=\"paragraph\">\n<p>So we add a&nbsp;special syntax called an&nbsp;<code>*ngFor</code> on the card element, like:</p>\n</div>\n</div>",
             "content_image": "",
             "content_code": "<!-- item-list.component.html -->\n<div class=\"card card-block m-2\" *ngFor=\"let item of itemList\">\n    <h4 class=\"card-title\"></h4>\n    <p class=\"card-text\"></p>\n</div>"
         },
@@ -58,13 +59,13 @@
         },
         {
             "content_title": "",
-            "content_desc": "<p>Now we need to add &lt;app-item-list&gt;&lt;/app-item-list&gt; tag in the <strong>app.component.html</strong> file.</p>",
+            "content_desc": "<p><strong>Note:</strong> In the earlier lessons we have configured <code>ItemComponent</code> as the root component in the @NgModules <code>bootstrap: [ItemComponent]</code>. From now on we will use AppComponent as our root component. So we will configure <code>bootstrap: [AppComponent]</code> in @NgModules in <code>app.module.ts</code> file and replace the tag <code>&lt;app-item&gt;</code> with <code>&lt;app-root&gt;</code> in <code>index.html</code> file.</p>\n<p>Now we need to add <code>&lt;app-item-list&gt;&lt;/app-item-list&gt;</code> tag in the <strong>app.component.html</strong> file.</p>\n<p><strong>Note:</strong> We haven't used our ItemComponent here, we will use as a child component for our ItemListComponent in <a href=\"https://www.stackmi.com/academy/article/ng-components-inputs\">Components and Inputs</a> lesson.</p>",
             "content_image": "",
             "content_code": "<!-- app.component.html -->\n<app-item-list></app-item-list>"
         },
         {
             "content_title": "",
-            "content_desc": "<p>The&nbsp;classes&nbsp;<code>container</code>&nbsp;and&nbsp;<code>mt-1</code> are from Twitter Bootstrap and add some nice visual padding to the page. Let's wrap our &lt;app-item-list&gt; tag inside &lt;div&gt; tag with class='container mt-1'</p>",
+            "content_desc": "<p>The&nbsp;classes&nbsp;<code>container</code>&nbsp;and&nbsp;<code>mt-1</code> are from Twitter Bootstrap and add some nice visual padding to the page. Let's wrap our <code>&lt;app-item-list&gt;</code> tag inside <code>&lt;div&gt;</code> tag with <code>class='container mt-1'</code></p>",
             "content_image": "",
             "content_code": "<!-- app.component.html -->\n<div class=\"container mt-1\">\n  <app-item-list></app-item-list>\n</div>"
         },

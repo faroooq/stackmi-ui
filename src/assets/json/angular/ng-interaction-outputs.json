@@ -2,10 +2,11 @@
     "_id": {
         "$oid": "61e6de40629474e18058aa40"
     },
+    "article_id": "1.11",
     "article_slug": "ng-outputs",
     "article_title": "Angular - Event Emitter and Output",
     "article_image": "",
-    "article_seo_desc": "Use in components with the @Output directive to emit custom events synchronously or asynchronously, and register handlers for those events by subscribing to an instance.",
+    "article_seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Angular-seo-output.png",
     "enroll_available": true,
     "article_content": [
         {
@@ -59,7 +60,7 @@
         {
             "content_title": "",
             "content_desc": "<p>Now you can print the <strong>cartItems</strong> array to the <code>console</code> as like above or make an api service call to the backend to save the user selected cart items or you can do whatever the requirement is.</p>",
-            "content_image": "",
+            "content_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/IMG_2187.png",
             "content_code": ""
         }
     ]

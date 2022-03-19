@@ -23,7 +23,6 @@ import { PolicyComponent } from './policy/policy.component';
 import { VerifyComponent } from '../secure/verify/verify.component';
 import { ForgotPasswordComponent } from '../secure/forgot-password/forgot-password.component';
 import { PaymentsComponent } from '../secure/payments/payments.component';
-import { ShareButtonComponent } from './share-button/share-button.component';
 import { SocialButtonsComponent } from './social-buttons/social-buttons.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HighlightModule, HighlightOptions, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
@@ -60,7 +59,6 @@ import { WindowService } from './services/window-service';
     ForgotPasswordComponent,
     ArraySortPipe,
     PaymentsComponent,
-    ShareButtonComponent,
     SocialButtonsComponent
   ],
   providers: [
@@ -105,7 +103,6 @@ import { WindowService } from './services/window-service';
     ForgotPasswordComponent,
     ArraySortPipe,
     PaymentsComponent,
-    ShareButtonComponent,
     SocialButtonsComponent,
     FontAwesomeModule,
     HighlightModule,
