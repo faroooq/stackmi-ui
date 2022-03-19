@@ -2,6 +2,7 @@
     "_id": {
         "$oid": "61e426d2bbfe744154a49476"
     },
+    "article_id": "1.1",
     "article_slug": "ng-intro",
     "article_title": "Introduction to Angular",
     "article_image": "",
@@ -9,6 +10,18 @@
     "article_seo_desc": "Angular is one of the most popular Javascript frameworks in the world for building modern web applications. Angular is created & developed by Google and has a huge community support behind it.",
     "enroll_available": true,
     "article_content": [
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>Download the complete project from github: <a href=\"https://github.com/faroooq/shopping-cart\" target=\"_blank\">https://github.com/faroooq/shopping-cart</a></p>\n<hr/>\n</div>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "",
+            "content_desc": "<table style=\"width: 100%; border-collapse: collapse;\" border=\"1\" cellspacing=\"10\" cellpadding=\"10\">\n<tbody>\n<tr>\n<td style=\"width: 100%;\">\n<p><strong>Note: </strong>This Angular tutorial includes the complete end-to-end development of real-time Shopping Cart app. By the end of this course you will learn all the Angular features and learn how to implement these features in real-time shopping cart app. <strong><em>Experience the real-time development while learning the course. Happy Learning!..&nbsp;</em></strong>:)</p>\n</td>\n</tr>\n</tbody>\n</table>",
+            "content_image": "",
+            "content_code": ""
+        },
         {
             "content_title": "",
             "content_desc": "<p><strong>Angular</strong>&nbsp;is one of the most popular Javascript frameworks in the world for building modern web applications. Angular is created &amp; developed by&nbsp;<strong>Google&nbsp;</strong>and has a huge community support behind it. You can visit Angular official website from&nbsp;<a href=\"https://angular.io/\" target=\"_blank\" rel=\"noopener ugc nofollow\">here</a>.</p>\n<p><strong >Starting with Angular 2+</strong>, various configuration files are needed in an Angular project. Installing them manually one by one is a waste of time and also difficult.</p>\n<p id=\"3efa\" >Therefore, Angular brings a solution to deal with all of the configurations:&nbsp;<strong >Angular CLI</strong>. We can start developing an Angular project within a couple of minutes by using Angular CLI.</p>\n<p>Here, I will be explaining how to install Angular in your computer by using Angular CLI.</p>",

@@ -2,6 +2,7 @@
     "_id": {
         "$oid": "61e43935bbfe744154a49479"
     },
+    "article_id": "1.2",
     "article_slug": "ng-overview",
     "article_title": "Angular - Overview of Angular",
     "article_image": "",
@@ -16,13 +17,13 @@
         },
         {
             "content_title": "",
-            "content_desc": "<p><strong>src/app/app.component.ts</strong></p>\n<p>The new project is bootstrapped with one component, our root component which is called <code>AppComponent</code> and has a selector of <code>app-root</code>.</p>",
+            "content_desc": "<p><strong>src/app/app.component.ts</strong></p>\n<p>The new project is bootstrapped with one component, our root component which is called <code>AppComponent</code> and has a selector of <code>app-root</code>.</p>\n<p><strong>Note:&nbsp;</strong><code>selector</code> is an unique identifier for the component. If you create one component and if you want to add that component in any other component or html file, you need to add that selector name as a tag. ex: <code>&lt;app-root&gt;</code></p>",
             "content_image": "",
             "content_code": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-root',\n  templateUrl: './app.component.html',\n  styleUrls: ['./app.component.css']\n})\nexport class AppComponent {\n}"
         },
         {
             "content_title": "",
-            "content_desc": "<p><strong>src/index.html</strong><p><code>app-root</code> component has been added to our <code>index.html</code> file already.</p><div class=\"paragraph\">\n<p>There are no script tags present yet, that&rsquo;s fine. The angular build process adds all the required scripts and link tags for us.</p>\n</div>",
+            "content_desc": "<p><strong>src/index.html</strong></p>\n<p><code>app-root</code> component has been added to our <code>index.html</code> file by default when we create the project using Angular CLI.</p>\n<div class=\"paragraph\">\n<p>There are no script tags present yet, that&rsquo;s fine. The angular build process adds all the required scripts and link tags for us.</p>\n</div>",
             "content_image": "",
             "content_code": "<!doctype html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>ShoppingCart</title>\n  <base href=\"/\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\n</head>\n<body>\n  <app-root></app-root>\n</body>\n</html>\n"
         },
@@ -42,6 +43,12 @@
             "content_title": "",
             "content_desc": "<p>We have one more file named <code>angular.json</code> at the root level of an Angular workspace provides workspace-wide and project-specific configuration defaults for build and development tools provided by the Angular CLI.</p><div><div>These are the basic files required to run the Angular application.</div></div>",
             "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "",
+            "content_desc": "",
+            "content_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/IMG_368D4EC3B9D1-1.jpeg",
             "content_code": ""
         }
     ]
