@@ -157,7 +157,63 @@ export class SeoGuard implements CanActivate {
                     "seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Angular-seo-view-child.png",
                     "seo_desc": "If you want to access the child reference of a given component or the elements used within its template (its view) then we use @ViewChild and @ViewChildren.",
                     "seo_keywords": "Angular View Child and Children, Angular, Learn Angular, Angular Technology, Web Solutions, Full-stack developer, Learn Angular Online"
-                }
+                },
+                {
+                    "seo_slug": "ng-content-projection",
+                    "seo_title": "Angular - Content Projection",
+                    "seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Angular-seo-content-projection.png",
+                    "seo_desc": "If we create our components to support content projection then it enables the consumer of our component to configure exactly how they want the component to be rendered.",
+                    "seo_keywords": "Angular Content Projection, Angular, Learn Angular, Angular Technology, Web Solutions, Full-stack developer, Learn Angular Online"
+                },
+                {
+                    "seo_slug": "ng-content-child-children",
+                    "seo_title": "Angular - ContentChild and ContentChildren",
+                    "seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Angular-seo-content-child.png",
+                    "seo_desc": "To get a reference to the projected content, we can use either the @ContentChild or the @ContentChildren decorators. They work in similar ways to the view child counterparts, @ContentChild returns one child and @ContentChildren returns a QueryList.",
+                    "seo_keywords": "Angular Content Child and children, Angular, Learn Angular, Angular Technology, Web Solutions, Full-stack developer, Learn Angular Online"
+                },
+                {
+                    "seo_slug": "ng-route-configuration",
+                    "seo_title": "Angular - Route Configuration",
+                    "seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Angular-seo-route-config.png",
+                    "seo_desc": "If user wants to navigate from one page to another page we use routing in Angular. To handle the navigation from one view to the next, we use Angular Router. The Router enables navigation by interpreting a browser URL as an instruction to change the view.",
+                    "seo_keywords": "Angular Routing, Angular, Learn Angular, Angular Technology, Web Solutions, Full-stack developer, Learn Angular Online"
+                },
+                {
+                    "seo_slug": "ng-route-navigation",
+                    "seo_title": "Angular - Routing Navigation",
+                    "seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Angular-seo-route-navigation.png",
+                    "seo_desc": "There are times where we need to navigate to different page using dynamic URLs, capture the path params and query params and soon. Angular provides all these features in-built in RouterModule to handle such things.",
+                    "seo_keywords": "Angular Route Navigation, Angular, Learn Angular, Angular Technology, Web Solutions, Full-stack developer, Learn Angular Online"
+                },
+                {
+                    "seo_slug": "ng-parameterised-routes",
+                    "seo_title": "Angular - Parameterised Routes",
+                    "seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Angular-seo-params-route.png",
+                    "seo_desc": "Sometimes we need part of the path in one or more of our routes (the URLs) to be a variable, a common example of this is mobile modelID and versionID.",
+                    "seo_keywords": "Angular Parameterised Routes, Angular, Learn Angular, Angular Technology, Web Solutions, Full-stack developer, Learn Angular Online"
+                },
+                {
+                    "seo_slug": "ng-nested-routes",
+                    "seo_title": "Angular - Nested Routes",
+                    "seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Angular-seo-nested-routes.png",
+                    "seo_desc": "Nested routes allow you to, at the route level, have a parent component control the rendering of a child component.",
+                    "seo_keywords": "Angular Nested Routes, Angular, Learn Angular, Angular Technology, Web Solutions, Full-stack developer, Learn Angular Online"
+                },
+                {
+                    "seo_slug": "ng-router-guards",
+                    "seo_title": "Angular - Router Guards",
+                    "seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Angular-seo-router-gurards.png",
+                    "seo_desc": "With Router Guards we can prevent users from accessing areas that they’re not allowed to access, or, we can ask them for confirmation when leaving a certain area.",
+                    "seo_keywords": "Angular Router Guards, Angular, Learn Angular, Angular Technology, Web Solutions, Full-stack developer, Learn Angular Online"
+                },
+                {
+                    "seo_slug": "ng-routing-strategies",
+                    "seo_title": "Angular - Routing Strategies",
+                    "seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Angular-seo-routing-strategies.png",
+                    "seo_desc": "With client-side SPAs we have two strategies we can use to implement client-side routing, one is called the HashLocationStrategy and the other is called the PathLocationStrategy.",
+                    "seo_keywords": "Angular Routing Strategies, Angular, Learn Angular, Angular Technology, Web Solutions, Full-stack developer, Learn Angular Online"
+                },
             ]
             for (let i = 0; i < articlMetaSEO.length; i++) {
                 if (route.params.title === articlMetaSEO[i].seo_slug) {

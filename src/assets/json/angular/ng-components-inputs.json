@@ -65,7 +65,7 @@
         },
         {
             "content_title": "",
-            "content_desc": "<p>Now this <code>@input() <strong>item</strong>: any</code> property holds each item from the list of objects, and renders in the <code>item.component.html</code> file using <strong><a href=\"https://www.nexticks.org/academy/article/ng-string-interpolation\">String Interpolation</a>.</strong></p>",
+            "content_desc": "<p>Now this <code>@input() <strong>item</strong>: any</code> property holds each item from the list of objects, and renders in the <code>item.component.html</code> file using <strong><a href=\"https://www.stackmi.com/academy/article/ng-string-interpolation\">String Interpolation</a>.</strong></p>",
             "content_image": "",
             "content_code": "<!-- item.component.html -->\n<div class=\"card card-block m-2\">\n    <h4 class=\"card-title\">{{item?.name}}</h4>\n    <p class=\"card-text\" [hidden]=\"item.hide\">{{item?.price}}</p>\n    <a class=\"btn btn-secondary\" (click)=\"toggle(item)\">Toggle\n    </a>\n</div>"
         },

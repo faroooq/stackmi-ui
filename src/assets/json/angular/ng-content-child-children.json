@@ -2,11 +2,11 @@
     "_id": {
         "$oid": "61eedafdadb6fe411a47ef7b"
     },
-    "article_id": "2.6",
+    "article_id": "2.5",
     "article_slug": "ng-content-child-children",
     "article_title": "Angular - ContentChild and ContentChildren",
     "article_image": "",
-    "article_seo_desc": "@ContentChild and @ContentChildren are used to Query and get the reference to the Projected Content in the DOM. Projected content is the content that this component receives from a parent component.",
+    "article_seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Angular-seo-content-child.png",
     "enroll_available": true,
     "article_content": [
         {
@@ -55,7 +55,7 @@
             "content_title": "",
             "content_desc": "<p>We are taking <code>offerList</code>[{}] array of objects which contains offer details of multiple products.</p>\n<p>Let's copy the below code to <code>offers.component.html</code> file.</p>",
             "content_image": "",
-            "content_code": "<!-- offers.component.html  -->\n\n<!-- Adding the content in <app-item-list> child tag. We project this using\n    <ng-content> in ItemListComponent -->\n<app-item-list>\n    <div class=\"container\">\n        <h4>Today's Deals. Upto 80% Discount.</h4>\n        <div class=\"grid grid--1X3 bg-color\" style=\"margin-top: 1rem;\">\n            <!-- Iterating the offerList object and passing to nested child <app-item>  \n                using Content Projection Mechanism.-->\n            <app-item *ngFor=\"let item of offersList\" [itemObj]=\"item\">\n                <h2>{{ item.name }}</h2>\n                <h6 class=\"discount\">{{ item.discount }}</h6>\n                <span class=\"btn btn--purple anchor_cart\">Browse More</span>\n            </app-item>\n        </div>\n    </div>\n</app-item-list>"
+            "content_code": "<!-- offers.component.html  -->\n\n<!-- Adding the content in <app-item-list> child tag. We project this using\n    <ng-content> in ItemListComponent -->\n<app-item-list>\n    <div class=\"container\">\n        <h4>Today's Deals. Upto 80% Discount.</h4>\n        <div class=\"grid grid--1X3 bg-color\" style=\"margin-top: 1rem;\">\n            <!-- Iterating the offerList object and passing to nested child <app-item>  \n                using Content Projection Mechanism.-->\n            <app-item *ngFor=\"let item of offersList\" [itemObj]=\"item\">\n                <h2>{{ item.name }}</h2>\n                <h6 class=\"discount\">{{ item.discount }}</h6>\n                <span class=\"btn btn-danger anchor_cart\">Browse More</span>\n            </app-item>\n        </div>\n    </div>\n</app-item-list>"
         },
         {
             "content_title": "",

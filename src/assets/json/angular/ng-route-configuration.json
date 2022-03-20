@@ -6,7 +6,7 @@
     "article_slug": "ng-route-configuration",
     "article_title": "Angular - Route Configuration",
     "article_image": "",
-    "article_seo_desc": "We’ve configured our application so if the user navigates to /gadgets we want the ItemListComponent shown or if they navigate to the root URL / then we want the HomeComponent shown.",
+    "article_seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Angular-seo-route-config.png",
     "enroll_available": true,
     "article_content": [
         {
@@ -17,7 +17,7 @@
         },
         {
             "content_title": "",
-            "content_desc": "<p>Our goal with routing is to&nbsp;have the&nbsp;<code>HomeComponent</code>&nbsp;rendered when the&nbsp;<abbr>URL</abbr>&nbsp;is&nbsp;<code>/</code>&nbsp;and&nbsp;the&nbsp;<code>ItemListComponent</code>&nbsp;shown when the&nbsp;<abbr>URL</abbr>&nbsp;is&nbsp;<code>/gadgets</code></p>\n<p>The&nbsp;mapping of&nbsp;<abbr>URL</abbr>s to&nbsp;<em>Components</em>&nbsp;we want displayed on&nbsp;the page is done via something called a&nbsp;<em>Route Configuration</em>, at it&rsquo;s core it&rsquo;s just an array which we can define like:</p>",
+            "content_desc": "<p><strong>Definition:</strong> If user wants to navigate from one page to another page we use routing in Angular. To handle the navigation from one view to the next, we use Angular Router. <em>The Router enables navigation by interpreting a browser URL as an instruction to change the view.</em></p>\n<p>Our goal with routing is to&nbsp;have the&nbsp;<code>HomeComponent</code> rendered when the <abbr>URL</abbr>&nbsp;is&nbsp;<code>/</code>&nbsp;and&nbsp;the&nbsp;<code>ItemListComponent</code>&nbsp;shown when the&nbsp;<abbr>URL</abbr>&nbsp;is&nbsp;<code>/gadgets</code></p>\n<p>The&nbsp;mapping of&nbsp;<abbr>URL</abbr>s to&nbsp;<em>Components </em>that we want to be displayed on the page is done via something called a <em>Route Configuration</em>, at it&rsquo;s core it&rsquo;s just an array which we can define like:</p>",
             "content_image": "",
             "content_code": "const routes: Routes = [\n  { path: '', component: HomeComponent },\n  { path: 'gadgets', component: ItemListComponent }\n ];"
         },
@@ -29,7 +29,7 @@
         },
         {
             "content_title": "RouterOutlet Directive",
-            "content_desc": "<div class=\"paragraph\">\n<p>We&rsquo;ve configured our application so if the&nbsp;user navigates to&nbsp;<code>/gadgets</code>&nbsp;we want the&nbsp;<code>ItemListComponent</code>&nbsp;shown or&nbsp;if they navigate to&nbsp;the root&nbsp;<abbr>URL</abbr> <code>/</code>&nbsp;then we want the&nbsp;<code>HomeComponent</code>&nbsp;shown.</p>\n</div>\n<div class=\"paragraph\">\n<p><em>But where exactly do we want the&nbsp;component shown?</em></p>\n</div>\n<div class=\"paragraph\">\n<p>We need to&nbsp;add a&nbsp;directive called&nbsp;<code>router-outlet</code>&nbsp;somewhere in&nbsp;our template&nbsp;<abbr>HTML</abbr>. This directive tells Angular&nbsp;<em>where</em>&nbsp;it should insert each of&nbsp;those components in&nbsp;the route, we&rsquo;ll add ours to&nbsp;the&nbsp;<code>AppComponent</code>, like:</p>\n</div>",
+            "content_desc": "<div class=\"paragraph\">\n<p>We&rsquo;ve configured our application so if the&nbsp;user navigates to&nbsp;<code>/gadgets</code> we want the <code>ItemListComponent</code>&nbsp;shown or&nbsp;if they navigate to&nbsp;the root&nbsp;<abbr>URL</abbr> <code>/</code> then we want the<code> HomeComponent</code>&nbsp;shown.</p>\n</div>\n<div class=\"paragraph\">\n<p><em>But where exactly do we want the&nbsp;component shown?</em></p>\n</div>\n<div class=\"paragraph\">\n<p>We need to&nbsp;add a&nbsp;directive called&nbsp;<code>router-outlet</code>&nbsp;somewhere in&nbsp;our template&nbsp;<abbr>HTML</abbr>. This directive tells Angular&nbsp;<em>where</em>&nbsp;it should insert each of&nbsp;those components in&nbsp;the route, we&rsquo;ll add ours to&nbsp;the&nbsp;<code>AppComponent</code>, like:</p>\n</div>",
             "content_image": "",
             "content_code": "<!-- app.component.html -->\n\n<app-navbar></app-navbar>\n<!-- Routes -->\n<router-outlet></router-outlet>"
         },

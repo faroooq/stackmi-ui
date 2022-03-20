@@ -2,11 +2,11 @@
     "_id": {
         "$oid": "61f95c0465787a8c50f4f970"
     },
-    "article_id": "9.2",
+    "article_id": "3.3",
     "article_slug": "ng-parameterised-routes",
     "article_title": "Angular - Parameterised Routes",
     "article_image": "",
-    "article_seo_desc": "We often need to pass a parameter like an ID to a route and then access that ID in order to call an API to get some data. In Angular we achieve this via parameterised routes.",
+    "article_seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Angular-seo-params-route.png",
     "enroll_available": true,
     "article_content": [
         {

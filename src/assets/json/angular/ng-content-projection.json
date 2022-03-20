@@ -2,11 +2,11 @@
     "_id": {
         "$oid": "61f0ebcaadb6fe411a47ef7d"
     },
-    "article_id": "2.5",
+    "article_id": "2.4",
     "article_slug": "ng-content-projection",
     "article_title": "Angular - Content Projection",
     "article_image": "",
-    "article_seo_desc": "If we create our components to support content projection then it enables the consumer of our component to configure exactly how they want the component to be rendered. Giving the consumer the power to configure the presentation of the component as they want with the help of Content Projection <ng-content> tag.",
+    "article_seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Angular-seo-content-projection.png",
     "enroll_available": true,
     "article_content": [
         {
@@ -17,7 +17,7 @@
         },
         {
             "content_title": "",
-            "content_desc": "<div class=\"paragraph\">\n<p>Let&rsquo;s say someone else wanted to&nbsp;use our&nbsp;<code>ItemComponent</code> but instead of displaying the product name in a <code>&lt;h4&gt;</code>&nbsp;tag they wanted to&nbsp;display it in&nbsp;a larger&nbsp;<code>&lt;h2&gt;</code>&nbsp;tag.</p>\n</div>\n<div class=\"paragraph\">\n<p>Our component right now doesn&rsquo;t let itself be&nbsp;<em>reused</em>&nbsp;like that.</p>\n</div>\n<div class=\"paragraph\">\n<p>However we can design our component with something called&nbsp;<em>content projection</em>&nbsp;to&nbsp;enable it to&nbsp;be customised by&nbsp;the component or&nbsp;developer who is using it.</p>\n</div>\n<div class=\"paragraph\">\n<p>If we add the&nbsp;tag&nbsp;<code>&lt;ng-content&gt;&lt;/ng-content&gt;</code>&nbsp;anywhere in&nbsp;our template&nbsp;<abbr>HTML</abbr>&nbsp;for&nbsp;our component. The&nbsp;inner content of&nbsp;the tags that define our component are then&nbsp;<em>projected</em>&nbsp;into this space.</p>\n</div>\n<div class=\"paragraph\">\n<p>So if we changed the template for our&nbsp;<code>ItemComponent</code>&nbsp;to&nbsp;be something like:</p>\n</div>",
+            "content_desc": "<div class=\"paragraph\">\n<p>Let&rsquo;s say some thirdparty component wants to use our <code>ItemComponent</code> but instead of displaying the product name in a <code>&lt;h4&gt;</code> tag they want to display it in a larger&nbsp;<code>&lt;h2&gt;</code>&nbsp;tag.</p>\n</div>\n<div class=\"paragraph\">\n<p>Our component right now doesn&rsquo;t let itself be&nbsp;<em>reused</em>&nbsp;like that.</p>\n</div>\n<div class=\"paragraph\">\n<p>However we can design our component with something called&nbsp;<em>content projection</em>&nbsp;to&nbsp;enable it to&nbsp;be customised by&nbsp;the component or&nbsp;developer who is using it.</p>\n</div>\n<div class=\"paragraph\">\n<p>If we add the&nbsp;tag&nbsp;<code>&lt;ng-content&gt;&lt;/ng-content&gt;</code>&nbsp;anywhere in&nbsp;our template&nbsp;<abbr>HTML</abbr> for our ItemComponent, the inner content of the tags that define our component are then <em>projected</em>&nbsp;into this space.</p>\n</div>\n<div class=\"paragraph\">\n<p>So if we change the template for our <code>ItemComponent</code>&nbsp;to&nbsp;be something like:</p>\n</div>",
             "content_image": "",
             "content_code": "<!-- item.component.html -->\n<div class=\"card card--secondary m-2\">\n    <div class=\"m-2\">\n        <img width=\"50%\" height=\"450px\" src=\"{{itemObj?.image}}\" />\n    </div>\n    <div class=\"p-3\">\n        <!-- Commenting this as We will render the product name from parent component. -->\n        <!-- <h4 class=\"card-title\">{{itemObj?.name}}</h4> -->\n        <h4 class=\"card-title\">\n            <!-- Content projected into the ng-content space. -->\n            <ng-content></ng-content>\n        </h4>\n        <p class=\"card-text\">\n            <strong>Price:</strong>\n            {{itemObj?.price}}\n        </p>\n        <p class=\"card-text\">{{itemObj?.description}}</p>\n        <div class=\"row mt-3 p-2\">\n            <div class=\"col-5 p-0\">\n                <a class=\"btn btn-warning\" (click)=\"addItem(itemObj)\">Add To Cart\n                </a>\n            </div>\n            <div class=\"col-5 p-0\">\n                <a class=\"btn btn-success\" (click)=\"gotoCheckoutPage(itemObj)\">Buy Now</a>\n            </div>\n        </div>\n    </div>\n</div>"
         },
@@ -41,7 +41,7 @@
         },
         {
             "content_title": "Multi-Content Projection",
-            "content_desc": "<div class=\"paragraph\">\n<p>What if we wanted to&nbsp;define&nbsp;<em>multiple</em> content areas? Let's say we want name and price to be projected this time, so let&rsquo;s make both pieces of content projectable.</p>\n</div>\n<div class=\"paragraph\">\n<p>We might change our <code>ItemListComponent</code>&nbsp;template to&nbsp;be something like:</p>\n</div>",
+            "content_desc": "<div class=\"paragraph\">\n<p>What if we want to define <em>multiple</em> content areas? Let's say we want name and price to be projected this time, so let&rsquo;s make both pieces of content projectable.</p>\n</div>\n<div class=\"paragraph\">\n<p>We might change our <code>ItemListComponent</code>&nbsp;template to&nbsp;be something like:</p>\n</div>",
             "content_image": "",
             "content_code": "<app-item *ngFor=\"let item of itemList\" (emitItem)=\"getCartItem($event)\" [itemObj]=\"item\">\n   <h2>{{ item.name }}</h2>\n   <h5 class=\"price\">{{ item.price }}</h5>\n</app-item>"
         },

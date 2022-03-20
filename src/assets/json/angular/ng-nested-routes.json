@@ -2,11 +2,11 @@
     "_id": {
         "$oid": "61fbc32965787a8c50f4f97d"
     },
-    "article_id": "1.1",
+    "article_id": "3.4",
     "article_slug": "ng-nested-routes",
     "article_title": "Angular - Nested Routes",
     "article_image": "",
-    "article_seo_desc": "Nested routes are routes within other routes. In this tutorial, we will show you how to create a child route and display the child components. The Angular allows us to nest child routes under another child routes effectively creating a Tree of routes.",
+    "article_seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Angular-seo-nested-routes.png",
     "enroll_available": true,
     "article_content": [
         {
@@ -17,7 +17,7 @@
         },
         {
             "content_title": "",
-            "content_desc": "<div class=\"paragraph\">\n<p>In the previous lesson we have created <code>ModelComponent</code>. Now we are going to use this ModelComponent to have nested-routes configured for our Gadgets link. Now when user clicks on <code>/gadgets</code> we will navigate to our <code>ModelComponent</code> via child routes configured in our <code>app.routing.module.ts</code>&nbsp;like:</p>\n<p>&nbsp;</p>\n</div>",
+            "content_desc": "<div class=\"paragraph\">\n<p>In the previous lesson we have created <code>ModelComponent</code>. Now we are going to use this ModelComponent to have nested-routes configured for our Gadgets link. Now when user clicks on <code>/gadgets</code> we will navigate to our <code>ModelComponent</code> via child routes configured in our <code>app.routing.module.ts</code>&nbsp;like:</p>\n</div>",
             "content_image": "",
             "content_code": "// app.routing.module.ts file\nconst routes: Routes = [\n  {\n    path: 'home', component: HomeComponent\n  },\n  {\n    path: 'gadgets', component: ModelComponent,\n    children: [\n      // We have added the below redirect just to have one default tab enabled.\n      {\n        path: \"\", redirectTo: \"mobiles\", pathMatch: \"full\"\n      },\n      {\n        path: 'mobiles', component: ItemListComponent\n      },\n      {\n        path: 'tablets', component: ItemListComponent\n      },\n      {\n        path: 'laptops', component: ItemListComponent\n      }\n    ]\n  },\n  {\n    path: 'check-out', component: CheckOutComponent\n  },\n  {\n    path: '**', component: ErrorComponent\n  }\n];"
         },

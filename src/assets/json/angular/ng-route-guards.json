@@ -6,7 +6,7 @@
     "article_slug": "ng-router-guards",
     "article_title": "Angular - Router Guards",
     "article_image": "",
-    "article_seo_desc": "With Router Guards we can prevent users from accessing areas that they’re not allowed to access, or, we can ask them for confirmation when leaving a certain area.",
+    "article_seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Angular-seo-router-gurards.png",
     "enroll_available": true,
     "article_content": [
         {
@@ -17,7 +17,7 @@
         },
         {
             "content_title": "",
-            "content_desc": "<p>In&nbsp;traditional server-side applications the&nbsp;application would check permissions on&nbsp;the server and&nbsp;return a&nbsp;<code>403</code>&nbsp;error page if the&nbsp;user didn&rsquo;t have permissions, or&nbsp;perhaps redirect them to&nbsp;a login/register page if they were not signed up.</p>\n<p><strong>Note:&nbsp;</strong><code>403</code>&nbsp;is a&nbsp;<abbr>HTTP</abbr>&nbsp;error code. Specifically, this one means&nbsp;<em>Permission Denied</em>.</p>\n<div class=\"paragraph\">\n<p>We want to&nbsp;have the&nbsp;same functionality in&nbsp;our client-side&nbsp;<abbr>SPA</abbr>, and with <em>Router Guards</em>&nbsp;we can.</p>\n</div>\n<div class=\"paragraph\">\n<p>With&nbsp;<em>Router Guards</em>&nbsp;we can prevent users from accessing areas that they&rsquo;re not allowed to&nbsp;access, or, we can ask them for&nbsp;confirmation when leaving a&nbsp;certain area.</p>\n</div>",
+            "content_desc": "<p>In&nbsp;traditional server-side applications the&nbsp;application would check permissions on&nbsp;the server and&nbsp;return a&nbsp;<code>403</code>&nbsp;error page if the&nbsp;user didn&rsquo;t have permissions, or&nbsp;perhaps redirect them to&nbsp;a login/register page if they were not signed up.</p>\n<p><strong>Note:&nbsp;</strong><code>403</code>&nbsp;is a&nbsp;<abbr>HTTP</abbr>&nbsp;error code. Specifically, this one means&nbsp;<em>Permission Denied</em>.</p>\n<div class=\"paragraph\">\n<p>We can implement such functionality in our client-side <abbr>SPA</abbr>, and with <em>Router Guards</em>.</p>\n</div>\n<div class=\"paragraph\">\n<p>With&nbsp;<em>Router Guards</em>&nbsp;we can prevent users from accessing areas that they&rsquo;re not allowed to&nbsp;access, or, we can ask them for&nbsp;confirmation when leaving a&nbsp;certain area.</p>\n</div>",
             "content_image": "",
             "content_code": ""
         },
