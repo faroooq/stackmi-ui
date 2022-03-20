@@ -2,11 +2,11 @@
     "_id": {
         "$oid": "6203b29b65787a8c50f4f9c8"
     },
-    "article_id": "5.1",
+    "article_id": "6.1",
     "article_slug": "ng-built-in-pipes",
     "article_title": "Angular - Built-In Pipes",
     "article_image": "",
-    "article_seo_desc": "Pipes enables you to easily transform data for display purposes in templates. Angular comes with a very useful set of pre-built pipes to handle most of the common transformations.",
+    "article_seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Angular-seo-built-in-pipes.png",
     "enroll_available": true,
     "article_content": [
         {
@@ -17,13 +17,13 @@
         },
         {
             "content_title": "CurrencyPipe",
-            "content_desc": "<p>This pipe is used for formatting currencies. Its first argument is an abbreviation of the currency type (e.g. &ldquo;<abbr>EUR</abbr>&rdquo;, &ldquo;<abbr>USD</abbr>&rdquo;, and so on), like:</p>",
+            "content_desc": "<p>This currency pipe is used to format currencies. Its first argument is an abbreviation of the currency type (e.g. &ldquo;<abbr>EUR</abbr>&rdquo;, &ldquo;<abbr>USD</abbr>&rdquo;, and so on), like:</p>",
             "content_image": "",
             "content_code": "{{ 1234.56 | currency:'CAD' }}"
         },
         {
             "content_title": "",
-            "content_desc": "<div class=\"paragraph\">\n<p>The&nbsp;above prints out&nbsp;<code>CA$1,234.56</code>.</p>\n</div>\n<div class=\"paragraph\">\n<p>If instead of&nbsp;the abbreviation of&nbsp;<code>CA$</code>&nbsp;we want the&nbsp;currency symbol to&nbsp;be printed out we pass as&nbsp;a second parameter the&nbsp;string&nbsp;<code>symbol-narrow</code>, like:</p>\n</div>",
+            "content_desc": "<div class=\"paragraph\">\n<p>The&nbsp;above prints out&nbsp;<code>CA$1,234.56</code>.</p>\n</div>\n<div class=\"paragraph\">\n<p>Instead of&nbsp;the abbreviation of&nbsp;<code>CA$</code>&nbsp;if we want the&nbsp;currency symbol to&nbsp;be printed out we pass as&nbsp;a second parameter the&nbsp;string&nbsp;<code>symbol-narrow</code>, like:</p>\n</div>",
             "content_image": "",
             "content_code": "{{ 1234.56 | currency:\"CAD\":\"symbol-narrow\" }}"
         },
@@ -35,19 +35,19 @@
         },
         {
             "content_title": "DatePipe",
-            "content_desc": "<p>This pipe is used for the transformation of dates. The first argument is a format string, like:</p>",
+            "content_desc": "<p>This pipe is used for the date transformation. The first argument is a format string, like:</p>",
             "content_image": "",
             "content_code": "<div class=\"card card-block\">\n  <h4 class=\"card-title\">Date</h4>\n  <div class=\"card-text\">\n    <p ngNonBindable>{{ dateVal | date: 'shortTime' }}</p> (1)\n    <p>{{ dateVal | date: 'shortTime' }}</p>\n\n    <p ngNonBindable>{{ dateVal | date:'fullDate' }}</p>\n    <p>{{ dateVal | date: 'fullDate' }}</p>\n\n    <p ngNonBindable>{{ dateVal | date: 'd/M/y' }}</p>\n    <p>{{ dateVal | date: 'd/M/y' }}</p>\n  </div>\n</div>"
         },
         {
             "content_title": "",
-            "content_desc": "<p><code>dateVal</code>&nbsp;is an&nbsp;instance of&nbsp;<code>new Date()</code>.</p>",
+            "content_desc": "<p><strong>Note:</strong><code> dateVal</code>&nbsp;is an&nbsp;instance of&nbsp;<code>new Date()</code>.</p>",
             "content_image": "",
             "content_code": ""
         },
         {
             "content_title": "DecimalPipe",
-            "content_desc": "<div class=\"paragraph\">\n<p>This pipe is used for&nbsp;transformation of&nbsp;decimal numbers.</p>\n</div>\n<div class=\"paragraph\">\n<p>The first argument is a format string of the form &rdquo;{minIntegerDigits}. {minFractionDigits}-{maxFractionDigits}&rdquo;, like:</p>\n</div>",
+            "content_desc": "<div class=\"paragraph\">\n<p>This pipe is used to&nbsp;transform decimal numbers.</p>\n</div>\n<div class=\"paragraph\">\n<p>The first argument is a format string of the form &rdquo;{minIntegerDigits}. {minFractionDigits}-{maxFractionDigits}&rdquo;, like:</p>\n</div>",
             "content_image": "",
             "content_code": "<div class=\"card card-block\">\n  <div class=\"card-text\">\n    <h4 class=\"card-title\">DecimalPipe</h4>\n    <p ngNonBindable>{{ 3.14159265 | number: '3.1-2' }}</p>\n    <p>{{ 3.14159265 | number: '3.1-2' }}</p>\n\n    <p ngNonBindable>{{ 3.14159265 | number: '1.4-4' }}</p>\n    <p>{{ 3.14159265 | number: '1.4-4' }}</p>\n  </div>\n</div>"
         },
@@ -67,13 +67,13 @@
             "content_title": "LowerCasePipe",
             "content_desc": "This transforms a string to lowercase, like:",
             "content_image": "",
-            "content_code": "<div class=\"card card-block\">\n  <h4 class=\"card-title\">LowerCasePipe</h4>\n  <div class=\"card-text\">\n    <p ngNonBindable>{{ 'ASIM' | lowercase }}</p>\n    <p>{{ 'ASIM' | lowercase }}</p>\n  </div>\n</div>"
+            "content_code": "<div class=\"card card-block\">\n  <h4 class=\"card-title\">LowerCasePipe</h4>\n  <div class=\"card-text\">\n    <p ngNonBindable>{{ 'FAROOQ' | lowercase }}</p>\n    <p>{{ 'FAROOQ' | lowercase }}</p>\n  </div>\n</div>"
         },
         {
             "content_title": "UpperCasePipe",
             "content_desc": "This transforms a string to uppercase, like:",
             "content_image": "",
-            "content_code": "<div class=\"card card-block\">\n  <h4 class=\"card-title\">UpperCasePipe</h4>\n  <div class=\"card-text\">\n    <p ngNonBindable>{{ 'asim' | uppercase }}</p>\n    <p>{{ 'asim' | uppercase }}</p>\n  </div>\n</div>"
+            "content_code": "<div class=\"card card-block\">\n  <h4 class=\"card-title\">UpperCasePipe</h4>\n  <div class=\"card-text\">\n    <p ngNonBindable>{{ 'farooq' | uppercase }}</p>\n    <p>{{ 'farooq' | uppercase }}</p>\n  </div>\n</div>"
         },
         {
             "content_title": "PercentPipe",
@@ -83,25 +83,25 @@
         },
         {
             "content_title": "",
-            "content_desc": "<p>Percent can be passed a format string similar to the format passed to the <code>DecimalPipe</code>.</p>",
+            "content_desc": "<p>Percent can be passed as a format string similar to the format passed to the <code>DecimalPipe</code>.</p>",
             "content_image": "",
             "content_code": ""
         },
         {
             "content_title": "SlicePipe",
-            "content_desc": "<div class=\"paragraph\">\n<p>This returns a&nbsp;<em>slice</em> of an array. The first argument is the start index of the slice and the second argument is the end index.</p>\n</div>\n<div class=\"paragraph\">\n<p>If either indexes are not provided it assumes the start or the end of the array and we can use negative indexes to indicate an offset from the end, like:</p>\n</div>",
+            "content_desc": "<div class=\"paragraph\">\n<p>This returns a&nbsp;<em>slice</em> of an array. The first argument is the start index of the slice and the second argument is end index.</p>\n</div>\n<div class=\"paragraph\">\n<p>If either indexes are not provided it assumes that the start or the end of the array and we can use negative indexes to indicate an offset from the end, like:</p>\n</div>",
             "content_image": "",
-            "content_code": "<div class=\"card card-block\">\n  <h4 class=\"card-title\">SlicePipe</h4>\n  <div class=\"card-text\">\n    <p ngNonBindable>{{ [1,2,3,4,5,6] | slice:1:3 }}</p> (1)\n    <p>{{ [1,2,3,4,5,6] | slice:1:3 }}</p>\n\n    <p ngNonBindable>{{ [1,2,3,4,5,6] | slice:2 }}</p> (2)\n    <p>{{ [1,2,3,4,5,6] | slice:2 }}</p>\n\n    <p ngNonBindable>{{ [1,2,3,4,5,6] | slice:2:-1 }}</p> (3)\n    <p>{{ [1,2,3,4,5,6] | slice:2:-1 }}</p>\n\n    <pre ngNonBindable>\n&lt;ul&gt;\n  &lt;li *ngFor=&quot;let v of [1,2,3,4,5,6] | slice:2:-1&quot;&gt;\n    {{v}}\n  &lt;/li&gt;\n&lt;/ul&gt;\n    </pre>\n\n    <ul>\n      <li *ngFor=\"let v of [1,2,3,4,5,6] | slice:2:-1\"> (4)\n        {{v}}\n      </li>\n    </ul>\n  </div>\n</div>"
+            "content_code": "<div class=\"card card-block\">\n    <h4 class=\"card-title\">SlicePipe</h4>\n    <div class=\"card-text\">\n        <p ngNonBindable>{{ [1,2,3,4,5,6] | slice:1:3 }}</p>\n        <p>{{ [1,2,3,4,5,6] | slice:1:3 }}</p>\n\n        <p ngNonBindable>{{ [1,2,3,4,5,6] | slice:2 }}</p>\n        <p>{{ [1,2,3,4,5,6] | slice:2 }}</p>\n\n        <p ngNonBindable>{{ [1,2,3,4,5,6] | slice:2:-1 }}</p>\n        <p>{{ [1,2,3,4,5,6] | slice:2:-1 }}</p>\n\n        <pre ngNonBindable>\n        <ul>\n            <li *ngFor=\"let v of [1,2,3,4,5,6] | slice:2:-1\">\n            {{v}}\n            </li>\n        </ul>\n      </pre>\n        <ul>\n            <li *ngFor=\"let v of [1,2,3,4,5,6] | slice:2:-1\">\n                {{v}}\n            </li>\n        </ul>\n    </div>\n</div>"
         },
         {
             "content_title": "",
-            "content_desc": "",
+            "content_desc": "<ul>\n<li><code>slice:1:3</code> means return the items from the 1st to the 3rd index inclusive (indexes start at 0)</li>\n<li><code>slice:2</code> means return the&nbsp;items from the&nbsp;2nd index to&nbsp;the end of&nbsp;the array.</li>\n<li><code>slice:2:-1</code> means return the&nbsp;items from the&nbsp;2nd index to&nbsp;one from the&nbsp;end of&nbsp;the array.</li>\n<li>We can use slice inside for&nbsp;loops to&nbsp;only loop over a&nbsp;subset of&nbsp;the array items.</li>\n</ul>",
             "content_image": "",
             "content_code": ""
         },
         {
-            "content_title": "",
-            "content_desc": "",
+            "content_title": "AsyncPipe",
+            "content_desc": "<div class=\"paragraph\">\n<p>Async pipe accepts an observable or a promise and lets us to render the output of an observable or promise without having to call <code>then</code>&nbsp;or&nbsp;<code>subscribe</code>.</p>\n</div>\n<div class=\"paragraph\">\n<p>We are going to look into much deeper at the end of this section.</p>\n</div>",
             "content_image": "",
             "content_code": ""
         },

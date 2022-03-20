@@ -2,16 +2,16 @@
     "_id": {
         "$oid": "62027f8265787a8c50f4f9b6"
     },
-    "article_id": "1.1",
+    "article_id": "4.4",
     "article_slug": "ng-hostlistener-hostbinding",
     "article_title": "Angular - HostListener and HostBinding",
     "article_image": "",
-    "article_seo_desc": "By using the @HostListener and @HostBinding decorators we can both listen to output events from our host element and also bind to input properties on our host element as well.",
+    "article_seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Angular-seo-host-listener.png",
     "enroll_available": true,
     "article_content": [
         {
             "content_title": "HostListener",
-            "content_desc": "<div class=\"paragraph\">\n<p>In&nbsp;the previous lecture we created our first directive,&nbsp;<code>ccCardHover</code>, which simply turned the background color for every element it&rsquo;s attached to.</p>\n</div>\n<div class=\"paragraph\">\n<p>But as&nbsp;the name of&nbsp;the directive implies we need a&nbsp;way of&nbsp;<em>detecting</em> if the user is hovering over the host element.</p>\n</div>\n<div class=\"paragraph\">\n<p>Angular makes this easy with the&nbsp;<code>@HostListener</code>&nbsp;decorator.</p>\n</div>\n<div class=\"paragraph\">\n<p>This is a&nbsp;<em>function</em>&nbsp;decorator that accepts an&nbsp;<em>event name</em>&nbsp;as&nbsp;an argument. When that event gets fired on&nbsp;the&nbsp;<em>host</em> element it calls the associated function.</p>\n</div>\n<div class=\"paragraph\">\n<p>So if we add this function to&nbsp;our directive class:</p>\n</div>",
+            "content_desc": "<div class=\"paragraph\">\n<p>In the previous lesson we created our directive, <code>ccCardHover</code>, which simply turned the background color to grey for every element it&rsquo;s attached to.</p>\n</div>\n<div class=\"paragraph\">\n<p>But as the name of the directive implies, we implement our directive to <em>detect</em>&nbsp;if the user is hovering over the host element.</p>\n</div>\n<div class=\"paragraph\">\n<p>Angular makes it easy with the help of <code>@HostListener</code>&nbsp;decorator.</p>\n</div>\n<div class=\"paragraph\">\n<p>This is a&nbsp;<em>function</em>&nbsp;decorator that accepts an&nbsp;<em>event name</em>&nbsp;as&nbsp;an argument. When that event gets fired on&nbsp;the&nbsp;<em>host</em> element it calls the associated function.</p>\n</div>\n<div class=\"paragraph\">\n<p>So if we add this function to&nbsp;our directive class:</p>\n</div>",
             "content_image": "",
             "content_code": "@HostListener('mouseover') onHover() {\n  window.alert(\"hover\");\n}"
         },
@@ -23,7 +23,7 @@
         },
         {
             "content_title": "",
-            "content_desc": "<ul>\n<li>We&rsquo;ve commented the code to render the background color in ngOnInit().</li>\n<li>We decorate a&nbsp;class method with&nbsp;<code>@HostListener</code> configuring it to call the function on every&nbsp;<code>mouseover</code>&nbsp;events.</li>\n<li>We get a&nbsp;reference to&nbsp;the&nbsp;<abbr>DOM</abbr> element that holds the card.</li>\n<li>We set <code>this.renderer.setStyle(part, 'backgroundColor', '#f9dede');</code></li>\n</ul>",
+            "content_desc": "<ul>\n<li>We commented the code to render the background color in ngOnInit().</li>\n<li>We decorate a&nbsp;class method with&nbsp;<code>@HostListener</code> configuring it to call the function whenever the user mouseover the card, which invokes <code>mouseover</code> event.</li>\n<li>We get a&nbsp;reference to&nbsp;the&nbsp;<abbr>DOM</abbr> element that holds the card.</li>\n<li>We set <code>this.renderer.setStyle(part, 'backgroundColor', '#f9dede');</code></li>\n</ul>",
             "content_image": "",
             "content_code": ""
         },
@@ -47,7 +47,7 @@
         },
         {
             "content_title": "HostBinding",
-            "content_desc": "<p>Let's understand <code>@HostBinding</code> using the <code>&lt;input&gt;</code> element this time.</p>\n<p><strong>Scenario:</strong> Upon key enter the colors should change for the entered input text. Something interesting!</p>\n<p>We will use both <code>@HostBinding</code>&nbsp;and&nbsp;<code>@HostListener</code> that listens for a<code> keydown</code> event on the host. It will set its text and border color to a random color from a set of a few available colors.</p>\n<p>Let's create one more directive <code>RainbowDirective</code> in our <code>app/shared</code> folder.</p>",
+            "content_desc": "<p>Now let's understand <code>@HostBinding</code> using the <code>&lt;input&gt;</code> element.</p>\n<p><strong>Scenario:</strong> Upon key enter the color should change for the entered input text. Something interesting!</p>\n<p>We will use both <code>@HostBinding</code>&nbsp;and&nbsp;<code>@HostListener</code> that listens for a<code> keydown</code> event on the host. It will set its text and border color to a random color from set of few available colors.</p>\n<p>Let's create one more directive <code>RainbowDirective</code> in our <code>app/shared</code> folder.</p>",
             "content_image": "",
             "content_code": "ng generate directive rainbow"
         },

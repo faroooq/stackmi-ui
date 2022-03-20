@@ -6,7 +6,7 @@
     "article_slug": "ng-custom-directive",
     "article_title": "Angular - Creating a Custom Directive",
     "article_image": "",
-    "article_seo_desc": "We create a directive by decorating a class with the @Directive decorator. The convention is to associate a directive to an element via an attribute selector, that is the name of the attribute wrapped in []",
+    "article_seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Angular-seo-custom-directive.png",
     "enroll_available": true,
     "article_content": [
         {
@@ -23,15 +23,15 @@
         },
         {
             "content_title": "",
-            "content_desc": "<p><strong>Note:</strong> The Angular team recommends using directives as attributes, prefixed with a namespace. We&rsquo;ve prefixed our directive with the namespace 'cc'.</p>\n<div class=\"paragraph\">\n<p>We create directives by&nbsp;annotating a&nbsp;class with the&nbsp;<code>@Directive</code>&nbsp;decorator.</p>\n</div>\n<div class=\"paragraph\">\n<p>Let&rsquo;s create a&nbsp;class called&nbsp;<code>CardHoverDirective</code> and use the<code>&nbsp;@Directive</code> dectorator to associate this class with our attribute&nbsp;<code>ccCardHover</code>, like:</p>\n</div>",
+            "content_desc": "<p><strong>Note:</strong> The Angular team recommends to use directives as attributes, prefixed with a namespace. We&rsquo;ve prefixed our directive with the namespace 'cc'.</p>\n<div class=\"paragraph\">\n<p>We can create directives by annotating a class with the<code> @Directive</code>&nbsp;decorator.</p>\n</div>\n<div class=\"paragraph\">\n<p>Let&rsquo;s create a&nbsp;class called&nbsp;<code>CardHoverDirective</code> and use<code>&nbsp;@Directive</code> dectorator to associate this class with our attribute&nbsp;<code>ccCardHover</code>, like:</p>\n</div>",
             "content_image": "",
             "content_code": "import { Directive } from '@angular/core';\n.\n.\n.\n@Directive({\n  selector:\"[ccCardHover]\"\n})\nclass CardHoverDirective { }"
         },
         {
             "content_title": "Attribute Selector",
-            "content_desc": "<div class=\"paragraph\">\n<p>The above code is very similar to what we would write if this was a component, the first striking difference is that <em>the selector is wrapped with `[]`</em>.</p>\n</div>\n<div class=\"paragraph\">\n<p>To understand why we do this we first need to understand that the selector attribute uses <em><abbr>CSS</abbr>&nbsp;matching rules</em> to match a component/directive to a <abbr>HTML</abbr>&nbsp;element.</p>\n</div>\n<div class=\"paragraph\">\n<p>In&nbsp;<abbr>CSS</abbr> to match to a specific element we would just type in the name of the element, so&nbsp;<code>input {&hellip;​}` or `p {&hellip;​}</code>.</p>\n</div>\n<div class=\"paragraph\">\n<p>This is why previously when we defined the selector in the<code> @Component</code>&nbsp;directive we just wrote the&nbsp;<em>name</em> of the element, which matches onto an element of the same name.</p>\n</div>\n<div class=\"paragraph\">\n<p>If we wrote the&nbsp;selector as&nbsp;<code>.ccCardHover</code>, like:</p>\n</div>",
+            "content_desc": "<div class=\"paragraph\">\n<p>Above code is very similar to what we write for a component, the first difference is that <em>the selector is wrapped with `[]`</em>.</p>\n</div>\n<div class=\"paragraph\">\n<p>To understand why we do this is, we first need to understand that <em>\"selector attribute uses <abbr>CSS</abbr>&nbsp;matching rules to match a component/directive to a <abbr>HTML</abbr> element\"</em>.</p>\n</div>\n<div class=\"paragraph\">\n<p>In&nbsp;<abbr>CSS</abbr> to match to a specific element we would just type in the name of the element, so&nbsp;<code>input {&hellip;​}` or `p {&hellip;​}</code>.</p>\n</div>\n<div class=\"paragraph\">\n<p>This is why previously when we defined the selector in the<code>&nbsp;@Component</code>&nbsp;directive we just wrote the&nbsp;<em>name</em> of the element, which matches onto an element of the same name.</p>\n</div>\n<div class=\"paragraph\">\n<p>If we wrote the&nbsp;selector as&nbsp;<code>.ccCardHover</code>, like:</p>\n</div>",
             "content_image": "",
-            "content_code": "import { Directive } from '@angular/core';\n.\n.\n.\n@Directive({\n  selector:\".ccCardHover\"\n})\nclass CardHoverDirective { }"
+            "content_code": "import { Directive } from '@angular/core';\n.\n.\n@Directive({\n  selector:\".ccCardHover\"\n})\nclass CardHoverDirective { }"
         },
         {
             "content_title": "",
@@ -49,11 +49,11 @@
             "content_title": "Directive Constructor",
             "content_desc": "<p>The next thing we do is add a constructor to our directive, like:</p>",
             "content_image": "",
-            "content_code": "import { ElementRef } from '@angular/core';\n.\n.\n.\nclass CardHoverDirective {\n  constructor(private el: ElementRef) {\n  }\n}"
+            "content_code": "import { ElementRef } from '@angular/core';\n.\n.\nclass CardHoverDirective {\n  constructor(private el: ElementRef) {\n  }\n}"
         },
         {
             "content_title": "",
-            "content_desc": "<p>When the directive gets created Angular can inject an instance of something called <code>ElementRef</code>&nbsp;into its constructor.</p>\n<p><strong>Note:</strong> How this works is called&nbsp;<em>Dependency Injection</em>, it&rsquo;s a really important aspect of Angular and we discuss this in detail in a later section.</p>\n<div class=\"paragraph\">\n<p>The&nbsp;<code>ElementRef</code>&nbsp;gives the&nbsp;directive&nbsp;<em>direct access</em>&nbsp;to&nbsp;the&nbsp;<abbr>DOM</abbr> element upon which it&rsquo;s attached.</p>\n</div>\n<div class=\"paragraph\">\n<p>Let&rsquo;s use it to&nbsp;change the&nbsp;background color of&nbsp;our card to&nbsp;gray.</p>\n</div>\n<div class=\"paragraph\">\n<p><code>ElementRef</code>&nbsp;itself is a&nbsp;wrapper for&nbsp;the actual&nbsp;<abbr>DOM</abbr> element which we can access via the property&nbsp;<code>nativeElement</code>, like:</p>\n</div>",
+            "content_desc": "<p>When the directive is created Angular will inject an instance of something called <code>ElementRef</code>&nbsp;into its constructor.</p>\n<p><strong>Note:</strong> How this works is the concept of <em>Dependency Injection</em>, it&rsquo;s a really important aspect of Angular and in other programmiing languages and we discuss this in detail in later section.</p>\n<div class=\"paragraph\">\n<p>The&nbsp;<code>ElementRef</code>&nbsp;gives the&nbsp;directive&nbsp;<em>direct access</em>&nbsp;to&nbsp;the&nbsp;<abbr>DOM</abbr> element upon which it&rsquo;s attached to.</p>\n</div>\n<div class=\"paragraph\">\n<p>Let&rsquo;s use it to&nbsp;change the&nbsp;background color of&nbsp;our card to&nbsp;gray.</p>\n</div>\n<div class=\"paragraph\">\n<p><code>ElementRef</code>&nbsp;itself is a&nbsp;wrapper for&nbsp;the actual&nbsp;<abbr>DOM</abbr> element which we can access via the property&nbsp;<code>nativeElement</code>, like:</p>\n</div>",
             "content_image": "",
             "content_code": "el.nativeElement.style.backgroundColor = \"#f9dede\";"
         },

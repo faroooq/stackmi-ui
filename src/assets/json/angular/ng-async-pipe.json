@@ -6,12 +6,12 @@
     "article_slug": "ng-async-pipes",
     "article_title": "Angular - Async Pipe",
     "article_image": "",
-    "article_seo_desc": "AsyncPipe is a convenience function which makes rendering data from observables and promises much easier. For promises it automatically adds a then callback and renders the response. For Observables it automatically subscribes to the observable.",
+    "article_seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Angular-seo-async-pipe.png",
     "enroll_available": true,
     "article_content": [
         {
             "content_title": "",
-            "content_desc": "<div class=\"paragraph\">\n<p>Normally to&nbsp;render the&nbsp;result of&nbsp;a promise or&nbsp;an observable we have to:</p>\n</div>\n<div class=\"olist arabic\">\n<ol class=\"arabic\">\n<li>\n<p>Wait for&nbsp;a&nbsp;<em>callback</em>.</p>\n</li>\n<li>\n<p>Store the&nbsp;result of&nbsp;the callback in&nbsp;a&nbsp;<em>variable</em>.</p>\n</li>\n<li>\n<p><em>Bind</em>&nbsp;to&nbsp;that variable in&nbsp;the template.</p>\n</li>\n</ol>\n</div>\n<div class=\"paragraph\">\n<p>With&nbsp;<code>AsyncPipe</code> we can use promises and observables directly in our template, without having to store the result on an intermediate property or variable.</p>\n</div>\n<div class=\"paragraph\">\n<p><code>AsyncPipe</code> accepts as argument an observable or a promise, calls&nbsp;<code>subcribe</code>&nbsp;or&nbsp;attaches a&nbsp;<code>then</code> handler, then waits for the asynchronous result before passing it through to the caller.</p>\n</div>",
+            "content_desc": "<div class=\"paragraph\">\n<p>Basically to render the result of a promise or observable we have to:</p>\n</div>\n<div class=\"olist arabic\">\n<ol class=\"arabic\">\n<li>\n<p>Wait for&nbsp;a&nbsp;<em>callback</em>.</p>\n</li>\n<li>\n<p>Store the result of the callback into a <em>variable</em>.</p>\n</li>\n<li>\n<p><em>Bind</em> that variable into the template.</p>\n</li>\n</ol>\n</div>\n<div class=\"paragraph\">\n<p>With&nbsp;<code>AsyncPipe</code> we can use promises and observables directly in our HTML template, without having to store the result on an intermediate property or variable in the component.</p>\n</div>\n<div class=\"paragraph\">\n<p><code>AsyncPipe</code> accepts as argument an observable or a promise, calls<code> subcribe</code> or attach a&nbsp;<code>then</code> handler, then waits for the asynchronous result before passing it to the caller.</p>\n</div>",
             "content_image": "",
             "content_code": ""
         },
@@ -23,7 +23,7 @@
         },
         {
             "content_title": "",
-            "content_desc": "<ol>\n<li>We use&nbsp;<code>ngNonBindable</code>&nbsp;so we can render out&nbsp;<code>{{ promiseData }}</code> as is without trying to bind to to the property&nbsp;<code>promiseData.</code></li>\n<li>We bind to&nbsp;the property&nbsp;<code>promiseData.</code></li>\n<li>When the&nbsp;promise resolves we store the&nbsp;data onto the&nbsp;<code>promiseData</code> property.</li>\n<li><code>getPromise</code> returns a promise 3 seconds later resolves with the value <code>\"Promise complete!\"</code></li>\n</ol>\n<div class=\"paragraph\">\n<p>In the <code>ngOnInit()</code> we wait for the promise to resolve and store the result on a property called <code>promiseData</code> on our component and then bind to that property in the template.</p>\n</div>\n<div class=\"paragraph\">\n<p>Visually we see something like this:</p>\n</div>",
+            "content_desc": "<ol>\n<li>We use&nbsp;<code>ngNonBindable</code>&nbsp;so we can render out&nbsp;<code>{{ promiseData }}</code> as is without trying to bind to the property <code>promiseData.</code></li>\n<li>We bind to&nbsp;the property&nbsp;<code>promiseData.</code></li>\n<li>When the promise resolves we store that data onto the <code>promiseData</code> property.</li>\n<li><code>getPromise</code> returns a promise 3 seconds later resolves with the result <code>\"Promise complete!\"</code></li>\n</ol>\n<div class=\"paragraph\">\n<p>In the <code>ngOnInit()</code> we wait for the promise to resolve and store the result on a property called <code>promiseData</code> on our component and then bind that property in the template.</p>\n</div>\n<div class=\"paragraph\">\n<p>We will see something like below:</p>\n</div>",
             "content_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/async-promise.webp",
             "content_code": ""
         },
@@ -35,7 +35,7 @@
         },
         {
             "content_title": "",
-            "content_desc": "<ol>\n<li>We pipe the&nbsp;output of&nbsp;our&nbsp;<code>promise</code>&nbsp;to&nbsp;the&nbsp;<code>async</code>&nbsp;pipe.</li>\n<li>The&nbsp;property&nbsp;<code>promise</code>&nbsp;is the&nbsp;actual unresolved&nbsp;<em>promise</em>&nbsp;that gets returned from&nbsp;<code>getPromise</code>&nbsp;without&nbsp;<code>then</code>&nbsp;being called on&nbsp;it.</li>\n</ol>\n<p>The&nbsp;above results in&nbsp;the same behaviour as&nbsp;before, we just saved ourselves from writing a&nbsp;<code>then</code>&nbsp;callback and&nbsp;storing intermediate data on&nbsp;the component.</p>",
+            "content_desc": "<ol>\n<li>We pipe the&nbsp;output of&nbsp;our&nbsp;<code>promise</code>&nbsp;to&nbsp;the&nbsp;<code>async</code>&nbsp;pipe.</li>\n<li>The&nbsp;property&nbsp;<code>promise</code> is actually unresolved <em>promise</em>&nbsp;that gets returned from&nbsp;<code>getPromise</code>&nbsp;without&nbsp;<code>then</code>&nbsp;being called on&nbsp;it.</li>\n</ol>\n<p>The above results the same behaviour as before, we just save ourselves from writing a <code>then</code> callback and storing intermediate data in the component.</p>",
             "content_image": "",
             "content_code": ""
         },
@@ -59,7 +59,7 @@
         },
         {
             "content_title": "",
-            "content_desc": "<ol>\n<li>We pipe our&nbsp;<code>observable</code>&nbsp;directly to&nbsp;the&nbsp;<code>async</code> pipe, it performs a subscription for us and then returns whatever gets passed to it.</li>\n</ol>\n<p>By&nbsp;using&nbsp;<code>AsyncPipe</code>&nbsp;we:</p>\n<ol>\n<li>Don&rsquo;t need to call <code>subscribe</code> on our observable and store the intermediate data on our component.</li>\n<li>Don&rsquo;t need to remember to <code>unsubscribe</code> from the observable when the component is destroyed.</li>\n</ol>",
+            "content_desc": "<ol>\n<li>We pipe our&nbsp;<code>observable</code>&nbsp;directly to&nbsp;the&nbsp;<code>async</code> pipe, it performs a subscription and then returns whatever gets passed onto it.</li>\n</ol>\n<p>By&nbsp;using&nbsp;<code>AsyncPipe</code>&nbsp;we:</p>\n<ol>\n<li>Don&rsquo;t need to call <code>subscribe</code> on the observable and store the intermediate data on the component.</li>\n<li>Don&rsquo;t need to remember to <code>unsubscribe</code> the observable when the component gets destroyed.</li>\n</ol>",
             "content_image": "",
             "content_code": ""
         }

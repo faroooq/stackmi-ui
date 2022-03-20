@@ -214,6 +214,83 @@ export class SeoGuard implements CanActivate {
                     "seo_desc": "With client-side SPAs we have two strategies we can use to implement client-side routing, one is called the HashLocationStrategy and the other is called the PathLocationStrategy.",
                     "seo_keywords": "Angular Routing Strategies, Angular, Learn Angular, Angular Technology, Web Solutions, Full-stack developer, Learn Angular Online"
                 },
+                {
+                    "seo_slug": "ng-for-if-switch",
+                    "seo_title": "Angular - NgFor, NgIf & NgSwitch",
+                    "seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Angular-seo-if-switch-directives.png",
+                    "seo_desc": "We use the NgFor directive to loop over an array of items and create multiple elements dynamically from a template element. With NgIf we can conditionally add or remove an element from the DOM. If we are faced with multiple conditions a cleaner alternative to multiple nested NgIf statements is the NgSwitch series of directives.",
+                    "seo_keywords": "Angular For, If, Switch, Angular, Learn Angular, Angular Technology, Web Solutions, Full-stack developer, Learn Angular Online"
+                },
+                {
+                    "seo_slug": "ng-ngstyle-ngclass",
+                    "seo_title": "Angular - NgStyle, NgClass & NgNonBindable",
+                    "seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Angular-seo-ngclass-ngstyle.png",
+                    "seo_desc": "Both the NgStyle and NgClass directives can be used to conditionally set the look and feel of your application. NgStyle gives you fine grained control on individual properties. But if you want to make changes to multiple properties at once, creating a class which bundles those properties and adding the class with NgClass makes more sense.",
+                    "seo_keywords": "Angular NgClass and NgStyle, Angular, Learn Angular, Angular Technology, Web Solutions, Full-stack developer, Learn Angular Online"
+                },
+                {
+                    "seo_slug": "ng-custom-directive",
+                    "seo_title": "Angular - Creating a Custom Directive",
+                    "seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Angular-seo-custom-directive.png",
+                    "seo_desc": "We create a directive by decorating a class with the @Directive decorator. The convention is to associate a directive to an element via an attribute selector, that is the name of the attribute wrapped in.",
+                    "seo_keywords": "Angular Custom Directives, Angular, Learn Angular, Angular Technology, Web Solutions, Full-stack developer, Learn Angular Online"
+                },
+                {
+                    "seo_slug": "ng-hostlistener-hostbinding",
+                    "seo_title": "Angular - HostListener and HostBinding",
+                    "seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Angular-seo-host-listener.png",
+                    "seo_desc": "By using the @HostListener and @HostBinding decorators we can both listen to output events from our host element and also bind to input properties on our host element as well.",
+                    "seo_keywords": "Angular HostListener and HostBinding, Angular, Learn Angular, Angular Technology, Web Solutions, Full-stack developer, Learn Angular Online"
+                },
+                {
+                    "seo_slug": "ng-built-in-pipes",
+                    "seo_title": "Angular - Built-In Pipes",
+                    "seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Angular-seo-built-in-pipes.png",
+                    "seo_desc": "Pipes enables you to easily transform data for display purposes in templates. Angular comes with a very useful set of pre-built pipes to handle most of the common transformations.",
+                    "seo_keywords": "Angular Pipes, Angular, Learn Angular, Angular Technology, Web Solutions, Full-stack developer, Learn Angular Online"
+                },
+                {
+                    "seo_slug": "ng-async-pipes",
+                    "seo_title": "Angular - Async Pipe",
+                    "seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Angular-seo-async-pipe.png",
+                    "seo_desc": "AsyncPipe is a convenience function which makes rendering data from observables and promises much easier. For promises it automatically adds a then callback and renders the response. For Observables it automatically subscribes to the observable.",
+                    "seo_keywords": "Angular Async Pipe, Angular, Learn Angular, Angular Technology, Web Solutions, Full-stack developer, Learn Angular Online"
+                },
+                {
+                    "seo_slug": "ng-custom-pipes",
+                    "seo_title": "Angular - Custom Pipe",
+                    "seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Angular-seo-custom-pipe.png",
+                    "seo_desc": "Creating a custom pipe is very simple in Angular. We just decorate a class with the @Pipe decorator, provide a name and a transform function and we are done.",
+                    "seo_keywords": "Angular Custom Pipe, Angular, Learn Angular, Angular Technology, Web Solutions, Full-stack developer, Learn Angular Online"
+                },
+                {
+                    "seo_slug": "ng-model-driven-forms",
+                    "seo_title": "Angular - Model-Driven Forms",
+                    "seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Angular-seo-model-forms.png",
+                    "seo_desc": "Forms comes handy when handling user-input and enabling user to log in, update information, and other data-entry tasks. In Angular we have Template Driven Forms and Reactive Forms.",
+                    "seo_keywords": "Angular Model Driven Forms, Angular, Learn Angular, Angular Technology, Web Solutions, Full-stack developer, Learn Angular Online"
+                },
+                {
+                    "seo_slug": "ng-model-driven-form-validation",
+                    "seo_title": "Angular - Model-Driven Form Validation",
+                    "seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Angular-seo-form-validation.png",
+                    "seo_desc": "Validators are rules which an input control has to follow. If the input doesn’t match the rule, then the control is said to be invalid. We can apply validators either by adding attributes to the template or by defining them on our FormControls in our model.",
+                    "seo_keywords": "Angular Model Driven Form Validation, Angular, Learn Angular, Angular Technology, Web Solutions, Full-stack developer, Learn Angular Online"
+                },
+                {
+                    "seo_slug": "ng-reactive-model-form",
+                    "seo_title": "Angular - Reactive Model Form",
+                    "seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Angular-seo-reactive-model-form.png",
+                    "seo_desc": "Reactive forms are better when there needs to be some real-time processing of the form as the user types in content. Handling model-driven forms with submit handlers is better when there needs to be a discrete action applied when the user presses a button.",
+                    "seo_keywords": "Angular Reactive Model Form, Angular, Learn Angular, Angular Technology, Web Solutions, Full-stack developer, Learn Angular Online"
+                },
+                {
+                    "seo_slug": "ng-template-driven-form",
+                    "seo_title": "Angular - Template-Driven Form",
+                    "seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Angular-seo-template-driven-form.png",
+                    "seo_desc": "We learnt that the template-driven form still uses the same classes as the model-driven form but in the template drive approach the models are created by directives in the template instead of explicitly created on the component.",
+                    "seo_keywords": "Angular Template Driven Form, Angular, Learn Angular, Angular Technology, Web Solutions, Full-stack developer, Learn Angular Online"
+                },
             ]
             for (let i = 0; i < articlMetaSEO.length; i++) {
                 if (route.params.title === articlMetaSEO[i].seo_slug) {
