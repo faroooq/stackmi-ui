@@ -137,6 +137,61 @@
   <priority>0.64</priority>
 </url>
 <url>
+  <loc>https://www.stackmi.com/academy/article/ts-intro</loc>
+  <lastmod>2022-02-28T10:28:58+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.stackmi.com/academy/article/ts-let-keyword</loc>
+  <lastmod>2022-02-28T10:28:58+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.stackmi.com/academy/article/ts-const-keyword</loc>
+  <lastmod>2022-02-28T10:28:58+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.stackmi.com/academy/article/ts-types</loc>
+  <lastmod>2022-02-28T10:28:58+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.stackmi.com/academy/article/ts-fat-arrow-function</loc>
+  <lastmod>2022-02-28T10:28:58+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.stackmi.com/academy/article/ts-for-of</loc>
+  <lastmod>2022-02-28T10:28:58+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.stackmi.com/academy/article/ts-map-set</loc>
+  <lastmod>2022-02-28T10:28:58+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.stackmi.com/academy/article/ts-promises</loc>
+  <lastmod>2022-02-28T10:28:58+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.stackmi.com/academy/article/ts-class-interface</loc>
+  <lastmod>2022-02-28T10:28:58+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.stackmi.com/academy/article/ts-decorators</loc>
+  <lastmod>2022-02-28T10:28:58+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.stackmi.com/academy/article/ts-modules</loc>
+  <lastmod>2022-02-28T10:28:58+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
   <loc>https://www.stackmi.com/academy/article/ng-intro</loc>
   <lastmod>2022-02-28T10:28:58+00:00</lastmod>
   <priority>0.64</priority>
