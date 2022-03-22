@@ -2,15 +2,16 @@
     "_id": {
         "$oid": "61d140d205ed5a80a81a248f"
     },
+    "article_id": "1.8",
     "article_slug": "ts-promises",
     "article_title": "Typescript - Callbacks & Promises",
     "article_image": "",
-    "article_seo_desc": "When you execute a task synchronously, you wait for it to finish before moving on to the next line of code. When you execute a task asynchronously, the program moves to the next line of code before the task finishes.",
+    "article_seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Typescript/Typescript-seo-promises.png",
     "enroll_available": true,
     "article_content": [
         {
             "content_title": "",
-            "content_desc": "<div class=\"paragraph\">\n<p>When you execute a&nbsp;task&nbsp;<em>synchronously</em>, you wait for&nbsp;it to&nbsp;finish before moving on&nbsp;to the&nbsp;next line of&nbsp;code.</p>\n</div>\n<div class=\"paragraph\">\n<p>When you execute a&nbsp;task&nbsp;<em>asynchronously</em>, the&nbsp;program moves to&nbsp;the next line of&nbsp;code before the&nbsp;task finishes.</p>\n</div>\n<div class=\"paragraph\">\n<p>Think of&nbsp;synchronous programming like waiting in&nbsp;line and&nbsp;asynchronous programming like taking a&nbsp;ticket. When you take a&nbsp;ticket you can go do other things and&nbsp;then be notified when ready.</p>\n</div>",
+            "content_desc": "<div class=\"paragraph\">\n<p>When you execute a&nbsp;task&nbsp;<em>synchronously</em>, you will wait for it to finish before moving on to the next line of the code.</p>\n</div>\n<div class=\"paragraph\">\n<p>When you execute a task <em>asynchronously</em>, the program or cursor moves to the next line of code before the async task finishes.</p>\n</div>\n<div class=\"paragraph\">\n<p>Think of synchronous programming as like waiting in line and asynchronous programming as like taking a ticket. When you take a ticket you can go and do other things and then be notified when ready.</p>\n</div>",
             "content_image": "",
             "content_code": ""
         },
@@ -22,13 +23,13 @@
         },
         {
             "content_title": "",
-            "content_desc": "The doAsyncTask function when called kicks of an asynchronous task and returns immediately.\n\nTo get notified when the async task completes we pass to doAsyncTask a function which it will call when the task completes.\n\nIt’s called a callback function, cb for short, because it calls-you-back.",
+            "content_desc": "<p>The doAsyncTask function gets called, it kicks of an asynchronous task and returns immediately. To get notified when the async task completes we pass to doAsyncTask a function itself, which it will be called when the task completes. It&rsquo;s called a callback function, cb for short, because it calls-you-back.</p>",
             "content_image": "",
             "content_code": ""
         },
         {
             "content_title": "Promise API",
-            "content_desc": "<div class=\"paragraph\">\n<p>In&nbsp;ES6 we have an&nbsp;alternative mechanism built into the&nbsp;language called a&nbsp;<em>promise</em>.</p>\n</div>\n<div class=\"paragraph\">\n<p>A&nbsp;<em>promise</em>&nbsp;is a&nbsp;<em>placeholder</em>&nbsp;for&nbsp;a future value.</p>\n</div>\n<div class=\"paragraph\">\n<p>It serves the&nbsp;same function as&nbsp;callbacks but has a&nbsp;nicer syntax and&nbsp;makes it easier to&nbsp;handle errors.</p>\n</div>",
+            "content_desc": "<div class=\"paragraph\">\n<p>In ES6 we have an alternative mechanism called <em>promises. </em>A&nbsp;<em>promise</em>&nbsp;is a&nbsp;<em>placeholder</em>&nbsp;for&nbsp;a future value.</p>\n</div>\n<div class=\"paragraph\">\n<p>It serves the same function as callbacks but has a nicer syntax and makes it easier to handle the errors.</p>\n</div>",
             "content_image": "",
             "content_code": ""
         },
@@ -129,10 +130,10 @@
             "content_code": ""
         },
         {
-            "content_title": "",
+            "content_title": "Program",
             "content_desc": "",
             "content_image": "",
-            "content_code": "'use strict';\n\n// Via callbacks\n/*\n function doAsyncTask(cb) {\n setTimeout(() => {\n console.log(\"Async Task Calling Callback\");\n cb();\n }, 1000);\n }\n doAsyncTask(() => console.log(\"Callback Called\"));\n */\n\n\n\n// Via Promise\nlet error = false;\nfunction doAsyncTask() {\n  return new Promise((resolve, reject) => {\n    setTimeout(() => {\n      if (error) {\n        reject('error');\n      } else {\n        resolve('done');\n      }\n    }, 1000);\n  });\n}\n\ndoAsyncTask().then(\n    (val) => console.log(val),\n    (err) => console.error(err)\n);\n\n// Immediately Resolved Promise\nlet promise = Promise.resolve('done');\npromise.then((val) => console.log(val)); // 'done'\n\n// Handling Errors\nPromise.resolve('done')\n    .then((val) => {throw new Error(\"fail\")})\n    .then((val) => console.log(val))\n    .catch((err) => console.error(err));"
+            "content_code": "'use strict';\n\n// Via callbacks\n/*\n function doAsyncTask(cb) {\n setTimeout(() => {\n console.log(\"Async Task Calling Callback\");\n cb();\n }, 1000);\n }\n doAsyncTask(() => console.log(\"Callback Called\"));\n */\n\n// Via Promise\nlet error = false;\nfunction doAsyncTask() {\n  return new Promise((resolve, reject) => {\n    setTimeout(() => {\n      if (error) {\n        reject('error');\n      } else {\n        resolve('done');\n      }\n    }, 1000);\n  });\n}\n\ndoAsyncTask().then(\n    (val) => console.log(val),\n    (err) => console.error(err)\n);\n\n// Immediately Resolved Promise\nlet promise = Promise.resolve('done');\npromise.then((val) => console.log(val)); // 'done'\n\n// Handling Errors\nPromise.resolve('done')\n    .then((val) => {throw new Error(\"fail\")})\n    .then((val) => console.log(val))\n    .catch((err) => console.error(err));"
         }
     ]
 }

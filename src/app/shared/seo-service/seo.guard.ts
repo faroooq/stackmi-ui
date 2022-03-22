@@ -61,6 +61,55 @@ export class SeoGuard implements CanActivate {
             // NEED TO ADD ARTICLE OBJECT HERE & SITEMAP & SUBMIT URL.
             const articlMetaSEO = [
                 {
+                    "seo_slug": "ts-intro",
+                    "seo_title": "Introduction to Typescript",
+                    "seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Typescript/Typescript-seo-intro.png",
+                    "seo_desc": "TypeScript is a superset of JavaScript, meaning that it contains all of the functionality of JavaScript and then some. Therefore, any program written in valid JavaScript will also run as expected in TypeScript. In fact, TypeScript compiles simply to plain JavaScript.",
+                    "seo_keywords": "Introduction to Typescript, Typescript, Learn Typescript, Typescript Technology, Web Solutions, Full-stack developer, Learn Typescript Online"
+                },
+                {
+                    "seo_slug": "ts-let-keyword",
+                    "seo_title": "Typescript - Let Keyword",
+                    "seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Typescript/Typescript-seo-let-keyword.png",
+                    "seo_desc": "The let declarations follow the same syntax as var declarations. Unlike variables declared with var , variables declared with let have a block-scope.",
+                    "seo_keywords": "Typescript Let keyword, Typescript, Learn Typescript, Typescript Technology, Web Solutions, Full-stack developer, Learn Typescript Online"
+                },
+                {
+                    "seo_slug": "ts-const-keyword",
+                    "seo_title": "Typescript - Const Keyword",
+                    "seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Typescript/Typescript-seo-const-keyword.png",
+                    "seo_desc": "We can use const keyword to declare a variable but unlike let and var it must be immediately initialised, with a value that can’t be changed afterwards.",
+                    "seo_keywords": "Typescript Const keyword, Typescript, Learn Typescript, Typescript Technology, Web Solutions, Full-stack developer, Learn Typescript Online"
+                },
+                {
+                    "seo_slug": "ts-types",
+                    "seo_title": "Typescript - Types",
+                    "seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Typescript/Typescript-seo-types.png",
+                    "seo_desc": "TypeScripts transpilation mechanism also performs type checking, however it only works when we tell TypeScript the type of things.",
+                    "seo_keywords": "Typescript types, Typescript, Learn Typescript, Typescript Technology, Web Solutions, Full-stack developer, Learn Typescript Online"
+                },
+                {
+                    "seo_slug": "ts-fat-arrow-function",
+                    "seo_title": "Typescript - Fat Arrow Functions",
+                    "seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Typescript/Typescript-seo-fat-arrow.png",
+                    "seo_desc": "ES6 has introduced a slightly different syntax to define anonymous functions called the fat arrow syntax.",
+                    "seo_keywords": "Typescript fat arrow functions, Typescript, Learn Typescript, Typescript Technology, Web Solutions, Full-stack developer, Learn Typescript Online"
+                },
+                {
+                    "seo_slug": "ts-promises",
+                    "seo_title": "Typescript - Callbacks & Promises",
+                    "seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Typescript/Typescript-seo-promises.png",
+                    "seo_desc": "When you execute a task synchronously, you wait for it to finish before moving on to the next line of code. When you execute a task asynchronously, the program moves to the next line of code before the task finishes.",
+                    "seo_keywords": "Promises and async, Typescript, Learn Typescript, Typescript Technology, Web Solutions, Full-stack developer, Learn Typescript Online"
+                },
+                {
+                    "seo_slug": "ts-class-interface",
+                    "seo_title": "Typescript - Class and Interfaces",
+                    "seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Typescript/Typescript-seo-class-interface.png",
+                    "seo_desc": "JavaScript has a prototype-based, object-oriented programming model. It creates objects using other objects as blueprints and to implement inheritance it manipulates what’s called a prototype chain.",
+                    "seo_keywords": "Typescript Class and Interfaces, Typescript, Learn Typescript, Typescript Technology, Web Solutions, Full-stack developer, Learn Typescript Online"
+                },
+                {
                     "seo_slug": "ng-intro",
                     "seo_title": "Introduction to Angular",
                     "seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Angular-seo_intro.png",

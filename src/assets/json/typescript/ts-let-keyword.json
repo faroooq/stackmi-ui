@@ -1,25 +1,29 @@
 {
+    "_id": {
+        "$oid": "61bf5519814f0dceb78fea5f"
+    },
+    "article_id": "1.2",
     "article_slug": "ts-let-keyword",
-    "article_title": "Typescript Let Keyword",
+    "article_title": "Typescript - Let Keyword",
     "article_image": "",
-    "article_seo_desc": "Scope refers to the lifecycle of a variable, i.e. where in the code it’s visible and for how long.",
+    "article_seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Typescript/Typescript-seo-let-keyword.png",
     "enroll_available": true,
     "article_content": [
         {
             "content_title": "Variable Scope confusion",
-            "content_desc": "<p>A&nbsp;confusing point for&nbsp;developers coming from different languages is the&nbsp;way variable&nbsp;<a href=\"https://en.wikipedia.org/wiki/Scope_(computer_science)\">scope</a>&nbsp;behaves in&nbsp;JavaScript.</p>\n<table style=\"width: 100%; border-collapse: collapse;\" border=\"1\" cellspacing=\"10\" cellpadding=\"10\">\n<tbody>\n<tr>\n<td style=\"width: 100%;\"><em><strong>Note</strong>: Scope</em>&nbsp;refers to&nbsp;the lifecycle of&nbsp;a variable, i.e. where in&nbsp;the code it&rsquo;s visible and&nbsp;for how long.</td>\n</tr>\n</tbody>\n</table>\n<br/><p>In Java and some other languages there is the concept of block scope, a block is any code that is wrapped in { and }, like:</p>",
+            "content_desc": "<p>A confusing thing for developers coming from different languages is the way variable <a href=\"https://en.wikipedia.org/wiki/Scope_(computer_science)\">scope</a>&nbsp;behaves in&nbsp;JavaScript.</p>\n<table style=\"width: 100%; border-collapse: collapse;\" border=\"1\" cellspacing=\"10\" cellpadding=\"10\">\n<tbody>\n<tr>\n<td style=\"width: 100%;\"><em><strong>Note</strong>: Scope</em> simply means, lifecycle of a variable, i.e. where in the code it&rsquo;s visible and for how long.</td>\n</tr>\n</tbody>\n</table>\n<p>In Java and some other languages there is a concept of block scope, a block is any code that is wrapped in { and }, like:</p>",
             "content_image": "",
             "content_code": "{\n    // This is a block\n}\n// This is not part of a block"
         },
         {
             "content_title": "",
-            "content_desc": "<div class=\"paragraph\">\n<p>This means that in&nbsp;those languages if you declare a&nbsp;variable inside a&nbsp;block, it&rsquo;s only visible inside that block and&nbsp;any nested blocks inside that block.</p>\n</div>\n<div class=\"paragraph\">\n<p>But in&nbsp;ES5 JavaScript we only have two scopes, the&nbsp;<em>global scope</em>&nbsp;and&nbsp;<em>function scope</em>.</p>\n</div>\n<div class=\"paragraph\">\n<p>So if I&nbsp;wrote:</p>\n</div>",
+            "content_desc": "<div class=\"paragraph\">\n<p>This means that in those languages if you declare variable inside a block, it&rsquo;s visible only inside that block and any nested blocks inside that block.</p>\n</div>\n<div class=\"paragraph\">\n<p>But in the ES5 JavaScript we only have two scopes, the <em>global scope</em>&nbsp;and&nbsp;<em>function scope</em>.</p>\n</div>\n<div class=\"paragraph\">\n<p>So if I write:</p>\n</div>",
             "content_image": "",
             "content_code": "{\n  var a = \"block\";\n}\nconsole.log(a);"
         },
         {
             "content_title": "",
-            "content_desc": "<div class=\"paragraph\">\n<div class=\"paragraph\">\n<p>Those coming from Java or&nbsp;C++ backgrounds might think that this would throw an&nbsp;error because we are trying to&nbsp;use the&nbsp;variable&nbsp;<code>a</code>&nbsp;outside of&nbsp;the block it was created in. But in&nbsp;JavaScript it doesn&rsquo;t, this code is perfectly legal.</p>\n</div>\n<div class=\"paragraph\">\n<p>The&nbsp;variable&nbsp;<code>a</code>, as&nbsp;we&rsquo;ve declared it above, exists in&nbsp;<em>global scope</em>&nbsp;so this means it&rsquo;s visible from&nbsp;<em>everywhere</em>&nbsp;in&nbsp;our application.</p>\n</div>\n<div class=\"paragraph\">\n<p>In&nbsp;ES5 apart from global scope, the&nbsp;only other scope is&nbsp;<em>function scope</em>, so if we wrote.</p>\n</div>\n</div>",
+            "content_desc": "<div class=\"paragraph\">\n<p>Those are from Java or C++ backgrounds might think that this would throw an error as, we are trying to use the variable <code>a</code> outside of the block it was created in. But in JavaScript it won't, this code is perfectly acceptable.</p>\n</div>\n<div class=\"paragraph\">\n<p>The&nbsp;variable&nbsp;<code>a</code>, that we&rsquo;ve declared above, exists in <em>global scope</em> so this means it&rsquo;s visible from <em>everywhere</em> in the application.</p>\n</div>\n<div class=\"paragraph\">\n<p>In&nbsp;ES5 apart from global scope, the&nbsp;only other scope is&nbsp;<em>function scope</em>, so if we wrote.</p>\n</div>",
             "content_image": "",
             "content_code": "function hello() {\n    var a = \"function\";\n}\nhello();\nconsole.log(a);"
         },
@@ -31,7 +35,7 @@
         },
         {
             "content_title": "",
-            "content_desc": "<div class=\"paragraph\">\n<p>This is because the&nbsp;<code>a</code>&nbsp;variable is declared&nbsp;<em>inside</em>&nbsp;a&nbsp;function and&nbsp;is therefore only visible inside&nbsp;<em>that</em>&nbsp;function, trying to&nbsp;access it outside the&nbsp;function results in&nbsp;an error.</p>\n</div>\n<div class=\"paragraph\">\n<p>But again this isn&rsquo;t&nbsp;<em>block level scope</em>&nbsp;as&nbsp;we can see if we add a&nbsp;<em>for&nbsp;loop</em>&nbsp;inside the&nbsp;function, like:</p>\n</div>",
+            "content_desc": "<div class=\"paragraph\">\n<p>This is because variable <code>a</code>&nbsp;is declared&nbsp;<em>inside</em>&nbsp;a&nbsp;function and&nbsp;is therefore only visible inside&nbsp;<em>that</em> function, trying to access the variable <code>a</code> outside the function results in an error.</p>\n</div>\n<div class=\"paragraph\">\n<p>But again this isn&rsquo;t&nbsp;<em>block level scope</em> as we can see if we add a&nbsp;<em>for&nbsp;loop</em>&nbsp;inside the&nbsp;function, like:</p>\n</div>",
             "content_image": "",
             "content_code": "function hello() {\n    var a = \"function\";\n    for (var i = 0; i < 10; i++) {\n        var a = \"block\";\n    }\n    console.log(a);\n}\nhello();"
         },
@@ -43,7 +47,7 @@
         },
         {
             "content_title": "Immediately Invoked Function Expression (IIFE)",
-            "content_desc": "<div class=\"paragraph\">\n<p>This issue of&nbsp;<em>no block level scope</em>&nbsp;has plagued JavaScript developers since its inception.</p>\n</div>\n<div class=\"paragraph\">\n<p>One common workaround in&nbsp;the past has been to&nbsp;use something called an&nbsp;Immediately Invoked Function Expression (<abbr>IIFE</abbr>) like:</p>\n</div>",
+            "content_desc": "<div class=\"paragraph\">\n<p>This issue of&nbsp;<em>no block level scope</em>&nbsp;has plagued JavaScript developers since its inception.</p>\n</div>\n<div class=\"paragraph\">\n<p>One common workaround in the past has been to use something called the Immediately Invoked Function Expression (<abbr>IIFE</abbr>) like:</p>\n</div>",
             "content_image": "",
             "content_code": "function hello() {\n    var a = \"function\";\n\n    for (var i=0; i<5; i++) {\n        (function() {\n            var a = \"block\";\n        })();\n    }\n    console.log(a);\n}\nhello();"
         },

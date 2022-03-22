@@ -2,21 +2,22 @@
     "_id": {
         "$oid": "61d82f025f5cf66516cc9158"
     },
+    "article_id": "1.5",
     "article_slug": "ts-fat-arrow-function",
     "article_title": "Typescript - Fat Arrow Functions",
     "article_image": "",
-    "article_seo_desc": "ES6 has introduced a slightly different syntax to define anonymous functions called the fat arrow syntax.",
+    "article_seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Typescript/Typescript-seo-fat-arrow.png",
     "enroll_available": true,
     "article_content": [
         {
             "content_title": "",
-            "content_desc": "<div class=\"paragraph\">\n<p>JavaScript has&nbsp;<em>first class functions</em>.</p>\n</div>\n<div class=\"paragraph\">\n<p>This means that in&nbsp;JavaScript functions can be themselves be passed around like any other value, even as&nbsp;arguments to&nbsp;other functions.</p>\n</div>\n<div class=\"paragraph\">\n<p>E.g. we can pass to&nbsp;the&nbsp;<code>setTimeout</code>&nbsp;function, a&nbsp;function, like:</p>\n</div>",
+            "content_desc": "<div class=\"paragraph\">\n<p>JavaScript language has <em>first class functions</em>.</p>\n</div>\n<div class=\"paragraph\">\n<p>This means that in JavaScript language, functions can be themselves be passed around like any other value, even as arguments to other functions.</p>\n</div>\n<div class=\"paragraph\">\n<p>E.g. we can pass to&nbsp;the&nbsp;<code>setTimeout</code>&nbsp;function, a&nbsp;function, like:</p>\n</div>",
             "content_image": "",
             "content_code": "setTimeout(function() {\n\tconsole.log(\"setTimeout called!\");\n}, 1000);"
         },
         {
             "content_title": "",
-            "content_desc": "The function we pass as an argument to setTimeout is called an anonymous function because it doesn’t have a name.\n\nES6 has introduced a slightly different syntax to define anonymous functions called the fat arrow syntax, with it we can re-write the above:",
+            "content_desc": "<p>The function that we pass as an argument to setTimeout is called an anonymous function because it doesn&rsquo;t have a name. ES6 has introduced a slightly different syntax to define anonymous functions called the fat arrow syntax, with it we can re-write the above:</p>",
             "content_image": "",
             "content_code": "setTimeout(() => {\n    console.log(\"setTimeout called!\")\n}, 1000);"
         },

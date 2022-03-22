@@ -2,15 +2,16 @@
     "_id": {
         "$oid": "61dfcbf8063dc3d6690082a6"
     },
+    "article_id": "1.9",
     "article_slug": "ts-class-interface",
     "article_title": "Typescript - Class and Interfaces",
     "article_image": "",
-    "article_seo_desc": "JavaScript has a prototype-based, object-oriented programming model. It creates objects using other objects as blueprints and to implement inheritance it manipulates what’s called a prototype chain.",
+    "article_seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Typescript/Typescript-seo-class-interface.png",
     "enroll_available": true,
     "article_content": [
         {
             "content_title": "Object Orientation in JavaScript",
-            "content_desc": "<div class=\"paragraph\">\n<p>JavaScript has a&nbsp;prototype-based, object-oriented programming model. It creates objects using other objects as&nbsp;blueprints and&nbsp;to implement inheritance it manipulates what&rsquo;s called a&nbsp;<em>prototype chain</em>.</p>\n</div>\n<div class=\"paragraph\">\n<p>We normally call the&nbsp;way object orientation is implemented in&nbsp;C++ or&nbsp;Java as&nbsp;the&nbsp;<em>Classical OO Pattern</em>&nbsp;and&nbsp;the way it&rsquo;s implemented in&nbsp;JavaScript as&nbsp;the&nbsp;<em>Prototype Pattern</em>.</p>\n</div>\n<div class=\"paragraph\">\n<p>Although the&nbsp;prototype pattern is a&nbsp;valid way to&nbsp;implement object orientation it can be confusing for&nbsp;newer JavaScript developers or&nbsp;developers used to&nbsp;the classical pattern.</p>\n</div>\n<div class=\"paragraph\">\n<p>So in&nbsp;ES6 we have an&nbsp;alternative syntax, one that closer matches the&nbsp;classical object orientated pattern as&nbsp;is seen in&nbsp;other languages.</p>\n<p><strong>Note:</strong> TypeScript supports the ES6 <code>class</code>&nbsp;syntax but also adds some other feature like access modifiers and&nbsp;interfaces, so in&nbsp;this lecture we&rsquo;ll be writing TypeScript rather than pure ES6.</p>\n</div>",
+            "content_desc": "<div class=\"paragraph\">\n<p>JavaScript has a prototype-based, object-oriented programming model. It creates objects using other objects as blueprints and to implement the inheritance it manipulates what&rsquo;s called a <em>prototype chain</em>.</p>\n</div>\n<div class=\"paragraph\">\n<p>We normally call the way object orientation is implemented in C++ or Java as a&nbsp;<em>Classical OO Pattern</em> and&nbsp;the way it&rsquo;s implemented in&nbsp;JavaScript as&nbsp;a&nbsp;<em>Prototype Pattern</em>.</p>\n</div>\n<div class=\"paragraph\">\n<p>Although a prototype pattern is a valid way to implement object orientation it can be confusing for the newer JavaScript developers or developers used to the classical pattern.</p>\n</div>\n<div class=\"paragraph\">\n<p>So in ES6 we have an alternative syntax, one that closely matches the classical object orientated pattern as is seen in other languages.</p>\n<p><strong>Note:</strong> TypeScript supports ES6 <code>class</code>&nbsp;syntax but also adds some other feature like access modifiers and&nbsp;interfaces, so in&nbsp;this lecture we&rsquo;ll be writing TypeScript rather than pure ES6.</p>\n</div>",
             "content_image": "",
             "content_code": ""
         },
@@ -114,13 +115,13 @@
             "content_title": "",
             "content_desc": "If the Person class then doesn’t implement at least a firstName and a lastName then TypeScript throws an error like:",
             "content_image": "",
-            "content_code": "error TS2420: Class 'Person' incorrectly implements interface 'Human'. Property 'firstName' is missing in type 'Person'."
+            "content_code": "error TS2420: Class 'Person' incorrectly implements interface 'Human'. \nProperty 'firstName' is missing in type 'Person'."
         },
         {
             "content_title": "",
             "content_desc": "Sometimes however we might want an interface to describe an optional contract. We can append ? to the name of the property or function to mark it as optional, like:",
             "content_image": "",
-            "content_code": "interface Human {\n    firstName: string;\n    lastName: string;\n\t\tname?: Function;\n\t\tisLate?(time: Date): Function;\n}"
+            "content_code": "interface Human {\n    firstName: string;\n    lastName: string;\n\tname?: Function;\n\tisLate?(time: Date): Function;\n}"
         }
     ]
 }

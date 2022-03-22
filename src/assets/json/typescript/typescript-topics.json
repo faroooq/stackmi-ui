@@ -1,4 +1,7 @@
 {
+    "_id": {
+        "$oid": "61e2c51b063dc3d6690082f3"
+    },
     "course_title": "Typescript Tutorial",
     "course_slug": "ts-intro",
     "course_list": [
@@ -33,36 +36,31 @@
                 },
                 {
                     "topic_id": "6",
-                    "topic_slug": "ts-desctruturing",
-                    "topic_name": "Typescript Destructuring"
-                },
-                {
-                    "topic_id": "7",
                     "topic_slug": "ts-for-of",
                     "topic_name": "Typescript ForOf"
                 },
                 {
-                    "topic_id": "8",
+                    "topic_id": "7",
                     "topic_slug": "ts-map-set",
                     "topic_name": "Typescript Map and Set"
                 },
                 {
-                    "topic_id": "9",
+                    "topic_id": "8",
                     "topic_slug": "ts-promises",
                     "topic_name": "Typescript Promises"
                 },
                 {
-                    "topic_id": "10",
+                    "topic_id": "9",
                     "topic_slug": "ts-class-interface",
                     "topic_name": "Typescript Class and Interface"
                 },
                 {
-                    "topic_id": "11",
+                    "topic_id": "10",
                     "topic_slug": "ts-decorators",
                     "topic_name": "Typescript Decorators"
                 },
                 {
-                    "topic_id": "12",
+                    "topic_id": "11",
                     "topic_slug": "ts-modules",
                     "topic_name": "Typescript Modules"
                 }

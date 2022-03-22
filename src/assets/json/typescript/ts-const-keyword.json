@@ -1,13 +1,17 @@
 {
+    "_id": {
+        "$oid": "61c1f460814f0dceb78fea75"
+    },
+    "article_id": "1.3",
     "article_slug": "ts-const-keyword",
-    "article_title": "Typescript Const Keyword",
+    "article_title": "Typescript - Const Keyword",
     "article_image": "",
-    "article_seo_desc": "We can use const to declare a variable but unlike let and var it must be immediately initialised, with a value that can’t be changed afterwards.",
+    "article_seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Typescript/Typescript-seo-const-keyword.png",
     "enroll_available": true,
     "article_content": [
         {
             "content_title": "Declaring a const Variable",
-            "content_desc": "<p>We can use&nbsp;<code>const</code>&nbsp;to&nbsp;declare a&nbsp;variable but unlike&nbsp;<code>let</code>&nbsp;and&nbsp;<code>var</code>&nbsp;it must be&nbsp;<em>immediately</em>&nbsp;initialised, with a&nbsp;value that can&rsquo;t be changed afterwards.</p>\n<p>If we try to&nbsp;declare it without initialising it we get a&nbsp;<code>SyntaxError</code>, like:</p>",
+            "content_desc": "<p>We can use&nbsp;<code>const</code> keyword to declare a variable but unlike <code>let</code>&nbsp;and&nbsp;<code>var</code>&nbsp;it must be&nbsp;<em>immediately</em>&nbsp;initialised, with a&nbsp;value that can&rsquo;t be changed afterwards.</p>\n<p>If we try to declare it without initialising it, we get a&nbsp;<code>SyntaxError</code>, like:</p>",
             "content_image": "",
             "content_code": "const foo; // SyntaxError: Missing initializer in const declaration"
         },
@@ -37,7 +41,7 @@
         },
         {
             "content_title": "Mutable Value",
-            "content_desc": "There is one big pitfall with const however.\n\nWhen we say ”`const` variables are immutable” it only means that the variable always has to point to the same thing. It does not mean that the thing it points to can’t change over time.\n\nFor example, if the variable foo is a const that points to an object — we can’t make foo point to another object later on:",
+            "content_desc": "<p>There is one big pitfall with const keyword however. When we say &rdquo;`const` variable is immutable&rdquo; it only means that the variable always has to point to the same thing. It does not mean that the thing it points to can&rsquo;t change over time. For example, if the variable foo is a const that points to an object &mdash; we can&rsquo;t make foo point to another object later on:</p>",
             "content_image": "",
             "content_code": "const foo = {};\nfoo = {}; // TypeError: Assignment to constant variable."
         },

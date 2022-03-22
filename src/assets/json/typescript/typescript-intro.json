@@ -1,20 +1,23 @@
 {
-    "article_slug": "typescript-intro",
+    "_id": {
+        "$oid": "61bf4a40814f0dceb78fea55"
+    },
+    "article_id": "1.1",
+    "article_slug": "ts-intro",
     "article_title": "Introduction to Typescript",
     "article_image": "",
-    "article_seo_image": "",
-    "article_seo_desc": "TypeScript is the ES6 version of JavaScript plus a few other TypeScript only features which Angular needs in order to work.",
+    "article_seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Typescript/Angular-seo-typescript-intro.png",
     "enroll_available": true,
     "article_content": [
         {
             "content_title": "TypeScript vs JavaScript",
-            "content_desc": "<p>Angular is written in a superset of JavaScript called TypeScript.</p><p>TypeScript file ends in <strong>.ts</strong>, where as Javascript file ends in <strong>.js</strong>.</p><p><strong>JavaScript</strong> is a text-based programming language used&nbsp;both on the client-side and server-side that allows you to make web pages interactive.</p><p><strong>TypeScript</strong> is the ES6 version of JavaScript plus a few other TypeScript only features which Angular needs in order to work.&nbsp;</p><hr/><p><em><strong>ECMAScript (ES)</strong> is a JavaScript standard meant to ensure the interoperability of web pages across different web browsers. It is standardised by Ecma International according to the document ECMA-262.</em></p><hr/>",
+            "content_desc": "<p>Angular is developed on top of JavaScript called TypeScript.</p>\n<p>TypeScript file ends with <strong>.ts</strong>, where as Javascript file ends with <strong>.js</strong>.</p>\n<p><strong>JavaScript</strong> is a text-based programming language used&nbsp;both on the client-side and server-side that allows you to make web pages interactive.</p>\n<p><strong>TypeScript</strong> is the ES6 version of JavaScript plus a few other TypeScript only features which Angular needs in order to work.&nbsp;</p>\n<hr />\n<p><em><strong>ECMAScript (ES)</strong> is a JavaScript standard meant to ensure the interoperability of the web pages across different web browsers. It is standardised by Ecma International according to the document ECMA-262.</em></p>\n<hr />",
             "content_image": "",
             "content_code": ""
         },
         {
             "content_title": "Transpilation",
-            "content_desc": "<p>Browsers don&rsquo;t support TypeScript. So how can we write our code in&nbsp;TypeScript?</p>\n<p>We use something called a&nbsp;<em>transpiler</em>&nbsp;which converts from one language to&nbsp;another.</p>\n<p>We can write code in TypeScript and have a transpiler convert to latest version of ecmascript (ES6-Current version as of writing this article).</p>\n<p>Since most browsers don&rsquo;t support ES6 features yet we are going to&nbsp;<em>transpile</em>&nbsp;our TypeScript into ES5.</p>\n<p>The&nbsp;process of&nbsp;converting TypeScript into ES5 is called&nbsp;<em>transpilation</em>&nbsp;and&nbsp;we use a&nbsp;tool called&nbsp;<strong><code>tsc</code></strong>&nbsp;to&nbsp;compile on&nbsp;the command line.</p>\n<div class=\"paragraph\">\n<table style=\"width: 100%; border-collapse: collapse;\" border=\"1\" cellspacing=\"10\" cellpadding=\"10\">\n<tbody>\n<tr>\n<td style=\"width: 100%;\"><strong>Note:</strong> It&rsquo;s <em>not</em> necessary to do this in your everyday Angular development. Projects built using the Angular command-line tools use the webpack bundler which handles transpilation of your TypeScript for you.</td>\n</tr>\n</tbody>\n</table>\n</div>",
+            "content_desc": "<p>Basically browsers don&rsquo;t support TypeScript. So how can we write the code in TypeScript?</p>\n<p>We use something called <em>transpiler</em> which converts the typescript code back to javascript as that's what browsers understand.</p>\n<p>We can write the code in TypeScript and have a transpiler convert to latest version of ecmascript (ES6-Current version as of writing this article).</p>\n<p>Since most of the browsers don&rsquo;t support ES6 features yet we are going to <em>transpile</em>&nbsp;our TypeScript into ES5.</p>\n<p>The process of converting TypeScript into ES5 javascript is called <em>transpilation</em>&nbsp;and&nbsp;we use a&nbsp;tool called&nbsp;<strong><code>tsc</code></strong>&nbsp;to&nbsp;compile on&nbsp;the command line.</p>\n",
             "content_image": "",
             "content_code": ""
         },

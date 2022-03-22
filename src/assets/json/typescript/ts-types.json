@@ -2,21 +2,22 @@
     "_id": {
         "$oid": "61e02008063dc3d6690082bd"
     },
+    "article_id": "1.4",
     "article_slug": "ts-types",
     "article_title": "Typescript - Types",
     "article_image": "",
-    "article_seo_desc": "TypeScripts transpilation mechanism also performs type checking, however it only works when we tell TypeScript the type of things.",
+    "article_seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Typescript/Typescript-seo-const-keyword.png",
     "enroll_available": true,
     "article_content": [
         {
             "content_title": "",
-            "content_desc": "<div class=\"paragraph\">\n<p>Some of&nbsp;the most common mistakes we make while writing JavaScript code is to&nbsp;misspell a&nbsp;property or&nbsp;a method name.</p>\n</div>\n<div class=\"paragraph\">\n<p>We only find out about the&nbsp;mistake when we get a&nbsp;<em>runtime error</em>, that is to&nbsp;say when we are running our application.</p>\n<p><strong>Note:</strong> This is why testing is so important for JavaScript applications, only <em>running</em>&nbsp;them can surface errors.</p>\n<div class=\"paragraph\">\n<p>Other languages like C++ or&nbsp;Java have something called&nbsp;<em>type checking</em>, during a&nbsp;compilation phase it first checks for&nbsp;some simple mistakes in&nbsp;the code and&nbsp;raises an&nbsp;error if it finds any.</p>\n</div>\n<div class=\"paragraph\">\n<p>TypeScripts transpilation mechanism also performs&nbsp;<em>type checking</em>, however it only works when we tell TypeScript the&nbsp;<em>type</em>&nbsp;of&nbsp;things.</p>\n</div>\n<div class=\"paragraph\">\n<p>e.g. in&nbsp;JavaScript we might write:</p>\n</div>\n</div>",
+            "content_desc": "<div class=\"paragraph\">\n<p>Some of the most common mistakes we do while writing JavaScript code is to misspell a property or a method name.</p>\n</div>\n<div class=\"paragraph\">\n<p>We only figure out the mistake when we get a <em>runtime error</em>, that is to&nbsp;say when we are running our application.</p>\n<p><strong>Note:</strong> This is why testing is very much important for JavaScript applications, only <em>running</em>&nbsp;them can surface errors.</p>\n<div class=\"paragraph\">\n<p>Other languages like C++ or Java have compilers for <em>type checking</em>, during a compilation phase it first checks for some simple mistakes in the code and raises an error if it finds any errors.</p>\n</div>\n<div class=\"paragraph\">\n<p>TypeScript transpilation mechanism also performs <em>type checking</em>, however it only works when we tell TypeScript the&nbsp;<em>type</em>&nbsp;of&nbsp;things.</p>\n</div>\n<div class=\"paragraph\">\n<p>e.g. in&nbsp;JavaScript we might write:</p>\n</div>\n</div>",
             "content_image": "",
             "content_code": "let a;\na = 1;\na = '2';"
         },
         {
             "content_title": "",
-            "content_desc": "<div class=\"paragraph\">\n<p>We expected the&nbsp;type of&nbsp;the&nbsp;<code>a</code>&nbsp;variable to&nbsp;remain a&nbsp;number over its life. But by&nbsp;mistake we assigned a&nbsp;string&nbsp;<code>'2'</code>&nbsp;to&nbsp;<code>a</code>, this doesn&rsquo;t cause an&nbsp;error in&nbsp;JavaScript.</p>\n</div>\n<div class=\"paragraph\">\n<p>Only if one of&nbsp;the functions which depends on&nbsp;<code>a</code>&nbsp;starts misbehaving do we even get a&nbsp;clue that something might be wrong.</p>\n</div>\n<div class=\"paragraph\">\n<p>However with TypeScript we can clearly state that we want the&nbsp;<code>a</code>&nbsp;variable to&nbsp;always hold a&nbsp;number, like</p>\n</div>",
+            "content_desc": "<div class=\"paragraph\">\n<p>We expected the type of the variable&nbsp;<code>a</code>&nbsp;to&nbsp;remain a&nbsp;number over its life. But by&nbsp;mistake we assigned a&nbsp;string&nbsp;<code>'2'</code> to variable <code>a</code>, this doesn&rsquo;t cause an&nbsp;error in&nbsp;JavaScript.</p>\n</div>\n<div class=\"paragraph\">\n<p>Only if one of the functions which depends on variable <code>a</code>&nbsp;starts misbehaving do we even get a&nbsp;clue that something might be wrong.</p>\n</div>\n<div class=\"paragraph\">\n<p>However with TypeScript we can clearly state that we want variable <code>a</code> to&nbsp;always hold a&nbsp;number, like:</p>\n</div>",
             "content_image": "",
             "content_code": "let a: number = 1;"
         },
