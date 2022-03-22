@@ -96,6 +96,20 @@ export class SeoGuard implements CanActivate {
                     "seo_keywords": "Typescript fat arrow functions, Typescript, Learn Typescript, Typescript Technology, Web Solutions, Full-stack developer, Learn Typescript Online"
                 },
                 {
+                    "seo_slug": "ts-for-of",
+                    "seo_title": "Typescript - For, For-of Loop",
+                    "seo_image": "",
+                    "seo_desc": "We have a couple of ways of looping through Arrays in ES5 JavaScript. For one we have the classic for loop.",
+                    "seo_keywords": "Typescript For, For-of, Typescript, Learn Typescript, Typescript Technology, Web Solutions, Full-stack developer, Learn Typescript Online"
+                },
+                {
+                    "seo_slug": "ts-map-set",
+                    "seo_title": "Typescript - Map and Set",
+                    "seo_image": "",
+                    "seo_desc": "Map is a new data structure introduced in ES6 which lets you map keys to values without the drawbacks of using Objects.",
+                    "seo_keywords": "Typescript Map and Set, Typescript, Learn Typescript, Typescript Technology, Web Solutions, Full-stack developer, Learn Typescript Online"
+                },
+                {
                     "seo_slug": "ts-promises",
                     "seo_title": "Typescript - Callbacks & Promises",
                     "seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Typescript/Typescript-seo-promises.png",
@@ -108,6 +122,20 @@ export class SeoGuard implements CanActivate {
                     "seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Typescript/Typescript-seo-class-interface.png",
                     "seo_desc": "JavaScript has a prototype-based, object-oriented programming model. It creates objects using other objects as blueprints and to implement inheritance it manipulates what’s called a prototype chain.",
                     "seo_keywords": "Typescript Class and Interfaces, Typescript, Learn Typescript, Typescript Technology, Web Solutions, Full-stack developer, Learn Typescript Online"
+                },
+                {
+                    "seo_slug": "ts-decorators",
+                    "seo_title": "Typescript - Decorators",
+                    "seo_image": "",
+                    "seo_desc": "This is a new feature that will probably make it into the ES7 version of JavaScript, it’s not available right now however even in the ES6 version.",
+                    "seo_keywords": "Typescript Decorators, Typescript, Learn Typescript, Typescript Technology, Web Solutions, Full-stack developer, Learn Typescript Online"
+                },
+                {
+                    "seo_slug": "ts-modules",
+                    "seo_title": "Typescript - Modules",
+                    "seo_image": "",
+                    "seo_desc": "By default JavaScript doesn’t have a module system like other languages, e.g. Java or Python. This means that if you wanted to call a function in some other file, you have to remember to explicitly load that file via script tags before you call the function.",
+                    "seo_keywords": "Typescript Modules, Typescript, Learn Typescript, Typescript Technology, Web Solutions, Full-stack developer, Learn Typescript Online"
                 },
                 {
                     "seo_slug": "ng-intro",
