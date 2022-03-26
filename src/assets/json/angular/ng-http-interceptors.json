@@ -1,0 +1,43 @@
+{
+    "_id": {
+        "$oid": "623e9b6fb38ed1851d0f5c43"
+    },
+    "article_id": "8.3",
+    "article_slug": "ng-http-interceptors",
+    "article_title": "Angular - Http Interceptors",
+    "article_image": "",
+    "article_seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Angular-seo-http-interceptors.png",
+    "enroll_available": true,
+    "article_content": [
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>Download the complete project from github: <a href=\"https://github.com/faroooq/shopping-cart\" target=\"_blank\">https://github.com/faroooq/shopping-cart</a></p>\n<hr/>\n</div>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>Angular provides many in-built tools to help scale out JavaScript applications. Interceptor is one of the built-in tool for specifically handling HTTP requests at a global application level.</p>\n<p>Interceptor allow us to intercept incoming or outgoing HTTP requests using the <code class=\"language-plaintext highlighter-rouge\">HttpClient</code><code class=\"language-plaintext highlighter-rouge\"> service</code>. By intercepting the HTTP request, we can modify or change the value of the request.</p>",
+            "content_image": "",
+            "content_code": "import { Injectable } from '@angular/core';\nimport { HttpInterceptor, HttpEvent, HttpResponse, HttpRequest, HttpHandler } from '@angular/common/http';\nimport { Observable } from 'rxjs';\nimport { map, filter } from 'rxjs/operators';\n\n@Injectable()\nexport class HeaderInterceptor implements HttpInterceptor {\n  intercept(httpRequest: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {\n    const API_KEY = '123456';\n    return next.handle(httpRequest.clone({ setHeaders: { API_KEY } }));\n  }\n}"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>To create an Interceptor, we need to implement <code>HttpInterceptor</code>&nbsp;interface from&nbsp;<code>@angular/common/http</code> module. Each time our application makes an HTTP request using the<code> HttpClient</code>&nbsp;service, the Interceptor calls the&nbsp;<code>intercept()</code> overridden method.</p>\n<p>When the&nbsp;<code>intercept()</code> method is called, Angular injects <code>httpRequest</code> object as a dependency into the intercept() method. With this we can inspect and modify our Http request. Once we add some logic or append something to <code>httpRequest</code> object (here we are setting API_KEY to the headers), we call <code>next.handle</code> and return the updated request to the application.</p>\n<p>Once we create the Interceptor, we need to add it to @NgModule <code>providers[]</code> array as a multi-provider as there can be multiple interceptors running within the application. <a href=\"https://codecraft.tv/courses/angular/dependency-injection-and-providers/providers/\" target=\"_blank\">Click Here</a> to learn more about providers.</p>",
+            "content_image": "",
+            "content_code": "import { NgModule } from '@angular/core';\nimport { BrowserModule } from '@angular/platform-browser';\nimport { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';\nimport { RouterModule, Routes } from '@angular/router';\n\nimport { MyInterceptor } from './my.interceptor';\nimport { AppComponent } from './app.component';\n\n@NgModule({\n  imports: [BrowserModule, HttpClientModule],\n  declarations: [AppComponent],\n  bootstrap: [AppComponent],\n  providers: [\n    { provide: HTTP_INTERCEPTORS, useClass: MyInterceptor, multi: true }\n  ]\n})\nexport class AppModule { }"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>Now when you are make <a href=\"https://www.stackmi.com/academy/article/ng-core-http-api\">Http request</a> in your application, and if you look at the dev tools in the browser, you can see the network request containing our new header <code class=\"language-plaintext highlighter-rouge\">API_KEY</code>&nbsp;with the corresponding value.</p>",
+            "content_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/network-tab.png",
+            "content_code": ""
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>With this, without adding the API_KEY for each individual Http request throughout the application, we add it in one place, i.e in the interceptor and it serves for all the Http requests.</p>",
+            "content_image": "",
+            "content_code": ""
+        }
+    ]
+}

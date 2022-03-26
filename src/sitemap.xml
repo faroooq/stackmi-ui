@@ -356,5 +356,25 @@
   <lastmod>2022-02-28T10:28:58+00:00</lastmod>
   <priority>0.64</priority>
 </url>
+<url>
+  <loc>https://www.stackmi.com/academy/article/ng-core-http-api</loc>
+  <lastmod>2022-02-28T10:28:58+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.stackmi.com/academy/article/ng-http-rxjs-maps</loc>
+  <lastmod>2022-02-28T10:28:58+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.stackmi.com/academy/article/ng-http-interceptors</loc>
+  <lastmod>2022-02-28T10:28:58+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.stackmi.com/academy/article/ng-observables-rxjs</loc>
+  <lastmod>2022-02-28T10:28:58+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
 
 </urlset>

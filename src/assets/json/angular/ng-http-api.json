@@ -1,0 +1,91 @@
+{
+    "_id": {
+        "$oid": "623ae6abb38ed1851d0f5c38"
+    },
+    "article_id": "8.1",
+    "article_slug": "ng-core-http-api",
+    "article_title": "Angular - Core Http API",
+    "article_image": "",
+    "article_seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Angular-seo-http-api.png",
+    "enroll_available": true,
+    "article_content": [
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>Download the complete project from github: <a href=\"https://github.com/faroooq/shopping-cart\" target=\"_blank\">https://github.com/faroooq/shopping-cart</a></p>\n<hr/>\n</div>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>Front-end applications often needs to interact with the server or backend applications over HTTP protocol, to download or upload data and to access other back-end services or APIs.</p>\n<p>Angular provides&nbsp;<code><a class=\"code-anchor\" href=\"https://angular.io/api/common/http/HttpClient\">HttpClient</a></code> service available in&nbsp;<code>@angular/common/http </code>module to interact with backend services.</p>\n<p>Here are the things we need to do to work with Http service:</p>\n<ol>\n<li>We need to import <code>HttpClientModule</code> in @NgModule imports section.</li>\n<li>We need to add <code>HttpClient</code> service in @NgModule providers section.</li>\n<li>Inject <code>HttpClient</code> service as a dependency in your constructor class where you want to use Http service.</li>\n</ol>\n<p>Let's configure Http api service in our project.</p>\n<p>In app.module.ts file, in @NgModule imports section we will import the HttpClientModule like:</p>",
+            "content_image": "",
+            "content_code": "import { HttpClientModule } from '@angular/common/http';\n\n@NgModule({\n  imports: [\n    HttpClientModule\n  ]\n})"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>Next we will add HttpClient service in the providers section like:</p>",
+            "content_image": "",
+            "content_code": "import { HttpClientModule, HttpClient } from '@angular/common/http';\n\n@NgModule({\n  imports: [\n    HttpClientModule\n  ],\n  providers: [\n    HttpClient\n  ]\n})"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>We are done with the configuration part. That's it. Pretty simple. Now to use the Http service we need to inject the HttpClient service in our component.</p>\n<p>We will do this in our <code>ItemListComponent</code> as part of retrieving the gadget items that we have implemented earlier in our <a href=\"https://www.stackmi.com/academy/article/ng-property-event-binding\" target=\"_blank\">Property Binding</a> lesson.</p>",
+            "content_image": "",
+            "content_code": "import { Component, OnInit } from '@angular/core';\nimport { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';\n\n@Component({\n  selector: 'app-item-list',\n  templateUrl: './item-list.component.html',\n  styleUrls: ['./item-list.component.css']\n})\nexport class ItemListComponent {\n\n  endpoint = 'http://api.weeazy.com/';\n\n  itemList: { name: string; price: string; description: string; image: string; }[] = [];\n\n  constructor(\n    public httpClient: HttpClient) { }\n\n    ngOnInit() {\n      this.httpClient.get(this.endpoint + 'getAllGadgets').subscribe((data: any) => {\n        this.itemList = data;\n      });\n    }\n}"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>Since <code>get()</code> function will return as Observable, we need to subscribe to the observable to get the actual data. Learn more on observables in <a href=\"https://www.stackmi.com/academy/article/ng-observables-rxjs\" target=\"_blank\">Observables &amp; RxJS</a> lesson.</p>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Get request with Query Parameters",
+            "content_desc": "<p>We can also pass request parameters as part of GET request. We need to pass these parameters in the HTTP url. Let's take for example the following URL with some pagination parameters:</p>\n<div>\n<div>http://api.weeazy.com/getAllGadgets?orderBy='ascending'&amp;limitTo=10</div>\n<div>&nbsp;</div>\n<div>Above url will take the same result as before, but this time we are requesting the api to give the data in ascending order and limitTo 10 records.</div>\n</div>",
+            "content_image": "",
+            "content_code": "import { Component, OnInit } from '@angular/core';\nimport { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';\n\n\n@Component({\n  selector: 'app-item-list',\n  templateUrl: './item-list.component.html',\n  styleUrls: ['./item-list.component.css']\n})\nexport class ItemListComponent {\n\n  endpoint = 'http://api.weeazy.com/';\n\n  itemList: { name: string; price: string; description: string; image: string; }[] = [];\n\n  constructor(\n    public httpClient: HttpClient) {}\n\n    ngOnInit() {\n\n    let params = new HttpParams()\n    .set('orderBy', 'ascending')\n    .set('limitTo', 10);\n       \n    this.httpClient.get(this.endpoint + 'getAllGadgets', {params})\n      .subscribe((data: any) => {\n        this.itemList = data;\n      });\n    }\n}"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p><strong>Notice</strong> that we are building the&nbsp;<code>HttpParams</code> object by chaining<code> set()</code>&nbsp;methods. This is because&nbsp;<code>HttpParams</code>&nbsp;is immutable, and its API methods do not cause object mutation.</p>",
+            "content_image": "",
+            "content_code": "let params = new HttpParams();\n    params.set('orderBy', 'ascending');\n    params.set('limitTo', 10);"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>However the above code doesn't work. Because, a call to <code>set</code>&nbsp;will return a new&nbsp;<code>HttpParams</code> object containing the new value properties.</p>\n<p><strong>Note:</strong> If we try to add our parameters like this, we won't get the expected result. Instead, we would have an empty <code>HttpParams</code> object.</p>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "GET request with HttpHeaders",
+            "content_desc": "<p>What if we want to add custom HttpHeaders along with HttpParams, we can paas it as <code>options</code> object like:</p>",
+            "content_image": "",
+            "content_code": "let params = new HttpParams()\n    .set('orderBy', 'ascending')\n    .set('limitTo', \"10\");\n\nconst headers = new HttpHeaders()\n    .set(\"X-CustomHeader\", \"custom header value\");\n\nconst options = { params: params, headers: headers };\n       \nthis.httpClient.get(this.endpoint + 'getAllGadgets', options)\n    .subscribe((data: any) => {\n        this.itemList = data;\n    });"
+        },
+        {
+            "content_title": "Http POST request",
+            "content_desc": "<p>If we want to make POST request instead of GET to send the data in body, we will use the <code>.post()</code> method.</p>",
+            "content_image": "",
+            "content_code": "import { format } from \"path\";\n\nonSubmit(form) {\n    const data = {'name': form.value.userName, 'email': form.value.email, 'password': format.value.password}\n             \n    this.httpClient.post(this.endpoint + 'saveUser', data, options)\n        .subscribe((data: any) => {\n             console.log(data);\n     });\n}"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>This operation is typically used to create new user to the database. Ofcourse in realtime we will be sending the password after encryption.</p>\n<p>Similary we can implement PUT and DELETE methods as well.</p> <p>If you are looking for HTTP status codes this site is a good reference: <a class=\"bare\" href=\"https://httpstatuses.com/\">https://httpstatuses.com/</a></p>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Error Handling",
+            "content_desc": "<p>Handling errors are very important while programming, especially in case of API requests, to figure out what's going on, for our request. We can get error information like:</p>",
+            "content_image": "",
+            "content_code": "this.httpClient.post(this.endpoint + 'saveUser', data, options)\n    .subscribe(\n        data => {\n            console.log(data);\n        }, \n        error => {\n            console.error(\"API request failed: \",error);\n        }\n    );"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>In the above case, if we get the success response from the API call, we will get the response in <code>data</code> variable. If the request failed with some error we can capture that info in our <code>error</code> variable.</p>",
+            "content_image": "",
+            "content_code": ""
+        }
+    ]
+}

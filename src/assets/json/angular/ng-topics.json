@@ -140,12 +140,12 @@
                 {
                     "topic_id": "1",
                     "topic_slug": "ng-for-if-switch",
-                    "topic_name": "NgFor, NgIf & NgSwitch"
+                    "topic_name": "NgFor, NgIf and NgSwitch"
                 },
                 {
                     "topic_id": "2",
                     "topic_slug": "ng-ngstyle-ngclass",
-                    "topic_name": "NgStyle & NgClass"
+                    "topic_name": "NgStyle and NgClass"
                 },
                 {
                     "topic_id": "3",
@@ -155,33 +155,12 @@
                 {
                     "topic_id": "4",
                     "topic_slug": "ng-hostlistener-hostbinding",
-                    "topic_name": "HostListener & HostBinding"
+                    "topic_name": "HostListener and HostBinding"
                 }
             ]
         },
         {
             "topic_list_id": "5",
-            "topic_title": "Angular & RxJS",
-            "topic_list": [
-                {
-                    "topic_id": "1",
-                    "topic_slug": "ng-streams-reactive-programming",
-                    "topic_name": "Streams & Reactive Programming"
-                },
-                {
-                    "topic_id": "2",
-                    "topic_slug": "ng-observables-rxjs",
-                    "topic_name": "Observables & RxJS"
-                },
-                {
-                    "topic_id": "3",
-                    "topic_slug": "ng-rxjs-angular",
-                    "topic_name": "RxJS & Angular"
-                }
-            ]
-        },
-        {
-            "topic_list_id": "6",
             "topic_title": "Angular Pipes",
             "topic_list": [
                 {
@@ -202,7 +181,7 @@
             ]
         },
         {
-            "topic_list_id": "7",
+            "topic_list_id": "6",
             "topic_title": "Angular Forms",
             "topic_list": [
                 {
@@ -228,7 +207,7 @@
             ]
         },
         {
-            "topic_list_id": "8",
+            "topic_list_id": "7",
             "topic_title": "Angular HTTP",
             "topic_list": [
                 {
@@ -238,54 +217,18 @@
                 },
                 {
                     "topic_id": "2",
-                    "topic_slug": "ng-http-promises",
-                    "topic_name": "HTTP with Promises"
+                    "topic_slug": "ng-observables-rxjs",
+                    "topic_name": "Observables and RxJS"
                 },
                 {
                     "topic_id": "3",
-                    "topic_slug": "ng-http-observables",
-                    "topic_name": "HTTP Observables"
-                },
-                {
-                    "topic_id": "4",
                     "topic_slug": "ng-http-rxjs-maps",
-                    "topic_name": "HTTP RxJs Map Operators"
-                }
-            ]
-        },
-        {
-            "topic_list_id": "9",
-            "topic_title": "Angular Providers",
-            "topic_list": [
-                {
-                    "topic_id": "1",
-                    "topic_slug": "ng-di-overview",
-                    "topic_name": "Angular and Dependency Injection"
-                },
-                {
-                    "topic_id": "2",
-                    "topic_slug": "ng-injectors",
-                    "topic_name": "Angular Injectors"
-                },
-                {
-                    "topic_id": "3",
-                    "topic_slug": "ng-providers",
-                    "topic_name": "Angular Providers"
+                    "topic_name": "HTTP with RxJs swithMap, mergeMap, concatMap"
                 },
                 {
                     "topic_id": "4",
-                    "topic_slug": "ng-tokens",
-                    "topic_name": "Angular Tokens"
-                },
-                {
-                    "topic_id": "5",
-                    "topic_slug": "ng-config-di-in-angular",
-                    "topic_name": "Configuring Dependency Injection in Angular"
-                },
-                {
-                    "topic_id": "6",
-                    "topic_slug": "ng-working-with-providers",
-                    "topic_name": "Working with Providers"
+                    "topic_slug": "ng-http-interceptors",
+                    "topic_name": "HTTP Interceptors"
                 }
             ]
         },

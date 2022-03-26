@@ -368,6 +368,34 @@ export class SeoGuard implements CanActivate {
                     "seo_desc": "We learnt that the template-driven form still uses the same classes as the model-driven form but in the template drive approach the models are created by directives in the template instead of explicitly created on the component.",
                     "seo_keywords": "Angular Template Driven Form, Angular, Learn Angular, Angular Technology, Web Solutions, Full-stack developer, Learn Angular Online"
                 },
+                {
+                    "seo_slug": "ng-core-http-api",
+                    "seo_title": "Angular - Core Http API",
+                    "seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Angular-seo-http-api.png",
+                    "seo_desc": "Angular provides HttpClient service available in @angular/common/http module to interact with backend services.",
+                    "seo_keywords": "Angular Http API, Angular, Learn Angular, Angular Technology, Web Solutions, Full-stack developer, Learn Angular Online"
+                },
+                {
+                    "seo_slug": "ng-observables-rxjs",
+                    "seo_title": "Angular - Observables and RxJS",
+                    "seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Angular-seo-observables-rxjs.png",
+                    "seo_desc": "RxJS (Reactive Extensions for JavaScript) is a library to develop reactive programming using observables that makes it easier to compose asynchronous or callback-based code.",
+                    "seo_keywords": "Angular Observables and RxJS, Angular, Learn Angular, Angular Technology, Web Solutions, Full-stack developer, Learn Angular Online"
+                },
+                {
+                    "seo_slug": "ng-http-rxjs-maps",
+                    "seo_title": "Angular - RxJS concatMap, mergeMap, switchMap",
+                    "seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Angular-seo-rxjs-maps.png",
+                    "seo_desc": "Most commonly implemented RxJs operators that we find on a daily basis are the RxJs higher-order mapping operators: switchMap, mergeMap, concatMap and exhaustMap.",
+                    "seo_keywords": "Angular RxJS Map Operators, Angular, Learn Angular, Angular Technology, Web Solutions, Full-stack developer, Learn Angular Online"
+                },
+                {
+                    "seo_slug": "ng-http-interceptors",
+                    "seo_title": "Angular - Http Interceptors",
+                    "seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Angular-seo-http-interceptors.png",
+                    "seo_desc": "The Interceptor helps us to modify HTTP Request by intercepting it before the Request is sent to the back end. The Interceptor can be useful for adding custom headers to the outgoing requests, logging the incoming response, etc.",
+                    "seo_keywords": "Angular Interceptors, Angular, Learn Angular, Angular Technology, Web Solutions, Full-stack developer, Learn Angular Online"
+                },
             ]
             for (let i = 0; i < articlMetaSEO.length; i++) {
                 if (route.params.title === articlMetaSEO[i].seo_slug) {

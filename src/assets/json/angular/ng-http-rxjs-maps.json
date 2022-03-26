@@ -1,0 +1,85 @@
+{
+    "_id": {
+        "$oid": "623def03b38ed1851d0f5c40"
+    },
+    "article_id": "8.2",
+    "article_slug": "ng-http-rxjs-maps",
+    "article_title": "Angular - RxJS concatMap, mergeMap, switchMap",
+    "article_image": "",
+    "article_seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Angular-seo-rxjs-maps.png",
+    "enroll_available": true,
+    "article_content": [
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<p>Download the complete project from github: <a href=\"https://github.com/faroooq/shopping-cart\" target=\"_blank\">https://github.com/faroooq/shopping-cart</a></p>\n<hr/>\n</div>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>With RxJS Map Operators we can make our Http API even more powerful.</p>\n<p><em>Working with Http API calls, there are times where we need to make more than one Http request OR concat responses of multiple Http API requests OR make multiple HTTP requests in parallel and soon.</em></p>\n<p>All these scenarios can be achieved using Map Operators. Frequently used Map operators are <code>concatMap</code>, <code>mergeMap</code>, <code>switchMap</code>.</p>\n<p><strong>When to choose which Map Operator is the deal!</strong></p>\n<p>The <code>behavior</code> of concatMap, mergeMap and switchMap are similar in the sense they are all<em> higher order mapping operators.</em></p>\n<p>But the process of <code>invocation</code> is different from one operator to another. We will see with simple examples.</p>\n<p>Infact it's very easy to choose the respective operator if you can understand the requirement and scenario well, we can simply choose appropriate operator based on the use case:</p>\n<ul>\n<li>\n<p>If we need to do <strong><em>things in sequence</em></strong>&nbsp;<code>concatMap</code> is the right choice.</p>\n</li>\n<li>\n<p>If we need to do <em><strong>things in parallel</strong></em>, <code>mergeMap</code> is the best option.</p>\n</li>\n<li>\n<p>In case we need <em><strong>cancellation logic</strong></em>, <code>switchMap</code> is the way to go.</p>\n</li></ul>\n<p>Let's start understand all these with examples, before that let's understand how base <code>Map Operator</code> works:</p>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Map Operator",
+            "content_desc": "<p>We know that in reactive programming, the data flows like a stream or just think like how water flows from the pipe.</p>\n<p>Basically we subscribe to that observable to get the actual result.</p>\n<p>It's all about observable and subscription mechanism. Learn more about RxJS in <a href=\"https://www.stackmi.com/academy/article/ng-observables-rxjs\">Observables and RxJS</a> lesson.</p>\n<p><strong>How the base Map Operator works?</strong></p>\n<p>To make it simple, in between Observables and Subscriptions, Map operator exists. We can do<code> intermediate operations</code> using RxJS Map Operator.&nbsp;</p>",
+            "content_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/01-rxjs-map-sm.png",
+            "content_code": ""
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>With the <code>map</code> operator, we can take an input stream (with numbers 1, 2, 3), and from it, we can create a derived mapped output stream (with result 10, 20, 30).</p>\n<p>The values of the output stream or result in the bottom are obtained by taking the values of the input stream and applying them a function <code>map(x =&gt; 10 * x)</code>: this function simply multiplies the values by 10.</p>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "concatMap",
+            "content_desc": "<p>If we want to make sequential API calls one after the another, <em>where later request depends on prior request's response</em>, we will use concatMap.</p>\n<p><strong>UseCase:</strong></p>\n<p><b>For ex</b>: To make 2nd API request if we need the 1st API response output(either it may be partial data or complete data), and in the same way If 3rd API request depends on 2nd API response and soon..</p>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "",
+            "content_desc": "",
+            "content_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/01-rxjs-concat-sm.png",
+            "content_code": ""
+        },
+        {
+            "content_title": "",
+            "content_desc": "",
+            "content_image": "",
+            "content_code": "import { of, from } from 'rxjs';\nimport { map, delay, mergeMap, concatMap } from 'rxjs/operators';\n\nconst getData = (param) => {\n  const delayTime = Math.floor(Math.random() * 10000) + 1;\n  return of(\n    `retrieved new data with params: ${param} and delay: ${delayTime}`\n  ).pipe(delay(delayTime));\n};\n\n// using concatMap\nfrom([1, 2, 3, 4])\n  .pipe(concatMap((param) => getData(param)))\n  .subscribe((val) => console.log('concatMap:', val));\n"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>In the above code <code>of()</code> will return the observable.</p>\n<p>You can assume 1, 2, 3, 4 are the Http API calls. Once all the requests are completed <em>one after the another</em> and get the responses back, concatMap will concatinate the response and return the <em>result in an array</em> as part of subscription.</p><p>Apart from the above there are lot of other usecases where we can go with concatMap. If you are interested to understand more on Map Operators, follow this blog <a href=\"https://blog.angular-university.io/rxjs-higher-order-mapping/\" target=\"_blank\">Higher-Order RxJs Mapping Operators..</a></p>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "mergeMap",
+            "content_desc": "<p>If we need to do&nbsp;<em><strong>things in parallel</strong></em>,&nbsp;<code>mergeMap</code>&nbsp;is the best option.</p>\n<p>Unlike concatMap, mergeMap will return the result immediately as soon as its completion. It will not wait for any other request to complete.</p>\n<p><b>For ex</b>: If we are making Http requests a, b, c, d, e, f then if we get quick response from d than c, then it will give the result immediately without waiting for c (i.e prior task)</p>\n<p><em>As soon as it get the result it emits the response without waiting for the previous task completion.</em>&nbsp;</p>",
+            "content_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/04-rxjs-merge-sm.png",
+            "content_code": ""
+        },
+        {
+            "content_title": "switchMap",
+            "content_desc": "<p>The notion of <code>switchMap</code> is closer to mergeMap than to concatMap, in the sense that we don't wait for any Observable to terminate.</p>\n<p>But in switching, unlike merging, <em><strong>if a new Observable starts emitting values we are then going to unsubscribe from the previous Observable, before subscribing to the new Observable.</strong></em></p>\n<blockquote>\n<p>Observable switching is all about ensuring that the unsubscription logic of unused Observables gets triggered, so&nbsp; that resources can be released!</p>\n</blockquote>\n<p><strong>Usecase:</strong> W<em>hen a new search is made, pending results are no longer needed or should be unsubscribed.</em></p>\n<p><span style=\"text-decoration: underline;\"><b>For ex</b>:</span> In the search field, If we type \"Hello World\", usually we emit each letter for each key press. If we make API calls for each key press, though the backend service respond to your request, it's waste of making un-necessary API calls and it doesn't make any sense.</p>\n<p><em>What we want to do here is to transform each search string into a backend search request and subscribe to it, and apply the <code>switchMap</code> strategy between two consecutive search requests, causing the previous search to be canceled if a new search gets triggered.</em></p>",
+            "content_image": "",
+            "content_code": "H\nH\nHe\nHel\nHell\nHello\nHello \nHello W\nHello W\nHello Wo\nHello Wor\nHello Worl\nHello World"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>From the above input, In order to avoid sending all these values as separate search requests to the backend, what the switchMap operator will do is, <em>it will cancel all the previous key press events and triggers with the lastest or new search word. </em>i.e Hello World.</p>\n<p>If you implement switchMap, here is what it means exactly.</p>",
+            "content_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/11-switchMap-example-sm.png",
+            "content_code": ""
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>As we can see above, several of the previous searches have been canceled as they where ongoing, which is awesome because that will release server resources that can then be used for other things.</p>",
+            "content_image": "",
+            "content_code": ""
+        }
+    ]
+}
