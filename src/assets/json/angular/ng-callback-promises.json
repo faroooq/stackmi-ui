@@ -1,0 +1,121 @@
+{
+    "_id": {
+        "$oid": "61d140d205ed5a80a81a248f"
+    },
+    "article_id": "8.1",
+    "article_slug": "ng-callbacks-promises",
+    "article_title": "Asynchronous Programming - Callbacks & Promises",
+    "article_image": "",
+    "article_seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Angular-seo-async-programming.png",
+    "enroll_available": true,
+    "article_content": [
+        {
+            "content_title": "",
+            "content_desc": "<p>To understand the concept async programming, callbacks and callback hell, you should understand what is <strong>Synchronous</strong>&nbsp;and&nbsp;<strong>Asynchronous</strong> programming in JavaScript (or any other language). Let's understand these concepts in the context of JavaScript.</p>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Synchronous Programming",
+            "content_desc": "<p>It is a way of programming concept in which you perform only one task at a time and when one task is completed we move on to another task. We called this as <em>Blocking Code</em> operation, because you <code>need to wait</code> for a task to finish to move to the next one.</p>",
+            "content_image": "",
+            "content_code": "function add(a,b) {\n    console.log(\"Adding two numbers\");\n    return a + b;\n}\n\nconsole.log(\"Program Starts\");\nlet sum = add(2,3);\nconsole.log(\"Sum of 2 + 3 = \" + sum);\nconsole.log(\"Program Ends\");"
+        },
+        {
+            "content_title": "",
+            "content_desc": "",
+            "content_image": "",
+            "content_code": "Output:\n    Program Starts\n    Adding two numbers\n    Sum of 2 + 3 = 5\n    Program Ends"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>Above code snippet, you see code will execute in a sequence and when an operation on one line is finished then we move on to the next line. This is just a simple example of the synchronous programming and we do this in our daily life of programming.</p>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Asynchronous Programming",
+            "content_desc": "<p>Asynchronous programming allows us to perform a task without blocking the main process (or thread).&nbsp; <em>It's like performing independent tasks in parallel (or at the same time)</em>.</p>\n<p>In asynchronous operation, you can move on to the next task before the previous task completes, and this way you can deal with multiple tasks simultaneously.</p>\n<p>In JavaScript, a good example of asynchronous programming is&nbsp;<code>setTimeout()</code> function.</p>",
+            "content_image": "",
+            "content_code": "function readData() {\n    console.log(\"Async task starts in setTimeout() function\");\n    setTimeout(() => {\n        console.log(\"Reading an user from service call or database...\");\n      }, 3000);\n}\n\nconsole.log(\"Program Starts\");\nreadData();\nconsole.log(\"Program Ends\");"
+        },
+        {
+            "content_title": "",
+            "content_desc": "",
+            "content_image": "",
+            "content_code": "Output:\n    Program Starts\n    Async task starts in setTimeout() function\n    Program Ends\n    Reading an user from service call or database..."
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>Our program <strong>didn't wait</strong> for <code>setTimeout()</code> async task to finish, instead it just move on to the next line and executes <em>\"Program Ends\"</em>, then after 3 secs when async task completes then it prints <em>\"Reading an user from service call or database..\"</em>. This is called <strong>Non Blocking</strong> code.</p>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "",
+            "content_desc": "<div class=\"paragraph\">\n<ol>\n<li>When you execute a&nbsp;task&nbsp;<em>synchronously</em>, you will <strong>wait for the task to finish</strong> before moving on to the next line of the code.</li>\n<li>When you execute a task&nbsp;<em>asynchronously</em>, the program or <strong>cursor moves to the next line</strong> of code before the async task finishes.</li>\n</ol>\n</div>\n<div class=\"paragraph\">\n<p><em>Think of synchronous programming as like waiting in a line and asynchronous programming as like taking a ticket.</em>&nbsp;When you take a ticket you can go and do other things and then you will be notified when ready.</p>\n</div>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Callbacks",
+            "content_desc": "<p>Callback is a great way of handling asynchronous behavior in JavaScript. <em>In JavaScript, everything acts like an object</em> so <strong>functions are also objects</strong> as like any other objects (strings, arrays, etc).</p>\n<p><em><strong>So, you can pass function as an argument to other function and that's the idea of callback.</strong></em></p>",
+            "content_image": "",
+            "content_code": "function getGitHubUser(id, callback) {\n    setTimeout(() => {\n        console.log(\"Reading an user from the database...\");\n        callback({id: id, githubUsername: 'faroooq'}); // Here our callback function gets called.\n    }, 2000);\n}\n\ngetGitHubUser(1, (user) => {  // passing callback function as second argument.\n    console.log(\"User: \", user);\n})"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>Above code, we are passing first argument as 1 and second argument<em><strong> a function itself</strong></em> to<code> getGitHubUser()</code> function.</p>",
+            "content_image": "",
+            "content_code": "Output:\n    Reading an user from database...\n    User {id: 1, githubUsername: 'faroooq'}"
+        },
+        {
+            "content_title": "Callback Hell",
+            "content_desc": "<p>In the above code, we are getting user info from github and now let's suppose we also want repositories info for that user and also commits in the specific repository.</p>\n<p>Getting repositories info depends on user info and commits info depends on repositories info. i.e <em>One request depends on another request.</em></p>",
+            "content_image": "",
+            "content_code": "function getGitHubUser(id, callback) {\n  setTimeout(() => {\n    console.log(\"Reading user from database...\");\n    callback({id: id, githubUsername: 'faroooq'});\n  }, 2000);\n}\n\nfunction getRepositories(user_name, callback) {\n  setTimeout(() => {\n    console.log(\"Reading repos from database...\");\n    callback({name: user_name, repositories: ['angular_poc', 'react_poc']});\n  }, 2000);\n}\n\nfunction getCommits(repo_id, callback) {\n  setTimeout(() => {\n    console.log(\"Reading commits from database...\");\n    callback({id: repo_id, commits: ['initial commmit', 'dbchanges']});\n  }, 2000);\n}\n\ngetGitHubUser(1, (user) => {\n    console.log(\"User: \", user);\n    getRepositories(user.githubUsername, (repos) => {\n      console.log(\"Repos: \", repos);\n      getCommits(repos[0], (commits) => {\n        console.log(\"Commits: \", commits);\n        // Callback Hell (\"-_-)\n    })\n  })\n})"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>You can observe now a nesting of functions here which depends on one another and code also looks scary and this is what we called <strong>Callback Hell</strong>.</p>",
+            "content_image": "",
+            "content_code": "Output:\n    Reading user from database...\n    User: {id: 1, githubUsername: \"faroooq\"}\n    Reading repos from database...\n    Repos: {name: \"faroooq\", repositories: Array[2]}\n    Reading commits from database...\n    Commits: {id: \"angular_poc\", commits: Array[2]}"
+        },
+        {
+            "content_title": "Promises",
+            "content_desc": "<p>Promises are the ideal way of handling asynchronous operations in simplest manner. They can handle multiple asynchronous operations easily and provides better error handling than callbacks and events.&nbsp;</p>\n<ul>\n<li><strong>Benefits of Promises</strong>&nbsp;\n<ol>\n<li>Improves Code Readability</li>\n<li>Better handling of asynchronous operations</li>\n<li>Better flow of control definition in asynchronous logic</li>\n<li>Better Error Handling</li>\n</ol>\n</li>\n</ul>\n<ul>\n<li><strong>A Promise has four states:</strong>&nbsp;\n<ol>\n<li><strong>fulfilled</strong>: Action related to the promise succeeded</li>\n<li><strong>rejected</strong>: Action related to the promise failed</li>\n<li><strong>pending</strong>: Promise is still pending i.e. not fulfilled or rejected yet</li>\n<li><strong>settled</strong>: Promise has fulfilled or rejected</li>\n</ol>\n</li>\n</ul>\n<p>First, let's breakdown the above inner callback functions into seperate functions.</p>",
+            "content_image": "",
+            "content_code": "function getGitHubUser(id) {\n  return new Promise((resolve, reject) => {\n    setTimeout(() => {\n      console.log(\"Suppose getting data from a database....\");\n      if(true) {\n        resolve({ id: id, githubUsername: \"faroooq\" });\n      } else {\n        reject(new Error(\"No User Found\"));\n      }\n    }, 2000);\n  });\n}\n\nfunction getRepositories(username) {\n  return new Promise((resolve, reject) => {\n    setTimeout(() => {\n      console.log(`Suppose getting Repositories data from db for ${username}...`);\n      if(true) {\n        resolve([\"angular_poc\", \"react_poc\", \"java_poc\"]);\n      } else {\n        reject(new Error(\"Error occured in getting repositories\"));\n      }\n    }, 2000);\n  });\n}\n\nfunction getCommits(repo) {\n  return new Promise((resolve, reject) => {\n    setTimeout(() => {\n      console.log(\"Suppose getting commits for \" + repo + \"....\");\n      if(true) {\n        resolve([\"commits\"]);\n      } else {\n        reject(new Error(\"Error occured in getting commits\"));\n      }\n    }, 2000);\n  });\n}\n\n// Replace Callback with Promises to avoid callback hell\ngetGitHubUser(1)\n  .then((user) => getRepositories(user.githubUsername))\n  .then((repos) => getCommits(repos[0]))\n  .then((commits) => console.log(\"Commits: \", commits))\n  .catch((err) => console.log(\"Error: \", err.message));"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p><strong>Note:&nbsp;</strong>For demo purpose we are making all the <code>if</code> conditions to true. If everything works fine you will get the following result.</p>",
+            "content_image": "",
+            "content_code": "Output:\n    Suppose getting data from a database....\n    Suppose getting Repositories data from db for faroooq...\n    Suppose getting commits for angular_poc....\n    Commits: [\"commits\"]"
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>Above code, We created 3 functions, instead of passing callback function now we are creating a <code>new Promise()</code> object, which has two argument <strong>resolve</strong>&nbsp;and&nbsp;<strong>reject</strong>&nbsp;and returning a Promise object back to <code>.then()</code> handler. If everything worked, callback will return <code>resolve</code> otherwise <code>reject</code>.</p>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p>More readable, Isn't it? Using arrow functions made this less complex than using simple functions. <em>With Promises we have avoided nesting of functions and reduce the code complexity (callback approach) and that's how promises work</em>.</p>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "async / await",
+            "content_desc": "<p>Using async and await are even more better way of approach to write promises and it helps us keep our code even more simpler and cleaner.</p>\n<p>All you have to do is write the word&nbsp;<code>async</code> before any regular function and it becomes a promise. In other words<code> async/await</code> is a syntactical sugar of using promises it means if you want to avoid chaining of <code>then()</code> methods in promises, so you can use the <code>async/await</code> approach but internally it also uses the chaining.</p>",
+            "content_image": "",
+            "content_code": "function getUser(id) {\n  return new Promise((resolve, reject) => {\n    setTimeout(() => {\n      console.log('Suppose getting data from a database....');\n      if (true) {\n        resolve({ id: id, githubUsername: 'faroooq' });\n      } else {\n        reject(new Error('No User Found'));\n      }\n    }, 2000);\n  });\n}\n\nfunction getRepositories(username) {\n  return new Promise((resolve, reject) => {\n    setTimeout(() => {\n      console.log(\n        `Suppose getting Repositories data from db for ${username}...`\n      );\n      if (true) {\n        resolve(['angular_poc', 'react_poc', 'java_poc']);\n      } else {\n        reject(new Error('Error occured in getting repositories'));\n      }\n    }, 2000);\n  });\n}\n\nfunction getCommits(repo) {\n  return new Promise((resolve, reject) => {\n    setTimeout(() => {\n      console.log('Suppose getting commits for ' + repo + '....');\n      if (true) {\n        resolve(['commits']);\n      } else {\n        reject(new Error('Error occured in getting commits'));\n      }\n    }, 2000);\n  });\n}\n\n// Async- await approach\nasync function getUserCommits() {\n  try {\n    const user = await getUser(1);\n    const repos = await getRepositories(user.githubUsername);\n    const commits = await getCommits(repos[0]);\n    console.log(commits);\n  } catch (err) {\n    console.log('Error: ', err.message);\n  }\n}\n\ngetUserCommits();"
+        },
+        {
+            "content_title": "",
+            "content_desc": "Like promises, we don't have catch() method here so that's why we are using try-catch block for the error handling.",
+            "content_image": "",
+            "content_code": ""
+        }
+    ]
+}

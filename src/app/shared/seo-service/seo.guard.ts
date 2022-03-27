@@ -110,13 +110,6 @@ export class SeoGuard implements CanActivate {
                     "seo_keywords": "Typescript Map and Set, Typescript, Learn Typescript, Typescript Technology, Web Solutions, Full-stack developer, Learn Typescript Online"
                 },
                 {
-                    "seo_slug": "ts-promises",
-                    "seo_title": "Typescript - Callbacks & Promises",
-                    "seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Typescript/Typescript-seo-promises.png",
-                    "seo_desc": "When you execute a task synchronously, you wait for it to finish before moving on to the next line of code. When you execute a task asynchronously, the program moves to the next line of code before the task finishes.",
-                    "seo_keywords": "Promises and async, Typescript, Learn Typescript, Typescript Technology, Web Solutions, Full-stack developer, Learn Typescript Online"
-                },
-                {
                     "seo_slug": "ts-class-interface",
                     "seo_title": "Typescript - Class and Interfaces",
                     "seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Typescript/Typescript-seo-class-interface.png",
@@ -376,13 +369,6 @@ export class SeoGuard implements CanActivate {
                     "seo_keywords": "Angular Http API, Angular, Learn Angular, Angular Technology, Web Solutions, Full-stack developer, Learn Angular Online"
                 },
                 {
-                    "seo_slug": "ng-observables-rxjs",
-                    "seo_title": "Angular - Observables and RxJS",
-                    "seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Angular-seo-observables-rxjs.png",
-                    "seo_desc": "RxJS (Reactive Extensions for JavaScript) is a library to develop reactive programming using observables that makes it easier to compose asynchronous or callback-based code.",
-                    "seo_keywords": "Angular Observables and RxJS, Angular, Learn Angular, Angular Technology, Web Solutions, Full-stack developer, Learn Angular Online"
-                },
-                {
                     "seo_slug": "ng-http-rxjs-maps",
                     "seo_title": "Angular - RxJS concatMap, mergeMap, switchMap",
                     "seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Angular-seo-rxjs-maps.png",
@@ -396,6 +382,20 @@ export class SeoGuard implements CanActivate {
                     "seo_desc": "The Interceptor helps us to modify HTTP Request by intercepting it before the Request is sent to the back end. The Interceptor can be useful for adding custom headers to the outgoing requests, logging the incoming response, etc.",
                     "seo_keywords": "Angular Interceptors, Angular, Learn Angular, Angular Technology, Web Solutions, Full-stack developer, Learn Angular Online"
                 },
+                {
+                    "seo_slug": "ng-callbacks-promises",
+                    "seo_title": "Asynchronous Programming - Callbacks & Promises",
+                    "seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Angular-seo-async-programming.png",
+                    "seo_desc": "When you execute a task synchronously, you will wait for the task to finish before moving on to the next line of the code. When you execute a task asynchronously, the program or cursor moves to the next line of code before the async task finishes.",
+                    "seo_keywords": "Async Programming - Callbacks & Promises, Angular, Learn Angular, Angular Technology, Web Solutions, Full-stack developer, Learn Angular Online"
+                },
+                {
+                    "seo_slug": "ng-observables-rxjs",
+                    "seo_title": "Angular - Observables and RxJS",
+                    "seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Angular-seo-observables-rxjs.png",
+                    "seo_desc": "RxJS (Reactive Extensions for JavaScript) is a library to develop reactive programming using observables that makes it easier to compose asynchronous or callback-based code.",
+                    "seo_keywords": "Angular Observables and RxJS, Angular, Learn Angular, Angular Technology, Web Solutions, Full-stack developer, Learn Angular Online"
+                }
             ]
             for (let i = 0; i < articlMetaSEO.length; i++) {
                 if (route.params.title === articlMetaSEO[i].seo_slug) {

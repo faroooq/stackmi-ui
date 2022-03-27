@@ -217,18 +217,29 @@
                 },
                 {
                     "topic_id": "2",
-                    "topic_slug": "ng-observables-rxjs",
-                    "topic_name": "Observables and RxJS"
-                },
-                {
-                    "topic_id": "3",
                     "topic_slug": "ng-http-rxjs-maps",
                     "topic_name": "HTTP with RxJs swithMap, mergeMap, concatMap"
                 },
                 {
-                    "topic_id": "4",
+                    "topic_id": "3",
                     "topic_slug": "ng-http-interceptors",
                     "topic_name": "HTTP Interceptors"
+                }
+            ]
+        },
+        {
+            "topic_list_id": "8",
+            "topic_title": "Async programming",
+            "topic_list": [
+                {
+                    "topic_id": "1",
+                    "topic_slug": "ng-callbacks-promises",
+                    "topic_name": "Callbacks and Promises"
+                },
+                {
+                    "topic_id": "2",
+                    "topic_slug": "ng-observables-rxjs",
+                    "topic_name": "Observables and RxJS"
                 }
             ]
         },
