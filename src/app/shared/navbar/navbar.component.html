@@ -39,6 +39,11 @@
             [routerLink]="['/academy']"><i class="fa fa-graduation-cap"></i>&nbsp;Academy</a>
         </li>
         <li class="nav-item">
+          <a href="https://stackmi.medium.com" style="color: #5E17EB;" routerLinkActive="active" class="nav-link"
+            target="_blank">
+            <i class="fa fa-blog"></i>&nbsp;Blog </a>
+        </li>
+        <li class="nav-item">
           <a style="color: #5E17EB;" routerLinkActive="active" class="nav-link anchor-hover"
             [routerLink]="['/events']"><i class="fas fa-calendar-check"></i>&nbsp;Events</a>
         </li>
@@ -48,14 +53,16 @@
             mentor</a>
         </li>
         <li class="nav-item">
-          <a [routerLink]="['/events/host-event']" style="color: #5E17EB;" routerLinkActive="active" class="nav-link">
-            <i class="fas fa-user-clock"></i>&nbsp;Host
-            event</a>
-        </li>
-        <li class="nav-item">
           <a style="color: #5E17EB;" routerLinkActive="active" class="nav-link" [routerLink]="['/contact']">
             <i class="fas fa-file-signature"></i>&nbsp;Contact
             us</a>
+        </li>
+        <li class="nav-item">
+          <a style="color: #5E17EB;" routerLinkActive="active" class="nav-link" [routerLink]="['/about']">
+            <span style="border: 2px dotted #5E17EB; padding: 5px;">
+              <i class="fas fa-user-clock"></i>&nbsp;Hire Author
+            </span>
+          </a>
         </li>
       </ul>
       <div class="d-flex">

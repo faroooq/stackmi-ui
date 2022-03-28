@@ -82,11 +82,11 @@ p, h3 {
 /* Testimonials */
 
 .testimonial {
-  padding: 3rem;
+  padding: 2rem;
 }
 
 .testimonial .quote {
-  margin: 2rem;
+  margin: 1rem;
   font-size: 110%;
 }
 

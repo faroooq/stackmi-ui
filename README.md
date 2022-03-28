@@ -7,11 +7,8 @@ Login to server:
 4. npm i if any
 5. Build: npm run build:ssr
 6. sudo killall node
-7. Restart apache: sudo /opt/bitnami/ctlscript.sh restart apache 
+7. Restart apache: sudo /opt/bitnami/ctlscript.sh restart apache
 8. Start server: forever start dist/server/main.js
-
-# Restart appache
-sudo /opt/bitnami/ctlscript.sh restart apache
 
 Note: If deleted the dist folder from server, then need to copy 
 templates (mails) folder to dist/server/ directory.

@@ -9,6 +9,7 @@ import { AboutComponent } from './shared/about/about.component';
 import { MentorComponent } from './mentor/mentor.component';
 import { MentorSignupComponent } from './mentor/mentor-signup/mentor-signup.component';
 import { AppRoutingModule } from './app-routing.module';
+import { SkillBarComponent } from './shared/skill-bar/skill-bar.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { AppRoutingModule } from './app-routing.module';
     ContactComponent,
     AboutComponent,
     MentorComponent,
-    MentorSignupComponent
+    MentorSignupComponent,
+    SkillBarComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'stackmi' }),

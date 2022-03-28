@@ -73,6 +73,11 @@
             </div>
         </nav>
         <div class="content mt-5">
+            <div *ngIf="article?.advertise_image" class="row col-lg-12 image-color">
+                <a routerLink="{{article?.advertise_url}}">
+                    <img data-src="{{ article?.advertise_image }}" alt="Meet Me" />
+                </a>
+            </div>
             <div class="row">
                 <div *ngIf="loading" class="d-flex justify-content-center" style="margin-bottom: 8rem">
                     <div class="spinner-border" style="width: 6rem; height: 6rem" role="status">
