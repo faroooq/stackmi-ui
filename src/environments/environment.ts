@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  midtierurl: "http://localhost:3000",
+  // LOCAL 4000
+  midtierurl: "http://localhost:4000",
   articleurl: "https://www.stackmi.com/academy/article/",
   eventurl: "https://www.stackmi.com/events/event/",
   defaulturl: "https://www.stackmi.com/",

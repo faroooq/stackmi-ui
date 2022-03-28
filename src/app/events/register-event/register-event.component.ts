@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
-import { AuthService, UserDetails } from '../../shared/services/auth-service';
+import { AuthService } from '../../shared/services/auth-service';
 import { HttpService } from '../../shared/services/http.service';
 import { DatePipe, isPlatformBrowser } from '@angular/common';
 import { TimeFormat } from '../../shared/pipe/time.pipe';
@@ -28,7 +28,6 @@ export class RegisterEventComponent implements OnInit {
   event: any;
   onGoingEvent: boolean;
   eventCompleted: boolean;
-  windowRef: Window;
   locationRef: Location;
 
   constructor(
@@ -42,7 +41,6 @@ export class RegisterEventComponent implements OnInit {
     windowRef: WindowService,
     @Inject(PLATFORM_ID) private platformId: object,
   ) {
-    this.windowRef = windowRef.getWindow();
     this.locationRef = windowRef.getLocation();
   }
 
