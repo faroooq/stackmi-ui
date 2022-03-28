@@ -44,8 +44,8 @@ const routes: Routes = [
     component: AboutComponent,
     canActivate: [SeoGuard],
     data: {
-      title: 'StackMi Solutions - Live Online Courses',
-      desc: 'Career Counselling, Skill Development, Trainings and Crash Courses, Live Events, Mock Interviews. Jobs and Placements..',
+      title: 'MD Farooq - Lead Software Analyst',
+      desc: 'I am a passionate and pragmatic software engineer more than 13+ years of professional experience and I have taught over many people how to code or how to become professional software engineers through my YouTube channel and Online courses.',
       keywords:
         'StackMi, Software, Training, Solutions, Web, Courses, Projects, Coding',
     },
