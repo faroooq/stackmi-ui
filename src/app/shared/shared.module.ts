@@ -28,9 +28,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HighlightModule, HighlightOptions, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
 import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
 import { ShareIconsModule } from 'ngx-sharebuttons/icons';
-// import hljs from 'highlight.js';
-// document.defaultView['hljs'] = hljs;
-// import 'highlightjs-line-numbers.js';
+import hljs from 'highlight.js';
+document.defaultView['hljs'] = hljs;
+import 'highlightjs-line-numbers.js';
 import { WindowService } from './services/window-service';
 
 @NgModule({

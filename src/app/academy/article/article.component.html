@@ -112,6 +112,14 @@
                     </div>
                 </div>
             </div>
+            <div class="col-lg-5 p-3 main">
+                <h4 style="margin-left: 0.4rem;">Share Article</h4>
+                <share-buttons [theme]="'circles-dark'"
+                    [include]="['facebook','twitter','linkedin','telegram','whatsapp','copy']" [url]="articleUrl"
+                    [image]="article?.article_seo_image? article?.article_seo_image: articleImage"
+                    [autoSetMeta]="false">
+                </share-buttons>
+            </div>
             <div *ngIf="article?.enroll_available" class="row col-lg-12 mt-3">
                 <h3 class="mt-3">Enroll Live Classes</h3>
                 <app-course-adds [frameAvailable]='true'></app-course-adds>
