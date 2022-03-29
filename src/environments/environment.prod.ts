@@ -7,5 +7,6 @@ export const environment = {
   articleurl: "https://www.stackmi.com/academy/article/",
   eventurl: "https://www.stackmi.com/events/event/",
   defaulturl: "https://www.stackmi.com/",
-  default_imageUrl: "https://www.stackmi.com/assets/images/stackmi_seo.png"
+  default_imageUrl: "https://www.stackmi.com/assets/images/stackmi_seo.png",
+  my_imageUrl: "https://stackmi-storage.s3.ap-south-1.amazonaws.com/add_seo_image.png"
 };
