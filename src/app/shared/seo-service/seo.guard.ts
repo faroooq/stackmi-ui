@@ -413,8 +413,13 @@ export class SeoGuard implements CanActivate {
                 .setMetaData(environment.default_imageUrl, environment.defaulturl + route.parent.url.toString())
                 .setDescription(route.data.desc)
                 .setKeywords(route.data['keywords']);
-        }
-        else {
+        } else if (routeTitle === 'MD Farooq - Lead Software Analyst') {
+            this.seo
+                .setTitle(route.data.title)
+                .setMetaData(environment.my_imageUrl, environment.defaulturl + route.url.toString())
+                .setDescription(route.data.desc)
+                .setKeywords(route.data['keywords']);
+        } else {
             // console.log('Inside else guard ' + route.data.desc)
             this.seo
                 .setTitle(route.data.title)
