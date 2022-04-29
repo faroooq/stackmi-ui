@@ -395,7 +395,126 @@ export class SeoGuard implements CanActivate {
                     "seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Angular/Angular-seo-observables-rxjs.png",
                     "seo_desc": "RxJS (Reactive Extensions for JavaScript) is a library to develop reactive programming using observables that makes it easier to compose asynchronous or callback-based code.",
                     "seo_keywords": "Angular Observables and RxJS, Angular, Learn Angular, Angular Technology, Web Solutions, Full-stack developer, Learn Angular Online"
-                }
+                },
+                {
+                    "seo_slug": "java-intro",
+                    "seo_title": "Introduction to Java",
+                    "seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Java/Java-intro.png",
+                    "seo_desc": "Java is a high level, robust, object-oriented, secure programming language. But it is not a pure object-oriented language because it supports primitive data types like int, char etc.",
+                    "seo_keywords": "Introduction to Java, Java Developer, Learn Java, Java Technology, Web Solutions, Full-stack developer, Learn Java Online"
+                },
+                {
+                    "seo_slug": "java-intro",
+                    "seo_title": "",
+                    "seo_image": "",
+                    "seo_desc": "",
+                    "seo_keywords": ""
+                },
+                {
+                    "seo_slug": "java-intro",
+                    "seo_title": "",
+                    "seo_image": "",
+                    "seo_desc": "",
+                    "seo_keywords": ""
+                },
+                {
+                    "seo_slug": "java-intro",
+                    "seo_title": "",
+                    "seo_image": "",
+                    "seo_desc": "",
+                    "seo_keywords": ""
+                },
+                {
+                    "seo_slug": "java-intro",
+                    "seo_title": "",
+                    "seo_image": "",
+                    "seo_desc": "",
+                    "seo_keywords": ""
+                },
+                {
+                    "seo_slug": "java-intro",
+                    "seo_title": "",
+                    "seo_image": "",
+                    "seo_desc": "",
+                    "seo_keywords": ""
+                },
+                {
+                    "seo_slug": "java-intro",
+                    "seo_title": "",
+                    "seo_image": "",
+                    "seo_desc": "",
+                    "seo_keywords": ""
+                },
+                {
+                    "seo_slug": "java-intro",
+                    "seo_title": "",
+                    "seo_image": "",
+                    "seo_desc": "",
+                    "seo_keywords": ""
+                },
+                {
+                    "seo_slug": "java-intro",
+                    "seo_title": "",
+                    "seo_image": "",
+                    "seo_desc": "",
+                    "seo_keywords": ""
+                },
+                {
+                    "seo_slug": "java-intro",
+                    "seo_title": "",
+                    "seo_image": "",
+                    "seo_desc": "",
+                    "seo_keywords": ""
+                },
+                {
+                    "seo_slug": "java-intro",
+                    "seo_title": "",
+                    "seo_image": "",
+                    "seo_desc": "",
+                    "seo_keywords": ""
+                },
+                {
+                    "seo_slug": "java-intro",
+                    "seo_title": "",
+                    "seo_image": "",
+                    "seo_desc": "",
+                    "seo_keywords": ""
+                },
+                {
+                    "seo_slug": "java-intro",
+                    "seo_title": "",
+                    "seo_image": "",
+                    "seo_desc": "",
+                    "seo_keywords": ""
+                },
+                {
+                    "seo_slug": "java-intro",
+                    "seo_title": "",
+                    "seo_image": "",
+                    "seo_desc": "",
+                    "seo_keywords": ""
+                },
+                {
+                    "seo_slug": "java-intro",
+                    "seo_title": "",
+                    "seo_image": "",
+                    "seo_desc": "",
+                    "seo_keywords": ""
+                },
+                {
+                    "seo_slug": "java-intro",
+                    "seo_title": "",
+                    "seo_image": "",
+                    "seo_desc": "",
+                    "seo_keywords": ""
+                },
+                {
+                    "seo_slug": "java-intro",
+                    "seo_title": "",
+                    "seo_image": "",
+                    "seo_desc": "",
+                    "seo_keywords": ""
+                },
             ]
             for (let i = 0; i < articlMetaSEO.length; i++) {
                 if (route.params.title === articlMetaSEO[i].seo_slug) {
