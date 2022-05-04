@@ -18,16 +18,16 @@ import { MentorComponent } from './mentor/mentor.component';
 import { PaymentsComponent } from './secure/payments/payments.component';
 
 const routes: Routes = [
-  {
-    path: 'home',
-    component: HomeComponent,
-    data: {
-      title: 'StackMi Solutions - Live Online Courses',
-      desc: 'StackMi Academy designed for everyone who wants to revamp their career with Live Sessions, Webinars, Documented Videos..',
-      keywords:
-        'StackMi, Software, Training, Solutions, Web, Courses, Projects, Coding',
-    },
-  },
+  // {
+  //   path: 'home',
+  //   component: HomeComponent,
+  //   data: {
+  //     title: 'StackMi Solutions - Live Online Courses',
+  //     desc: 'StackMi Academy designed for everyone who wants to revamp their career with Live Sessions, Webinars, Documented Videos..',
+  //     keywords:
+  //       'StackMi, Software, Training, Solutions, Web, Courses, Projects, Coding',
+  //   },
+  // },
   {
     path: 'mentor',
     component: MentorComponent,
@@ -56,7 +56,7 @@ const routes: Routes = [
     canActivate: [SeoGuard],
     data: {
       title: 'StackMi Solutions - Live Online Courses',
-      desc: 'Engage with StackMi, Contact - info@stackmi.com, Whatsapp - +91 9030566011(Whatsapp Only)',
+      desc: 'Engage with StackMi, Contact - info@stackmi.com, Whatsapp - +91 8520830460(Whatsapp Only)',
       keywords:
         'StackMi, Software, Training, Solutions, Web, Courses, Projects, Coding',
     },
