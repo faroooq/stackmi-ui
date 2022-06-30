@@ -1,0 +1,45 @@
+{
+    "_id": {
+        "$oid": "62b5e0d385d85a4abc041a42"
+    },
+    "article_id": "1.3",
+    "article_slug": "java-jvm",
+    "article_title": "Java - JVM Overview",
+    "article_image": "",
+    "article_seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Java/java-seo-jvm.png",
+    "advertise_image": "",
+    "advertise_url": "",
+    "enroll_available": true,
+    "article_content": [
+        {
+            "content_title": "",
+            "content_desc": "<p>In this tutorial we will cover what Java Virtual Machine is, and what is JRE and JDK.</p>\n<p>Java virtual Machine(JVM) is a virtual Machine that provides runtime environment to execute the java byte code. The JVM doesn't understand Java code directly, that's why you compile your <code>*.java</code>&nbsp;files to obtain&nbsp;<code>*.class</code>&nbsp;files that contain the bytecodes understandable by the JVM.</p>\n<p>JVM control execution of every Java program. It enables features such as automated exception handling, Garbage-collected heap and soon.</p>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "JVM Architecture",
+            "content_desc": "",
+            "content_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Java/jvm.jpeg",
+            "content_code": ""
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p><strong>Class Loader :</strong> Class loader loads all the class files for execution.</p>\n<p><strong>Method area :</strong> Stores pre-class structure as constant pool.</p>\n<p><strong>Heap :</strong>&nbsp;Heap is a memory area in which objects are allocated.</p>\n<p><strong>Stack :</strong> Local variables and partial results that stores here. Each thread has a private JVM stack created when the thread is created.</p>\n<p><strong>Program register :</strong> Program register holds the address of JVM instructions that are currently being executed.</p>\n<p><strong>Native method stack :</strong> It contains all native code used in the application.</p>\n<p><strong>Executive Engine :</strong>&nbsp;Execution engine controls the execute of instructions contained in the methods of the classes.</p>\n<p><strong>Native Method Interface :</strong>&nbsp;Native method interface gives an interface between java code and native code during execution.</p>\n<p><strong>Native Method Libraries :</strong>&nbsp;Native Libraries consist of files required for the execution of native code.</p>",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Difference between JDK and JRE",
+            "content_desc": "<p><strong>JRE</strong> : The Java Runtime Environment (JRE) provides the libraries (contains in the lib folder), the Java Virtual Machine, and other components to run applets and applications written in the Java programming language. JRE does not contain tools and utilities such as compilers or debuggers for developing applets and applications.</p>",
+            "content_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Java/what-is-jre.webp",
+            "content_code": ""
+        },
+        {
+            "content_title": "",
+            "content_desc": "<p><strong>JDK</strong> : The JDK also called Java Development Kit is a superset of JRE, and contains everything that is in the JRE, plus tools such as compilers and debuggers necessary for developing applets and applications.</p>",
+            "content_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Java/what-is-jdk.webp",
+            "content_code": ""
+        }
+    ]
+}

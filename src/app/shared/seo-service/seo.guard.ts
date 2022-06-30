@@ -404,46 +404,46 @@ export class SeoGuard implements CanActivate {
                     "seo_keywords": "Introduction to Java, Java Developer, Learn Java, Java Technology, Web Solutions, Full-stack developer, Learn Java Online"
                 },
                 {
-                    "seo_slug": "java-intro",
-                    "seo_title": "",
-                    "seo_image": "",
-                    "seo_desc": "",
-                    "seo_keywords": ""
+                    "seo_slug": "java-features",
+                    "seo_title": "Java Features",
+                    "seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Java/Java-seo-features.png",
+                    "seo_desc": "The prime reason to create Java was to bring portability and security. Beside these two major features, there were so many other features that played an important role.",
+                    "seo_keywords": "Introduction to Java, Java Developer, Learn Java, Java Technology, Web Solutions, Full-stack developer, Learn Java Online"
+                },
+                {
+                    "seo_slug": "java-jvm",
+                    "seo_title": "Java JVM Overview",
+                    "seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Java/Java-seo-features.png",
+                    "seo_desc": "Java virtual Machine(JVM) is a virtual Machine that provides runtime environment to execute the java byte code. The JVM doesn't understand Java code directly, that's why you compile your *.java files to obtain *.class files that contain the bytecodes understandable by the JVM.",
+                    "seo_keywords": "Introduction to Java, Java Developer, Learn Java, Java Technology, Web Solutions, Full-stack developer, Learn Java Online"
                 },
                 {
                     "seo_slug": "java-intro",
                     "seo_title": "",
                     "seo_image": "",
                     "seo_desc": "",
-                    "seo_keywords": ""
+                    "seo_keywords": "Introduction to Java, Java Developer, Learn Java, Java Technology, Web Solutions, Full-stack developer, Learn Java Online"
                 },
                 {
                     "seo_slug": "java-intro",
                     "seo_title": "",
                     "seo_image": "",
                     "seo_desc": "",
-                    "seo_keywords": ""
+                    "seo_keywords": "Introduction to Java, Java Developer, Learn Java, Java Technology, Web Solutions, Full-stack developer, Learn Java Online"
                 },
                 {
                     "seo_slug": "java-intro",
                     "seo_title": "",
                     "seo_image": "",
                     "seo_desc": "",
-                    "seo_keywords": ""
+                    "seo_keywords": "Introduction to Java, Java Developer, Learn Java, Java Technology, Web Solutions, Full-stack developer, Learn Java Online"
                 },
                 {
                     "seo_slug": "java-intro",
                     "seo_title": "",
                     "seo_image": "",
                     "seo_desc": "",
-                    "seo_keywords": ""
-                },
-                {
-                    "seo_slug": "java-intro",
-                    "seo_title": "",
-                    "seo_image": "",
-                    "seo_desc": "",
-                    "seo_keywords": ""
+                    "seo_keywords": "Introduction to Java, Java Developer, Learn Java, Java Technology, Web Solutions, Full-stack developer, Learn Java Online"
                 },
                 {
                     "seo_slug": "java-intro",

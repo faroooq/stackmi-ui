@@ -14,264 +14,82 @@
                 {
                     "topic_id": "2",
                     "topic_slug": "java-features",
-                    "topic_name": "Java Overview"
+                    "topic_name": "Java Features"
                 },
                 {
                     "topic_id": "3",
-                    "topic_slug": "java-environment-setup",
-                    "topic_name": "Java Environment Setup"
-                },
-                {
-                    "topic_id": "4",
                     "topic_slug": "java-jvm",
                     "topic_name": "JVM Introduction"
                 },
                 {
-                    "topic_id": "5",
+                    "topic_id": "4",
                     "topic_slug": "java-string-interpolation",
                     "topic_name": "String Interpolation"
                 },
                 {
-                    "topic_id": "6",
+                    "topic_id": "5",
                     "topic_slug": "java-first-program",
                     "topic_name": "Java First Program"
                 },
                 {
-                    "topic_id": "7",
+                    "topic_id": "6",
                     "topic_slug": "java-variables",
                     "topic_name": "Java Variables"
                 },
                 {
-                    "topic_id": "8",
+                    "topic_id": "7",
                     "topic_slug": "java-datatype-identifier",
                     "topic_name": "Java Data types and Identifiers"
                 },
                 {
-                    "topic_id": "9",
+                    "topic_id": "8",
                     "topic_slug": "java-static-initializer-block",
                     "topic_name": "Java Static and Initializer Block"
                 },
                 {
-                    "topic_id": "10",
+                    "topic_id": "9",
                     "topic_slug": "java-type-casting",
                     "topic_name": "Java Type Casting"
                 },
                 {
-                    "topic_id": "11",
+                    "topic_id": "10",
                     "topic_slug": "java-conditional-statement",
                     "topic_name": "Java Coditional Statement"
                 },
                 {
-                    "topic_id": "12",
+                    "topic_id": "11",
                     "topic_slug": "java-switch-statement",
                     "topic_name": "Java Switch Statement"
                 },
                 {
-                    "topic_id": "13",
+                    "topic_id": "12",
                     "topic_slug": "java-loops",
                     "topic_name": "Java Loops"
                 },
                 {
-                    "topic_id": "14",
+                    "topic_id": "13",
                     "topic_slug": "java-break-statement",
                     "topic_name": "Java Break, Continue Statement"
                 },
                 {
-                    "topic_id": "15",
+                    "topic_id": "14",
                     "topic_slug": "java-operators",
                     "topic_name": "Java Operators"
                 },
                 {
-                    "topic_id": "16",
+                    "topic_id": "15",
                     "topic_slug": "java-array",
                     "topic_name": "Java Array"
                 },
                 {
-                    "topic_id": "17",
+                    "topic_id": "16",
                     "topic_slug": "java-objects",
                     "topic_name": "Java Objects"
                 },
                 {
-                    "topic_id": "18",
+                    "topic_id": "17",
                     "topic_slug": "java-command-args",
                     "topic_name": "Java Command Line Arguments"
-                }
-            ]
-        },
-        {
-            "topic_list_id": "2",
-            "topic_title": "Java Components",
-            "topic_list": [
-                {
-                    "topic_id": "1",
-                    "topic_slug": "java-styles-encapsulation",
-                    "topic_name": "View Encapsulation"
-                },
-                {
-                    "topic_id": "2",
-                    "topic_slug": "java-lifecycle-hooks",
-                    "topic_name": "Lifecycle Hooks"
-                },
-                {
-                    "topic_id": "3",
-                    "topic_slug": "java-view-child-children",
-                    "topic_name": "ViewChild and ViewChildren"
-                },
-                {
-                    "topic_id": "4",
-                    "topic_slug": "java-content-projection",
-                    "topic_name": "Content Projection"
-                },
-                {
-                    "topic_id": "5",
-                    "topic_slug": "java-content-child-children",
-                    "topic_name": "ContentChild and ContentChildren"
-                }
-            ]
-        },
-        {
-            "topic_list_id": "3",
-            "topic_title": "Java Routing",
-            "topic_list": [
-                {
-                    "topic_id": "1",
-                    "topic_slug": "java-route-configuration",
-                    "topic_name": "Route Configuration"
-                },
-                {
-                    "topic_id": "2",
-                    "topic_slug": "java-route-navigation",
-                    "topic_name": "Route Navigation"
-                },
-                {
-                    "topic_id": "3",
-                    "topic_slug": "java-parameterised-routes",
-                    "topic_name": "Parameterised and Activated Routes"
-                },
-                {
-                    "topic_id": "4",
-                    "topic_slug": "java-nested-routes",
-                    "topic_name": "Nested Routes"
-                },
-                {
-                    "topic_id": "5",
-                    "topic_slug": "java-router-guards",
-                    "topic_name": "Router Guards"
-                },
-                {
-                    "topic_id": "6",
-                    "topic_slug": "java-routing-strategies",
-                    "topic_name": "Routing Strategies"
-                }
-            ]
-        },
-        {
-            "topic_list_id": "4",
-            "topic_title": "Java Directives",
-            "topic_list": [
-                {
-                    "topic_id": "1",
-                    "topic_slug": "java-for-if-switch",
-                    "topic_name": "NgFor, NgIf and NgSwitch"
-                },
-                {
-                    "topic_id": "2",
-                    "topic_slug": "java-ngstyle-ngclass",
-                    "topic_name": "NgStyle and NgClass"
-                },
-                {
-                    "topic_id": "3",
-                    "topic_slug": "java-custom-directive",
-                    "topic_name": "Creating a Custom Directive"
-                },
-                {
-                    "topic_id": "4",
-                    "topic_slug": "java-hostlistener-hostbinding",
-                    "topic_name": "HostListener and HostBinding"
-                }
-            ]
-        },
-        {
-            "topic_list_id": "5",
-            "topic_title": "Java Pipes",
-            "topic_list": [
-                {
-                    "topic_id": "1",
-                    "topic_slug": "java-built-in-pipes",
-                    "topic_name": "Built-In Pipes"
-                },
-                {
-                    "topic_id": "2",
-                    "topic_slug": "java-async-pipes",
-                    "topic_name": "Async Pipe"
-                },
-                {
-                    "topic_id": "3",
-                    "topic_slug": "java-custom-pipes",
-                    "topic_name": "Custom Pipes"
-                }
-            ]
-        },
-        {
-            "topic_list_id": "6",
-            "topic_title": "Java Forms",
-            "topic_list": [
-                {
-                    "topic_id": "1",
-                    "topic_slug": "java-model-driven-forms",
-                    "topic_name": "Model-Driven Forms"
-                },
-                {
-                    "topic_id": "2",
-                    "topic_slug": "java-model-driven-form-validation",
-                    "topic_name": "Model-Driven Form Validation"
-                },
-                {
-                    "topic_id": "3",
-                    "topic_slug": "java-reactive-model-form",
-                    "topic_name": "Reactive Model Form"
-                },
-                {
-                    "topic_id": "4",
-                    "topic_slug": "java-template-driven-form",
-                    "topic_name": "Template-Driven Form"
-                }
-            ]
-        },
-        {
-            "topic_list_id": "7",
-            "topic_title": "Java HTTP",
-            "topic_list": [
-                {
-                    "topic_id": "1",
-                    "topic_slug": "java-core-http-api",
-                    "topic_name": "Core HTTP API"
-                },
-                {
-                    "topic_id": "2",
-                    "topic_slug": "java-http-rxjs-maps",
-                    "topic_name": "HTTP with RxJs swithMap, mergeMap, concatMap"
-                },
-                {
-                    "topic_id": "3",
-                    "topic_slug": "java-http-interceptors",
-                    "topic_name": "HTTP Interceptors"
-                }
-            ]
-        },
-        {
-            "topic_list_id": "8",
-            "topic_title": "Async programming",
-            "topic_list": [
-                {
-                    "topic_id": "1",
-                    "topic_slug": "java-callbacks-promises",
-                    "topic_name": "Callbacks and Promises"
-                },
-                {
-                    "topic_id": "2",
-                    "topic_slug": "java-observables-rxjs",
-                    "topic_name": "Observables and RxJS"
                 }
             ]
         },
