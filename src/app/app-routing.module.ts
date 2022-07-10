@@ -56,7 +56,7 @@ const routes: Routes = [
     canActivate: [SeoGuard],
     data: {
       title: 'StackMi Solutions - Live Online Courses',
-      desc: 'Engage with StackMi, Contact - info@stackmi.com, Whatsapp - +91 8520830460(Whatsapp Only)',
+      desc: 'Engage with StackMi, Contact - contact@stackmi.com, Whatsapp - +91 8520830460(Whatsapp Only)',
       keywords:
         'StackMi, Software, Training, Solutions, Web, Courses, Projects, Coding',
     },
